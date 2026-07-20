@@ -32,54 +32,121 @@
 			"sid": 323759883039289
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-mouse-wheel",
-					"objectClass": "Mouse",
-					"sid": 230710665032312,
-					"parameters": {
-						"direction": "up"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "add-to-instvar",
-					"objectClass": "CharacterCollision",
-					"sid": 833134092637625,
-					"parameters": {
-						"instance-variable": "velocity",
-						"value": "Character_Acceleration * dt"
-					}
-				}
-			],
-			"sid": 866454159454389
+			"eventType": "variable",
+			"name": "Character_Rotation",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 601379011704737
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-mouse-wheel",
-					"objectClass": "Mouse",
-					"sid": 380361221171458,
-					"parameters": {
-						"direction": "down"
-					}
+					"id": "on-created",
+					"objectClass": "CharacterCollision",
+					"sid": 161256394858510
 				}
 			],
 			"actions": [
 				{
-					"id": "subtract-from-instvar",
+					"id": "add-child",
 					"objectClass": "CharacterCollision",
-					"sid": 130637626753270,
+					"sid": 356828189503524,
 					"parameters": {
-						"instance-variable": "velocity",
-						"value": "Character_Brake * dt"
+						"child": "CharacterSprite",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-z-elevation": true,
+						"transform-w": false,
+						"transform-h": false,
+						"transform-a": false,
+						"transform-o": false,
+						"transform-visibility": false,
+						"destroy-with-parent": true
 					}
 				}
 			],
-			"sid": 324842980645770
+			"sid": 995213517283554
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 672253539530973,
+					"parameters": {
+						"mouse-button": "right"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 522358168906762,
+					"parameters": {
+						"mouse-button": "left"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 866454159454389,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 288279488853308,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterCollision",
+							"sid": 254107022119507,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "Character_Acceleration * dt"
+							}
+						}
+					],
+					"sid": 394455456013409
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 494007377381081,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "CharacterCollision",
+							"sid": 724828485932568,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "Character_Brake * dt"
+							}
+						}
+					],
+					"sid": 123370235620347
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -99,6 +166,14 @@
 					"parameters": {
 						"which": "overall",
 						"speed": "CharacterCollision.velocity"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "CharacterSprite",
+					"sid": 801712270963205,
+					"parameters": {
+						"angle": "CharacterCollision.direction"
 					}
 				}
 			],
@@ -175,6 +250,73 @@
 				}
 			],
 			"sid": 453800768046015
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 642064478369126,
+					"parameters": {
+						"mouse-button": "right"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 450081254348162,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 932655367646896,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterCollision",
+							"sid": 441905372219847,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "Character_Rotation * dt"
+							}
+						}
+					],
+					"sid": 737610009539106
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 859903785583892,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterCollision",
+							"sid": 805412571249870,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "-Character_Rotation * dt"
+							}
+						}
+					],
+					"sid": 240696886710781
+				}
+			]
 		}
 	],
 	"sid": 595366528436603
