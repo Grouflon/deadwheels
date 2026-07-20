@@ -35,7 +35,7 @@
 			"eventType": "variable",
 			"name": "Character_Rotation",
 			"type": "number",
-			"initialValue": "50",
+			"initialValue": "500",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -315,6 +315,73 @@
 						}
 					],
 					"sid": 240696886710781
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 634705973859153,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 624206815007977,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 714442847873047,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterCollision",
+							"sid": 425935396737697,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "-Character_Rotation * dt"
+							}
+						}
+					],
+					"sid": 484601260423877
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 528214356553709,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterCollision",
+							"sid": 663290397575108,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "Character_Rotation * dt"
+							}
+						}
+					],
+					"sid": 556930963777440
 				}
 			]
 		}
