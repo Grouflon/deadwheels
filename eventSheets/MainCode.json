@@ -2,6 +2,14 @@
 	"name": "MainCode",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "ThomasSheet"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "RemiSheet"
+		},
+		{
 			"eventType": "comment",
 			"text": "Made by Viridino Studios (@ViridinoStudios)\n\nMateus Ferreira - Programmer\nTwitter: @BonzerKitten\nE-mail: ferreiramoreiramateus@gmail.com\n\nWesley Andrade - Artist\nTwitter: @andrart7\nE-mail: wesleymatos1989@gmail.com\n\nMade with the support of patrons on https://www.patreon.com/viridinostudios"
 		},
@@ -1580,32 +1588,6 @@
 				}
 			],
 			"sid": 345752545051477
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 438004289656153
-				}
-			],
-			"actions": [
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 968486540312903,
-					"parameters": {
-						"object-to-create": "Car",
-						"layer": "\"World\"",
-						"x": "320",
-						"y": "400",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				}
-			],
-			"sid": 860833982291369
 		}
 	],
 	"sid": 588364676991445
