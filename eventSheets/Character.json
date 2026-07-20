@@ -3,98 +3,110 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "Character_Acceleration",
+			"name": "character_acceleration",
 			"type": "number",
 			"initialValue": "1000",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
+			"isConstant": true,
 			"sid": 130873459884267
 		},
 		{
 			"eventType": "variable",
-			"name": "Character_Brake",
+			"name": "character_brake",
 			"type": "number",
 			"initialValue": "800",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
+			"isConstant": true,
 			"sid": 416718722247018
 		},
 		{
 			"eventType": "variable",
-			"name": "Character_Deceleration",
+			"name": "character_deceleration",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "30",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
+			"isConstant": true,
 			"sid": 323759883039289
 		},
 		{
 			"eventType": "variable",
-			"name": "Character_Rotation",
+			"name": "character_rotation",
 			"type": "number",
-			"initialValue": "500",
+			"initialValue": "100",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
+			"isConstant": true,
 			"sid": 601379011704737
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "CharacterCollision",
-					"sid": 161256394858510
-				}
-			],
-			"actions": [
-				{
-					"id": "add-child",
-					"objectClass": "CharacterCollision",
-					"sid": 356828189503524,
-					"parameters": {
-						"child": "CharacterSprite",
-						"transform-x": true,
-						"transform-y": true,
-						"transform-z-elevation": true,
-						"transform-w": false,
-						"transform-h": false,
-						"transform-a": false,
-						"transform-o": false,
-						"transform-visibility": false,
-						"destroy-with-parent": true
-					}
-				}
-			],
-			"sid": 995213517283554
+			"eventType": "variable",
+			"name": "character_max_velocity",
+			"type": "number",
+			"initialValue": "300",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 947531606175621
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "variable",
+			"name": "time_colliding_solid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 846304868684380
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "INIT",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "mouse-button-is-down",
-					"objectClass": "Mouse",
-					"sid": 672253539530973,
-					"parameters": {
-						"mouse-button": "right"
-					},
-					"isInverted": true
-				},
-				{
-					"id": "mouse-button-is-down",
-					"objectClass": "Mouse",
-					"sid": 522358168906762,
-					"parameters": {
-						"mouse-button": "left"
-					},
-					"isInverted": true
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CharacterController",
+							"sid": 875463395832663
+						}
+					],
+					"actions": [
+						{
+							"id": "add-child",
+							"objectClass": "CharacterController",
+							"sid": 158747063912577,
+							"parameters": {
+								"child": "CharacterSprite",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": true
+							}
+						}
+					],
+					"sid": 225655601611057
 				}
 			],
-			"actions": [],
-			"sid": 866454159454389,
+			"sid": 946525652850119
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MOVEMENT",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -102,7 +114,7 @@
 						{
 							"id": "on-mouse-wheel",
 							"objectClass": "Mouse",
-							"sid": 288279488853308,
+							"sid": 195105460279649,
 							"parameters": {
 								"direction": "up"
 							}
@@ -111,15 +123,15 @@
 					"actions": [
 						{
 							"id": "add-to-instvar",
-							"objectClass": "CharacterCollision",
-							"sid": 254107022119507,
+							"objectClass": "CharacterController",
+							"sid": 434943766856977,
 							"parameters": {
-								"instance-variable": "velocity",
-								"value": "Character_Acceleration * dt"
+								"instance-variable": "stored_wheel_ticks",
+								"value": "1"
 							}
 						}
 					],
-					"sid": 394455456013409
+					"sid": 527024599358437
 				},
 				{
 					"eventType": "block",
@@ -127,7 +139,7 @@
 						{
 							"id": "on-mouse-wheel",
 							"objectClass": "Mouse",
-							"sid": 494007377381081,
+							"sid": 267481322215578,
 							"parameters": {
 								"direction": "down"
 							}
@@ -135,18 +147,428 @@
 					],
 					"actions": [
 						{
-							"id": "subtract-from-instvar",
-							"objectClass": "CharacterCollision",
-							"sid": 724828485932568,
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 738806401370397,
 							"parameters": {
-								"instance-variable": "velocity",
-								"value": "Character_Brake * dt"
+								"instance-variable": "stored_wheel_ticks",
+								"value": "-1"
 							}
 						}
 					],
-					"sid": 123370235620347
+					"sid": 645802747674789
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 266387808480658,
+							"parameters": {
+								"instance-variable": "stored_wheel_ticks",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 861805979548430,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "CharacterController.stored_wheel_ticks * Character_Acceleration * dt"
+							}
+						}
+					],
+					"sid": 396622827290470
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 634565222715215,
+							"parameters": {
+								"instance-variable": "stored_wheel_ticks",
+								"comparison": 2,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 970517621062432,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "CharacterController.stored_wheel_ticks"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 855915747949367,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "CharacterController.stored_wheel_ticks * Character_Brake * dt"
+							}
+						}
+					],
+					"sid": 417496681832331
+				},
+				{
+					"eventType": "comment",
+					"text": "This will invert angle of motion if negative"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 160115507988728
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "CharacterController",
+							"sid": 702430650109083,
+							"behaviorType": "Custom",
+							"parameters": {
+								"which": "overall",
+								"speed": "CharacterController.velocity"
+							}
+						}
+					],
+					"sid": 157308623137825
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 597755743289225,
+							"parameters": {
+								"instance-variable": "velocity",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "CharacterController",
+							"sid": 380054317659325,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "Character_Deceleration * dt"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "CharacterController",
+							"sid": 994213747105131,
+							"behaviorType": "Custom",
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						}
+					],
+					"sid": 230446557103324
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 187134192721330,
+							"parameters": {
+								"instance-variable": "velocity",
+								"comparison": 2,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "CharacterController",
+							"sid": 311850958197822,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "-Character_Deceleration * dt"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "CharacterController",
+							"sid": 810020818290288,
+							"behaviorType": "Custom",
+							"parameters": {
+								"angle": "CharacterController.direction+180"
+							}
+						}
+					],
+					"sid": 152358687884258
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 163160892380042,
+							"parameters": {
+								"first-value": "abs(CharacterController.velocity)",
+								"comparison": 3,
+								"second-value": "0.6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 808835696291181,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 132231773517051
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 403700019450673,
+							"parameters": {
+								"first-value": "abs(CharacterController.velocity)",
+								"comparison": 4,
+								"second-value": "character_max_velocity"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 978911328017139,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "sign(CharacterController.velocity) * character_max_velocity"
+							}
+						}
+					],
+					"sid": 262678815578571
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 713552659095064,
+							"parameters": {
+								"mouse-button": "right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 902259061547330,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "Character_Rotation * dt"
+							}
+						}
+					],
+					"sid": 283298727648724
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 936200428170371,
+							"parameters": {
+								"mouse-button": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 546243924849148,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "-Character_Rotation * dt"
+							}
+						}
+					],
+					"sid": 350424891867263
 				}
-			]
+			],
+			"sid": 289162197964312
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "VISUALS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 384341814185990
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "CharacterSprite",
+							"sid": 386887664456751,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						}
+					],
+					"sid": 544765897040958
+				}
+			],
+			"sid": 317356069359152
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "COLLISIONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "CharacterController",
+							"sid": 873931980570556,
+							"parameters": {
+								"object": "Buildings"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 234607944421575,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "CharacterController.velocity * -0.4"
+							}
+						}
+					],
+					"sid": 920955215864306
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 110246458963913,
+							"parameters": {
+								"object": "Buildings"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 408097823422361,
+							"parameters": {
+								"variable": "time_colliding_solid",
+								"value": "time_colliding_solid + dt"
+							}
+						}
+					],
+					"sid": 828949413174693,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 145650812286663,
+									"parameters": {
+										"variable": "time_colliding_solid",
+										"comparison": 4,
+										"value": "0.1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "push-out-solid",
+									"objectClass": "CharacterController",
+									"sid": 164978987994577,
+									"behaviorType": "Custom",
+									"parameters": {
+										"direction": "nearest"
+									}
+								}
+							],
+							"sid": 681007171666462
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 179650118459044
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 337658295754305,
+							"parameters": {
+								"variable": "time_colliding_solid",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 702880232925912
+				}
+			],
+			"sid": 838937511526081
 		},
 		{
 			"eventType": "block",
@@ -154,236 +576,21 @@
 				{
 					"id": "every-tick",
 					"objectClass": "System",
-					"sid": 511604924337681
+					"sid": 875971578469596
 				}
 			],
 			"actions": [
 				{
-					"id": "set-speed",
-					"objectClass": "CharacterCollision",
-					"sid": 222688950104446,
-					"behaviorType": "Custom",
+					"id": "set-instvar-value",
+					"objectClass": "CharacterController",
+					"sid": 469351670395526,
 					"parameters": {
-						"which": "overall",
-						"speed": "CharacterCollision.velocity"
-					}
-				},
-				{
-					"id": "set-angle",
-					"objectClass": "CharacterSprite",
-					"sid": 801712270963205,
-					"parameters": {
-						"angle": "CharacterCollision.direction"
-					}
-				}
-			],
-			"sid": 476080083253797
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "CharacterCollision",
-					"sid": 781151847505054,
-					"parameters": {
-						"instance-variable": "velocity",
-						"comparison": 4,
+						"instance-variable": "stored_wheel_ticks",
 						"value": "0"
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "set-angle-of-motion",
-					"objectClass": "CharacterCollision",
-					"sid": 336441375269875,
-					"behaviorType": "Custom",
-					"parameters": {
-						"angle": "CharacterCollision.direction"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "CharacterCollision",
-					"sid": 285378423618868,
-					"parameters": {
-						"instance-variable": "velocity",
-						"value": "Character_Deceleration * dt"
-					}
-				}
-			],
-			"sid": 617386944719048
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "CharacterCollision",
-					"sid": 711066302454437,
-					"parameters": {
-						"instance-variable": "velocity",
-						"comparison": 2,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-angle-of-motion",
-					"objectClass": "CharacterCollision",
-					"sid": 256931788769467,
-					"behaviorType": "Custom",
-					"parameters": {
-						"angle": "CharacterCollision.direction+180"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "CharacterCollision",
-					"sid": 554792317430165,
-					"parameters": {
-						"instance-variable": "velocity",
-						"value": "-Character_Deceleration * dt"
-					}
-				}
-			],
-			"sid": 453800768046015
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "mouse-button-is-down",
-					"objectClass": "Mouse",
-					"sid": 642064478369126,
-					"parameters": {
-						"mouse-button": "right"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 450081254348162,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 932655367646896,
-							"parameters": {
-								"direction": "up"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "CharacterCollision",
-							"sid": 441905372219847,
-							"parameters": {
-								"instance-variable": "direction",
-								"value": "Character_Rotation * dt"
-							}
-						}
-					],
-					"sid": 737610009539106
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 859903785583892,
-							"parameters": {
-								"direction": "down"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "CharacterCollision",
-							"sid": 805412571249870,
-							"parameters": {
-								"instance-variable": "direction",
-								"value": "-Character_Rotation * dt"
-							}
-						}
-					],
-					"sid": 240696886710781
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "mouse-button-is-down",
-					"objectClass": "Mouse",
-					"sid": 634705973859153,
-					"parameters": {
-						"mouse-button": "left"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 624206815007977,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 714442847873047,
-							"parameters": {
-								"direction": "up"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "CharacterCollision",
-							"sid": 425935396737697,
-							"parameters": {
-								"instance-variable": "direction",
-								"value": "-Character_Rotation * dt"
-							}
-						}
-					],
-					"sid": 484601260423877
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 528214356553709,
-							"parameters": {
-								"direction": "down"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "CharacterCollision",
-							"sid": 663290397575108,
-							"parameters": {
-								"instance-variable": "direction",
-								"value": "Character_Rotation * dt"
-							}
-						}
-					],
-					"sid": 556930963777440
-				}
-			]
+			"sid": 763617513192722
 		}
 	],
 	"sid": 595366528436603
