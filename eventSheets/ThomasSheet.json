@@ -97,7 +97,29 @@
 				{
 					"id": "set-angle-toward-position",
 					"objectClass": "Bullet",
-					"sid": 664461220002597,
+					"sid": 302076193723078,
+					"parameters": {
+						"x": "Mouse.X",
+						"y": "Mouse.Y"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 819922485463982,
+					"parameters": {
+						"object-to-create": "FireGFX",
+						"layer": "\"World\"",
+						"x": "PlayerCollision.X",
+						"y": "PlayerCollision.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "FireGFX",
+					"sid": 160666325645452,
 					"parameters": {
 						"x": "Mouse.X",
 						"y": "Mouse.Y"
@@ -250,6 +272,24 @@
 				}
 			],
 			"sid": 877420926454378
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-animation-finished",
+					"objectClass": "FireGFX",
+					"sid": 207649766962333
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "FireGFX",
+					"sid": 550209818333343
+				}
+			],
+			"sid": 609349153978831
 		}
 	],
 	"sid": 810694807837553
