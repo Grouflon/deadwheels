@@ -32,11 +32,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 958276042872438,
+					"id": "on-click",
+					"objectClass": "Mouse",
+					"sid": 722239400579279,
 					"parameters": {
-						"key": 88
+						"mouse-button": "left",
+						"click-type": "clicked"
 					}
 				}
 			],
@@ -170,6 +171,15 @@
 					"parameters": {
 						"animation": "Zombies.ObjectTypeName",
 						"from": "beginning"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Corpse",
+					"sid": 124371984350259,
+					"parameters": {
+						"where": "behind",
+						"object": "PlayerGraphics"
 					}
 				}
 			],
