@@ -1,5 +1,180 @@
 {
 	"name": "ThomasSheet",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 883054564483415,
+					"parameters": {
+						"instance-variable": "spottedPlayer"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-object",
+					"objectClass": "Zombies",
+					"sid": 358640350852337,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"object": "PlayerCollision",
+						"image-point": "0",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 188676734282288
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 958276042872438,
+					"parameters": {
+						"key": 88
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 120608209406687,
+					"parameters": {
+						"object-to-create": "Bullet",
+						"layer": "\"World\"",
+						"x": "PlayerCollision.X",
+						"y": "PlayerCollision.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "Bullet",
+					"sid": 664461220002597,
+					"parameters": {
+						"x": "Mouse.X",
+						"y": "Mouse.Y"
+					}
+				}
+			],
+			"sid": 708872464337730
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 813369206766384,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 445816782056918
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Zombies",
+					"sid": 188821951466930,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Brightness\""
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Zombies",
+					"sid": 814427199765775,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "-50"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 482434265002652,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Zombies",
+					"sid": 296019876268440,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Brightness\""
+					}
+				}
+			],
+			"sid": 723891073103514
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Zombies",
+					"sid": 175398554659245,
+					"parameters": {
+						"instance-variable": "health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Zombies",
+					"sid": 960139779731936
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Zombies",
+					"sid": 745212177075582,
+					"parameters": {
+						"object": "Corpse",
+						"layer": "Self.LayerName",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Corpse",
+					"sid": 822861865056938,
+					"parameters": {
+						"angle": "Zombies.Angle"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Corpse",
+					"sid": 641875349046434,
+					"parameters": {
+						"animation": "Zombies.ObjectTypeName",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 760396474710562
+		}
+	],
 	"sid": 810694807837553
 }

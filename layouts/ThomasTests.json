@@ -6996,6 +6996,196 @@
 						"z": 0,
 						"angle": 0
 					}
+				},
+				{
+					"type": "Mike",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 825235,
+					"sid": 893358753889374,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": true,
+						"health": 100
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 15,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 80,
+								"set-angle": true,
+								"stop-on-solids": true,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 362.0579071044922,
+						"y": 569.2466735839844,
+						"width": 24,
+						"height": 24,
+						"originX": 0.4166666666666667,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 4.8169739702266
+					}
+				},
+				{
+					"type": "Sofia",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 434246,
+					"sid": 734070861585183,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": true,
+						"health": 100
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 15,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 80,
+								"set-angle": true,
+								"stop-on-solids": true,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.7
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 319.78399658203125,
+						"y": 559.4017333984375,
+						"width": 24,
+						"height": 24,
+						"originX": 0.4166666666666667,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 4.8169739702266
+					}
+				},
+				{
+					"type": "Bullet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 651146,
+					"sid": 736935495021737,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 400,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 346.15765380859375,
+						"y": 541.9906005859375,
+						"width": 4,
+						"height": 3,
+						"originX": 0.5,
+						"originY": 0.6666666666666666,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Corpse",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Mike",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 501256,
+					"sid": 997787419092964,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 178.09033203125,
+						"y": 574.5419311523438,
+						"width": 27,
+						"height": 21,
+						"originX": 0.7407407407407407,
+						"originY": 0.47619047619047616,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
 				}
 			],
 			"sid": 204313632755494,
@@ -7199,39 +7389,6 @@
 						"z": 0,
 						"angle": 0
 					}
-				},
-				{
-					"type": "Zombie",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 825235,
-					"sid": 893358753889374,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 285.34423828125,
-						"y": 555.3812561035156,
-						"width": 24,
-						"height": 24,
-						"originX": 0.4166666666666667,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
 				}
 			],
 			"sid": 535302913754753,
@@ -7272,7 +7429,7 @@
 			"effectId": "hsladjust",
 			"name": "AdjustHSL",
 			"instance": {
-				"isEnabled": true,
+				"isEnabled": false,
 				"parameters": {
 					"hue": 0,
 					"saturation": 0,
