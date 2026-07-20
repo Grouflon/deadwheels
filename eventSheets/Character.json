@@ -1,0 +1,181 @@
+{
+	"name": "Character",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Character_Acceleration",
+			"type": "number",
+			"initialValue": "1000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 130873459884267
+		},
+		{
+			"eventType": "variable",
+			"name": "Character_Brake",
+			"type": "number",
+			"initialValue": "800",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416718722247018
+		},
+		{
+			"eventType": "variable",
+			"name": "Character_Deceleration",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 323759883039289
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 230710665032312,
+					"parameters": {
+						"direction": "up"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "CharacterCollision",
+					"sid": 833134092637625,
+					"parameters": {
+						"instance-variable": "velocity",
+						"value": "Character_Acceleration * dt"
+					}
+				}
+			],
+			"sid": 866454159454389
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 380361221171458,
+					"parameters": {
+						"direction": "down"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "CharacterCollision",
+					"sid": 130637626753270,
+					"parameters": {
+						"instance-variable": "velocity",
+						"value": "Character_Brake * dt"
+					}
+				}
+			],
+			"sid": 324842980645770
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 511604924337681
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "CharacterCollision",
+					"sid": 222688950104446,
+					"behaviorType": "Custom",
+					"parameters": {
+						"which": "overall",
+						"speed": "CharacterCollision.velocity"
+					}
+				}
+			],
+			"sid": 476080083253797
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollision",
+					"sid": 781151847505054,
+					"parameters": {
+						"instance-variable": "velocity",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "CharacterCollision",
+					"sid": 336441375269875,
+					"behaviorType": "Custom",
+					"parameters": {
+						"angle": "CharacterCollision.direction"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "CharacterCollision",
+					"sid": 285378423618868,
+					"parameters": {
+						"instance-variable": "velocity",
+						"value": "Character_Deceleration * dt"
+					}
+				}
+			],
+			"sid": 617386944719048
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollision",
+					"sid": 711066302454437,
+					"parameters": {
+						"instance-variable": "velocity",
+						"comparison": 2,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "CharacterCollision",
+					"sid": 256931788769467,
+					"behaviorType": "Custom",
+					"parameters": {
+						"angle": "CharacterCollision.direction+180"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "CharacterCollision",
+					"sid": 554792317430165,
+					"parameters": {
+						"instance-variable": "velocity",
+						"value": "-Character_Deceleration * dt"
+					}
+				}
+			],
+			"sid": 453800768046015
+		}
+	],
+	"sid": 595366528436603
+}
