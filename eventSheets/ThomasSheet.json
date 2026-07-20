@@ -13,20 +13,59 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 188676734282288,
+			"children": [
 				{
-					"id": "move-to-object",
-					"objectClass": "Zombies",
-					"sid": 358640350852337,
-					"behaviorType": "MoveTo",
-					"parameters": {
-						"object": "PlayerCollision",
-						"image-point": "0",
-						"mode": "direct"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 408475461800381,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "find-path",
+							"objectClass": "Zombies",
+							"sid": 368329092839629,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "PlayerCollision.X",
+								"y": "PlayerCollision.Y"
+							}
+						}
+					],
+					"sid": 390766477769643
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "Zombies",
+							"sid": 524203165070658,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "move-along-pathfinding-path",
+							"objectClass": "Zombies",
+							"sid": 499398134411474,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 273244924955605
 				}
-			],
-			"sid": 188676734282288
+			]
 		},
 		{
 			"eventType": "block",
@@ -176,14 +215,41 @@
 				{
 					"id": "move-to-object",
 					"objectClass": "Corpse",
-					"sid": 124371984350259,
+					"sid": 906986867271399,
 					"parameters": {
 						"where": "behind",
-						"object": "PlayerGraphics"
+						"object": "Buildings"
 					}
 				}
 			],
 			"sid": 760396474710562
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "Zombies",
+					"sid": 103158966652726,
+					"behaviorType": "LineOfSight",
+					"parameters": {
+						"object": "PlayerCollision",
+						"image-point": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Zombies",
+					"sid": 665756234137290,
+					"parameters": {
+						"instance-variable": "spottedPlayer",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 877420926454378
 		}
 	],
 	"sid": 810694807837553

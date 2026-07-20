@@ -7010,18 +7010,41 @@
 					"sid": 893358753889374,
 					"tags": "",
 					"instanceVariables": {
-						"spottedPlayer": true,
+						"spottedPlayer": false,
 						"health": 100
 					},
 					"behaviors": {
 						"MoveTo": {
 							"properties": {
-								"max-speed": 15,
+								"max-speed": 150,
 								"acceleration": 20,
 								"deceleration": 600,
 								"rotate-speed": 80,
 								"set-angle": true,
 								"stop-on-solids": true,
+								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 60,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 5,
+								"cell-border": -1,
+								"obstacles": "solids",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
 								"enabled": true
 							}
 						}
@@ -7066,18 +7089,41 @@
 					"sid": 734070861585183,
 					"tags": "",
 					"instanceVariables": {
-						"spottedPlayer": true,
+						"spottedPlayer": false,
 						"health": 100
 					},
 					"behaviors": {
 						"MoveTo": {
 							"properties": {
-								"max-speed": 15,
+								"max-speed": 150,
 								"acceleration": 20,
 								"deceleration": 600,
 								"rotate-speed": 80,
 								"set-angle": true,
 								"stop-on-solids": true,
+								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 60,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 5,
+								"cell-border": -1,
+								"obstacles": "solids",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
 								"enabled": true
 							}
 						}
@@ -7140,10 +7186,10 @@
 					"world": {
 						"x": 346.15765380859375,
 						"y": 541.9906005859375,
-						"width": 4,
-						"height": 3,
+						"width": 6,
+						"height": 6,
 						"originX": 0.5,
-						"originY": 0.6666666666666666,
+						"originY": 0.5833333333333334,
 						"color": [
 							1,
 							1,
@@ -7171,8 +7217,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 178.09033203125,
-						"y": 574.5419311523438,
+						"x": 193.1397247314453,
+						"y": 594.1826171875,
 						"width": 27,
 						"height": 21,
 						"originX": 0.7407407407407407,
