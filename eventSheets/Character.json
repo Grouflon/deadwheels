@@ -104,6 +104,32 @@
 								"transform-visibility": false,
 								"destroy-with-parent": true
 							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "CharacterController",
+							"sid": 332018057530464,
+							"parameters": {
+								"child": "ChairSprite",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": true,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "ChairSprite",
+							"sid": 402055224892836,
+							"parameters": {
+								"where": "behind",
+								"object": "CharacterSprite"
+							}
 						}
 					],
 					"sid": 225655601611057
@@ -705,8 +731,8 @@
 							"actions": [
 								{
 									"id": "spawn-another-object",
-									"objectClass": "CharacterSprite",
-									"sid": 728033879331330,
+									"objectClass": "ChairSprite",
+									"sid": 237793987771941,
 									"parameters": {
 										"object": "TireMark",
 										"layer": "0",
@@ -734,8 +760,8 @@
 								},
 								{
 									"id": "spawn-another-object",
-									"objectClass": "CharacterSprite",
-									"sid": 911469367508758,
+									"objectClass": "ChairSprite",
+									"sid": 475518898660071,
 									"parameters": {
 										"object": "TireMark",
 										"layer": "0",
@@ -1028,6 +1054,53 @@
 				}
 			],
 			"sid": 614097373758730
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 787596146265028,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "CharacterController",
+					"sid": 226160002703168,
+					"parameters": {
+						"instance-variable": "is_aiming",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 954425763752561
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 703946044537190
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "CharacterController",
+					"sid": 906174130978021,
+					"parameters": {
+						"instance-variable": "is_aiming",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 266238374268902
 		}
 	],
 	"sid": 595366528436603
