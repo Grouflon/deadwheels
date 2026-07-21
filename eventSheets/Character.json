@@ -1823,6 +1823,311 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "SWITCH WEAPONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 251804595893716,
+							"parameters": {
+								"key": 49
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 390549426080598,
+							"parameters": {
+								"animation": "\"None\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 107421302506952
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 119438600105702,
+							"parameters": {
+								"key": 50
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 830382736530437,
+							"parameters": {
+								"animation": "\"Pistol\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 778016385198066
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 566704096610232,
+							"parameters": {
+								"key": 51
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 635735569140178,
+							"parameters": {
+								"animation": "\"Shotgun\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 680282879238744
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 932612505614957,
+							"parameters": {
+								"key": 52
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 672811745530270,
+							"parameters": {
+								"animation": "\"Smg\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 774343161113774
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 102155692536932,
+							"parameters": {
+								"key": 53
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 400414399332903,
+							"parameters": {
+								"animation": "\"Gatling\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 570665994605521
+				}
+			],
+			"sid": 467324265716751
+		},
+		{
+			"aceType": "action",
+			"aceName": "OnHit",
+			"objectClass": "CharacterController",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "CharacterController",
+					"sid": 425009045044209,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 138855363222148,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 720162619376690,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 234651359392289,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "ChairSprite",
+							"sid": 817981567719056,
+							"parameters": {
+								"object": "Corpse",
+								"layer": "0",
+								"image-point": "\"exit\"\n",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Corpse",
+							"sid": 626695446853936,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 450521759388711,
+							"parameters": {
+								"instance-variable": "is_dead",
+								"value": "true"
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Corpse",
+							"sid": 208403159620480,
+							"parameters": {
+								"where": "behind",
+								"object": "ChairSprite"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CharacterSprite",
+							"sid": 273739754579086,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Legs",
+							"sid": 943412951775716,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Corpse",
+							"sid": 179510529321255,
+							"parameters": {
+								"animation": "\"Player\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 605377217448011
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "stop-all-tweens",
+							"objectClass": "CharacterSprite",
+							"sid": 560019361249239,
+							"behaviorType": "Tween"
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "CharacterSprite",
+							"sid": 499556054832871,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 986039697010886,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "CharacterSprite",
+							"sid": 211060892475178,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetColor",
+								"end-value": "rgbEx(255,255,255)",
+								"time": "1",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 283376179411581
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 694287949543435
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "END_FRAME",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1851,141 +2156,6 @@
 				}
 			],
 			"sid": 139175908426260
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "SWITCH WEAPONS",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 808722548070081,
-							"parameters": {
-								"key": 49
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Arm",
-							"sid": 100471442244787,
-							"parameters": {
-								"animation": "\"None\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 664949747498830
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 975801344755745,
-							"parameters": {
-								"key": 50
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Arm",
-							"sid": 174316583260113,
-							"parameters": {
-								"animation": "\"Pistol\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 867661403302406
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 450649303393121,
-							"parameters": {
-								"key": 51
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Arm",
-							"sid": 723043562382713,
-							"parameters": {
-								"animation": "\"Shotgun\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 799693400190430
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 967141094484802,
-							"parameters": {
-								"key": 52
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Arm",
-							"sid": 663572910031849,
-							"parameters": {
-								"animation": "\"Smg\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 390448564463587
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 507152575292968,
-							"parameters": {
-								"key": 53
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Arm",
-							"sid": 428167211116755,
-							"parameters": {
-								"animation": "\"Gatling\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 711465008432318
-				}
-			],
-			"sid": 449975428544630
 		}
 	],
 	"sid": 595366528436603
