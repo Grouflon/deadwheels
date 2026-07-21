@@ -21,7 +21,9 @@
 					"instanceVariables": {
 						"direction": 0,
 						"velocity": 0,
-						"stored_wheel_ticks": 0
+						"stored_wheel_ticks": 0,
+						"wheels_blood_level": 0,
+						"is_aiming": false
 					},
 					"behaviors": {
 						"Custom": {
@@ -35,8 +37,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 129.2182159423828,
-						"y": 86.96173095703125,
+						"x": 41,
+						"y": 79,
 						"width": 12,
 						"height": 12,
 						"originX": 0.5,
@@ -1291,6 +1293,76 @@
 						"z": 0,
 						"depth": 32,
 						"angle": 0
+					}
+				},
+				{
+					"type": "Mike",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 667939,
+					"sid": 861756655529320,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": false,
+						"health": 100,
+						"moveToX": 0,
+						"moveToY": 0
+					},
+					"behaviors": {
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 80,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 3,
+								"cell-border": -1,
+								"obstacles": "solids",
+								"max-speed": 20,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 100,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 204.19610595703125,
+						"y": 76.1323471069336,
+						"width": 24,
+						"height": 24,
+						"originX": 0.4166666666666667,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 3.0960283259173713
 					}
 				}
 			],
