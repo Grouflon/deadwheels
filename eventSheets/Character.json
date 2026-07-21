@@ -1818,6 +1818,141 @@
 				}
 			],
 			"sid": 139175908426260
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SWITCH WEAPONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 808722548070081,
+							"parameters": {
+								"key": 49
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 100471442244787,
+							"parameters": {
+								"animation": "\"None\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 664949747498830
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 975801344755745,
+							"parameters": {
+								"key": 50
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 174316583260113,
+							"parameters": {
+								"animation": "\"Pistol\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 867661403302406
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 450649303393121,
+							"parameters": {
+								"key": 51
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 723043562382713,
+							"parameters": {
+								"animation": "\"Shotgun\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 799693400190430
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 967141094484802,
+							"parameters": {
+								"key": 52
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 663572910031849,
+							"parameters": {
+								"animation": "\"Smg\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 390448564463587
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 507152575292968,
+							"parameters": {
+								"key": 53
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Arm",
+							"sid": 428167211116755,
+							"parameters": {
+								"animation": "\"Gatling\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 711465008432318
+				}
+			],
+			"sid": 449975428544630
 		}
 	],
 	"sid": 595366528436603
