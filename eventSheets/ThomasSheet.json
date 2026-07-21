@@ -430,6 +430,102 @@
 				}
 			],
 			"sid": 743998742721939
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Aim",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CharacterSprite",
+							"sid": 116776293583055
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Arm",
+							"sid": 537284358903829,
+							"parameters": {
+								"object": "CharacterSprite",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Arm",
+							"sid": 104028804306362,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "CharacterSprite",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 980225045919466
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 280191838947111,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Arm",
+							"sid": 773164535729332,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 334132604603762
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 366545123592050,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Arm",
+							"sid": 465958065715445,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 191823248490092
+				}
+			],
+			"sid": 704999654237001
 		}
 	],
 	"sid": 810694807837553
