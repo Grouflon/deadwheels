@@ -865,6 +865,65 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "ARM / AIM",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 937139635052624,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Arm",
+							"sid": 501447458956670,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 208547488278022
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 334120941013522,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Arm",
+							"sid": 700948496863453,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 958084817916674
+				}
+			],
+			"sid": 580877694580090
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "ANIMATION",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1072,6 +1131,105 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "BULLETS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 784834705068393,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 877581453067206,
+							"parameters": {
+								"object-to-create": "Bullet",
+								"layer": "\"World\"",
+								"x": "CharacterController.X",
+								"y": "CharacterController.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Bullet",
+							"sid": 593129996860664,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 175684256077919,
+							"parameters": {
+								"object-to-create": "FireGFX",
+								"layer": "\"World\"",
+								"x": "CharacterController.X",
+								"y": "CharacterController.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Camera",
+							"sid": 827166933644527,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "0.52",
+								"duration": "0.1",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "FireGFX",
+							"sid": 285471670362992,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 921035285732154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "FireGFX",
+							"sid": 698718362346083
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "FireGFX",
+							"sid": 194783292992272
+						}
+					],
+					"sid": 215449426417592
+				}
+			],
+			"sid": 414232930952892
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "END_FRAME",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1100,6 +1258,53 @@
 				}
 			],
 			"sid": 139175908426260
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Aim",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CharacterSprite",
+							"sid": 116776293583055
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Arm",
+							"sid": 537284358903829,
+							"parameters": {
+								"object": "CharacterSprite",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Arm",
+							"sid": 104028804306362,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "CharacterSprite",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 980225045919466
+				}
+			],
+			"sid": 704999654237001
 		}
 	],
 	"sid": 595366528436603
