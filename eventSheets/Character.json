@@ -109,7 +109,6 @@
 								"transform-z-elevation": true,
 								"transform-w": false,
 								"transform-h": false,
-								"transform-d": true,
 								"transform-a": false,
 								"transform-o": false,
 								"transform-visibility": false,
@@ -127,7 +126,6 @@
 								"transform-z-elevation": true,
 								"transform-w": false,
 								"transform-h": false,
-								"transform-d": true,
 								"transform-a": true,
 								"transform-o": false,
 								"transform-visibility": false,
@@ -1644,6 +1642,22 @@
 										}
 									],
 									"sid": 354780463989398
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 521652511897964,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "-20"
+											}
+										}
+									],
+									"sid": 826287865085423
 								}
 							]
 						},
@@ -1740,62 +1754,87 @@
 									"parameters": {
 										"mouse-button": "left"
 									}
-								},
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 389522760691358,
-									"parameters": {
-										"interval-seconds": "0.05"
-									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 834167128360215,
+							"children": [
 								{
-									"id": "spawn-another-object",
-									"objectClass": "Arm",
-									"sid": 590845652103522,
-									"parameters": {
-										"object": "Bullet",
-										"layer": "Self.LayerName",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 212707508689627,
+											"parameters": {
+												"interval-seconds": "0.05"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Arm",
+											"sid": 833197307150276,
+											"parameters": {
+												"object": "Bullet",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Arm",
+											"sid": 507209508430746,
+											"parameters": {
+												"object": "FireGFX",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 815038356224427,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "0.3",
+												"duration": "0.1",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Bullet",
+											"sid": 350005097966964,
+											"parameters": {
+												"angle": "Self.Angle+random(-5,5)"
+											}
+										}
+									],
+									"sid": 593813845188572
 								},
 								{
-									"id": "spawn-another-object",
-									"objectClass": "Arm",
-									"sid": 741385398919127,
-									"parameters": {
-										"object": "FireGFX",
-										"layer": "Self.LayerName",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Camera",
-									"sid": 872844172832407,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "0.3",
-										"duration": "0.1",
-										"mode": "reducing-magnitude"
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "Bullet",
-									"sid": 932777387394075,
-									"parameters": {
-										"angle": "Self.Angle+random(-5,5)"
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 753100426301899,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "-2"
+											}
+										}
+									],
+									"sid": 526916329693196
 								}
-							],
-							"sid": 834167128360215
+							]
 						}
 					]
 				},
