@@ -167,51 +167,69 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 195105460279649,
-							"parameters": {
-								"direction": "up"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "CharacterController",
-							"sid": 434943766856977,
+							"sid": 461930715836287,
 							"parameters": {
-								"instance-variable": "stored_wheel_ticks",
-								"value": "1"
-							}
+								"instance-variable": "is_aiming"
+							},
+							"isInverted": true
 						}
 					],
-					"sid": 527024599358437
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"actions": [],
+					"sid": 583952147724381,
+					"children": [
 						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 267481322215578,
-							"parameters": {
-								"direction": "down"
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 987396131533996,
+									"parameters": {
+										"direction": "up"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 132853475755767,
+									"parameters": {
+										"instance-variable": "stored_wheel_ticks",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 302500226911984
+						},
 						{
-							"id": "add-to-instvar",
-							"objectClass": "CharacterController",
-							"sid": 738806401370397,
-							"parameters": {
-								"instance-variable": "stored_wheel_ticks",
-								"value": "-1"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 726718260756276,
+									"parameters": {
+										"direction": "down"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 283862205825003,
+									"parameters": {
+										"instance-variable": "stored_wheel_ticks",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 681388340636709
 						}
-					],
-					"sid": 645802747674789
+					]
 				},
 				{
 					"eventType": "block",
@@ -434,51 +452,69 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 713552659095064,
-							"parameters": {
-								"mouse-button": "right"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "CharacterController",
-							"sid": 902259061547330,
+							"sid": 704175091183194,
 							"parameters": {
-								"instance-variable": "direction",
-								"value": "Character_Rotation * dt"
-							}
+								"instance-variable": "is_aiming"
+							},
+							"isInverted": true
 						}
 					],
-					"sid": 283298727648724
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"actions": [],
+					"sid": 190785606105091,
+					"children": [
 						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 936200428170371,
-							"parameters": {
-								"mouse-button": "left"
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 446170236086058,
+									"parameters": {
+										"mouse-button": "right"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 122836283778938,
+									"parameters": {
+										"instance-variable": "direction",
+										"value": "Character_Rotation * dt"
+									}
+								}
+							],
+							"sid": 373391484870291
+						},
 						{
-							"id": "add-to-instvar",
-							"objectClass": "CharacterController",
-							"sid": 546243924849148,
-							"parameters": {
-								"instance-variable": "direction",
-								"value": "-Character_Rotation * dt"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 398961211283500,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 928363663964912,
+									"parameters": {
+										"instance-variable": "direction",
+										"value": "-Character_Rotation * dt"
+									}
+								}
+							],
+							"sid": 143203237913690
 						}
-					],
-					"sid": 350424891867263
+					]
 				}
 			],
 			"sid": 289162197964312
@@ -891,7 +927,141 @@
 							}
 						}
 					],
-					"sid": 208547488278022
+					"sid": 208547488278022,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "AimAngle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 117243018239393
+						},
+						{
+							"eventType": "variable",
+							"name": "RelativeAngle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 529339854934187
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 981060036175272,
+									"parameters": {
+										"variable": "AimAngle",
+										"value": "angle(CharacterSprite.X,CharacterSprite.Y,Mouse.X,Mouse.Y)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 545613890140811,
+									"parameters": {
+										"variable": "RelativeAngle",
+										"value": "AimAngle-CharacterSprite.Angle"
+									}
+								}
+							],
+							"sid": 656038915985090,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 593175587550841,
+											"parameters": {
+												"variable": "RelativeAngle",
+												"comparison": 4,
+												"value": "180"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 906474519380748,
+											"parameters": {
+												"variable": "RelativeAngle",
+												"value": "-360"
+											}
+										}
+									],
+									"sid": 549237527939989
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 282913607361064,
+											"parameters": {
+												"variable": "RelativeAngle",
+												"comparison": 2,
+												"value": "-180"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 954367486968806,
+											"parameters": {
+												"variable": "RelativeAngle",
+												"value": "360"
+											}
+										}
+									],
+									"sid": 370558319585938
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 162442002305691,
+											"parameters": {
+												"variable": "RelativeAngle",
+												"value": "clamp(RelativeAngle,-90,90)"
+											}
+										}
+									],
+									"sid": 514790830708494
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Arm",
+											"sid": 916898716673694,
+											"parameters": {
+												"angle": "CharacterSprite.Angle+RelativeAngle"
+											}
+										}
+									],
+									"sid": 506443722254295
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -932,11 +1102,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 534629632320818,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 692633629861760,
 							"parameters": {
-								"direction": "any"
+								"instance-variable": "is_aiming"
 							}
 						}
 					],
@@ -944,189 +1114,179 @@
 						{
 							"id": "set-animation",
 							"objectClass": "CharacterSprite",
-							"sid": 324998021851411,
+							"sid": 746037668035110,
 							"parameters": {
-								"animation": "\"Both\"",
+								"animation": "\"Aim\"",
 								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "CharacterSprite",
-							"sid": 560564525821939,
-							"parameters": {
-								"frame-number": "0"
 							}
 						}
 					],
-					"sid": 658921765080826
+					"sid": 316236956303159
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 680219908066815,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 587434895483000,
 							"parameters": {
-								"mouse-button": "left"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "CharacterSprite",
-							"sid": 467791336539353,
-							"parameters": {
-								"animation": "\"Left\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 502190052235366
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 268095840213282
-						},
-						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 421293983283298,
-							"parameters": {
-								"mouse-button": "right"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "CharacterSprite",
-							"sid": 364027105233120,
-							"parameters": {
-								"animation": "\"Right\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 546970493067185
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 459791218060681
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "CharacterSprite",
-							"sid": 479767960842936,
-							"parameters": {
-								"animation": "\"Both\""
+								"instance-variable": "is_aiming"
 							},
 							"isInverted": true
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 965487477790471,
+					"children": [
 						{
-							"id": "set-animation",
-							"objectClass": "CharacterSprite",
-							"sid": 495288219796377,
-							"parameters": {
-								"animation": "\"Idle\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 740995595149224
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 709522165192351,
+									"parameters": {
+										"direction": "any"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 685299520779699,
+									"parameters": {
+										"animation": "\"Both\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "CharacterSprite",
+									"sid": 246954396949375,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 358893083586891
+						},
 						{
-							"id": "on-animation-finished",
-							"objectClass": "CharacterSprite",
-							"sid": 190770763690737,
-							"parameters": {
-								"animation": "\"Both\""
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 657538053214169,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 133308992854104,
+									"parameters": {
+										"animation": "\"Left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 154266645992546
+						},
 						{
-							"id": "set-animation",
-							"objectClass": "CharacterSprite",
-							"sid": 790142535433664,
-							"parameters": {
-								"animation": "\"Idle\"",
-								"from": "beginning"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 668397732761477
+								},
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 368945060834487,
+									"parameters": {
+										"mouse-button": "right"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 205937902186022,
+									"parameters": {
+										"animation": "\"Right\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 574137445958061
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 510077078186321
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "CharacterSprite",
+									"sid": 567655463891287,
+									"parameters": {
+										"animation": "\"Both\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 426652929107212,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 462122609856589
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "CharacterSprite",
+									"sid": 157546327439010,
+									"parameters": {
+										"animation": "\"Both\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 211939616575077,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 509942650196439
 						}
-					],
-					"sid": 442467084141186
+					]
 				}
 			],
 			"sid": 388370106984648
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [],
-			"sid": 168126773728315
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 787596146265028,
-					"parameters": {
-						"key": 32
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "CharacterController",
-					"sid": 226160002703168,
-					"parameters": {
-						"instance-variable": "is_aiming",
-						"value": "true"
-					}
-				}
-			],
-			"sid": 954425763752561
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 703946044537190
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "CharacterController",
-					"sid": 906174130978021,
-					"parameters": {
-						"instance-variable": "is_aiming",
-						"value": "false"
-					}
-				}
-			],
-			"sid": 266238374268902
 		},
 		{
 			"eventType": "group",
@@ -1139,6 +1299,15 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 556554306694382,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "CharacterController",
 							"sid": 784834705068393,
@@ -1149,36 +1318,25 @@
 					],
 					"actions": [
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 877581453067206,
+							"id": "spawn-another-object",
+							"objectClass": "Arm",
+							"sid": 559705348364559,
 							"parameters": {
-								"object-to-create": "Bullet",
-								"layer": "\"World\"",
-								"x": "CharacterController.X",
-								"y": "CharacterController.Y",
+								"object": "Bullet",
+								"layer": "Self.LayerName",
+								"image-point": "1",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
 						},
 						{
-							"id": "set-angle-toward-position",
-							"objectClass": "Bullet",
-							"sid": 593129996860664,
+							"id": "spawn-another-object",
+							"objectClass": "Arm",
+							"sid": 683087739861536,
 							"parameters": {
-								"x": "Mouse.X",
-								"y": "Mouse.Y"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 175684256077919,
-							"parameters": {
-								"object-to-create": "FireGFX",
-								"layer": "\"World\"",
-								"x": "CharacterController.X",
-								"y": "CharacterController.Y",
+								"object": "FireGFX",
+								"layer": "Self.LayerName",
+								"image-point": "1",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -1192,15 +1350,6 @@
 								"magnitude": "0.52",
 								"duration": "0.1",
 								"mode": "reducing-magnitude"
-							}
-						},
-						{
-							"id": "set-angle-toward-position",
-							"objectClass": "FireGFX",
-							"sid": 285471670362992,
-							"parameters": {
-								"x": "Mouse.X",
-								"y": "Mouse.Y"
 							}
 						}
 					],
@@ -1270,6 +1419,53 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 504047221148561,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 672437254062910,
+							"parameters": {
+								"instance-variable": "is_aiming",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 577152415657789
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 226039748757865
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 602012582670410,
+							"parameters": {
+								"instance-variable": "is_aiming",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 892479500859584
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-created",
 							"objectClass": "CharacterSprite",
 							"sid": 116776293583055
@@ -1283,6 +1479,15 @@
 							"parameters": {
 								"object": "CharacterSprite",
 								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Arm",
+							"sid": 763485424368199,
+							"parameters": {
+								"where": "in-front",
+								"object": "CharacterSprite"
 							}
 						},
 						{
