@@ -57,6 +57,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "gamepad",
 			"name": "Gamepad",
 			"author": "Scirra",
@@ -142,7 +149,10 @@
 	],
 	"uniqueId": "iayubuot2br",
 	"objectTypes": {
-		"items": [],
+		"items": [
+			"TiledBackground",
+			"FurnitureCollider"
+		],
 		"subfolders": [
 			{
 				"items": [
@@ -151,7 +161,8 @@
 					"Camera",
 					"ChairSprite",
 					"Legs",
-					"Arm"
+					"Arm",
+					"CrawlingSprite"
 				],
 				"subfolders": [],
 				"name": "Character"
@@ -176,7 +187,7 @@
 					"MapReference"
 				],
 				"subfolders": [],
-				"name": "World"
+				"name": "WorldExample"
 			},
 			{
 				"items": [
@@ -224,6 +235,15 @@
 				],
 				"subfolders": [],
 				"name": "UI"
+			},
+			{
+				"items": [
+					"Table",
+					"Bed",
+					"Table2"
+				],
+				"subfolders": [],
+				"name": "World"
 			}
 		]
 	},
@@ -249,7 +269,8 @@
 	"families": {
 		"items": [
 			"Buildings",
-			"Zombies"
+			"Zombies",
+			"Furniture"
 		],
 		"subfolders": []
 	},
@@ -258,7 +279,8 @@
 			"ObjectRepository",
 			"ThomasTests",
 			"RemiTests",
-			"Game Over"
+			"Game Over",
+			"Hospital1"
 		],
 		"subfolders": []
 	},

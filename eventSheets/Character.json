@@ -612,6 +612,31 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "CharacterController",
+							"sid": 653305820783127,
+							"parameters": {
+								"object": "Furniture"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 746397691081759,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "CharacterController.velocity * -0.4"
+							}
+						}
+					],
+					"sid": 687995057633190
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "CharacterController",
 							"sid": 110246458963913,
@@ -721,6 +746,12 @@
 							"sid": 478728759324735
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 879130091104521
 				}
 			],
 			"sid": 838937511526081
