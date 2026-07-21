@@ -2,149 +2,98 @@
 	"name": "Zombies",
 	"events": [
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Zombies",
-			"description": "",
-			"isActiveOnStart": true,
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Zombies",
+					"sid": 597319052955650
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 994122051085937,
+					"parameters": {
+						"instance-variable": "moveToX",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 390060371381601,
+					"parameters": {
+						"instance-variable": "moveToY",
+						"value": "Self.Y"
+					}
+				},
+				{
+					"id": "set-max-speed",
+					"objectClass": "Zombies",
+					"sid": 902868977726212,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"speed": "Self.Pathfinding.MaxSpeed+random(-Self.Pathfinding.MaxSpeed*0.1,Self.Pathfinding.MaxSpeed*0.1)"
+					}
+				}
+			],
+			"sid": 522080804761410
+		},
+		{
+			"eventType": "comment",
+			"text": "Zombies movement"
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 978861951327860,
+					"parameters": {
+						"instance-variable": "moveToX",
+						"value": "CharacterController.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 331425418196697,
+					"parameters": {
+						"instance-variable": "moveToY",
+						"value": "CharacterController.Y"
+					}
+				}
+			],
+			"sid": 577220411126045
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "Zombies",
+					"sid": 319940785187036,
+					"parameters": {
+						"object": "Zombies",
+						"offset-x": "10",
+						"offset-y": "10"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 182451360894035,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-created",
-							"objectClass": "Zombies",
-							"sid": 642709857335904
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Zombies",
-							"sid": 297136475920289,
-							"parameters": {
-								"instance-variable": "moveToX",
-								"value": "Self.X"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Zombies",
-							"sid": 968554003655644,
-							"parameters": {
-								"instance-variable": "moveToY",
-								"value": "Self.Y"
-							}
-						},
-						{
-							"id": "set-max-speed",
-							"objectClass": "Zombies",
-							"sid": 243916065972056,
-							"behaviorType": "Pathfinding",
-							"parameters": {
-								"speed": "Self.Pathfinding.MaxSpeed+random(-Self.Pathfinding.MaxSpeed*0.1,Self.Pathfinding.MaxSpeed*0.1)"
-							}
-						}
-					],
-					"sid": 224993902553616
-				},
-				{
-					"eventType": "comment",
-					"text": "Zombies movement"
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Zombies",
-							"sid": 843121488953960,
-							"parameters": {
-								"instance-variable": "moveToX",
-								"value": "CharacterController.X"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Zombies",
-							"sid": 576999326443417,
-							"parameters": {
-								"instance-variable": "moveToY",
-								"value": "CharacterController.Y"
-							}
-						}
-					],
-					"sid": 554029179106466
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "Zombies",
-							"sid": 130356976441941,
-							"parameters": {
-								"object": "Zombies",
-								"offset-x": "10",
-								"offset-y": "10"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 370868392439089,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-random-instance",
-									"objectClass": "System",
-									"sid": 772893955912656,
-									"parameters": {
-										"object": "Zombies"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "stop",
-									"objectClass": "Zombies",
-									"sid": 369413600727424,
-									"behaviorType": "Pathfinding"
-								}
-							],
-							"sid": 692523491063921
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-path-found",
-							"objectClass": "Zombies",
-							"sid": 652836258594637,
-							"behaviorType": "Pathfinding"
-						}
-					],
-					"actions": [
-						{
-							"id": "move-along-path",
-							"objectClass": "Zombies",
-							"sid": 689317592373437,
-							"behaviorType": "Pathfinding"
-						}
-					],
-					"sid": 564543481655274
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Zombies",
-							"sid": 685148697933819,
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 731369807851099,
 							"parameters": {
 								"object": "Zombies"
 							}
@@ -152,114 +101,248 @@
 					],
 					"actions": [
 						{
-							"id": "set-x",
+							"id": "stop",
 							"objectClass": "Zombies",
-							"sid": 818407560580689,
-							"parameters": {
-								"x": "Self.X+1"
-							}
+							"sid": 650949994020775,
+							"behaviorType": "Pathfinding"
 						}
 					],
-					"sid": 184783252006650
+					"sid": 709453190881040
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-path-found",
+					"objectClass": "Zombies",
+					"sid": 762187618113655,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-along-path",
+					"objectClass": "Zombies",
+					"sid": 532082338136731,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"sid": 366059484885923
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Zombies",
+					"sid": 983353798879695,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "Zombies",
+					"sid": 619901311342445,
+					"parameters": {
+						"x": "Self.X+1"
+					}
+				}
+			],
+			"sid": 685912461373943
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 742806936658401,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "find-path",
+					"objectClass": "Zombies",
+					"sid": 619612016875523,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"x": "Self.moveToX",
+						"y": "Self.moveToY"
+					}
+				}
+			],
+			"sid": 805037967076540
+		},
+		{
+			"eventType": "comment",
+			"text": "Zombies get shot"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 317806488826573,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 570953392468760
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 743228775649223,
-							"parameters": {
-								"interval-seconds": "0.5"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "find-path",
-							"objectClass": "Zombies",
-							"sid": 678165626595992,
-							"behaviorType": "Pathfinding",
-							"parameters": {
-								"x": "Self.moveToX",
-								"y": "Self.moveToY"
-							}
-						}
-					],
-					"sid": 523287245557347
+					"id": "set-effect-enabled",
+					"objectClass": "Zombies",
+					"sid": 697029192102321,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Brightness\""
+					}
 				},
 				{
-					"eventType": "comment",
-					"text": "Zombies get shot"
+					"id": "add-to-instvar",
+					"objectClass": "Zombies",
+					"sid": 926285571581042,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "-50"
+					}
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Bullet",
-							"sid": 342199138710852,
-							"parameters": {
-								"object": "Zombies"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Bullet",
-							"sid": 568613852587568
-						},
-						{
-							"id": "set-effect-enabled",
-							"objectClass": "Zombies",
-							"sid": 777862460837282,
-							"parameters": {
-								"mode": "enable",
-								"effect": "\"Brightness\""
-							}
-						},
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Zombies",
-							"sid": 955546193314770,
-							"parameters": {
-								"instance-variable": "health",
-								"value": "-50"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 401573784413860,
-							"parameters": {
-								"seconds": "0.1",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-effect-enabled",
-							"objectClass": "Zombies",
-							"sid": 565246797366939,
-							"parameters": {
-								"mode": "disable",
-								"effect": "\"Brightness\""
-							}
-						}
-					],
-					"sid": 859434829902739
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 536024543772814,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
 				},
 				{
-					"eventType": "comment",
-					"text": "Zombie death"
+					"id": "set-effect-enabled",
+					"objectClass": "Zombies",
+					"sid": 911064261873986,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Brightness\""
+					}
+				}
+			],
+			"sid": 954561544486224
+		},
+		{
+			"eventType": "comment",
+			"text": "Zombie death"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Zombies",
+					"sid": 203530980782577,
+					"parameters": {
+						"instance-variable": "health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Zombies",
+					"sid": 732972508768601
 				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Zombies",
+					"sid": 461798467817154,
+					"parameters": {
+						"object": "Corpse",
+						"layer": "Self.LayerName",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Corpse",
+					"sid": 830318392599014,
+					"parameters": {
+						"angle": "Zombies.Angle"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Corpse",
+					"sid": 471227429933982,
+					"parameters": {
+						"animation": "Zombies.ObjectTypeName",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Corpse",
+					"sid": 247974478745265,
+					"parameters": {
+						"where": "behind",
+						"object": "Buildings"
+					}
+				}
+			],
+			"sid": 958342673849892
+		},
+		{
+			"eventType": "comment",
+			"text": "Attack"
+		},
+		{
+			"aceType": "action",
+			"aceName": "OnHit",
+			"objectClass": "CharacterController",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "CharacterController",
+					"sid": 425009045044209,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 138855363222148,
+			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Zombies",
-							"sid": 565946341637443,
+							"objectClass": "CharacterController",
+							"sid": 720162619376690,
 							"parameters": {
 								"instance-variable": "health",
 								"comparison": 3,
@@ -269,18 +352,13 @@
 					],
 					"actions": [
 						{
-							"id": "destroy",
-							"objectClass": "Zombies",
-							"sid": 555723744720837
-						},
-						{
 							"id": "spawn-another-object",
-							"objectClass": "Zombies",
-							"sid": 341412041481939,
+							"objectClass": "ChairSprite",
+							"sid": 817981567719056,
 							"parameters": {
 								"object": "Corpse",
-								"layer": "Self.LayerName",
-								"image-point": "0",
+								"layer": "0",
+								"image-point": "\"exit\"\n",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -288,34 +366,110 @@
 						{
 							"id": "set-angle",
 							"objectClass": "Corpse",
-							"sid": 531699218253381,
+							"sid": 626695446853936,
 							"parameters": {
-								"angle": "Zombies.Angle"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Corpse",
-							"sid": 712669767960293,
-							"parameters": {
-								"animation": "Zombies.ObjectTypeName",
-								"from": "beginning"
+								"angle": "CharacterController.direction"
 							}
 						},
 						{
 							"id": "move-to-object",
 							"objectClass": "Corpse",
-							"sid": 395132671937919,
+							"sid": 208403159620480,
 							"parameters": {
 								"where": "behind",
-								"object": "Buildings"
+								"object": "ChairSprite"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CharacterSprite",
+							"sid": 273739754579086,
+							"parameters": {
+								"visibility": "invisible"
 							}
 						}
 					],
-					"sid": 411617652026062
+					"sid": 605377217448011
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 153918928949793
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterController",
+					"sid": 717288028299045,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"comparison": 4,
+						"value": "0"
+					}
 				}
 			],
-			"sid": 531828707845676
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "CharacterController",
+					"sid": 467675221573304,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"value": "-dt"
+					}
+				}
+			],
+			"sid": 860182007843027
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Zombies",
+					"sid": 243181052660278,
+					"parameters": {
+						"object": "CharacterController"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterController",
+					"sid": 589202843681879,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "CharacterController",
+					"sid": 516360093838468,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "-100"
+					}
+				},
+				{
+					"customAction": "OnHit",
+					"objectClass": "CharacterController",
+					"sid": 702760328227382
+				}
+			],
+			"sid": 261285430868497
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 568377545206734
 		}
 	],
 	"sid": 810694807837553
