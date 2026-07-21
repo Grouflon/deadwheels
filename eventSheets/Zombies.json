@@ -37,6 +37,15 @@
 					"parameters": {
 						"speed": "Self.Pathfinding.MaxSpeed+random(-Self.Pathfinding.MaxSpeed*0.1,Self.Pathfinding.MaxSpeed*0.1)"
 					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Zombies",
+					"sid": 995502996484944,
+					"parameters": {
+						"where": "in-front",
+						"object": "CharacterSprite"
+					}
 				}
 			],
 			"sid": 522080804761410
@@ -348,6 +357,15 @@
 								"comparison": 3,
 								"value": "0"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 234651359392289,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -372,6 +390,15 @@
 							}
 						},
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 450521759388711,
+							"parameters": {
+								"instance-variable": "is_dead",
+								"value": "true"
+							}
+						},
+						{
 							"id": "move-to-object",
 							"objectClass": "Corpse",
 							"sid": 208403159620480,
@@ -390,6 +417,12 @@
 						}
 					],
 					"sid": 605377217448011
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 283376179411581
 				}
 			]
 		},
@@ -451,10 +484,10 @@
 				{
 					"id": "add-to-instvar",
 					"objectClass": "CharacterController",
-					"sid": 516360093838468,
+					"sid": 209155996325965,
 					"parameters": {
 						"instance-variable": "health",
-						"value": "-100"
+						"value": "-10"
 					}
 				},
 				{

@@ -174,6 +174,15 @@
 								"instance-variable": "is_aiming"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 193249677986723,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -457,6 +466,15 @@
 							"sid": 704175091183194,
 							"parameters": {
 								"instance-variable": "is_aiming"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 221417034837530,
+							"parameters": {
+								"instance-variable": "is_dead"
 							},
 							"isInverted": true
 						}
@@ -1067,25 +1085,27 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 334120941013522,
-							"parameters": {
-								"instance-variable": "is_aiming"
-							},
-							"isInverted": true
+							"id": "else",
+							"objectClass": "System",
+							"sid": 803267155116952
 						}
 					],
 					"actions": [
 						{
 							"id": "set-visible",
 							"objectClass": "Arm",
-							"sid": 700948496863453,
+							"sid": 176970590611392,
 							"parameters": {
 								"visibility": "invisible"
 							}
 						}
 					],
+					"sid": 460087901715960
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
 					"sid": 958084817916674
 				}
 			],
@@ -1425,6 +1445,15 @@
 							"parameters": {
 								"key": 32
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 372293234564513,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
