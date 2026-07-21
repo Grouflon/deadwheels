@@ -82,6 +82,16 @@
 			"sid": 708113707090146
 		},
 		{
+			"eventType": "variable",
+			"name": "chair_enter_distance",
+			"type": "number",
+			"initialValue": "22",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 896596984706275
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "INIT",
@@ -109,6 +119,7 @@
 								"transform-z-elevation": true,
 								"transform-w": false,
 								"transform-h": false,
+								"transform-d": true,
 								"transform-a": false,
 								"transform-o": false,
 								"transform-visibility": false,
@@ -126,6 +137,7 @@
 								"transform-z-elevation": true,
 								"transform-w": false,
 								"transform-h": false,
+								"transform-d": true,
 								"transform-a": true,
 								"transform-o": false,
 								"transform-visibility": false,
@@ -142,9 +154,44 @@
 							}
 						},
 						{
+							"id": "add-child",
+							"objectClass": "CharacterController",
+							"sid": 476671675995003,
+							"parameters": {
+								"child": "CrawlingSprite",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-d": false,
+								"transform-a": true,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CrawlingSprite",
+							"sid": 191632835344707,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "CrawlingSprite",
+							"sid": 655266061740581,
+							"parameters": {
+								"where": "behind",
+								"object": "ChairSprite"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "CharacterController",
-							"sid": 290748547543551,
+							"sid": 546025107967009,
 							"parameters": {
 								"instance-variable": "health",
 								"value": "character_max_health"
@@ -183,6 +230,14 @@
 								"instance-variable": "is_dead"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 144505034361043,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
 						}
 					],
 					"actions": [],
@@ -477,6 +532,14 @@
 								"instance-variable": "is_dead"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 819847647977047,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
 						}
 					],
 					"actions": [],
@@ -502,6 +565,15 @@
 									"parameters": {
 										"instance-variable": "direction",
 										"value": "Character_Rotation * dt"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 744487216936299,
+									"parameters": {
+										"type": "log",
+										"message": "\"aaaa\""
 									}
 								}
 							],
@@ -800,6 +872,16 @@
 								"comparison": 4,
 								"value": "0"
 							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 844568271256065,
+							"parameters": {
+								"first-value": "abs(CharacterController.velocity)",
+								"comparison": 4,
+								"second-value": "0.1"
+							}
 						}
 					],
 					"actions": [],
@@ -971,10 +1053,10 @@
 						{
 							"id": "set-position-to-another-object",
 							"objectClass": "Arm",
-							"sid": 317994510108992,
+							"sid": 244439531142113,
 							"parameters": {
 								"object": "CharacterSprite",
-								"image-point-optional": "1"
+								"image-point-optional": "\"arm_anchor\""
 							}
 						},
 						{
@@ -1137,6 +1219,63 @@
 							"sid": 529339854934187
 						},
 						{
+							"eventType": "variable",
+							"name": "SpriteAngle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 697079882442515
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 151535643805904,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 625535950944369,
+									"parameters": {
+										"variable": "SpriteAngle",
+										"value": "CharacterSprite.Angle"
+									}
+								}
+							],
+							"sid": 904545893841052
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 515885068814259
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 909920551880103,
+									"parameters": {
+										"variable": "SpriteAngle",
+										"value": "CrawlingSprite.Angle"
+									}
+								}
+							],
+							"sid": 411128154390082
+						},
+						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
@@ -1152,10 +1291,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 545613890140811,
+									"sid": 984163571575326,
 									"parameters": {
 										"variable": "RelativeAngle",
-										"value": "AimAngle-CharacterSprite.Angle"
+										"value": "AimAngle-SpriteAngle"
 									}
 								}
 							],
@@ -1217,7 +1356,16 @@
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 457852960001507,
+											"parameters": {
+												"instance-variable": "is_in_chair"
+											}
+										}
+									],
 									"actions": [
 										{
 											"id": "set-eventvar-value",
@@ -1227,23 +1375,43 @@
 												"variable": "RelativeAngle",
 												"value": "clamp(RelativeAngle,-90,90)"
 											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Arm",
+											"sid": 172935218872701,
+											"parameters": {
+												"angle": "CharacterSprite.Angle+RelativeAngle"
+											}
 										}
 									],
 									"sid": 514790830708494
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 274186874750488
+										}
+									],
 									"actions": [
 										{
 											"id": "set-angle",
 											"objectClass": "Arm",
-											"sid": 916898716673694,
+											"sid": 426074181981206,
 											"parameters": {
-												"angle": "CharacterSprite.Angle+RelativeAngle"
+												"angle": "CrawlingSprite.Angle+RelativeAngle"
 											}
 										}
 									],
+									"sid": 224226944042569
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
 									"sid": 506443722254295
 								}
 							]
@@ -1995,176 +2163,6 @@
 			"sid": 467324265716751
 		},
 		{
-			"aceType": "action",
-			"aceName": "OnHit",
-			"objectClass": "CharacterController",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "custom-ace-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "CharacterController",
-					"sid": 425009045044209,
-					"parameters": {
-						"instance-variable": "invulnerability_timer",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 138855363222148,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "CharacterController",
-							"sid": 720162619376690,
-							"parameters": {
-								"instance-variable": "health",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 234651359392289,
-							"parameters": {
-								"instance-variable": "is_dead"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "ChairSprite",
-							"sid": 817981567719056,
-							"parameters": {
-								"object": "Corpse",
-								"layer": "0",
-								"image-point": "\"exit\"\n",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-angle",
-							"objectClass": "Corpse",
-							"sid": 626695446853936,
-							"parameters": {
-								"angle": "CharacterController.direction"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "CharacterController",
-							"sid": 450521759388711,
-							"parameters": {
-								"instance-variable": "is_dead",
-								"value": "true"
-							}
-						},
-						{
-							"id": "move-to-object",
-							"objectClass": "Corpse",
-							"sid": 208403159620480,
-							"parameters": {
-								"where": "behind",
-								"object": "ChairSprite"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "CharacterSprite",
-							"sid": 273739754579086,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Legs",
-							"sid": 943412951775716,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Corpse",
-							"sid": 179510529321255,
-							"parameters": {
-								"animation": "\"Player\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 605377217448011
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "stop-all-tweens",
-							"objectClass": "CharacterSprite",
-							"sid": 560019361249239,
-							"behaviorType": "Tween"
-						},
-						{
-							"id": "set-default-color",
-							"objectClass": "CharacterSprite",
-							"sid": 499556054832871,
-							"parameters": {
-								"color": "rgbEx(255, 0, 0)"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 986039697010886,
-							"parameters": {
-								"seconds": "0.1",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "CharacterSprite",
-							"sid": 211060892475178,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetColor",
-								"end-value": "rgbEx(255,255,255)",
-								"time": "1",
-								"ease": "easeoutcubic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						}
-					],
-					"sid": 283376179411581
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 694287949543435
-				}
-			]
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "END_FRAME",
@@ -2195,6 +2193,772 @@
 				}
 			],
 			"sid": 139175908426260
+		},
+		{
+			"aceType": "action",
+			"aceName": "OnHit",
+			"objectClass": "CharacterController",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "CharacterController",
+					"sid": 269425606896021,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 866440990664613,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 823881843101878,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 153589084100056,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "ChairSprite",
+							"sid": 326911973391804,
+							"parameters": {
+								"object": "Corpse",
+								"layer": "0",
+								"image-point": "\"exit\"\n",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Corpse",
+							"sid": 388726065357320,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 460518600298142,
+							"parameters": {
+								"instance-variable": "is_dead",
+								"value": "true"
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Corpse",
+							"sid": 728582934512405,
+							"parameters": {
+								"where": "behind",
+								"object": "ChairSprite"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CharacterSprite",
+							"sid": 120667916231534,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Legs",
+							"sid": 878410294863734,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Corpse",
+							"sid": 718258161574099,
+							"parameters": {
+								"animation": "\"Player\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 342855689686180
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "stop-all-tweens",
+							"objectClass": "CharacterSprite",
+							"sid": 457229538611742,
+							"behaviorType": "Tween"
+						},
+						{
+							"id": "stop-all-tweens",
+							"objectClass": "CrawlingSprite",
+							"sid": 445666590686090,
+							"behaviorType": "Tween"
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "CharacterSprite",
+							"sid": 697106690501118,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "CrawlingSprite",
+							"sid": 720648610034989,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 118584797877411,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "CharacterSprite",
+							"sid": 359170948102809,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetColor",
+								"end-value": "rgbEx(255,255,255)",
+								"time": "1",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "CrawlingSprite",
+							"sid": 844709352538416,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetColor",
+								"end-value": "rgbEx(255,255,255)",
+								"time": "1",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 668977205493188
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 501359996513371
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ENTER/EXIT CHAIR",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 420841180053790,
+							"parameters": {
+								"mouse-button": "middle",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 239320584547756,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 128957210335758,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "ExitChair",
+									"objectClass": "CharacterController",
+									"sid": 874474535132425
+								}
+							],
+							"sid": 738879549619133
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 846784880030333
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 384181868727761,
+									"parameters": {
+										"first-value": "distance(CharacterController.X, CharacterController.Y, ChairSprite.X, ChairSprite.Y)",
+										"comparison": 3,
+										"second-value": "chair_enter_distance"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "EnterChair",
+									"objectClass": "CharacterController",
+									"sid": 392666229063118
+								}
+							],
+							"sid": 784230291969412
+						}
+					]
+				},
+				{
+					"aceType": "action",
+					"aceName": "ExitChair",
+					"objectClass": "CharacterController",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 751266627115597,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 364304974651267,
+							"parameters": {
+								"instance-variable": "is_in_chair",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "CharacterController",
+							"sid": 973222258174359,
+							"behaviorType": "Custom",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "CharacterController",
+							"sid": 352973426555252,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "remove-child",
+							"objectClass": "CharacterController",
+							"sid": 363488435127689,
+							"parameters": {
+								"child": "ChairSprite"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CharacterSprite",
+							"sid": 816535063780277,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CrawlingSprite",
+							"sid": 756976266607644,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "CharacterController",
+							"sid": 724656000185926,
+							"parameters": {
+								"x": "ChairSprite.ImagePointX(\"exit\")",
+								"y": "ChairSprite.ImagePointY(\"exit\")"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "CharacterController",
+							"sid": 649989940441981,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "CrawlingSprite",
+							"sid": 879668431747670,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Arm",
+							"sid": 998191584821253,
+							"parameters": {
+								"object": "CrawlingSprite",
+								"image-point-optional": "\"arm_anchor\""
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Arm",
+							"sid": 821395299095249,
+							"parameters": {
+								"where": "in-front",
+								"object": "CrawlingSprite"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Arm",
+							"sid": 994352071815713,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "CrawlingSprite",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 257393772718232
+				},
+				{
+					"aceType": "action",
+					"aceName": "EnterChair",
+					"objectClass": "CharacterController",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 736001498971045,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 957601388907105,
+							"parameters": {
+								"instance-variable": "is_in_chair",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "CharacterController",
+							"sid": 450420532057128,
+							"behaviorType": "Custom",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "CharacterController",
+							"sid": 390475185587538,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "CharacterController",
+							"sid": 722953125665696,
+							"parameters": {
+								"x": "ChairSprite.X",
+								"y": "ChairSprite.Y"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "CharacterController",
+							"sid": 698403547257074,
+							"parameters": {
+								"child": "ChairSprite",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": false,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-d": false,
+								"transform-a": false,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CharacterSprite",
+							"sid": 959135953182298,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CrawlingSprite",
+							"sid": 568060069194341,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "CharacterSprite",
+							"sid": 605466270560659,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Arm",
+							"sid": 643795241625011,
+							"parameters": {
+								"object": "CharacterSprite",
+								"image-point-optional": "\"arm_anchor\""
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Arm",
+							"sid": 379442782408301,
+							"parameters": {
+								"where": "in-front",
+								"object": "CharacterSprite"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Arm",
+							"sid": 127368090578428,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "CharacterSprite",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 794369563718856,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 264526051568041
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 372916481468151,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 274325611389192,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 678185690955051,
+									"parameters": {
+										"instance-variable": "is_dead"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 418602892452863,
+									"parameters": {
+										"instance-variable": "is_aiming"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 220631569266476,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 394620177925306,
+											"parameters": {
+												"key": 87
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 497985012017844,
+											"parameters": {
+												"key": 90
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "CharacterController",
+											"sid": 115985073040476,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "up"
+											}
+										}
+									],
+									"sid": 252633835788402,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 155765080080311,
+											"parameters": {
+												"key": 83
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "CharacterController",
+											"sid": 826552077288749,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "down"
+											}
+										}
+									],
+									"sid": 984050504297714,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 777054404100531,
+											"parameters": {
+												"key": 81
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 350094511281392,
+											"parameters": {
+												"key": 65
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "CharacterController",
+											"sid": 549632205477885,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "left"
+											}
+										}
+									],
+									"sid": 675850663095526,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 204143055006639,
+											"parameters": {
+												"key": 68
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "CharacterController",
+											"sid": 382221220258921,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "right"
+											}
+										}
+									],
+									"sid": 655633818416454,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "CharacterController",
+									"sid": 291521593747697,
+									"behaviorType": "8Direction"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CrawlingSprite",
+									"sid": 272110310772998,
+									"parameters": {
+										"animation": "\"\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "CrawlingSprite",
+									"sid": 195916009757767,
+									"parameters": {
+										"angle": "CharacterController.8Direction.MovingAngle"
+									}
+								}
+							],
+							"sid": 641467446720887
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 304171439112884
+						}
+					],
+					"actions": [],
+					"sid": 813200321439336
+				}
+			],
+			"sid": 726302427690817
 		}
 	],
 	"sid": 595366528436603

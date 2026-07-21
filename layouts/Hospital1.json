@@ -69,13 +69,26 @@
 						"stored_wheel_ticks": 0,
 						"wheels_blood_level": 0,
 						"is_aiming": false,
-						"is_dead": false
+						"is_dead": false,
+						"is_in_chair": true
 					},
 					"behaviors": {
 						"Custom": {
 							"properties": {
 								"stepping-mode": "linear",
 								"pixels-per-step": 5,
+								"enabled": true
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 500,
+								"directions": "dir-8",
+								"set-angle": "smooth",
+								"allow-sliding": false,
+								"default-controls": true,
 								"enabled": true
 							}
 						}
@@ -1183,7 +1196,7 @@
 					"type": "Mike",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Walk",
+						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -2012,10 +2025,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 131.52877807617188,
-						"y": 17.362714767456055,
-						"width": 31,
-						"height": 20,
+						"x": 131.23785400390625,
+						"y": 21.435571670532227,
+						"width": 27,
+						"height": 17,
 						"originX": 0.6296296296296297,
 						"originY": 0.5294117647058824,
 						"color": [

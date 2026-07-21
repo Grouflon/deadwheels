@@ -7,56 +7,6 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "CharacterController",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 135828,
-					"sid": 161898327264671,
-					"tags": "",
-					"instanceVariables": {
-						"health": 0,
-						"invulnerability_timer": 0,
-						"direction": 0,
-						"velocity": 0,
-						"stored_wheel_ticks": 0,
-						"wheels_blood_level": 0,
-						"is_aiming": false,
-						"is_dead": false
-					},
-					"behaviors": {
-						"Custom": {
-							"properties": {
-								"stepping-mode": "linear",
-								"pixels-per-step": 5,
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 41,
-						"y": 79,
-						"width": 12,
-						"height": 12,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "Building3x3",
 					"properties": {
 						"shape": "box",
@@ -1302,7 +1252,7 @@
 					"type": "Mike",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Walk",
+						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1366,6 +1316,69 @@
 						],
 						"z": 0,
 						"angle": 3.0960283259173713
+					}
+				},
+				{
+					"type": "CharacterController",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 748039,
+					"sid": 680850969227310,
+					"tags": "",
+					"instanceVariables": {
+						"health": 100,
+						"invulnerability_timer": 0,
+						"direction": 0,
+						"velocity": 0,
+						"stored_wheel_ticks": 0,
+						"wheels_blood_level": 0,
+						"is_aiming": false,
+						"is_dead": false,
+						"is_in_chair": true
+					},
+					"behaviors": {
+						"Custom": {
+							"properties": {
+								"stepping-mode": "linear",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 18,
+								"acceleration": 30,
+								"deceleration": 80,
+								"directions": "dir-8",
+								"set-angle": "no",
+								"allow-sliding": false,
+								"default-controls": false,
+								"enabled": false
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 69.00146865844727,
+						"y": 78.85039520263672,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
 					}
 				}
 			],
