@@ -919,10 +919,148 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "ARM / AIM",
+			"title": "AIM / ARM / LEGS",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "comment",
+					"text": "Create arm and legs"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CharacterSprite",
+							"sid": 948693048440708
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Arm",
+							"sid": 317994510108992,
+							"parameters": {
+								"object": "CharacterSprite",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Arm",
+							"sid": 503793265446129,
+							"parameters": {
+								"where": "in-front",
+								"object": "CharacterSprite"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Arm",
+							"sid": 565249572728443,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "CharacterSprite",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Legs",
+							"sid": 988692665343581,
+							"parameters": {
+								"where": "in-front",
+								"object": "ChairSprite"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Legs",
+							"sid": 632069903248912,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ChairSprite",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 189204809373647
+				},
+				{
+					"eventType": "comment",
+					"text": "Aiming status"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 912673944997685,
+							"parameters": {
+								"key": 32
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 524520358397031,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 226643669092013,
+							"parameters": {
+								"instance-variable": "is_aiming",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 435223472076218
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 603228839110538
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 542015097100234,
+							"parameters": {
+								"instance-variable": "is_aiming",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 454049692349111
+				},
+				{
+					"eventType": "comment",
+					"text": "Aiming angle"
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -1101,12 +1239,6 @@
 						}
 					],
 					"sid": 460087901715960
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 958084817916674
 				}
 			],
 			"sid": 580877694580090
@@ -1311,7 +1443,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "BULLETS",
+			"title": "SHOOTING",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -1427,118 +1559,6 @@
 				}
 			],
 			"sid": 139175908426260
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Aim",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 504047221148561,
-							"parameters": {
-								"key": 32
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 372293234564513,
-							"parameters": {
-								"instance-variable": "is_dead"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "CharacterController",
-							"sid": 672437254062910,
-							"parameters": {
-								"instance-variable": "is_aiming",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 577152415657789
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 226039748757865
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "CharacterController",
-							"sid": 602012582670410,
-							"parameters": {
-								"instance-variable": "is_aiming",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 892479500859584
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "CharacterSprite",
-							"sid": 116776293583055
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position-to-another-object",
-							"objectClass": "Arm",
-							"sid": 537284358903829,
-							"parameters": {
-								"object": "CharacterSprite",
-								"image-point-optional": "1"
-							}
-						},
-						{
-							"id": "move-to-object",
-							"objectClass": "Arm",
-							"sid": 763485424368199,
-							"parameters": {
-								"where": "in-front",
-								"object": "CharacterSprite"
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Arm",
-							"sid": 104028804306362,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "CharacterSprite",
-								"x": true,
-								"y": true,
-								"angle": false,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						}
-					],
-					"sid": 980225045919466
-				}
-			],
-			"sid": 704999654237001
 		}
 	],
 	"sid": 595366528436603
