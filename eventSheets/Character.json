@@ -830,6 +830,204 @@
 				}
 			],
 			"sid": 763617513192722
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "CharacterController",
+					"sid": 163691149845207
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "ChairSprite",
+					"sid": 736197566817072,
+					"parameters": {
+						"object": "CharacterController",
+						"image-point-optional": "0"
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "CharacterController",
+					"sid": 578514610434295,
+					"parameters": {
+						"child": "ChairSprite",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-z-elevation": true,
+						"transform-w": false,
+						"transform-h": false,
+						"transform-a": false,
+						"transform-o": false,
+						"transform-visibility": false,
+						"destroy-with-parent": true
+					}
+				}
+			],
+			"sid": 212032234561698
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "ChairSprite",
+					"sid": 151039542763183,
+					"parameters": {
+						"angle": "CharacterController.direction"
+					}
+				}
+			],
+			"sid": 168126773728315
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 713689084693955,
+					"parameters": {
+						"direction": "any"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "CharacterSprite",
+					"sid": 582969464990341,
+					"parameters": {
+						"animation": "\"Both\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "CharacterSprite",
+					"sid": 206768848540239,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 200224459470759
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 160194737190056,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "CharacterSprite",
+					"sid": 605024485910657,
+					"parameters": {
+						"animation": "\"Left\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 430011244889916
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 460704458278678
+				},
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 217107865522228,
+					"parameters": {
+						"mouse-button": "right"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "CharacterSprite",
+					"sid": 797361057402152,
+					"parameters": {
+						"animation": "\"Right\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 207109435935104
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 302848931272120
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "CharacterSprite",
+					"sid": 896083374908367,
+					"parameters": {
+						"animation": "\"Both\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "CharacterSprite",
+					"sid": 693601767841553,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 619389833731164
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "CharacterSprite",
+					"sid": 513523008674471,
+					"parameters": {
+						"animation": "\"Both\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "CharacterSprite",
+					"sid": 856307455165278,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 614097373758730
 		}
 	],
 	"sid": 595366528436603
