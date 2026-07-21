@@ -72,6 +72,16 @@
 			"sid": 973977774177339
 		},
 		{
+			"eventType": "variable",
+			"name": "character_max_health",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 708113707090146
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "INIT",
@@ -129,6 +139,15 @@
 							"parameters": {
 								"where": "behind",
 								"object": "CharacterSprite"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 290748547543551,
+							"parameters": {
+								"instance-variable": "health",
+								"value": "character_max_health"
 							}
 						}
 					],
@@ -488,6 +507,14 @@
 							"parameters": {
 								"angle": "CharacterController.direction"
 							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "ChairSprite",
+							"sid": 113580221644760,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
 						}
 					],
 					"sid": 544765897040958
@@ -836,224 +863,164 @@
 			"sid": 949924596718864
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "ANIMATION",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 875971578469596
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "CharacterController",
-					"sid": 469351670395526,
-					"parameters": {
-						"instance-variable": "stored_wheel_ticks",
-						"value": "0"
-					}
-				}
-			],
-			"sid": 763617513192722
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "CharacterController",
-					"sid": 163691149845207
-				}
-			],
-			"actions": [
-				{
-					"id": "set-position-to-another-object",
-					"objectClass": "ChairSprite",
-					"sid": 736197566817072,
-					"parameters": {
-						"object": "CharacterController",
-						"image-point-optional": "0"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 534629632320818,
+							"parameters": {
+								"direction": "any"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "CharacterSprite",
+							"sid": 324998021851411,
+							"parameters": {
+								"animation": "\"Both\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "CharacterSprite",
+							"sid": 560564525821939,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 658921765080826
 				},
 				{
-					"id": "add-child",
-					"objectClass": "CharacterController",
-					"sid": 578514610434295,
-					"parameters": {
-						"child": "ChairSprite",
-						"transform-x": true,
-						"transform-y": true,
-						"transform-z-elevation": true,
-						"transform-w": false,
-						"transform-h": false,
-						"transform-a": false,
-						"transform-o": false,
-						"transform-visibility": false,
-						"destroy-with-parent": true
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 680219908066815,
+							"parameters": {
+								"mouse-button": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "CharacterSprite",
+							"sid": 467791336539353,
+							"parameters": {
+								"animation": "\"Left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 502190052235366
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 268095840213282
+						},
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 421293983283298,
+							"parameters": {
+								"mouse-button": "right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "CharacterSprite",
+							"sid": 364027105233120,
+							"parameters": {
+								"animation": "\"Right\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 546970493067185
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 459791218060681
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "CharacterSprite",
+							"sid": 479767960842936,
+							"parameters": {
+								"animation": "\"Both\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "CharacterSprite",
+							"sid": 495288219796377,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 740995595149224
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "CharacterSprite",
+							"sid": 190770763690737,
+							"parameters": {
+								"animation": "\"Both\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "CharacterSprite",
+							"sid": 790142535433664,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 442467084141186
 				}
 			],
-			"sid": 212032234561698
+			"sid": 388370106984648
 		},
 		{
 			"eventType": "block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "set-angle",
-					"objectClass": "ChairSprite",
-					"sid": 151039542763183,
-					"parameters": {
-						"angle": "CharacterController.direction"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 168126773728315
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-mouse-wheel",
-					"objectClass": "Mouse",
-					"sid": 713689084693955,
-					"parameters": {
-						"direction": "any"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "CharacterSprite",
-					"sid": 582969464990341,
-					"parameters": {
-						"animation": "\"Both\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-animation-frame",
-					"objectClass": "CharacterSprite",
-					"sid": 206768848540239,
-					"parameters": {
-						"frame-number": "0"
-					}
-				}
-			],
-			"sid": 200224459470759
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "mouse-button-is-down",
-					"objectClass": "Mouse",
-					"sid": 160194737190056,
-					"parameters": {
-						"mouse-button": "left"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "CharacterSprite",
-					"sid": 605024485910657,
-					"parameters": {
-						"animation": "\"Left\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 430011244889916
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 460704458278678
-				},
-				{
-					"id": "mouse-button-is-down",
-					"objectClass": "Mouse",
-					"sid": 217107865522228,
-					"parameters": {
-						"mouse-button": "right"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "CharacterSprite",
-					"sid": 797361057402152,
-					"parameters": {
-						"animation": "\"Right\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 207109435935104
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 302848931272120
-				},
-				{
-					"id": "is-animation-playing",
-					"objectClass": "CharacterSprite",
-					"sid": 896083374908367,
-					"parameters": {
-						"animation": "\"Both\""
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "CharacterSprite",
-					"sid": 693601767841553,
-					"parameters": {
-						"animation": "\"Idle\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 619389833731164
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-animation-finished",
-					"objectClass": "CharacterSprite",
-					"sid": 513523008674471,
-					"parameters": {
-						"animation": "\"Both\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "CharacterSprite",
-					"sid": 856307455165278,
-					"parameters": {
-						"animation": "\"Idle\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 614097373758730
 		},
 		{
 			"eventType": "block",
@@ -1101,6 +1068,38 @@
 				}
 			],
 			"sid": 266238374268902
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "END_FRAME",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 267777833048799
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 975350208583129,
+							"parameters": {
+								"instance-variable": "stored_wheel_ticks",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 455695001415091
+				}
+			],
+			"sid": 139175908426260
 		}
 	],
 	"sid": 595366528436603

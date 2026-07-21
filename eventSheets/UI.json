@@ -1,0 +1,66 @@
+{
+	"name": "UI",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "HealthBarForeground",
+					"sid": 720848496905004
+				}
+			],
+			"actions": [
+				{
+					"id": "add-child",
+					"objectClass": "HealthBarBackground",
+					"sid": 290378427157595,
+					"parameters": {
+						"child": "HealthBarForeground",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-z-elevation": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": false,
+						"transform-o": false,
+						"transform-visibility": false,
+						"destroy-with-parent": true
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "HealthBarForeground",
+					"sid": 711302984114608,
+					"parameters": {
+						"width": "HealthBarBackground.Width",
+						"height": "HealthBarBackground.Height"
+					}
+				}
+			],
+			"sid": 253695093051734
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 407293548688331
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "HealthBarForeground",
+					"sid": 561649542826266,
+					"parameters": {
+						"width": "HealthBarBackground.Width * clamp(CharacterController.health / character_max_health, 0, 1)"
+					}
+				}
+			],
+			"sid": 934180112185970
+		}
+	],
+	"sid": 154043260739891
+}
