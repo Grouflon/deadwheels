@@ -5,6 +5,32 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 570119485777790
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 242591854643968,
+					"parameters": {
+						"object-to-create": "HealthBarBackground",
+						"layer": "\"UI\"",
+						"x": "5",
+						"y": "5",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 886742783844172
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-created",
 					"objectClass": "HealthBarForeground",
 					"sid": 720848496905004
