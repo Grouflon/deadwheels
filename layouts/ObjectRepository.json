@@ -337,45 +337,6 @@
 					}
 				},
 				{
-					"type": "Arm",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Pistol",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 662237,
-					"sid": 652670127222132,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Pin": {
-							"properties": {
-								"destroy": false
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 151.7321014404297,
-						"y": 36.21780776977539,
-						"width": 32,
-						"height": 10,
-						"originX": 0.09375,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "FurnitureCollider",
 					"properties": {
 						"initially-visible": true,
@@ -442,6 +403,45 @@
 					}
 				},
 				{
+					"type": "Arm",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Pistol",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 662237,
+					"sid": 652670127222132,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 151.7321014404297,
+						"y": 36.21780776977539,
+						"width": 32,
+						"height": 10,
+						"originX": 0.09375,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 9,
+						"angle": 0
+					}
+				},
+				{
 					"type": "CharacterSprite",
 					"properties": {
 						"initially-visible": true,
@@ -476,7 +476,52 @@
 							1,
 							1
 						],
-						"z": 0,
+						"z": 10,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Bullet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 667634,
+					"sid": 301268559231006,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 400,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 92.61701965332031,
+						"y": 61.93320846557617,
+						"width": 6,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.5833333333333334,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 10,
 						"angle": 0
 					}
 				}

@@ -252,6 +252,27 @@
 			"sid": 954561544486224
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 543266368322729,
+					"parameters": {
+						"object": "Buildings"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 483146497911271
+				}
+			],
+			"sid": 455727725082029
+		},
+		{
 			"eventType": "comment",
 			"text": "Zombie death"
 		},
