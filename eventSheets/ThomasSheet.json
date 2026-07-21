@@ -2,10 +2,6 @@
 	"name": "ThomasSheet",
 	"events": [
 		{
-			"eventType": "include",
-			"includeSheet": "Character"
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -54,6 +50,17 @@
 					}
 				},
 				{
+					"id": "shake",
+					"objectClass": "Camera",
+					"sid": 293766735722814,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "0.52",
+						"duration": "0.1",
+						"mode": "reducing-magnitude"
+					}
+				},
+				{
 					"id": "set-angle-toward-position",
 					"objectClass": "FireGFX",
 					"sid": 694572607090948,
@@ -82,35 +89,6 @@
 				}
 			],
 			"sid": 609349153978831
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 889320285017295
-				}
-			],
-			"actions": [
-				{
-					"id": "scroll-to-x",
-					"objectClass": "System",
-					"sid": 189432051999485,
-					"parameters": {
-						"x": "lerp(scrollx,CharacterController.X,0.1)"
-					}
-				},
-				{
-					"id": "scroll-to-y",
-					"objectClass": "System",
-					"sid": 562388040500019,
-					"parameters": {
-						"y": "lerp(scrolly,CharacterController.Y,0.1)"
-					}
-				}
-			],
-			"sid": 339625596386063
 		},
 		{
 			"eventType": "group",

@@ -2,133 +2,46 @@
 	"name": "Camera",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "base_camera_height",
-			"type": "number",
-			"initialValue": "400",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 304588418481875
-		},
-		{
-			"eventType": "variable",
-			"name": "camera_speed",
-			"type": "number",
-			"initialValue": "60",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 455275698681317
-		},
-		{
-			"eventType": "variable",
-			"name": "camera_x",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 221274074139041
-		},
-		{
-			"eventType": "variable",
-			"name": "camera_y",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 923034144505617
-		},
-		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 572550114173393
-				}
-			],
+			"conditions": [],
 			"actions": [
-				{
-					"id": "look-at-position",
-					"objectClass": "3DCamera",
-					"sid": 182311585116251,
-					"parameters": {
-						"cam-x": "CharacterController.X",
-						"cam-y": "CharacterController.Y",
-						"cam-z": "base_camera_height",
-						"look-x": "CharacterController.X",
-						"look-y": "CharacterController.Y",
-						"look-z": "CharacterController.Z",
-						"up-x": "0",
-						"up-y": "1",
-						"up-z": "0"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 228410956939262,
-					"parameters": {
-						"variable": "camera_x",
-						"value": "CharacterController.X"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 189624950179273,
-					"parameters": {
-						"variable": "camera_y",
-						"value": "CharacterController.Y"
-					}
-				}
-			],
-			"sid": 488489896088277
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 509403329017679
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 872256629039006,
-					"parameters": {
-						"variable": "camera_x",
-						"value": "lerp(camera_x, CharacterController.X, 0.1 * camera_speed * dt)"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 259800266670609,
-					"parameters": {
-						"variable": "camera_y",
-						"value": "lerp(camera_y, CharacterController.Y, 0.1 * camera_speed * dt)"
-					}
-				},
 				{
 					"id": "set-position",
-					"objectClass": "3DCamera",
-					"sid": 806054867778944,
+					"objectClass": "Camera",
+					"sid": 655734581984997,
 					"parameters": {
-						"x": "camera_x",
-						"y": "camera_y",
-						"z": "base_camera_height",
-						"which": "camera"
+						"x": "lerp(Self.X,CharacterController.X,0.07)",
+						"y": "lerp(Self.Y,CharacterController.Y,0.07)"
 					}
 				}
 			],
-			"sid": 443684105269058
+			"sid": 370082706499756
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "CharacterController",
+					"sid": 497078130623392
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 431020734465449,
+					"parameters": {
+						"object-to-create": "Camera",
+						"layer": "CharacterController.LayerName",
+						"x": "CharacterController.X",
+						"y": "CharacterController.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 631788852355467
 		}
 	],
 	"sid": 166569372868084

@@ -92,13 +92,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "MoveTo",
-			"name": "Move To",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "Pathfinding",
 			"name": "Pathfinding",
 			"author": "Scirra",
@@ -115,6 +108,13 @@
 			"type": "behavior",
 			"id": "custom",
 			"name": "Custom",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -161,7 +161,8 @@
 			{
 				"items": [
 					"CharacterSprite",
-					"CharacterController"
+					"CharacterController",
+					"Camera"
 				],
 				"subfolders": [],
 				"name": "Character"
@@ -264,7 +265,6 @@
 	},
 	"eventSheets": {
 		"items": [
-			"MainCode",
 			"RemiSheet",
 			"ThomasSheet",
 			"Global",
