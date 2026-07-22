@@ -1,0 +1,236 @@
+{
+	"name": "Audio",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "CharacterController",
+					"sid": 984482625564460,
+					"parameters": {
+						"instance-variable": "is_aiming"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "CharacterController",
+					"sid": 706415731091794,
+					"parameters": {
+						"instance-variable": "is_dead"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 404925452199999
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 848940952859167,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "choose(\"Aim1\",\"Aim2\")",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 685983207059064
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 877370228545445
+				}
+			],
+			"actions": [
+				{
+					"id": "set-listener-object",
+					"objectClass": "Audio",
+					"sid": 640387879851879,
+					"parameters": {
+						"object": "CharacterController"
+					}
+				}
+			],
+			"sid": 268812697834710
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "FireGFX",
+					"sid": 582597352600362
+				}
+			],
+			"actions": [],
+			"sid": 336717119251315,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 761252597362706,
+							"parameters": {
+								"animation": "\"Gatling\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 594794913020502,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Gatling\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 824932608343229,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 345857360611675
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 936358367732614,
+							"parameters": {
+								"animation": "\"Pistol\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 577269497654498,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Pistol\"&choose(1,2,3,4)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 590664999310085,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 645958813187406
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 802646965006612,
+							"parameters": {
+								"animation": "\"Shotgun\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 752001664819687,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Shotgun\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"shotgun\"\n\n"
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 790459031107336,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 154698536185002
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 482055393147687,
+							"parameters": {
+								"animation": "\"Smg\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 268647666567766,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Smg\"&choose(1,2,3,4)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 357612552209493,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 548705811378517
+				}
+			]
+		}
+	],
+	"sid": 128376728907050
+}

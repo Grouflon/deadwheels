@@ -225,6 +225,31 @@
 			],
 			"actions": [
 				{
+					"id": "play-at-object-by-name",
+					"objectClass": "Audio",
+					"sid": 930969230838106,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"BulletFlesh\"&choose(1,2,3)",
+						"loop": "not-looping",
+						"volume": "0",
+						"object": "Zombies",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 205794354057317,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Bullet",
 					"sid": 570953392468760
