@@ -715,11 +715,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 888357984614537,
+													"sid": 812555214125196,
 													"parameters": {
 														"first-value": "abs(Controllers.angular_velocity)",
 														"comparison": 5,
-														"second-value": "3"
+														"second-value": "5"
 													}
 												}
 											],
@@ -830,16 +830,6 @@
 											"parameters": {
 												"instance-variable": "velocity",
 												"value": "Controllers.wheel_ticks * Controllers.acceleration * dt"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 930909063101426,
-											"disabled": true,
-											"parameters": {
-												"type": "log",
-												"message": "Controllers.velocity"
 											}
 										}
 									],
@@ -963,51 +953,9 @@
 											"parameters": {
 												"object": "Controllers"
 											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 396630335421996,
-											"disabled": true,
-											"parameters": {
-												"first-value": "abs(Controllers.velocity)",
-												"comparison": 3,
-												"second-value": "0.8"
-											}
-										},
-										{
-											"id": "pick-by-evaluate",
-											"objectClass": "System",
-											"sid": 312551738264795,
-											"disabled": true,
-											"parameters": {
-												"object": "Controllers",
-												"expression": "abs(Controllers.velocity) <= 0.8"
-											}
 										}
 									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 664217584791754,
-											"disabled": true,
-											"parameters": {
-												"instance-variable": "velocity",
-												"value": "0"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 332027443384782,
-											"disabled": true,
-											"parameters": {
-												"type": "log",
-												"message": "Controllers.UID"
-											}
-										}
-									],
+									"actions": [],
 									"sid": 805020658640627,
 									"children": [
 										{
@@ -1058,25 +1006,24 @@
 												}
 											],
 											"sid": 771854559037873
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 469760756804986,
+													"parameters": {
+														"instance-variable": "velocity",
+														"value": "sign(Controllers.velocity) * min(abs(Controllers.velocity), Controllers.max_velocity * Controllers.max_velocity_multiplier)"
+													}
+												}
+											],
+											"sid": 664841026032352
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 381440581794158,
-											"disabled": true,
-											"parameters": {
-												"instance-variable": "velocity",
-												"value": "sign(Controllers.velocity) * min(abs(Controllers.velocity), Controllers.max_velocity * Controllers.max_velocity_multiplier)"
-											}
-										}
-									],
-									"sid": 816317464651499
 								}
 							],
 							"sid": 960482451906406

@@ -1249,85 +1249,6 @@
 					}
 				},
 				{
-					"type": "CharacterController",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 756389,
-					"sid": 644753669344344,
-					"tags": "",
-					"instanceVariables": {
-						"acceleration": 500,
-						"brake": 300,
-						"deceleration": 30,
-						"max_velocity": 30,
-						"collision_velocity_multiplier": -0.1,
-						"angular_acceleration": 1800,
-						"angular_deceleration": 900,
-						"angular_buffer_time": 0.2,
-						"max_angular_velocity": 700,
-						"direction": 0,
-						"velocity": 0,
-						"angular_velocity": 0,
-						"wheel_ticks": 0,
-						"previous_wheel_ticks": 0,
-						"rotate_ticks": 0,
-						"previous_rotate_ticks": 0,
-						"collision_cooldown": 0,
-						"turn_left_cooldown": 0,
-						"turn_right_cooldown": 0,
-						"max_velocity_multiplier": 1,
-						"read_input": false,
-						"disabled": false,
-						"just_pushed": 0,
-						"just_rotated": 0,
-						"health": 100,
-						"invulnerability_timer": 0,
-						"old_velocity": 0,
-						"old_angular_velocity": 0,
-						"old_wheel_ticks": 0,
-						"old_previous_wheel_ticks": 0,
-						"old_rotate_ticks": 0,
-						"old_previous_rotate_ticks": 0,
-						"is_aiming": false,
-						"is_dead": false,
-						"is_in_chair": true,
-						"recoil": 0,
-						"angular_recoil": 0
-					},
-					"behaviors": {
-						"Custom": {
-							"properties": {
-								"stepping-mode": "linear",
-								"pixels-per-step": 5,
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 71.4428482055664,
-						"y": 67.64866638183594,
-						"width": 12,
-						"height": 12,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "Corpse",
 					"properties": {
 						"initially-visible": true,
@@ -1361,6 +1282,85 @@
 					}
 				},
 				{
+					"type": "CharacterController",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 215297,
+					"sid": 940298962899629,
+					"tags": "",
+					"instanceVariables": {
+						"acceleration": 200,
+						"brake": 300,
+						"deceleration": 30,
+						"max_velocity": 30,
+						"collision_velocity_multiplier": -0.2,
+						"angular_acceleration": 1500,
+						"angular_deceleration": 700,
+						"angular_buffer_time": 0.2,
+						"max_angular_velocity": 400,
+						"direction": 0,
+						"velocity": 0,
+						"angular_velocity": 0,
+						"wheel_ticks": 0,
+						"previous_wheel_ticks": 0,
+						"rotate_ticks": 0,
+						"previous_rotate_ticks": 0,
+						"collision_cooldown": 0,
+						"turn_left_cooldown": 0,
+						"turn_right_cooldown": 0,
+						"max_velocity_multiplier": 1,
+						"read_input": true,
+						"disabled": false,
+						"just_pushed": 0,
+						"just_rotated": 0,
+						"health": 100,
+						"invulnerability_timer": 0,
+						"old_velocity": 0,
+						"old_angular_velocity": 0,
+						"old_wheel_ticks": 0,
+						"old_previous_wheel_ticks": 0,
+						"old_rotate_ticks": 0,
+						"old_previous_rotate_ticks": 0,
+						"is_aiming": false,
+						"is_dead": false,
+						"is_in_chair": false,
+						"recoil": 0,
+						"angular_recoil": 0
+					},
+					"behaviors": {
+						"Custom": {
+							"properties": {
+								"stepping-mode": "linear",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 74.11972045898438,
+						"y": 57.930294036865234,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "ChairController",
 					"properties": {
 						"initially-visible": false,
@@ -1369,8 +1369,8 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 607462,
-					"sid": 185885553866539,
+					"uid": 779124,
+					"sid": 850859907327669,
 					"tags": "",
 					"instanceVariables": {
 						"acceleration": 500,
@@ -1382,7 +1382,7 @@
 						"angular_deceleration": 900,
 						"angular_buffer_time": 0.3,
 						"max_angular_velocity": 700,
-						"direction": 33,
+						"direction": 0,
 						"velocity": 0,
 						"angular_velocity": 0,
 						"wheel_ticks": 0,
@@ -1411,8 +1411,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 172.81764221191406,
-						"y": 35.954593658447266,
+						"x": 164.72132873535156,
+						"y": 32.48474884033203,
 						"width": 12,
 						"height": 12,
 						"originX": 0.5,
