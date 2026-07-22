@@ -93,9 +93,19 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "angular_impulse",
+			"name": "rotation_buffer_time",
 			"type": "number",
-			"initialValue": "180",
+			"initialValue": "0.3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 546991617687497
+		},
+		{
+			"eventType": "variable",
+			"name": "angular_acceleration",
+			"type": "number",
+			"initialValue": "1800",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -105,7 +115,7 @@
 			"eventType": "variable",
 			"name": "angular_deceleration",
 			"type": "number",
-			"initialValue": "800",
+			"initialValue": "900",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -577,6 +587,74 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 149050478346060
+						}
+					],
+					"actions": [],
+					"sid": 784867605620043,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 334551233716210,
+									"parameters": {
+										"instance-variable": "turn_left_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 548398374277209,
+									"parameters": {
+										"instance-variable": "turn_left_cooldown",
+										"value": "-dt"
+									}
+								}
+							],
+							"sid": 138685092754248
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 109538673843095,
+									"parameters": {
+										"instance-variable": "turn_right_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 746845073458630,
+									"parameters": {
+										"instance-variable": "turn_right_cooldown",
+										"value": "-dt"
+									}
+								}
+							],
+							"sid": 323162477488438
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "CharacterController",
 							"sid": 461930715836287,
@@ -672,9 +750,18 @@
 							],
 							"actions": [
 								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 907996057915381,
+									"parameters": {
+										"instance-variable": "turn_right_cooldown",
+										"value": "rotation_buffer_time"
+									}
+								},
+								{
 									"id": "add-to-instvar",
 									"objectClass": "CharacterController",
-									"sid": 257562811186364,
+									"sid": 659398854663793,
 									"parameters": {
 										"instance-variable": "rotate_ticks",
 										"value": "1"
@@ -698,9 +785,18 @@
 							],
 							"actions": [
 								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 538644621285634,
+									"parameters": {
+										"instance-variable": "turn_left_cooldown",
+										"value": "rotation_buffer_time"
+									}
+								},
+								{
 									"id": "add-to-instvar",
 									"objectClass": "CharacterController",
-									"sid": 537127644783359,
+									"sid": 124016932727602,
 									"parameters": {
 										"instance-variable": "rotate_ticks",
 										"value": "-1"
@@ -708,6 +804,96 @@
 								}
 							],
 							"sid": 102932354508339
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 363356710641515,
+									"parameters": {
+										"mouse-button": "right"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 714015962136490,
+									"parameters": {
+										"instance-variable": "turn_right_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 987814827052354,
+									"parameters": {
+										"instance-variable": "angular_velocity",
+										"value": "angular_acceleration * dt"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 611989487104038,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "rotate_ticks",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 711932110155381
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 772972179822296,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 248898612897341,
+									"parameters": {
+										"instance-variable": "turn_left_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 300723805240396,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "rotate_ticks",
+										"value": "-1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 607091775771161,
+									"parameters": {
+										"instance-variable": "angular_velocity",
+										"value": "-angular_acceleration * dt"
+									}
+								}
+							],
+							"sid": 474315589423599
 						},
 						{
 							"eventType": "block",
@@ -794,9 +980,10 @@
 										{
 											"id": "every-x-seconds",
 											"objectClass": "System",
-											"sid": 625361055228637,
+											"sid": 487127648524247,
+											"disabled": true,
 											"parameters": {
-												"interval-seconds": "0.1"
+												"interval-seconds": "0.03"
 											}
 										}
 									],
@@ -816,6 +1003,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 294279618858185,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "0.8 * -angular_acceleration * dt"
+													}
+												},
 												{
 													"id": "add-to-instvar",
 													"objectClass": "CharacterController",
@@ -851,6 +1047,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 971544952331501,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "0.8 * angular_acceleration * dt"
+													}
+												},
 												{
 													"id": "add-to-instvar",
 													"objectClass": "CharacterController",
@@ -897,9 +1102,10 @@
 							"id": "add-to-instvar",
 							"objectClass": "CharacterController",
 							"sid": 698168530674713,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "angular_velocity",
-								"value": "CharacterController.rotate_ticks * angular_impulse"
+								"value": "CharacterController.rotate_ticks * angular_acceleration"
 							}
 						}
 					],
