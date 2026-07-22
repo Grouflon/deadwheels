@@ -196,6 +196,14 @@
 								"instance-variable": "health",
 								"value": "character_max_health"
 							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "CharacterController",
+							"sid": 956621745944743,
+							"parameters": {
+								"collisions": "enabled"
+							}
 						}
 					],
 					"sid": 225655601611057
@@ -783,49 +791,119 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "CharacterController",
-							"sid": 873931980570556,
+							"sid": 488035688988392,
 							"parameters": {
 								"object": "Buildings"
 							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "CharacterController",
-							"sid": 234607944421575,
-							"parameters": {
-								"instance-variable": "velocity",
-								"value": "CharacterController.velocity * -0.4"
-							}
-						}
-					],
-					"sid": 920955215864306
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+						},
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "CharacterController",
-							"sid": 653305820783127,
+							"sid": 526891060403247,
 							"parameters": {
 								"object": "Furniture"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 824019965726489,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "CharacterController",
-							"sid": 746397691081759,
-							"parameters": {
-								"instance-variable": "velocity",
-								"value": "CharacterController.velocity * -0.4"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 523916695734114,
+									"parameters": {
+										"instance-variable": "collision_cooldown",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 508573714410940,
+									"parameters": {
+										"instance-variable": "collision_cooldown",
+										"value": "0.1"
+									}
+								}
+							],
+							"sid": 645935238561526,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 981723532311993,
+											"parameters": {
+												"first-value": "CharacterController.velocity",
+												"comparison": 5,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "push-out-solid-at-angle",
+											"objectClass": "CharacterController",
+											"sid": 453919579625310,
+											"behaviorType": "Custom",
+											"parameters": {
+												"angle": "CharacterController.direction+180"
+											}
+										}
+									],
+									"sid": 461869464234867
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 731288092911303
+										}
+									],
+									"actions": [
+										{
+											"id": "push-out-solid-at-angle",
+											"objectClass": "CharacterController",
+											"sid": 104958219338258,
+											"behaviorType": "Custom",
+											"parameters": {
+												"angle": "CharacterController.direction"
+											}
+										}
+									],
+									"sid": 976124473801803
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 594929224752447,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "CharacterController.velocity * -0.4"
+											}
+										}
+									],
+									"sid": 587650524255873
+								}
+							]
 						}
 					],
-					"sid": 687995057633190
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -837,6 +915,14 @@
 							"parameters": {
 								"object": "Buildings"
 							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 958991891707781,
+							"parameters": {
+								"object": "Furniture"
+							}
 						}
 					],
 					"actions": [],
@@ -844,33 +930,42 @@
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 428564500281100,
+									"parameters": {
+										"instance-variable": "collision_cooldown",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
 							"actions": [
 								{
 									"id": "push-out-solid",
 									"objectClass": "CharacterController",
-									"sid": 164978987994577,
+									"sid": 293162087251799,
 									"behaviorType": "Custom",
 									"parameters": {
 										"direction": "nearest"
 									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 312671919152728,
+									"parameters": {
+										"type": "log",
+										"message": "\"push\""
+									}
 								}
 							],
-							"sid": 681007171666462
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 179650118459044
+							"sid": 310357967754717
 						}
 					],
-					"actions": [],
-					"sid": 702880232925912
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -903,15 +998,6 @@
 							],
 							"actions": [
 								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 191164472830122,
-									"parameters": {
-										"type": "log",
-										"message": "CharacterController.velocity"
-									}
-								},
-								{
 									"id": "add-to-instvar",
 									"objectClass": "Zombies",
 									"sid": 826486342890651,
@@ -940,12 +1026,6 @@
 							"sid": 478728759324735
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 879130091104521
 				}
 			],
 			"sid": 838937511526081
@@ -2439,7 +2519,58 @@
 							}
 						}
 					],
-					"sid": 455695001415091
+					"sid": 455695001415091,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 394605626166387,
+									"parameters": {
+										"instance-variable": "collision_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 837877011648106,
+									"parameters": {
+										"instance-variable": "collision_cooldown",
+										"value": "-dt"
+									}
+								}
+							],
+							"sid": 896750378833134
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 338711116464319
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 427531028570635,
+									"parameters": {
+										"instance-variable": "collision_cooldown",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 107678625697493
+						}
+					]
 				}
 			],
 			"sid": 139175908426260
@@ -2849,6 +2980,15 @@
 								"height-type": "no",
 								"z": false
 							}
+						},
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "CharacterController",
+							"sid": 411767064740541,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "\"Crawlable\""
+							}
 						}
 					],
 					"sid": 257393772718232
@@ -2994,6 +3134,15 @@
 							"parameters": {
 								"instance-variable": "velocity",
 								"value": "0"
+							}
+						},
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "CharacterController",
+							"sid": 462177516404859,
+							"parameters": {
+								"mode": "inclusive",
+								"tags": "\"Crawlable\""
 							}
 						}
 					],
@@ -3209,73 +3358,6 @@
 				}
 			],
 			"sid": 726302427690817
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "HACKY WALL CRAWL",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 557246604531280,
-							"parameters": {
-								"instance-variable": "is_in_chair"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-solid-collision-filter",
-							"objectClass": "CharacterController",
-							"sid": 329059447840921,
-							"parameters": {
-								"mode": "inclusive",
-								"tags": "\"Crawlable\""
-							}
-						}
-					],
-					"sid": 914823216208755
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 982329194193983,
-							"parameters": {
-								"instance-variable": "is_in_chair"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-solid-collision-filter",
-							"objectClass": "CharacterController",
-							"sid": 611437424747465,
-							"parameters": {
-								"mode": "exclusive",
-								"tags": "\"Crawlable\""
-							}
-						}
-					],
-					"sid": 325388751878344
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 522927307717763
-				}
-			],
-			"sid": 842037645707053
 		}
 	],
 	"sid": 595366528436603
