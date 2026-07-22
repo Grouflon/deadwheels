@@ -3057,6 +3057,73 @@
 				}
 			],
 			"sid": 726302427690817
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HACKY WALL CRAWL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 557246604531280,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "CharacterController",
+							"sid": 329059447840921,
+							"parameters": {
+								"mode": "inclusive",
+								"tags": "\"Crawlable\""
+							}
+						}
+					],
+					"sid": 914823216208755
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 982329194193983,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "CharacterController",
+							"sid": 611437424747465,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "\"Crawlable\""
+							}
+						}
+					],
+					"sid": 325388751878344
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 522927307717763
+				}
+			],
+			"sid": 842037645707053
 		}
 	],
 	"sid": 595366528436603
