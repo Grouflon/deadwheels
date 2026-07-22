@@ -1456,12 +1456,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "Chair mode animation"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "CharacterController",
-							"sid": 692633629861760,
+							"sid": 146257590504909,
 							"parameters": {
 								"instance-variable": "is_aiming"
 							}
@@ -1471,14 +1475,14 @@
 						{
 							"id": "set-animation",
 							"objectClass": "CharacterSprite",
-							"sid": 746037668035110,
+							"sid": 162054642260343,
 							"parameters": {
 								"animation": "\"Aim\"",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 316236956303159
+					"sid": 897268758101433
 				},
 				{
 					"eventType": "block",
@@ -1639,6 +1643,100 @@
 								}
 							],
 							"sid": 509942650196439
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Crawling Animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 787872264228574,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "CrawlingSprite",
+							"sid": 132342491930922,
+							"parameters": {
+								"animation": "\"Aim\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 748212213894876
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 727814582069295,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 752457828530601,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "CharacterController",
+									"sid": 189287714687633,
+									"behaviorType": "8Direction"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CrawlingSprite",
+									"sid": 408125120203516,
+									"parameters": {
+										"animation": "\"MoveBoth\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 149346059676639
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "CharacterController",
+									"sid": 428634758867119,
+									"behaviorType": "8Direction",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CrawlingSprite",
+									"sid": 390064131765368,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 538212703195385
 						}
 					]
 				}
