@@ -1482,6 +1482,36 @@
 					"text": "Create arm and legs"
 				},
 				{
+					"eventType": "variable",
+					"name": "AimAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 100017022376474
+				},
+				{
+					"eventType": "variable",
+					"name": "RelativeAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 348380654848835
+				},
+				{
+					"eventType": "variable",
+					"name": "SpriteAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 437541932788023
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1639,36 +1669,6 @@
 					],
 					"sid": 208547488278022,
 					"children": [
-						{
-							"eventType": "variable",
-							"name": "AimAngle",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 117243018239393
-						},
-						{
-							"eventType": "variable",
-							"name": "RelativeAngle",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 529339854934187
-						},
-						{
-							"eventType": "variable",
-							"name": "SpriteAngle",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 697079882442515
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -1848,12 +1848,6 @@
 										}
 									],
 									"sid": 224226944042569
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 506443722254295
 								}
 							]
 						}
@@ -1881,10 +1875,539 @@
 					"sid": 460087901715960
 				},
 				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 765672189969987
+					"eventType": "group",
+					"disabled": false,
+					"title": "SHOOTING",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 765000041479179,
+									"parameters": {
+										"instance-variable": "is_aiming"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 623769206117984,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-click",
+											"objectClass": "Mouse",
+											"sid": 213994338190895,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Arm",
+											"sid": 648714469631416,
+											"parameters": {
+												"animation": "\"Pistol\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Arm",
+											"sid": 770011600087608,
+											"parameters": {
+												"object": "Bullet",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Arm",
+											"sid": 825312630493313,
+											"parameters": {
+												"object": "FireGFX",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 798225746431967,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "0.52",
+												"duration": "0.1",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 165865501396377,
+											"parameters": {
+												"instance-variable": "recoil",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 327690886519112,
+											"parameters": {
+												"instance-variable": "angular_recoil",
+												"value": "10"
+											}
+										}
+									],
+									"sid": 935287560998065
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-click",
+											"objectClass": "Mouse",
+											"sid": 476490322567324,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Arm",
+											"sid": 895836094862326,
+											"parameters": {
+												"animation": "\"Shotgun\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 586448609493140,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "4",
+												"duration": "0.1",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 305144643401270,
+											"parameters": {
+												"instance-variable": "recoil",
+												"value": "20"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 446515555515163,
+											"parameters": {
+												"instance-variable": "angular_recoil",
+												"value": "50"
+											}
+										}
+									],
+									"sid": 521275807636506,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 391567383418954,
+													"parameters": {
+														"count": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Arm",
+													"sid": 257862695486482,
+													"parameters": {
+														"object": "Bullet",
+														"layer": "Self.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Arm",
+													"sid": 198587736880274,
+													"parameters": {
+														"object": "FireGFX",
+														"layer": "Self.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "Bullet",
+													"sid": 352386358290981,
+													"parameters": {
+														"angle": "Self.Angle+random(-20,20)"
+													}
+												}
+											],
+											"sid": 781978092487611
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Arm",
+											"sid": 674709817174428,
+											"parameters": {
+												"animation": "\"Smg\""
+											}
+										},
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 848366432961687,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										},
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 587385740606423,
+											"parameters": {
+												"interval-seconds": "0.1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Arm",
+											"sid": 936304544851337,
+											"parameters": {
+												"object": "Bullet",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Arm",
+											"sid": 312807012545358,
+											"parameters": {
+												"object": "FireGFX",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 862786543786843,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "0.3",
+												"duration": "0.1",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Bullet",
+											"sid": 503257124175175,
+											"parameters": {
+												"angle": "Self.Angle+random(-5,5)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 508334682125170,
+											"parameters": {
+												"instance-variable": "recoil",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 218910775818659,
+											"parameters": {
+												"instance-variable": "angular_recoil",
+												"value": "7"
+											}
+										}
+									],
+									"sid": 859695001802779
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Arm",
+											"sid": 518915331692290,
+											"parameters": {
+												"animation": "\"Gatling\""
+											}
+										},
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 814859237002586,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 114278659296301,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 295808201652371,
+													"parameters": {
+														"interval-seconds": "0.05"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Arm",
+													"sid": 462026732971206,
+													"parameters": {
+														"object": "Bullet",
+														"layer": "Self.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Arm",
+													"sid": 734563109473210,
+													"parameters": {
+														"object": "FireGFX",
+														"layer": "Self.LayerName",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "shake",
+													"objectClass": "Camera",
+													"sid": 852687814886605,
+													"behaviorType": "ScrollTo",
+													"parameters": {
+														"magnitude": "0.3",
+														"duration": "0.1",
+														"mode": "reducing-magnitude"
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "Bullet",
+													"sid": 882498759933951,
+													"parameters": {
+														"angle": "Self.Angle+random(-5,5)"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterController",
+													"sid": 906253144780112,
+													"parameters": {
+														"instance-variable": "recoil",
+														"value": "7"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterController",
+													"sid": 532029683318381,
+													"parameters": {
+														"instance-variable": "angular_recoil",
+														"value": "13"
+													}
+												}
+											],
+											"sid": 166035576751919
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 278734985060329
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-animation-finished",
+									"objectClass": "FireGFX",
+									"sid": 102013673509304
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "FireGFX",
+									"sid": 443633192027059
+								}
+							],
+							"sid": 706875441926484
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 546709446484787
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 930779166896451,
+									"parameters": {
+										"instance-variable": "velocity",
+										"value": "-CharacterController.recoil * (1 - abs(RelativeAngle)/90)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 266953575091695,
+									"parameters": {
+										"instance-variable": "recoil",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 467743180783220,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 164863062079623,
+											"parameters": {
+												"first-value": "abs(CharacterController.velocity)",
+												"comparison": 4,
+												"second-value": "0.5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 988875725223642,
+											"parameters": {
+												"instance-variable": "angular_velocity",
+												"value": "10 * -sign(CharacterController.velocity) * CharacterController.angular_recoil * RelativeAngle / 90"
+											}
+										}
+									],
+									"sid": 277549001187299
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 420238186038349
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 535367153579539,
+											"parameters": {
+												"instance-variable": "angular_velocity",
+												"value": "10 * CharacterController.angular_recoil * RelativeAngle / 90"
+											}
+										}
+									],
+									"sid": 609041276114615
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 815131831537952,
+											"parameters": {
+												"instance-variable": "angular_recoil",
+												"value": "0"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 792491379096249,
+											"parameters": {
+												"type": "log",
+												"message": "sign(CharacterController.velocity)"
+											}
+										}
+									],
+									"sid": 696237982031941
+								}
+							]
+						}
+					],
+					"sid": 944309818635467
 				}
 			],
 			"sid": 580877694580090
@@ -2194,388 +2717,6 @@
 				}
 			],
 			"sid": 388370106984648
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "SHOOTING",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 784834705068393,
-							"parameters": {
-								"instance-variable": "is_aiming"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 921035285732154,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-click",
-									"objectClass": "Mouse",
-									"sid": 525841452316691,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Arm",
-									"sid": 215584385943114,
-									"parameters": {
-										"animation": "\"Pistol\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Arm",
-									"sid": 897493361853600,
-									"parameters": {
-										"object": "Bullet",
-										"layer": "Self.LayerName",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Arm",
-									"sid": 612591352480067,
-									"parameters": {
-										"object": "FireGFX",
-										"layer": "Self.LayerName",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Camera",
-									"sid": 709849827924804,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "0.52",
-										"duration": "0.1",
-										"mode": "reducing-magnitude"
-									}
-								}
-							],
-							"sid": 341499302060898
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-click",
-									"objectClass": "Mouse",
-									"sid": 188200300706727,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Arm",
-									"sid": 780057628121069,
-									"parameters": {
-										"animation": "\"Shotgun\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "shake",
-									"objectClass": "Camera",
-									"sid": 510130226682991,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "4",
-										"duration": "0.1",
-										"mode": "reducing-magnitude"
-									}
-								}
-							],
-							"sid": 832385895934697,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "repeat",
-											"objectClass": "System",
-											"sid": 671846350199112,
-											"parameters": {
-												"count": "5"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Arm",
-											"sid": 826583380464738,
-											"parameters": {
-												"object": "Bullet",
-												"layer": "Self.LayerName",
-												"image-point": "1",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Arm",
-											"sid": 352116001536692,
-											"parameters": {
-												"object": "FireGFX",
-												"layer": "Self.LayerName",
-												"image-point": "1",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Bullet",
-											"sid": 703050557588057,
-											"parameters": {
-												"angle": "Self.Angle+random(-20,20)"
-											}
-										}
-									],
-									"sid": 354780463989398
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "CharacterController",
-											"sid": 521652511897964,
-											"parameters": {
-												"instance-variable": "velocity",
-												"value": "-20"
-											}
-										}
-									],
-									"sid": 826287865085423
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Arm",
-									"sid": 534514962971125,
-									"parameters": {
-										"animation": "\"Smg\""
-									}
-								},
-								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 987991887068376,
-									"parameters": {
-										"mouse-button": "left"
-									}
-								},
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 756203738189350,
-									"parameters": {
-										"interval-seconds": "0.1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Arm",
-									"sid": 987805390552642,
-									"parameters": {
-										"object": "Bullet",
-										"layer": "Self.LayerName",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Arm",
-									"sid": 910922373208637,
-									"parameters": {
-										"object": "FireGFX",
-										"layer": "Self.LayerName",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Camera",
-									"sid": 712858909733510,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "0.3",
-										"duration": "0.1",
-										"mode": "reducing-magnitude"
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "Bullet",
-									"sid": 382090452430354,
-									"parameters": {
-										"angle": "Self.Angle+random(-5,5)"
-									}
-								}
-							],
-							"sid": 296282749681405
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Arm",
-									"sid": 948236315084802,
-									"parameters": {
-										"animation": "\"Gatling\""
-									}
-								},
-								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 832428638170920,
-									"parameters": {
-										"mouse-button": "left"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 834167128360215,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "every-x-seconds",
-											"objectClass": "System",
-											"sid": 212707508689627,
-											"parameters": {
-												"interval-seconds": "0.05"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Arm",
-											"sid": 833197307150276,
-											"parameters": {
-												"object": "Bullet",
-												"layer": "Self.LayerName",
-												"image-point": "1",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Arm",
-											"sid": 507209508430746,
-											"parameters": {
-												"object": "FireGFX",
-												"layer": "Self.LayerName",
-												"image-point": "1",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "shake",
-											"objectClass": "Camera",
-											"sid": 815038356224427,
-											"behaviorType": "ScrollTo",
-											"parameters": {
-												"magnitude": "0.3",
-												"duration": "0.1",
-												"mode": "reducing-magnitude"
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Bullet",
-											"sid": 350005097966964,
-											"parameters": {
-												"angle": "Self.Angle+random(-5,5)"
-											}
-										}
-									],
-									"sid": 593813845188572
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "CharacterController",
-											"sid": 753100426301899,
-											"parameters": {
-												"instance-variable": "velocity",
-												"value": "-2"
-											}
-										}
-									],
-									"sid": 526916329693196
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-any-animation-finished",
-							"objectClass": "FireGFX",
-							"sid": 698718362346083
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "FireGFX",
-							"sid": 194783292992272
-						}
-					],
-					"sid": 215449426417592
-				}
-			],
-			"sid": 414232930952892
 		},
 		{
 			"eventType": "group",
