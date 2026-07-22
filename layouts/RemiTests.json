@@ -1249,85 +1249,6 @@
 					}
 				},
 				{
-					"type": "Mike",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 667939,
-					"sid": 861756655529320,
-					"tags": "",
-					"instanceVariables": {
-						"spottedPlayer": false,
-						"health": 100,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false
-					},
-					"behaviors": {
-						"LineOfSight": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 80,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 3,
-								"cell-border": -1,
-								"obstacles": "solids",
-								"max-speed": 20,
-								"acceleration": 20,
-								"deceleration": 600,
-								"rotate-speed": 100,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
-								"enabled": true
-							}
-						},
-						"LineOfSight2": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						}
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 204.19610595703125,
-						"y": 76.1323471069336,
-						"width": 32,
-						"height": 32,
-						"originX": 0.4375,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 3.0960283259173713
-					}
-				},
-				{
 					"type": "CharacterController",
 					"properties": {
 						"initially-visible": false,
@@ -1344,8 +1265,11 @@
 						"invulnerability_timer": 0,
 						"direction": 0,
 						"velocity": 0,
+						"angular_velocity": 0,
 						"wheel_ticks": 0,
 						"previous_wheel_ticks": 0,
+						"rotate_ticks": 0,
+						"previous_rotate_ticks": 0,
 						"wheels_blood_level": 0,
 						"is_aiming": false,
 						"is_dead": false,

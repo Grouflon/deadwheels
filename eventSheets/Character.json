@@ -92,6 +92,36 @@
 			"sid": 896596984706275
 		},
 		{
+			"eventType": "variable",
+			"name": "angular_impulse",
+			"type": "number",
+			"initialValue": "180",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 758955912645002
+		},
+		{
+			"eventType": "variable",
+			"name": "angular_deceleration",
+			"type": "number",
+			"initialValue": "800",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 597292066995612
+		},
+		{
+			"eventType": "variable",
+			"name": "max_angular_velocity",
+			"type": "number",
+			"initialValue": "700",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 151107977665779
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "INIT",
@@ -419,6 +449,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 448668352371944,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								},
+								{
 									"id": "compare-two-values",
 									"objectClass": "System",
 									"sid": 630759268343859,
@@ -481,6 +519,10 @@
 					"sid": 638308355939547
 				},
 				{
+					"eventType": "comment",
+					"text": "Context max speed"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -528,6 +570,10 @@
 					"sid": 869596880407512
 				},
 				{
+					"eventType": "comment",
+					"text": "Read Input"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -552,6 +598,7 @@
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "CharacterController",
 							"sid": 144505034361043,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "is_in_chair"
 							}
@@ -609,6 +656,58 @@
 								}
 							],
 							"sid": 681388340636709
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 140842297936659,
+									"parameters": {
+										"mouse-button": "right",
+										"click-type": "clicked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 257562811186364,
+									"parameters": {
+										"instance-variable": "rotate_ticks",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 889824999542004
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 492368175359642,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "CharacterController",
+									"sid": 537127644783359,
+									"parameters": {
+										"instance-variable": "rotate_ticks",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 102932354508339
 						},
 						{
 							"eventType": "block",
@@ -693,55 +792,215 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 378492445545858,
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 625361055228637,
 											"parameters": {
-												"key": 65
+												"interval-seconds": "0.1"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 355228767280108,
+									"children": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "CharacterController",
-											"sid": 488034272968349,
-											"parameters": {
-												"instance-variable": "direction",
-												"value": "-Character_Rotation * dt"
-											}
-										}
-									],
-									"sid": 773835935709570
-								},
-								{
-									"eventType": "block",
-									"conditions": [
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 696558416721165,
+													"parameters": {
+														"key": 65
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 795351151724199,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "direction",
+														"value": "-Character_Rotation * dt"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 357055240333838,
+													"parameters": {
+														"instance-variable": "rotate_ticks",
+														"value": "-0.8"
+													}
+												}
+											],
+											"sid": 223817557000501
+										},
 										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 904790952526063,
-											"parameters": {
-												"key": 68
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 547099018624174,
+													"parameters": {
+														"key": 68
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 981010392431417,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "direction",
+														"value": "Character_Rotation * dt"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 487908434846589,
+													"parameters": {
+														"instance-variable": "rotate_ticks",
+														"value": "0.8"
+													}
+												}
+											],
+											"sid": 824481149608973
 										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "CharacterController",
-											"sid": 133957889029002,
-											"parameters": {
-												"instance-variable": "direction",
-												"value": "Character_Rotation * dt"
-											}
-										}
-									],
-									"sid": 473521291266788
+									]
 								}
 							]
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Rotation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 519285238905158
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 698168530674713,
+							"parameters": {
+								"instance-variable": "angular_velocity",
+								"value": "CharacterController.rotate_ticks * angular_impulse"
+							}
+						}
+					],
+					"sid": 897347227705401
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 825785554740593,
+							"parameters": {
+								"first-value": "abs(CharacterController.angular_velocity)",
+								"comparison": 5,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 878457173049261,
+							"parameters": {
+								"instance-variable": "angular_velocity",
+								"value": "-sign(CharacterController.angular_velocity) * angular_deceleration * dt"
+							}
+						}
+					],
+					"sid": 638060512608460
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 749670258566125
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 299204520862743,
+							"parameters": {
+								"instance-variable": "angular_velocity",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 393306965802412
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 209835388993683
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 171033420882374,
+							"parameters": {
+								"instance-variable": "angular_velocity",
+								"value": "sign(CharacterController.angular_velocity) * min(abs(CharacterController.angular_velocity), max_angular_velocity)"
+							}
+						}
+					],
+					"sid": 662602535942103
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 479187465307365
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CharacterController",
+							"sid": 111797733113050,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "CharacterController.angular_velocity * dt"
+							}
+						}
+					],
+					"sid": 553319797701512
+				},
+				{
+					"eventType": "comment",
+					"text": "Movement"
 				},
 				{
 					"eventType": "block",
@@ -809,7 +1068,7 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "This will invert angle of motion if negative"
+					"text": "Set Custom overall speed will invert angle of motion if negative. That's why we must always set angle of motion to the correct value after calling it"
 				},
 				{
 					"eventType": "block",
@@ -959,91 +1218,6 @@
 						}
 					],
 					"sid": 262678815578571
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 704175091183194,
-							"parameters": {
-								"instance-variable": "is_aiming"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 221417034837530,
-							"parameters": {
-								"instance-variable": "is_dead"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 819847647977047,
-							"parameters": {
-								"instance-variable": "is_in_chair"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 190785606105091,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 446170236086058,
-									"parameters": {
-										"mouse-button": "right"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "CharacterController",
-									"sid": 122836283778938,
-									"parameters": {
-										"instance-variable": "direction",
-										"value": "Character_Rotation * dt"
-									}
-								}
-							],
-							"sid": 373391484870291
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 398961211283500,
-									"parameters": {
-										"mouse-button": "left"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "CharacterController",
-									"sid": 928363663964912,
-									"parameters": {
-										"instance-variable": "direction",
-										"value": "-Character_Rotation * dt"
-									}
-								}
-							],
-							"sid": 143203237913690
-						}
-					]
 				}
 			],
 			"sid": 289162197964312
@@ -1792,9 +1966,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 197357431609870,
+									"sid": 434091511015262,
 									"parameters": {
-										"first-value": "CharacterController.wheel_ticks",
+										"first-value": "abs(CharacterController.wheel_ticks)",
 										"comparison": 4,
 										"second-value": "0"
 									}
@@ -1825,11 +1999,13 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 657538053214169,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 116192839053740,
 									"parameters": {
-										"mouse-button": "left"
+										"first-value": "CharacterController.rotate_ticks",
+										"comparison": 2,
+										"second-value": "0"
 									}
 								}
 							],
@@ -1855,11 +2031,13 @@
 									"sid": 668397732761477
 								},
 								{
-									"id": "mouse-button-is-down",
-									"objectClass": "Mouse",
-									"sid": 368945060834487,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 387583451602354,
 									"parameters": {
-										"mouse-button": "right"
+										"first-value": "CharacterController.rotate_ticks",
+										"comparison": 4,
+										"second-value": "0"
 									}
 								}
 							],
@@ -1880,42 +2058,27 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 510077078186321
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "CharacterSprite",
-									"sid": 567655463891287,
-									"parameters": {
-										"animation": "\"Both\""
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "CharacterSprite",
-									"sid": 426652929107212,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 462122609856589
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "on-animation-finished",
 									"objectClass": "CharacterSprite",
 									"sid": 157546327439010,
 									"parameters": {
 										"animation": "\"Both\""
+									}
+								},
+								{
+									"id": "on-animation-finished",
+									"objectClass": "CharacterSprite",
+									"sid": 921132505083582,
+									"parameters": {
+										"animation": "\"Left\""
+									}
+								},
+								{
+									"id": "on-animation-finished",
+									"objectClass": "CharacterSprite",
+									"sid": 369661815829801,
+									"parameters": {
+										"animation": "\"Right\""
 									}
 								}
 							],
@@ -1930,7 +2093,8 @@
 									}
 								}
 							],
-							"sid": 509942650196439
+							"sid": 509942650196439,
+							"isOrBlock": true
 						}
 					]
 				},
@@ -2580,6 +2744,24 @@
 							"sid": 975350208583129,
 							"parameters": {
 								"instance-variable": "wheel_ticks",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 834603499415055,
+							"parameters": {
+								"instance-variable": "previous_rotate_ticks",
+								"value": "CharacterController.rotate_ticks"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 645720625255521,
+							"parameters": {
+								"instance-variable": "rotate_ticks",
 								"value": "0"
 							}
 						}
