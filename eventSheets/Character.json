@@ -261,7 +261,7 @@
 									"objectClass": "CharacterController",
 									"sid": 132853475755767,
 									"parameters": {
-										"instance-variable": "stored_wheel_ticks",
+										"instance-variable": "wheel_ticks",
 										"value": "1"
 									}
 								}
@@ -286,12 +286,143 @@
 									"objectClass": "CharacterController",
 									"sid": 283862205825003,
 									"parameters": {
-										"instance-variable": "stored_wheel_ticks",
+										"instance-variable": "wheel_ticks",
 										"value": "-1"
 									}
 								}
 							],
 							"sid": 681388340636709
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-in-preview",
+									"objectClass": "System",
+									"sid": 513638489836683
+								}
+							],
+							"actions": [],
+							"sid": 222788254659721,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 281246903021187,
+											"parameters": {
+												"interval-seconds": "0.05"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 483808462131944,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 890893639275576,
+													"parameters": {
+														"key": 87
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 310062488165454,
+													"parameters": {
+														"instance-variable": "wheel_ticks",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 574746064905235
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 484794038201359,
+													"parameters": {
+														"key": 83
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "CharacterController",
+													"sid": 484572159245597,
+													"parameters": {
+														"instance-variable": "wheel_ticks",
+														"value": "-1"
+													}
+												}
+											],
+											"sid": 257603941514121
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 378492445545858,
+											"parameters": {
+												"key": 65
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 488034272968349,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "-Character_Rotation * dt"
+											}
+										}
+									],
+									"sid": 773835935709570
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 904790952526063,
+											"parameters": {
+												"key": 68
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 133957889029002,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "Character_Rotation * dt"
+											}
+										}
+									],
+									"sid": 473521291266788
+								}
+							]
 						}
 					]
 				},
@@ -303,7 +434,7 @@
 							"objectClass": "CharacterController",
 							"sid": 266387808480658,
 							"parameters": {
-								"instance-variable": "stored_wheel_ticks",
+								"instance-variable": "wheel_ticks",
 								"comparison": 4,
 								"value": "0"
 							}
@@ -316,7 +447,7 @@
 							"sid": 861805979548430,
 							"parameters": {
 								"instance-variable": "velocity",
-								"value": "CharacterController.stored_wheel_ticks * Character_Acceleration * dt"
+								"value": "CharacterController.wheel_ticks * Character_Acceleration * dt"
 							}
 						}
 					],
@@ -330,7 +461,7 @@
 							"objectClass": "CharacterController",
 							"sid": 634565222715215,
 							"parameters": {
-								"instance-variable": "stored_wheel_ticks",
+								"instance-variable": "wheel_ticks",
 								"comparison": 2,
 								"value": "0"
 							}
@@ -344,7 +475,7 @@
 							"disabled": true,
 							"parameters": {
 								"type": "log",
-								"message": "CharacterController.stored_wheel_ticks"
+								"message": "CharacterController.wheel_ticks"
 							}
 						},
 						{
@@ -353,7 +484,7 @@
 							"sid": 855915747949367,
 							"parameters": {
 								"instance-variable": "velocity",
-								"value": "CharacterController.stored_wheel_ticks * Character_Brake * dt"
+								"value": "CharacterController.wheel_ticks * Character_Brake * dt"
 							}
 						}
 					],
@@ -565,15 +696,6 @@
 									"parameters": {
 										"instance-variable": "direction",
 										"value": "Character_Rotation * dt"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 744487216936299,
-									"parameters": {
-										"type": "log",
-										"message": "\"aaaa\""
 									}
 								}
 							],
@@ -1504,11 +1626,32 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-mouse-wheel",
-									"objectClass": "Mouse",
-									"sid": 709522165192351,
+									"id": "is-animation-playing",
+									"objectClass": "CharacterSprite",
+									"sid": 375715584002714,
 									"parameters": {
-										"direction": "any"
+										"animation": "\"Both\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 505950735434598,
+									"parameters": {
+										"first-value": "CharacterController.previous_wheel_ticks",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 197357431609870,
+									"parameters": {
+										"first-value": "CharacterController.wheel_ticks",
+										"comparison": 4,
+										"second-value": "0"
 									}
 								}
 							],
@@ -2280,9 +2423,18 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "CharacterController",
+							"sid": 315232896087031,
+							"parameters": {
+								"instance-variable": "previous_wheel_ticks",
+								"value": "CharacterController.wheel_ticks"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
 							"sid": 975350208583129,
 							"parameters": {
-								"instance-variable": "stored_wheel_ticks",
+								"instance-variable": "wheel_ticks",
 								"value": "0"
 							}
 						}
