@@ -230,6 +230,35 @@
 					"sid": 548705811378517
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Sprite",
+					"sid": 712779524816173
+				}
+			],
+			"actions": [
+				{
+					"id": "play-at-object-by-name",
+					"objectClass": "Audio",
+					"sid": 754396801577402,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "Sprite.soundName",
+						"loop": "looping",
+						"volume": "0+Sprite.dbOffset",
+						"object": "Sprite",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 810222233944750
 		}
 	],
 	"sid": 128376728907050

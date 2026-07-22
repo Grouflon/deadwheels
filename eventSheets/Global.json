@@ -360,6 +360,36 @@
 					],
 					"sid": 278271934012486,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 288968319859420,
+							"parameters": {
+								"key": 84
+							}
+						},
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 227697557931118
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "CharacterController",
+							"sid": 287476295414224,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 617971713858823
 				}
 			],
 			"sid": 345752545051477
