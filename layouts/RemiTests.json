@@ -1264,7 +1264,8 @@
 						"spottedPlayer": false,
 						"health": 100,
 						"moveToX": 0,
-						"moveToY": 0
+						"moveToY": 0,
+						"isAttacking": false
 					},
 					"behaviors": {
 						"LineOfSight": {
@@ -1288,6 +1289,14 @@
 								"diagonals": true,
 								"direct-movement": "to-destination",
 								"enabled": true
+							}
+						},
+						"LineOfSight2": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
 							}
 						}
 					},

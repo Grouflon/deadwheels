@@ -128,6 +128,15 @@
 					"objectClass": "Zombies",
 					"sid": 762187618113655,
 					"behaviorType": "Pathfinding"
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 159904875068966,
+					"parameters": {
+						"instance-variable": "isAttacking"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -385,47 +394,46 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-overlapping-another-object",
+					"id": "has-los-to-object",
 					"objectClass": "Zombies",
-					"sid": 243181052660278,
+					"sid": 341926631441004,
+					"behaviorType": "LineOfSight2",
 					"parameters": {
-						"object": "CharacterController"
+						"object": "CharacterController",
+						"image-point": "0"
 					}
 				},
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "CharacterController",
-					"sid": 589202843681879,
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 507731168314993,
 					"parameters": {
-						"instance-variable": "invulnerability_timer",
-						"comparison": 3,
-						"value": "0"
-					}
+						"instance-variable": "isAttacking"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
 				{
-					"id": "add-to-instvar",
-					"objectClass": "CharacterController",
-					"sid": 209155996325965,
+					"id": "set-boolean-instvar",
+					"objectClass": "Zombies",
+					"sid": 703531484141999,
 					"parameters": {
-						"instance-variable": "health",
-						"value": "-10"
+						"instance-variable": "isAttacking",
+						"value": "true"
 					}
 				},
 				{
-					"customAction": "OnHit",
-					"objectClass": "CharacterController",
-					"sid": 702760328227382
+					"id": "set-animation",
+					"objectClass": "Zombies",
+					"sid": 761055410158876,
+					"parameters": {
+						"animation": "\"Atk\"",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 261285430868497
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [],
-			"sid": 568377545206734
 		},
 		{
 			"eventType": "comment",
@@ -437,7 +445,7 @@
 				{
 					"id": "has-los-to-object",
 					"objectClass": "Zombies",
-					"sid": 392247734982038,
+					"sid": 171334354066108,
 					"behaviorType": "LineOfSight",
 					"parameters": {
 						"object": "CharacterController",
@@ -449,14 +457,218 @@
 				{
 					"id": "set-boolean-instvar",
 					"objectClass": "Zombies",
-					"sid": 408230199534914,
+					"sid": 676620778599451,
 					"parameters": {
 						"instance-variable": "spottedPlayer",
 						"value": "true"
 					}
 				}
 			],
-			"sid": 597433335963852
+			"sid": 131609268338401
+		},
+		{
+			"eventType": "comment",
+			"text": "Attack"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "Zombies",
+					"sid": 425568301710731,
+					"parameters": {
+						"animation": "\"Atk\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Zombies",
+					"sid": 234187990572615,
+					"parameters": {
+						"instance-variable": "isAttacking",
+						"value": "false"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Zombies",
+					"sid": 863257590057220,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"sid": 478482066594378
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Zombies",
+					"sid": 110039291495945,
+					"parameters": {
+						"animation": "\"Atk\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Zombies",
+					"sid": 155233377586795,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 219392365636199
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Zombies",
+					"sid": 603525968104521,
+					"parameters": {
+						"object": "ZombiesHitbox",
+						"layer": "Self.LayerName",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 274793918371644
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "CharacterController",
+					"sid": 700525062959512,
+					"parameters": {
+						"object": "ZombiesHitbox"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterController",
+					"sid": 208695483764015,
+					"parameters": {
+						"instance-variable": "invulnerability_timer",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "CharacterController",
+					"sid": 248190978358587,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "-10"
+					}
+				},
+				{
+					"customAction": "OnHit",
+					"objectClass": "CharacterController",
+					"sid": 548994378517885
+				}
+			],
+			"sid": 827011764177462
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 254012297405601,
+					"parameters": {
+						"instance-variable": "isAttacking"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Zombies",
+					"sid": 856815503165386,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"sid": 340193365965128
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 970675540998163,
+					"parameters": {
+						"instance-variable": "isAttacking"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 409695887743927,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-along-path",
+							"objectClass": "Zombies",
+							"sid": 344574606246777,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Zombies",
+							"sid": 589850525756239,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 592471343224663
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-along-path",
+							"objectClass": "Zombies",
+							"sid": 510719633655716,
+							"behaviorType": "Pathfinding",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Zombies",
+							"sid": 560044386421836,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 512831606305027
+				}
+			]
 		}
 	],
 	"sid": 810694807837553
