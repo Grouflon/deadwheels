@@ -1,0 +1,405 @@
+{
+	"name": "Chair",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "collision_damage_velocity_threshold",
+			"type": "number",
+			"initialValue": "80",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 322516997990235
+		},
+		{
+			"eventType": "variable",
+			"name": "collision_damage",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 727115674497063
+		},
+		{
+			"eventType": "variable",
+			"name": "max_blood_level",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 389517649766084
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "ChairController",
+					"sid": 988336234194591
+				}
+			],
+			"actions": [
+				{
+					"id": "add-child",
+					"objectClass": "ChairController",
+					"sid": 436052847835803,
+					"parameters": {
+						"child": "ChairSprite",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-z-elevation": true,
+						"transform-w": false,
+						"transform-h": false,
+						"transform-d": false,
+						"transform-a": false,
+						"transform-o": true,
+						"transform-visibility": false,
+						"destroy-with-parent": true
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "ChairController",
+					"sid": 586821291443807,
+					"parameters": {
+						"instance-variable": "read_input",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 973098979230283
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 294797201592849
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "ChairSprite",
+					"sid": 650380279375766,
+					"parameters": {
+						"angle": "ChairController.direction"
+					}
+				}
+			],
+			"sid": 223756107724982
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "ChairController",
+					"sid": 769170699733280,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 464355320995215,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 263533509100534,
+							"parameters": {
+								"first-value": "abs(ChairController.velocity)",
+								"comparison": 5,
+								"second-value": "collision_damage_velocity_threshold"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Zombies",
+							"sid": 964055041834298,
+							"parameters": {
+								"instance-variable": "health",
+								"value": "-collision_damage"
+							}
+						}
+					],
+					"sid": 995680540388769
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 593778185768377,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "ChairController.velocity * 0.2"
+							}
+						}
+					],
+					"sid": 816848738662993
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "ChairController",
+					"sid": 421908914115481,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "ChairController",
+					"sid": 772041033533425,
+					"parameters": {
+						"instance-variable": "max_velocity_multiplier",
+						"value": "0.2"
+					}
+				}
+			],
+			"sid": 737732811917050
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 382213073818207
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "ChairController",
+					"sid": 944486659300609,
+					"parameters": {
+						"instance-variable": "max_velocity_multiplier",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 587267652117449
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "WHEELS_BLOOD",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "ChairController",
+							"sid": 978151698020673,
+							"parameters": {
+								"object": "Corpse"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 674023138532887,
+							"parameters": {
+								"instance-variable": "wheels_blood_level",
+								"value": "max_blood_level"
+							}
+						}
+					],
+					"sid": 652382973058662
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ChairController",
+							"sid": 560283793631462,
+							"parameters": {
+								"instance-variable": "wheels_blood_level",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 844568271256065,
+							"parameters": {
+								"first-value": "abs(ChairController.velocity)",
+								"comparison": 4,
+								"second-value": "0.1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 621005066952841,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 800495971285355
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ChairController",
+									"sid": 417344565560993,
+									"parameters": {
+										"instance-variable": "wheels_blood_level",
+										"value": "-abs(ChairController.velocity) * dt"
+									}
+								}
+							],
+							"sid": 150443095038301
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 406923411787148,
+									"disabled": true,
+									"parameters": {
+										"interval-seconds": "0.1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ChairSprite",
+									"sid": 237793987771941,
+									"parameters": {
+										"object": "TireMark",
+										"layer": "0",
+										"image-point": "\"left_tire\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "TireMark",
+									"sid": 257822632687751,
+									"parameters": {
+										"where": "behind",
+										"object": "ChairSprite"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "TireMark",
+									"sid": 999630566443437,
+									"parameters": {
+										"opacity": "(ChairController.wheels_blood_level / max_blood_level) * 100"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ChairSprite",
+									"sid": 475518898660071,
+									"parameters": {
+										"object": "TireMark",
+										"layer": "0",
+										"image-point": "\"right_tire\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "TireMark",
+									"sid": 655576590783044,
+									"parameters": {
+										"where": "behind",
+										"object": "ChairSprite"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "TireMark",
+									"sid": 716085966212542,
+									"parameters": {
+										"opacity": "(ChairController.wheels_blood_level / max_blood_level) * 100"
+									}
+								}
+							],
+							"sid": 120933500203391
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 243895932578299
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 320327627442081,
+							"parameters": {
+								"first-value": "TireMark.Count",
+								"comparison": 4,
+								"second-value": "1000"
+							}
+						},
+						{
+							"id": "pick-by-highest-lowest-value",
+							"objectClass": "System",
+							"sid": 379257292610611,
+							"parameters": {
+								"object": "TireMark",
+								"which": "lowest",
+								"expression": "TireMark.IID",
+								"pick-all-tied": false
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TireMark",
+							"sid": 393776767921719
+						}
+					],
+					"sid": 124110911821378
+				}
+			],
+			"sid": 949924596718864
+		}
+	],
+	"sid": 234593370232844
+}

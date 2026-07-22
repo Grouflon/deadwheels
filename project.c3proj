@@ -85,13 +85,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "EightDir",
-			"name": "8 Direction",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "Fade",
 			"name": "Fade",
 			"author": "Scirra",
@@ -162,6 +155,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "hardlight",
+			"name": "Hard light",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "screen",
 			"name": "Screen",
 			"author": "Scirra",
@@ -176,7 +176,9 @@
 			"Darkness",
 			"ZombiesHitbox",
 			"Floor_Tiles2",
-			"Sprite"
+			"Sprite",
+			"Dummy",
+			"Ray"
 		],
 		"subfolders": [
 			{
@@ -187,7 +189,8 @@
 					"ChairSprite",
 					"Legs",
 					"Arm",
-					"CrawlingSprite"
+					"CrawlingSprite",
+					"ChairController"
 				],
 				"subfolders": [],
 				"name": "Character"
@@ -212,7 +215,8 @@
 					"MapReference",
 					"InsideWallVent",
 					"InsideWallDoorFrame",
-					"InsideWallElevator"
+					"InsideWallElevator",
+					"InsideWallWindow"
 				],
 				"subfolders": [],
 				"name": "WorldExample"
@@ -282,7 +286,6 @@
 		{
 			"members": [
 				"Arm",
-				"ChairSprite",
 				"CharacterController",
 				"CharacterSprite",
 				"CrawlingSprite",
@@ -294,13 +297,20 @@
 				"HealthBarBackground",
 				"HealthBarForeground"
 			]
+		},
+		{
+			"members": [
+				"ChairController",
+				"ChairSprite"
+			]
 		}
 	],
 	"families": {
 		"items": [
 			"Buildings",
 			"Zombies",
-			"Furniture"
+			"Furniture",
+			"Controllers"
 		],
 		"subfolders": []
 	},
@@ -322,7 +332,9 @@
 			"Character",
 			"Camera",
 			"UI",
-			"Audio"
+			"Audio",
+			"Chair",
+			"Controller"
 		],
 		"subfolders": []
 	},
