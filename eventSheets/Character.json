@@ -389,7 +389,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "AIM / ARM / LEGS",
+			"title": "AIM / ARM / LEGS / SHOOTING",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -795,6 +795,16 @@
 												"comparison": 0,
 												"value": "1"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 136486925142163,
+											"parameters": {
+												"variable": "gun_ammo",
+												"comparison": 4,
+												"value": "0"
+											}
 										}
 									],
 									"actions": [
@@ -846,6 +856,15 @@
 														"image-point": "1",
 														"create-hierarchy": false,
 														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 119987310769105,
+													"parameters": {
+														"variable": "gun_ammo",
+														"value": "-1"
 													}
 												},
 												{
@@ -906,6 +925,16 @@
 												"comparison": 0,
 												"value": "2"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 920145254124398,
+											"parameters": {
+												"variable": "shotgun_ammo",
+												"comparison": 4,
+												"value": "0"
+											}
 										}
 									],
 									"actions": [
@@ -962,6 +991,15 @@
 													"parameters": {
 														"instance-variable": "angular_recoil",
 														"value": "50"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 444924754203120,
+													"parameters": {
+														"variable": "shotgun_ammo",
+														"value": "-1"
 													}
 												},
 												{
@@ -1043,6 +1081,16 @@
 												"comparison": 0,
 												"value": "3"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 818599098064150,
+											"parameters": {
+												"variable": "gun_ammo",
+												"comparison": 4,
+												"value": "0"
+											}
 										}
 									],
 									"actions": [
@@ -1089,6 +1137,15 @@
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 504713918691099,
+													"parameters": {
+														"variable": "gun_ammo",
+														"value": "-1"
 													}
 												},
 												{
@@ -1169,6 +1226,16 @@
 												"comparison": 0,
 												"value": "4"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 653082161633327,
+											"parameters": {
+												"variable": "gatling_ammo",
+												"comparison": 4,
+												"value": "0"
+											}
 										}
 									],
 									"actions": [
@@ -1234,6 +1301,15 @@
 																"image-point": "1",
 																"create-hierarchy": false,
 																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 891373858305517,
+															"parameters": {
+																"variable": "gatling_ammo",
+																"value": "-1"
 															}
 														},
 														{
