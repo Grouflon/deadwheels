@@ -1762,6 +1762,57 @@
 				}
 			],
 			"sid": 650324388187545
+		},
+		{
+			"functionName": "dot",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 242818587490438
+				},
+				{
+					"name": "y1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 884529369402757
+				},
+				{
+					"name": "x2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 407088953114643
+				},
+				{
+					"name": "y2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 417519118822968
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 877108674423198,
+					"parameters": {
+						"value": "x1*x2 + y1*y2"
+					}
+				}
+			],
+			"sid": 264745073981096
 		}
 	],
 	"sid": 171422187705970
