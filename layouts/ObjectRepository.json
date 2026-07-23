@@ -231,7 +231,7 @@
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
-						"enable-collisions": true,
+						"enable-collisions": false,
 						"live-preview": false
 					},
 					"uid": 811054,
@@ -264,7 +264,7 @@
 						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
-						"enable-collisions": true,
+						"enable-collisions": false,
 						"live-preview": false
 					},
 					"uid": 867219,
@@ -320,8 +320,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 124.01070404052734,
-						"y": 31.119617462158203,
+						"x": 238.08165740966797,
+						"y": 75.40973663330078,
 						"width": 24,
 						"height": 24,
 						"originX": 0.5,
@@ -411,7 +411,7 @@
 				{
 					"type": "ZombiesHitbox",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -436,8 +436,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 128.09324645996094,
-						"y": 117.19561767578125,
+						"x": 52.57700729370117,
+						"y": 85.65086364746094,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
@@ -447,6 +447,185 @@
 							1,
 							1,
 							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "ChairController",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 163307,
+					"sid": 904668962446965,
+					"tags": "",
+					"instanceVariables": {
+						"acceleration": 500,
+						"brake": 300,
+						"deceleration": 30,
+						"max_velocity": 140,
+						"collision_velocity_multiplier": -0.4,
+						"angular_acceleration": 1800,
+						"angular_deceleration": 900,
+						"angular_buffer_time": 0.3,
+						"max_angular_velocity": 700,
+						"direction": 0,
+						"velocity": 0,
+						"angular_velocity": 0,
+						"wheel_ticks": 0,
+						"previous_wheel_ticks": 0,
+						"rotate_ticks": 0,
+						"previous_rotate_ticks": 0,
+						"collision_cooldown": 0,
+						"turn_left_cooldown": 0,
+						"turn_right_cooldown": 0,
+						"max_velocity_multiplier": 1,
+						"read_input": false,
+						"disabled": false,
+						"just_pushed": 0,
+						"just_rotated": 0,
+						"wheels_blood_level": 0
+					},
+					"behaviors": {
+						"Custom": {
+							"properties": {
+								"stepping-mode": "linear",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 164,
+						"y": 122,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "CharacterController",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 512441,
+					"sid": 333727125087087,
+					"tags": "",
+					"instanceVariables": {
+						"acceleration": 200,
+						"brake": 300,
+						"deceleration": 30,
+						"max_velocity": 30,
+						"collision_velocity_multiplier": -0.2,
+						"angular_acceleration": 1500,
+						"angular_deceleration": 700,
+						"angular_buffer_time": 0.2,
+						"max_angular_velocity": 400,
+						"direction": 0,
+						"velocity": 0,
+						"angular_velocity": 0,
+						"wheel_ticks": 0,
+						"previous_wheel_ticks": 0,
+						"rotate_ticks": 0,
+						"previous_rotate_ticks": 0,
+						"collision_cooldown": 0,
+						"turn_left_cooldown": 0,
+						"turn_right_cooldown": 0,
+						"max_velocity_multiplier": 1,
+						"read_input": true,
+						"disabled": false,
+						"just_pushed": 0,
+						"just_rotated": 0,
+						"health": 100,
+						"invulnerability_timer": 0,
+						"old_velocity": 0,
+						"old_angular_velocity": 0,
+						"old_wheel_ticks": 0,
+						"old_previous_wheel_ticks": 0,
+						"old_rotate_ticks": 0,
+						"old_previous_rotate_ticks": 0,
+						"is_aiming": false,
+						"is_dead": false,
+						"is_in_chair": true,
+						"recoil": 0,
+						"angular_recoil": 0
+					},
+					"behaviors": {
+						"Custom": {
+							"properties": {
+								"stepping-mode": "linear",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 193.0056610107422,
+						"y": 54.53348922729492,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "ChairSprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 398944,
+					"sid": 698683160105946,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 163.56170654296875,
+						"y": 142.33590698242188,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
 						],
 						"z": 0,
 						"angle": 0
@@ -475,8 +654,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 151.7321014404297,
-						"y": 36.21780776977539,
+						"x": 204.89866638183594,
+						"y": 54.87275314331055,
 						"width": 32,
 						"height": 10,
 						"originX": 0.09375,
@@ -514,8 +693,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 62.534847259521484,
-						"y": 58.335357666015625,
+						"x": 220.9744987487793,
+						"y": 106.08428192138672,
 						"width": 24,
 						"height": 24,
 						"originX": 0.5,

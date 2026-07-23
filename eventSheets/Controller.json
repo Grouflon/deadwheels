@@ -1,0 +1,1474 @@
+{
+	"name": "Controller",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CONTROLLER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "c_INIT",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [],
+					"sid": 276213269981553
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Controllers",
+							"sid": 612772064435301
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Controllers",
+							"sid": 446964118106988,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						}
+					],
+					"sid": 694229538160187
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Controllers",
+							"sid": 772131478316571,
+							"parameters": {
+								"instance-variable": "disabled"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 418933866117710,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "c_COLLISIONS",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Controllers",
+											"sid": 207526706307829,
+											"parameters": {
+												"object": "Buildings"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Controllers",
+											"sid": 571551710373373,
+											"parameters": {
+												"object": "Furniture"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 720053534443103,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 868898820465031,
+													"parameters": {
+														"instance-variable": "collision_cooldown",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 169308376067726,
+													"parameters": {
+														"instance-variable": "collision_cooldown",
+														"value": "0.1"
+													}
+												}
+											],
+											"sid": 932928490902197,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 792211291878217,
+															"parameters": {
+																"first-value": "Controllers.velocity",
+																"comparison": 5,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push-out-solid-at-angle",
+															"objectClass": "Controllers",
+															"sid": 973061687765972,
+															"behaviorType": "Custom",
+															"parameters": {
+																"angle": "Controllers.direction+180"
+															}
+														}
+													],
+													"sid": 335340392387892
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 224402009947193
+														}
+													],
+													"actions": [
+														{
+															"id": "push-out-solid-at-angle",
+															"objectClass": "Controllers",
+															"sid": 361787277524165,
+															"behaviorType": "Custom",
+															"parameters": {
+																"angle": "Controllers.direction"
+															}
+														}
+													],
+													"sid": 917100020832754
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Controllers",
+															"sid": 819832196023704,
+															"parameters": {
+																"instance-variable": "velocity",
+																"value": "Controllers.velocity * Controllers.collision_velocity_multiplier"
+															}
+														}
+													],
+													"sid": 768030101952157
+												}
+											]
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Controllers",
+											"sid": 392199880195003,
+											"parameters": {
+												"object": "Buildings"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Controllers",
+											"sid": 553960076161105,
+											"parameters": {
+												"object": "Furniture"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 900712208825218,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 905922126825285,
+													"parameters": {
+														"instance-variable": "collision_cooldown",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "push-out-solid",
+													"objectClass": "Controllers",
+													"sid": 284741898628258,
+													"behaviorType": "Custom",
+													"parameters": {
+														"direction": "nearest"
+													}
+												}
+											],
+											"sid": 414833670916269
+										}
+									],
+									"isOrBlock": true
+								}
+							],
+							"sid": 574382851640218
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "c_MOVEMENT",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Read Input"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 973045130411985
+										}
+									],
+									"actions": [],
+									"sid": 817817250244797,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 302374471105806,
+													"parameters": {
+														"instance-variable": "turn_left_cooldown",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 918920769865465,
+													"parameters": {
+														"instance-variable": "turn_left_cooldown",
+														"value": "-dt"
+													}
+												}
+											],
+											"sid": 179444238611522
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 699199782330281,
+													"parameters": {
+														"instance-variable": "turn_right_cooldown",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 276440711314362,
+													"parameters": {
+														"instance-variable": "turn_right_cooldown",
+														"value": "-dt"
+													}
+												}
+											],
+											"sid": 675388002630699
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Controllers",
+											"sid": 566534016907705,
+											"parameters": {
+												"instance-variable": "read_input"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 324180956387082,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-mouse-wheel",
+													"objectClass": "Mouse",
+													"sid": 152787423716157,
+													"parameters": {
+														"direction": "up"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 557775335919663,
+													"parameters": {
+														"instance-variable": "wheel_ticks",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 737986993130118
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-mouse-wheel",
+													"objectClass": "Mouse",
+													"sid": 274961949035005,
+													"parameters": {
+														"direction": "down"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 643280635258006,
+													"parameters": {
+														"instance-variable": "wheel_ticks",
+														"value": "-1"
+													}
+												}
+											],
+											"sid": 873354126576123
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-click",
+													"objectClass": "Mouse",
+													"sid": 802445780143634,
+													"parameters": {
+														"mouse-button": "right",
+														"click-type": "clicked"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 117243576560836,
+													"parameters": {
+														"instance-variable": "turn_right_cooldown",
+														"value": "Controllers.angular_buffer_time"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 544553850620658,
+													"parameters": {
+														"instance-variable": "rotate_ticks",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 183437903806607
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-click",
+													"objectClass": "Mouse",
+													"sid": 260398973850394,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 784779710381080,
+													"parameters": {
+														"instance-variable": "turn_left_cooldown",
+														"value": "Controllers.angular_buffer_time"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 845636838960603,
+													"parameters": {
+														"instance-variable": "rotate_ticks",
+														"value": "-1"
+													}
+												}
+											],
+											"sid": 111976129748846
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "mouse-button-is-down",
+													"objectClass": "Mouse",
+													"sid": 152066727425026,
+													"parameters": {
+														"mouse-button": "right"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 709068084705825,
+													"parameters": {
+														"instance-variable": "turn_right_cooldown",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 263966542275290,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "Controllers.angular_acceleration * dt"
+													}
+												}
+											],
+											"sid": 579263116581154
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "mouse-button-is-down",
+													"objectClass": "Mouse",
+													"sid": 603383793230126,
+													"parameters": {
+														"mouse-button": "left"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 270805616197194,
+													"parameters": {
+														"instance-variable": "turn_left_cooldown",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 425748220266550,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "-Controllers.angular_acceleration * dt"
+													}
+												}
+											],
+											"sid": 804335606340825
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-in-preview",
+													"objectClass": "System",
+													"sid": 307150039593972
+												}
+											],
+											"actions": [],
+											"sid": 557073361716390,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 312155722935731,
+															"parameters": {
+																"interval-seconds": "0.05"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 878435576934392,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 535718591081580,
+																	"parameters": {
+																		"key": 87
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Controllers",
+																	"sid": 969378459012368,
+																	"parameters": {
+																		"instance-variable": "wheel_ticks",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 638387242648782
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 670261441658162,
+																	"parameters": {
+																		"key": 83
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Controllers",
+																	"sid": 393733677506248,
+																	"parameters": {
+																		"instance-variable": "wheel_ticks",
+																		"value": "-1"
+																	}
+																}
+															],
+															"sid": 503403197851225
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 539113563477091,
+															"disabled": true,
+															"parameters": {
+																"interval-seconds": "0.03"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 615773124570853,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 191388009525190,
+																	"parameters": {
+																		"key": 65
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Controllers",
+																	"sid": 625176910324915,
+																	"parameters": {
+																		"instance-variable": "angular_velocity",
+																		"value": "0.8 * -Controllers.angular_acceleration * dt"
+																	}
+																},
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Controllers",
+																	"sid": 626473730568688,
+																	"parameters": {
+																		"instance-variable": "rotate_ticks",
+																		"value": "-0.8"
+																	}
+																}
+															],
+															"sid": 409992608950215
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 945340631525366,
+																	"parameters": {
+																		"key": 68
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Controllers",
+																	"sid": 491966276322587,
+																	"parameters": {
+																		"instance-variable": "angular_velocity",
+																		"value": "0.8 * Controllers.angular_acceleration * dt"
+																	}
+																},
+																{
+																	"id": "add-to-instvar",
+																	"objectClass": "Controllers",
+																	"sid": 704675305487708,
+																	"parameters": {
+																		"instance-variable": "rotate_ticks",
+																		"value": "0.8"
+																	}
+																}
+															],
+															"sid": 457473515773241
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Rotation"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 682395127502100,
+											"parameters": {
+												"object": "Controllers"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 846156910467506,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 812555214125196,
+													"parameters": {
+														"first-value": "abs(Controllers.angular_velocity)",
+														"comparison": 5,
+														"second-value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 996898316991357,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "-sign(Controllers.angular_velocity) * Controllers.angular_deceleration * dt"
+													}
+												}
+											],
+											"sid": 416728709372838
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 121989802569331
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 862492588324645,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 439683073552302
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 310264802407195
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 618318133327053,
+											"parameters": {
+												"instance-variable": "angular_velocity",
+												"value": "sign(Controllers.angular_velocity) * min(abs(Controllers.angular_velocity), Controllers.max_angular_velocity)"
+											}
+										}
+									],
+									"sid": 594165662527756
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 978754906793539
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 468178921309307,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "Controllers.angular_velocity * dt"
+											}
+										}
+									],
+									"sid": 637629053740874
+								},
+								{
+									"eventType": "comment",
+									"text": "Movement"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 542837928222906,
+											"parameters": {
+												"instance-variable": "wheel_ticks",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 958438447510559,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "Controllers.wheel_ticks * Controllers.acceleration * dt"
+											}
+										}
+									],
+									"sid": 377025262150299
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 305611074219107,
+											"parameters": {
+												"instance-variable": "wheel_ticks",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 114072958279266,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "Controllers.wheel_ticks * Controllers.brake * dt"
+											}
+										}
+									],
+									"sid": 638378151515293
+								},
+								{
+									"eventType": "comment",
+									"text": "Set Custom overall speed will invert angle of motion if negative. That's why we must always set angle of motion to the correct value after calling it"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 509675746873870
+										}
+									],
+									"actions": [
+										{
+											"id": "set-speed",
+											"objectClass": "Controllers",
+											"sid": 552145490475380,
+											"behaviorType": "Custom",
+											"parameters": {
+												"which": "overall",
+												"speed": "Controllers.velocity"
+											}
+										}
+									],
+									"sid": 247837680503653
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 783576254761626,
+											"parameters": {
+												"instance-variable": "velocity",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Controllers",
+											"sid": 785947884674846,
+											"behaviorType": "Custom",
+											"parameters": {
+												"angle": "Controllers.direction"
+											}
+										}
+									],
+									"sid": 797571010179145
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 962471644073091,
+											"parameters": {
+												"instance-variable": "velocity",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Controllers",
+											"sid": 843903936719029,
+											"behaviorType": "Custom",
+											"parameters": {
+												"angle": "Controllers.direction+180"
+											}
+										}
+									],
+									"sid": 806287838978114
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 585522774500506,
+											"parameters": {
+												"object": "Controllers"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 805020658640627,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 625639446745600,
+													"parameters": {
+														"first-value": "abs(Controllers.velocity)",
+														"comparison": 4,
+														"second-value": "0.8"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 841079360602759,
+													"parameters": {
+														"instance-variable": "velocity",
+														"value": "sign(Controllers.velocity) * -Controllers.deceleration * dt"
+													}
+												}
+											],
+											"sid": 757124116349940
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 604679306150655
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 964804424853935,
+													"parameters": {
+														"instance-variable": "velocity",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 771854559037873
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 469760756804986,
+													"parameters": {
+														"instance-variable": "velocity",
+														"value": "sign(Controllers.velocity) * min(abs(Controllers.velocity), Controllers.max_velocity * Controllers.max_velocity_multiplier)"
+													}
+												}
+											],
+											"sid": 664841026032352
+										}
+									]
+								}
+							],
+							"sid": 960482451906406
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "c_END_FRAME",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 807618014483223,
+									"parameters": {
+										"object": "Controllers"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 455695001415091,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Set animation helpers"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 287105694382343,
+											"parameters": {
+												"instance-variable": "just_pushed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 319100040889703,
+											"parameters": {
+												"instance-variable": "just_rotated",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 848490844748005
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 851295982643051,
+											"parameters": {
+												"first-value": "Controllers.previous_wheel_ticks",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 348796208520974,
+											"parameters": {
+												"first-value": "Controllers.wheel_ticks",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 113826054720200,
+											"parameters": {
+												"instance-variable": "just_pushed",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 342766280477984
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 881083058375483,
+											"parameters": {
+												"first-value": "Controllers.previous_wheel_ticks",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 533207987190545,
+											"parameters": {
+												"first-value": "Controllers.wheel_ticks",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 306589939448720,
+											"parameters": {
+												"instance-variable": "just_pushed",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 734829723357794
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 968116256727712,
+											"parameters": {
+												"instance-variable": "previous_wheel_ticks",
+												"value": "Controllers.wheel_ticks"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 568742972659323,
+											"parameters": {
+												"instance-variable": "wheel_ticks",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 180870675087580
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 756931587446059,
+											"parameters": {
+												"first-value": "Controllers.previous_rotate_ticks",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 813379808864133,
+											"parameters": {
+												"first-value": "Controllers.rotate_ticks",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 609255017516665,
+											"parameters": {
+												"instance-variable": "just_rotated",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 966498375661993
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 705241786224232,
+											"parameters": {
+												"first-value": "Controllers.previous_rotate_ticks",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 176525997126585,
+											"parameters": {
+												"first-value": "Controllers.rotate_ticks",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 142812455842437,
+											"parameters": {
+												"instance-variable": "just_rotated",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 377614282850277
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 834603499415055,
+											"parameters": {
+												"instance-variable": "previous_rotate_ticks",
+												"value": "Controllers.rotate_ticks"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 645720625255521,
+											"parameters": {
+												"instance-variable": "rotate_ticks",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 973608916347048
+								},
+								{
+									"eventType": "comment",
+									"text": "decrement cooldowns"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 394605626166387,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 837877011648106,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"value": "-dt"
+											}
+										}
+									],
+									"sid": 896750378833134
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 338711116464319
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 427531028570635,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 107678625697493
+								}
+							]
+						}
+					],
+					"sid": 139175908426260
+				},
+				{
+					"aceType": "action",
+					"aceName": "Enable",
+					"objectClass": "Controllers",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Controllers",
+							"sid": 819770226517567,
+							"parameters": {
+								"instance-variable": "disabled"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Controllers",
+							"sid": 241670961350859,
+							"parameters": {
+								"instance-variable": "disabled",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Controllers",
+							"sid": 433782727838179,
+							"parameters": {
+								"instance-variable": "read_input",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Controllers",
+							"sid": 131680921832500,
+							"behaviorType": "Custom",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 214464412321253
+				},
+				{
+					"aceType": "action",
+					"aceName": "Disable",
+					"objectClass": "Controllers",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Controllers",
+							"sid": 607439476492253,
+							"parameters": {
+								"instance-variable": "disabled"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Controllers",
+							"sid": 449711933650768,
+							"parameters": {
+								"instance-variable": "disabled",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Controllers",
+							"sid": 821000946515024,
+							"parameters": {
+								"instance-variable": "read_input",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Controllers",
+							"sid": 401049326229053,
+							"parameters": {
+								"instance-variable": "angular_velocity",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Controllers",
+							"sid": 785874665365901,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Controllers",
+							"sid": 708080929431903,
+							"behaviorType": "Custom",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 640576882488599
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 994530064835091
+				}
+			],
+			"sid": 599404965830138
+		}
+	],
+	"sid": 451611147938929
+}
