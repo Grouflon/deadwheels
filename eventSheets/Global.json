@@ -521,6 +521,37 @@
 				}
 			],
 			"sid": 690858290052184
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Reward Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 814181878420015,
+							"parameters": {
+								"object": "Reward"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Reward",
+							"sid": 220484705966499
+						}
+					],
+					"sid": 632874816716274
+				}
+			],
+			"sid": 590287243115562
 		}
 	],
 	"sid": 171422187705970
