@@ -2,6 +2,36 @@
 	"name": "Zombies",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "zombie_revive_chance",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 369951752027750
+		},
+		{
+			"eventType": "variable",
+			"name": "zombie_min_revive_cooldown",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 450210535931341
+		},
+		{
+			"eventType": "variable",
+			"name": "zombie_max_revive_cooldown",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 134292276824462
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -393,6 +423,11 @@
 						"where": "behind",
 						"object": "ChairSprite"
 					}
+				},
+				{
+					"customAction": "RollRevive",
+					"objectClass": "Corpse",
+					"sid": 695277730594817
 				}
 			],
 			"sid": 958342673849892
@@ -706,6 +741,207 @@
 					"sid": 512831606305027
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "REVIVING ZOMBIES",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "RollRevive",
+					"objectClass": "Corpse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 986956967350029,
+							"parameters": {
+								"first-value": "random(100)",
+								"comparison": 3,
+								"second-value": "zombie_revive_chance"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Corpse",
+							"sid": 664258270931228,
+							"parameters": {
+								"instance-variable": "revive_cooldown",
+								"value": "random(zombie_min_revive_cooldown, zombie_max_revive_cooldown)"
+							}
+						}
+					],
+					"sid": 125206075670915
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Corpse",
+							"sid": 923216479496931,
+							"parameters": {
+								"instance-variable": "revive_cooldown",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Corpse",
+							"sid": 269707803952989,
+							"parameters": {
+								"instance-variable": "revive_cooldown",
+								"value": "-dt"
+							}
+						}
+					],
+					"sid": 389317076121730,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Corpse",
+									"sid": 832326718780888,
+									"parameters": {
+										"instance-variable": "revive_cooldown",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 755828221230076,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Corpse",
+											"sid": 529369508235106,
+											"parameters": {
+												"animation": "\"Mike\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Corpse",
+											"sid": 533609861563637,
+											"parameters": {
+												"object": "Mike",
+												"layer": "0",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "Mike",
+											"sid": 569307426939183,
+											"parameters": {
+												"where": "in-front",
+												"object": "Corpse"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Mike",
+											"sid": 426281120794482,
+											"parameters": {
+												"angle": "Corpse.Angle"
+											}
+										}
+									],
+									"sid": 889915261664641
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 367266152294187
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Corpse",
+											"sid": 507758369367867,
+											"parameters": {
+												"animation": "\"Sofia\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Corpse",
+											"sid": 247555936378921,
+											"parameters": {
+												"object": "Sofia",
+												"layer": "0",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "Sofia",
+											"sid": 346863342774614,
+											"parameters": {
+												"where": "in-front",
+												"object": "Corpse"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Sofia",
+											"sid": 137790221438885,
+											"parameters": {
+												"angle": "Corpse.Angle"
+											}
+										}
+									],
+									"sid": 732999182362239
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Corpse",
+											"sid": 416446799818166
+										}
+									],
+									"sid": 288466863715875
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 431918134465483
 		}
 	],
 	"sid": 810694807837553
