@@ -168,12 +168,14 @@
 			"LightMask",
 			"Darkness",
 			"ZombiesHitbox",
-			"Floor_Tiles2",
+			"Floor_Elevator",
 			"AudioSource",
 			"Dummy",
 			"Ray",
 			"Reward",
-			"PickableWeapon"
+			"PickableWeapon",
+			"ButtonSlot",
+			"ButtonSlot2"
 		],
 		"subfolders": [
 			{
@@ -280,7 +282,10 @@
 					"Sink",
 					"Toilet",
 					"ToiletTop",
-					"Counter"
+					"Counter",
+					"Door_Button",
+					"Door_Elevator",
+					"Elevator"
 				],
 				"subfolders": [],
 				"name": "World"
@@ -318,6 +323,12 @@
 			"members": [
 				"ChairController",
 				"ChairSprite"
+			]
+		},
+		{
+			"members": [
+				"ButtonSlot",
+				"ButtonSlot2"
 			]
 		}
 	],
@@ -582,15 +593,47 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "Button1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 617164647760882,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "ElevatorEvent.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 474387089472352,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": [
 				{
 					"items": [
 						{
-							"name": "ambElevatorMusic.webm",
+							"name": "AmbElevatorMusic.webm",
 							"type": "audio/webm; codecs=opus",
 							"sid": 552210732998688,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "AmbTVNoise.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 771640767342935,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "AmbWet1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 551638470799364,
 							"file-info": {
 								"purpose": "none"
 							}

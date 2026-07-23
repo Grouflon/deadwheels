@@ -1711,8 +1711,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 236,
-						"y": 308,
+						"x": 208,
+						"y": 304,
 						"width": 12,
 						"height": 12,
 						"originX": 0.5,
@@ -7995,7 +7995,8 @@
 					"instanceVariables": {
 						"chairCanDestroy": false,
 						"isDoor": true,
-						"ClosedAngle": 0
+						"ClosedAngle": 0,
+						"CanBePushed": true
 					},
 					"behaviors": {
 						"Solid": {
@@ -8250,7 +8251,8 @@
 					"instanceVariables": {
 						"chairCanDestroy": false,
 						"isDoor": true,
-						"ClosedAngle": 0
+						"ClosedAngle": 0,
+						"CanBePushed": true
 					},
 					"behaviors": {
 						"Solid": {
@@ -8313,7 +8315,8 @@
 					"instanceVariables": {
 						"chairCanDestroy": false,
 						"isDoor": true,
-						"ClosedAngle": 0
+						"ClosedAngle": 0,
+						"CanBePushed": true
 					},
 					"behaviors": {
 						"Solid": {
@@ -13756,26 +13759,225 @@
 					}
 				},
 				{
-					"type": "Floor_Tiles2",
+					"type": "AudioSource",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 974217,
+					"sid": 726950699520319,
+					"tags": "",
+					"instanceVariables": {
+						"soundName": "Amb/AmbWet1",
+						"dbOffset": 0
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 512,
+						"y": 732,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5025295109612141,
+						"originY": 0.5029239766081871,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Door_Elevator",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 253584,
+					"sid": 373602161602512,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"ClosedAngle": 0,
+						"CanBePushed": true
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 192,
+						"y": 288,
+						"width": 28,
+						"height": 4,
+						"originX": -0.0625,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "Elevator",
 					"properties": {
 						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
 					},
-					"uid": 725290,
-					"sid": 735226913230113,
+					"uid": 370658,
+					"sid": 147345018756473,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 824,
+						"y": 496,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "Door_Elevator",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 894808,
+					"sid": 344156236959667,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"ClosedAngle": 0,
+						"CanBePushed": true
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 804,
+						"y": 480,
+						"width": 28,
+						"height": 4,
+						"originX": -0.0625,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "InsideWallDoorFrame",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 982124,
+					"sid": 122983478923894,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
@@ -13785,59 +13987,6 @@
 						"x": 808,
 						"y": 480,
 						"width": 32,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "InsideWallElevator",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 138175,
-					"sid": 118528194229120,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 808,
-						"y": 512,
-						"width": 32,
 						"height": 8,
 						"originX": 0,
 						"originY": 0,
@@ -13849,11 +13998,11 @@
 						],
 						"z": 0,
 						"depth": 32,
-						"angle": 0
+						"angle": 1.5707963267948966
 					}
 				},
 				{
-					"type": "InsideWallElevator",
+					"type": "ButtonSlot",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -13865,7 +14014,7 @@
 						"face-top": true,
 						"face-bottom": true,
 						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
+						"z-tiling-factor": 1,
 						"object-back": -1,
 						"object-front": -1,
 						"object-left": -1,
@@ -13873,28 +14022,23 @@
 						"object-top": -1,
 						"object-bottom": -1
 					},
-					"uid": 933081,
-					"sid": 487982751115863,
+					"uid": 108301,
+					"sid": 682189503811136,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
+					"instanceVariables": {
+						"Enabled": false,
+						"DoorUID": 894808
 					},
+					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 840,
-						"y": 480,
-						"width": 32,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
+						"x": 800,
+						"y": 520,
+						"width": 8,
+						"height": 4,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -13902,62 +14046,8 @@
 							1
 						],
 						"z": 0,
-						"depth": 32,
-						"angle": 3.141592653589793
-					}
-				},
-				{
-					"type": "InsideWallElevator",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 909418,
-					"sid": 813805257602134,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 840,
-						"y": 512,
-						"width": 32,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 32,
-						"angle": 4.71238898038469
+						"depth": 8,
+						"angle": 1.5707963267948966
 					}
 				},
 				{

@@ -692,40 +692,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "End States",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "CharacterController",
-							"sid": 882670945496533,
-							"parameters": {
-								"object": "Floor_Tiles2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 535400678083389,
-							"parameters": {
-								"layout": "LevelEnd"
-							}
-						}
-					],
-					"sid": 266500531216976
-				}
-			],
-			"sid": 690858290052184
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Reward Debug",
 			"description": "",
 			"isActiveOnStart": true,
@@ -753,6 +719,559 @@
 				}
 			],
 			"sid": 590287243115562
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "ButtonSlot",
+							"sid": 787119291925999
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 702353702071445,
+							"parameters": {
+								"object": "ButtonSlot",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "ButtonSlot2",
+							"sid": 973503263056763,
+							"parameters": {
+								"z": "ButtonSlot.Z"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "ButtonSlot2",
+							"sid": 513231924152141,
+							"parameters": {
+								"angle": "ButtonSlot.Angle+90"
+							}
+						}
+					],
+					"sid": 988050305670649
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 237324594332216,
+							"parameters": {
+								"object": "Arm"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 972615695031125,
+							"parameters": {
+								"object": "ChairController"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 804394825434658,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ButtonSlot",
+									"sid": 619957350372297,
+									"parameters": {
+										"instance-variable": "Enabled"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 414103226962216,
+									"parameters": {
+										"audio-file": {
+											"path": "Button1"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ButtonSlot",
+									"sid": 211369120797316,
+									"parameters": {
+										"instance-variable": "Enabled",
+										"value": "true"
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "ButtonSlot2",
+									"sid": 762238226178619,
+									"parameters": {
+										"distance": "-2"
+									}
+								}
+							],
+							"sid": 316931648691454,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Door_Button",
+											"sid": 477286009682474,
+											"parameters": {
+												"unique-id": "ButtonSlot.DoorUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "OpenDoor",
+											"objectClass": "Door_Button",
+											"customActionObjectClass": "Doors",
+											"sid": 508478729048783,
+											"parameters": [
+												"ChairController.X",
+												"ChairController.Y"
+											]
+										}
+									],
+									"sid": 128675343249854
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Door_Elevator",
+											"sid": 216160479132485,
+											"parameters": {
+												"unique-id": "ButtonSlot.DoorUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "OpenDoor",
+											"objectClass": "Door_Elevator",
+											"customActionObjectClass": "Doors",
+											"sid": 705504606701331,
+											"parameters": [
+												"ChairController.X",
+												"ChairController.Y"
+											]
+										}
+									],
+									"sid": 292853168787111
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 896974003257226
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Doors",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Doors",
+							"sid": 120417696358059
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Doors",
+							"sid": 543677900882593,
+							"parameters": {
+								"instance-variable": "ClosedAngle",
+								"value": "Self.Angle"
+							}
+						}
+					],
+					"sid": 747454593181733
+				},
+				{
+					"aceType": "action",
+					"aceName": "OpenDoor",
+					"objectClass": "Doors",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "OpenerX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 419440102794434
+						},
+						{
+							"name": "OpenerY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 456333856768355
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 227777274669928,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "Side",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 325238255734920
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 434791905583013,
+									"parameters": {
+										"first-value": "Doors.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Door_Elevator\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Doors",
+									"sid": 323973510554090,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "0",
+										"time": "2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 196456344026101,
+									"parameters": {
+										"audio-file": {
+											"path": "ElevatorEvent"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "Doors",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"customAction": "Enable",
+									"objectClass": "Elevator",
+									"sid": 531506692790863
+								}
+							],
+							"sid": 239515095019589
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 606799992540604
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 924018945852321,
+									"parameters": {
+										"variable": "Side",
+										"value": "sin(Doors.ClosedAngle)*(OpenerX-Doors.X)-cos(Doors.ClosedAngle)*(OpenerY-Doors.Y)"
+									}
+								}
+							],
+							"sid": 332724905356098,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 849353218578396,
+											"parameters": {
+												"variable": "Side",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Doors",
+											"sid": 367859424286167,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetAngle",
+												"end-value": "Self.ClosedAngle+90",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 969879016080687,
+											"parameters": {
+												"variable": "Side",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 546209473321709
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 328727111319937
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Doors",
+											"sid": 687750964375570,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetAngle",
+												"end-value": "Self.ClosedAngle-90",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 768176574956857,
+											"parameters": {
+												"variable": "Side",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 915609653541673
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 159107266233541
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Elevator",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 335258738205742,
+							"parameters": {
+								"object": "Elevator"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 173572749169377,
+							"parameters": {
+								"layout": "LevelEnd"
+							}
+						}
+					],
+					"sid": 269951651595966
+				},
+				{
+					"aceType": "action",
+					"aceName": "Enable",
+					"objectClass": "Elevator",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 157468213780324,
+							"parameters": {
+								"object": "InsideWallElevator",
+								"layer": "Self.LayerName",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 237134621994536,
+							"parameters": {
+								"object": "Floor_Elevator",
+								"layer": "Self.LayerName",
+								"image-point": "4",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "InsideWallElevator",
+							"sid": 461935147830206,
+							"parameters": {
+								"angle": "Elevator.Angle+180"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 155652112373473,
+							"parameters": {
+								"object": "InsideWallElevator",
+								"layer": "Self.LayerName",
+								"image-point": "2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "InsideWallElevator",
+							"sid": 144824950592323,
+							"parameters": {
+								"angle": "Elevator.Angle+270"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 383116041265571,
+							"parameters": {
+								"object": "InsideWallElevator",
+								"layer": "Self.LayerName",
+								"image-point": "3",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "InsideWallElevator",
+							"sid": 125378914460811,
+							"parameters": {
+								"angle": "Elevator.Angle+90"
+							}
+						},
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 545641592889578,
+							"parameters": {
+								"audio-file": {
+									"path": "Amb/AmbElevatorMusic"
+								},
+								"loop": "looping",
+								"volume": "-10",
+								"object": "Elevator",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 330386645956702
+				}
+			],
+			"sid": 701136920108105
 		}
 	],
 	"sid": 171422187705970

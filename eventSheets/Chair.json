@@ -169,28 +169,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-created",
-					"objectClass": "Doors",
-					"sid": 195597838755345
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Doors",
-					"sid": 358923876345662,
-					"parameters": {
-						"instance-variable": "ClosedAngle",
-						"value": "Self.Angle"
-					}
-				}
-			],
-			"sid": 124407926412826
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "is-overlapping-at-offset",
 					"objectClass": "ChairController",
 					"sid": 608268979439599,
@@ -247,7 +225,7 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 604040900425690,
+							"sid": 864317201069178,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
@@ -313,16 +291,6 @@
 					"text": "Doors"
 				},
 				{
-					"eventType": "variable",
-					"name": "Side",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 157421326445149
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -350,87 +318,28 @@
 							"parameters": {
 								"unique-id": "Furniture.UID"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Doors",
+							"sid": 512037089491930,
+							"parameters": {
+								"instance-variable": "CanBePushed"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 654416848434597,
-							"parameters": {
-								"variable": "Side",
-								"value": "sin(Doors.ClosedAngle)*(ChairController.X-Doors.X)-cos(Doors.ClosedAngle)*(ChairController.Y-Doors.Y)"
-							}
+							"customAction": "OpenDoor",
+							"objectClass": "Doors",
+							"sid": 907163442505525,
+							"parameters": [
+								"ChairController.X",
+								"ChairController.Y"
+							]
 						}
 					],
-					"sid": 933516190611671,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 761658503649212,
-									"parameters": {
-										"variable": "Side",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "Doors",
-									"sid": 765835408959386,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetAngle",
-										"end-value": "Self.ClosedAngle+90",
-										"time": "0.1",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								}
-							],
-							"sid": 319449795220436
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 432474726940377
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "Doors",
-									"sid": 417625876778008,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetAngle",
-										"end-value": "Self.ClosedAngle-90",
-										"time": "0.1",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								}
-							],
-							"sid": 660855918591793
-						}
-					]
+					"sid": 933516190611671
 				},
 				{
 					"eventType": "block",
