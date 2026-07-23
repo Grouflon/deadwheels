@@ -1343,6 +1343,146 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 745915582297165,
+									"parameters": {
+										"variable": "pickUp",
+										"comparison": 0,
+										"value": "\"Pistol\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 961775003371478,
+									"parameters": {
+										"variable": "gun_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"customAction": "SwitchWeapon",
+									"objectClass": "CharacterController",
+									"sid": 318656266502442,
+									"parameters": [
+										"1"
+									]
+								}
+							],
+							"sid": 201134515895125
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 160527871218887,
+									"parameters": {
+										"variable": "pickUp",
+										"comparison": 0,
+										"value": "\"Gun\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 333467820359765,
+									"parameters": {
+										"variable": "shotgun_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"customAction": "SwitchWeapon",
+									"objectClass": "CharacterController",
+									"sid": 801501445173060,
+									"parameters": [
+										"2"
+									]
+								}
+							],
+							"sid": 274510470240673
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 983118202952003,
+									"parameters": {
+										"variable": "pickUp",
+										"comparison": 0,
+										"value": "\"Smg\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 955697370467102,
+									"parameters": {
+										"variable": "smg_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"customAction": "SwitchWeapon",
+									"objectClass": "CharacterController",
+									"sid": 595666603890488,
+									"parameters": [
+										"3"
+									]
+								}
+							],
+							"sid": 504700825127735
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 610669793868276,
+									"parameters": {
+										"variable": "pickUp",
+										"comparison": 0,
+										"value": "\"Gatling\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 682194022415149,
+									"parameters": {
+										"variable": "gatling_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"customAction": "SwitchWeapon",
+									"objectClass": "CharacterController",
+									"sid": 345796139478189,
+									"parameters": [
+										"4"
+									]
+								}
+							],
+							"sid": 185070622643411
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-two-values",
 									"objectClass": "System",
 									"sid": 908207731583558,
