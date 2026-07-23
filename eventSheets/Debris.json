@@ -63,12 +63,12 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Debris",
-							"sid": 657881523182580,
+							"sid": 520278665430067,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"Y\"",
 								"property": "offsetY",
-								"end-value": "Self.X+random(-50,50)",
+								"end-value": "Self.Y+random(-50,50)",
 								"time": "1",
 								"ease": "easeoutsine",
 								"destroy-on-complete": "no",
@@ -239,12 +239,12 @@
 					"conditions": [
 						{
 							"id": "on-destroyed",
-							"objectClass": "Furniture",
+							"objectClass": "Table2",
 							"sid": 251531491994620
 						},
 						{
 							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Furniture",
+							"objectClass": "Table2",
 							"sid": 726433046506225,
 							"parameters": {
 								"instance-variable": "chairCanDestroy"
@@ -273,9 +273,9 @@
 									"sid": 635860166100496,
 									"parameters": {
 										"object-to-create": "Wood_Debris",
-										"layer": "Furniture.LayerName",
-										"x": "Furniture.X",
-										"y": "Furniture.Y",
+										"layer": "Table2.LayerName",
+										"x": "Table2.X",
+										"y": "Table2.Y",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -289,31 +289,52 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-click",
-							"objectClass": "Mouse",
-							"sid": 511658657813213,
-							"parameters": {
-								"mouse-button": "right",
-								"click-type": "clicked"
-							}
-						}
-					],
-					"actions": [
+							"id": "on-destroyed",
+							"objectClass": "Barricades",
+							"sid": 867186680615383
+						},
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 179785847280746,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Barricades",
+							"sid": 191197559259531,
 							"parameters": {
-								"object-to-create": "Wood_Debris",
-								"layer": "\"World\"",
-								"x": "Mouse.X",
-								"y": "Mouse.Y",
-								"create-hierarchy": false,
-								"template-name": "\"\""
+								"instance-variable": "chairCanDestroy"
 							}
 						}
 					],
-					"sid": 172896506141690
+					"actions": [],
+					"sid": 418292735252272,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 902802600164895,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 821825014837319,
+									"parameters": {
+										"object-to-create": "Wood_Bright_Debris",
+										"layer": "Barricades.LayerName",
+										"x": "Barricades.X",
+										"y": "Barricades.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 681083350948652
+						}
+					]
 				},
 				{
 					"eventType": "block",
