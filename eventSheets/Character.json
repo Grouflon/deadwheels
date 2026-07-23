@@ -881,11 +881,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Arm",
-											"sid": 770011600087608,
+											"sid": 242743896951317,
 											"parameters": {
 												"object": "Bullet",
 												"layer": "Self.LayerName",
-												"image-point": "1",
+												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -1018,11 +1018,11 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Arm",
-													"sid": 257862695486482,
+													"sid": 625854845066909,
 													"parameters": {
 														"object": "Bullet",
 														"layer": "Self.LayerName",
-														"image-point": "1",
+														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -1084,11 +1084,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Arm",
-											"sid": 936304544851337,
+											"sid": 584161003805705,
 											"parameters": {
 												"object": "Bullet",
 												"layer": "Self.LayerName",
-												"image-point": "1",
+												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -1191,11 +1191,11 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Arm",
-													"sid": 462026732971206,
+													"sid": 888172778792421,
 													"parameters": {
 														"object": "Bullet",
 														"layer": "Self.LayerName",
-														"image-point": "1",
+														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -1417,6 +1417,36 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Bullet",
+									"sid": 946911955207236
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 247539491108973,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Bullet",
+									"sid": 178411972849816,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 293544077854530
 						}
 					],
 					"sid": 944309818635467
