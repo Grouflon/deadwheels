@@ -341,6 +341,57 @@
 					"conditions": [
 						{
 							"id": "on-destroyed",
+							"objectClass": "CounterWood",
+							"sid": 294313974349614
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CounterWood",
+							"sid": 448765563389391,
+							"parameters": {
+								"instance-variable": "chairCanDestroy"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 992956155418862,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 449994657317921,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 545860108774417,
+									"parameters": {
+										"object-to-create": "Wood_Bright_Debris",
+										"layer": "CounterWood.LayerName",
+										"x": "CounterWood.X",
+										"y": "CounterWood.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 537093366059616
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
 							"objectClass": "Zombies",
 							"sid": 420929728422796
 						}
