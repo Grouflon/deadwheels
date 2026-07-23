@@ -339,118 +339,319 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "comment",
-					"text": "Restart the layout for debugging purposes."
-				},
-				{
 					"eventType": "block",
 					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 719651364311101,
-							"parameters": {
-								"key": 82
-							}
-						},
-						{
-							"id": "on-button-pressed",
-							"objectClass": "Gamepad",
-							"sid": 137068669182944,
-							"parameters": {
-								"gamepad": "0",
-								"button": "start-menu"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "restart-layout",
-							"objectClass": "System",
-							"sid": 175095829439983
-						}
-					],
-					"sid": 278271934012486,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 288968319859420,
-							"parameters": {
-								"key": 84
-							}
-						},
 						{
 							"id": "is-in-preview",
 							"objectClass": "System",
-							"sid": 227697557931118
+							"sid": 275759037379373
 						}
 					],
 					"actions": [],
-					"sid": 617971713858823,
+					"sid": 991888462323000,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "CharacterController",
-									"sid": 334140311295629,
-									"parameters": {
-										"instance-variable": "is_in_chair"
-									}
-								},
-								{
-									"id": "pick-nearestfurthest",
-									"objectClass": "ChairController",
-									"sid": 661140831808611,
-									"parameters": {
-										"which": "nearest",
-										"x": "CharacterController.X",
-										"y": "CharacterController.Y",
-										"z": "0",
-										"pick-all-tied": false
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "ChairController",
-									"sid": 520417602526226,
-									"parameters": {
-										"x": "Mouse.X",
-										"y": "Mouse.Y"
-									}
-								}
-							],
-							"sid": 700356876426276
+							"eventType": "comment",
+							"text": "Restart the layout for debugging purposes."
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 630503234067998
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 581017704102113,
+									"parameters": {
+										"key": 82
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 247632207360697,
+									"parameters": {
+										"gamepad": "0",
+										"button": "start-menu"
+									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-position",
-									"objectClass": "CharacterController",
-									"sid": 692867157642618,
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 232395777757282
+								}
+							],
+							"sid": 261770001585834,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "comment",
+							"text": "Teleport under cursor"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 709422555816493,
 									"parameters": {
-										"x": "Mouse.X",
-										"y": "Mouse.Y"
+										"key": 84
 									}
 								}
 							],
-							"sid": 604526154098350
+							"actions": [],
+							"sid": 407516869085521,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 198402271767780,
+											"parameters": {
+												"instance-variable": "is_in_chair"
+											}
+										},
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "ChairController",
+											"sid": 766728484754536,
+											"parameters": {
+												"which": "nearest",
+												"x": "CharacterController.X",
+												"y": "CharacterController.Y",
+												"z": "0",
+												"pick-all-tied": false
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "ChairController",
+											"sid": 275334842591971,
+											"parameters": {
+												"x": "Mouse.X",
+												"y": "Mouse.Y"
+											}
+										}
+									],
+									"sid": 939322570949092
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 595656204424725
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "CharacterController",
+											"sid": 741875040401985,
+											"parameters": {
+												"x": "Mouse.X",
+												"y": "Mouse.Y"
+											}
+										}
+									],
+									"sid": 830771386525494
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Unlock all weapons"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 785243304036146,
+									"parameters": {
+										"key": 71
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 430466496457804,
+									"parameters": {
+										"variable": "gun_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 127727401294380,
+									"parameters": {
+										"variable": "shotgun_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 362170919579916,
+									"parameters": {
+										"variable": "smg_unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 149565957461373,
+									"parameters": {
+										"variable": "gatling_unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 881804429844546
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 110154550795954,
+									"parameters": {
+										"key": 50
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 804306556815988,
+									"parameters": {
+										"key": 17
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 202419866563402,
+									"parameters": {
+										"variable": "gun_unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 183310821405627
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 621656059302685,
+									"parameters": {
+										"key": 51
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 908131329434281,
+									"parameters": {
+										"key": 17
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 279700110439869,
+									"parameters": {
+										"variable": "shotgun_unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 588683029060492
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 915636434773050,
+									"parameters": {
+										"key": 52
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 802753803877696,
+									"parameters": {
+										"key": 17
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 713374440486712,
+									"parameters": {
+										"variable": "smg_unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 889073985003141
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 745965549671171,
+									"parameters": {
+										"key": 53
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 887082525553981,
+									"parameters": {
+										"key": 17
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 183406691027423,
+									"parameters": {
+										"variable": "gatling_unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 326237056461216
 						}
 					]
 				}

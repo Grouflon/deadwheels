@@ -32,6 +32,110 @@
 			"sid": 667196676485055
 		},
 		{
+			"eventType": "comment",
+			"text": "weapons"
+		},
+		{
+			"eventType": "variable",
+			"name": "gun_unlocked",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 455530048000439
+		},
+		{
+			"eventType": "variable",
+			"name": "shotgun_unlocked",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 935828462772533
+		},
+		{
+			"eventType": "variable",
+			"name": "smg_unlocked",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 112693413690924
+		},
+		{
+			"eventType": "variable",
+			"name": "gatling_unlocked",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 151239002506288
+		},
+		{
+			"eventType": "variable",
+			"name": "current_weapon",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 415246719199329
+		},
+		{
+			"eventType": "variable",
+			"name": "gun_ammo",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 744483419795117
+		},
+		{
+			"eventType": "variable",
+			"name": "shotgun_ammo",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 743595750174583
+		},
+		{
+			"eventType": "variable",
+			"name": "smg_ammo",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 268962390101999
+		},
+		{
+			"eventType": "variable",
+			"name": "gatling_ammo",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 300889887821883
+		},
+		{
+			"eventType": "variable",
+			"name": "weapon_scroll_cooldown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 845573094538669
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "INIT",
@@ -661,11 +765,11 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 396794265907911,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 330700934515417,
 											"parameters": {
-												"instance-variable": "current_weapon",
+												"variable": "current_weapon",
 												"comparison": 0,
 												"value": "0"
 											}
@@ -693,11 +797,11 @@
 											"sid": 991450209600379
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 356756218906662,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 826669294185979,
 											"parameters": {
-												"instance-variable": "current_weapon",
+												"variable": "current_weapon",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -804,11 +908,11 @@
 											"sid": 200942878286745
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 661404073647239,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 933692124227713,
 											"parameters": {
-												"instance-variable": "current_weapon",
+												"variable": "current_weapon",
 												"comparison": 0,
 												"value": "2"
 											}
@@ -941,11 +1045,11 @@
 											"sid": 587778442611968
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 651843458297361,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 112345940478850,
 											"parameters": {
-												"instance-variable": "current_weapon",
+												"variable": "current_weapon",
 												"comparison": 0,
 												"value": "3"
 											}
@@ -1067,11 +1171,11 @@
 											"sid": 718087331227710
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 177819509392472,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 980975938796769,
 											"parameters": {
-												"instance-variable": "current_weapon",
+												"variable": "current_weapon",
 												"comparison": 0,
 												"value": "4"
 											}
@@ -1886,11 +1990,11 @@
 							}
 						},
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 677896251397051,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 571094712853045,
 							"parameters": {
-								"instance-variable": "gun_unlocked"
+								"variable": "gun_unlocked"
 							}
 						}
 					],
@@ -1918,11 +2022,11 @@
 							}
 						},
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 189121448536786,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 199485186008339,
 							"parameters": {
-								"instance-variable": "shotgun_unlocked"
+								"variable": "shotgun_unlocked"
 							}
 						}
 					],
@@ -1950,11 +2054,11 @@
 							}
 						},
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 305945008548586,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 377023725770670,
 							"parameters": {
-								"instance-variable": "smg_unlocked"
+								"variable": "smg_unlocked"
 							}
 						}
 					],
@@ -1982,11 +2086,11 @@
 							}
 						},
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 893999749091348,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 127965203043978,
 							"parameters": {
-								"instance-variable": "gatling_unlocked"
+								"variable": "gatling_unlocked"
 							}
 						}
 					],
@@ -2001,6 +2105,168 @@
 						}
 					],
 					"sid": 570665994605521
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 441333399041475,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 356276448429949,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "scroll_cooldown",
+							"type": "number",
+							"initialValue": "0.2",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 293030193748935
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 479298620210625,
+									"parameters": {
+										"direction": "up"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 378078037883284,
+									"parameters": {
+										"first-value": "weapon_scroll_cooldown",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "NextWeapon",
+									"objectClass": "CharacterController",
+									"sid": 461820651195599,
+									"parameters": [
+										"1"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 220641829017441,
+									"parameters": {
+										"variable": "weapon_scroll_cooldown",
+										"value": "scroll_cooldown"
+									}
+								}
+							],
+							"sid": 979716479444849
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 203086438140924,
+									"parameters": {
+										"direction": "down"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 994918209325821,
+									"parameters": {
+										"first-value": "weapon_scroll_cooldown",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "NextWeapon",
+									"objectClass": "CharacterController",
+									"sid": 610707540715169,
+									"parameters": [
+										"-1"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 954953898868210,
+									"parameters": {
+										"variable": "weapon_scroll_cooldown",
+										"value": "scroll_cooldown"
+									}
+								}
+							],
+							"sid": 211150406604792
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 146466018104217,
+							"parameters": {
+								"first-value": "weapon_scroll_cooldown",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 241956821795542,
+							"parameters": {
+								"variable": "weapon_scroll_cooldown",
+								"value": "-dt"
+							}
+						}
+					],
+					"sid": 912953312376683
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 733275008069212
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 878528510457011,
+							"parameters": {
+								"variable": "weapon_scroll_cooldown",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 109249861927026
 				}
 			],
 			"sid": 467324265716751
@@ -2944,11 +3210,11 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "CharacterController",
-							"sid": 104271274087622,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 396686725976513,
 							"parameters": {
-								"instance-variable": "current_weapon",
+								"variable": "current_weapon",
 								"value": "index"
 							}
 						}
@@ -2967,11 +3233,363 @@
 			"functionReturnType": "none",
 			"functionCopyPicked": false,
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "direction",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 329350689545068
+				}
+			],
 			"eventType": "custom-ace-block",
 			"conditions": [],
 			"actions": [],
-			"sid": 885125145785123
+			"sid": 885125145785123,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "start_index",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 871700497431853
+				},
+				{
+					"eventType": "variable",
+					"name": "index",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 466706205789558
+				},
+				{
+					"eventType": "variable",
+					"name": "weapon_count",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 423036605737120
+				},
+				{
+					"eventType": "variable",
+					"name": "break",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 481194855629570
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 293660327535590,
+							"parameters": {
+								"variable": "start_index",
+								"value": "current_weapon"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 550260891993716,
+							"parameters": {
+								"variable": "index",
+								"value": "start_index"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 881843544661027,
+							"parameters": {
+								"variable": "index",
+								"value": "(index+direction+weapon_count)%weapon_count"
+							}
+						}
+					],
+					"sid": 873068807214222
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "while",
+							"objectClass": "System",
+							"sid": 546257112359824
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 874541030471464,
+							"parameters": {
+								"first-value": "loopindex",
+								"comparison": 2,
+								"second-value": "weapon_count"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 361324132654840,
+							"parameters": {
+								"variable": "break"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 561142629451627,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 614036425757703,
+									"parameters": {
+										"first-value": "index",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 378959277554865,
+									"parameters": {
+										"variable": "break",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 275617215720222
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 475120556723577
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 513428537374112,
+									"parameters": {
+										"first-value": "index",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 821371625453539,
+									"parameters": {
+										"variable": "gun_unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 736158034329399,
+									"parameters": {
+										"variable": "break",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 127362532539925
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 428778541960854
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 878150746199677,
+									"parameters": {
+										"first-value": "index",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 970356308560797,
+									"parameters": {
+										"variable": "shotgun_unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 372527731390763,
+									"parameters": {
+										"variable": "break",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 347927219701997
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 341295686871749
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 293483726555464,
+									"parameters": {
+										"first-value": "index",
+										"comparison": 0,
+										"second-value": "3"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 620775251043810,
+									"parameters": {
+										"variable": "smg_unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 583767433176445,
+									"parameters": {
+										"variable": "break",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 702867096579746
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 229816677302407
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 647122757102552,
+									"parameters": {
+										"first-value": "index",
+										"comparison": 0,
+										"second-value": "4"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 494874369591932,
+									"parameters": {
+										"variable": "gatling_unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 111274700234581,
+									"parameters": {
+										"variable": "break",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 397299341049475
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 503842762716682,
+									"parameters": {
+										"variable": "break"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 164812108435245,
+									"parameters": {
+										"variable": "index",
+										"value": "(index+direction+weapon_count)%weapon_count"
+									}
+								}
+							],
+							"sid": 776036363339478
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 724431352353335
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 570111101441345,
+							"parameters": {
+								"variable": "current_weapon",
+								"value": "index"
+							}
+						}
+					],
+					"sid": 952716434866901
+				}
+			]
 		}
 	],
 	"sid": 595366528436603
