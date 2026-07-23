@@ -399,18 +399,36 @@
 								"x": "Mouse.X",
 								"y": "Mouse.Y"
 							}
-						},
-						{
-							"id": "set-position-to-another-object",
-							"objectClass": "ChairController",
-							"sid": 451959664537662,
-							"parameters": {
-								"object": "CharacterController",
-								"image-point-optional": "0"
-							}
 						}
 					],
-					"sid": 617971713858823
+					"sid": 617971713858823,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 334140311295629,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "ChairController",
+									"sid": 478030963033417,
+									"parameters": {
+										"object": "CharacterController",
+										"image-point-optional": "0"
+									}
+								}
+							],
+							"sid": 700356876426276
+						}
+					]
 				}
 			],
 			"sid": 345752545051477
@@ -445,6 +463,40 @@
 				}
 			],
 			"sid": 416805693131933
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "End States",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 882670945496533,
+							"parameters": {
+								"object": "Floor_Tiles2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 535400678083389,
+							"parameters": {
+								"layout": "LevelEnd"
+							}
+						}
+					],
+					"sid": 266500531216976
+				}
+			],
+			"sid": 690858290052184
 		}
 	],
 	"sid": 171422187705970

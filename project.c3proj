@@ -92,13 +92,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "Flash",
-			"name": "Flash",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "LOS",
 			"name": "Line of sight",
 			"author": "Scirra",
@@ -176,12 +169,10 @@
 			"Darkness",
 			"ZombiesHitbox",
 			"Floor_Tiles2",
-			"Sprite",
+			"AudioSource",
 			"Dummy",
 			"Ray",
-			"3DShape",
-			"Door_Windowed",
-			"Barricades"
+			"3DShape"
 		],
 		"subfolders": [
 			{
@@ -276,7 +267,11 @@
 					"InsideWallDoorFrame",
 					"InsideWallElevator",
 					"InsideWallVent",
-					"InsideWallWindow"
+					"InsideWallWindow",
+					"Barricades",
+					"Door_Windowed",
+					"Sign1",
+					"Sign2"
 				],
 				"subfolders": [],
 				"name": "World"
@@ -335,9 +330,18 @@
 			"ThomasTests",
 			"RemiTests",
 			"Game Over",
-			"Hospital1"
+			"LevelEnd"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Level1",
+					"Level2"
+				],
+				"subfolders": [],
+				"name": "Levels"
+			}
+		]
 	},
 	"eventSheets": {
 		"items": [
@@ -350,7 +354,8 @@
 			"Audio",
 			"Chair",
 			"Controller",
-			"Debris"
+			"Debris",
+			"LevelEnd"
 		],
 		"subfolders": []
 	},

@@ -1,0 +1,201 @@
+{
+	"name": "LevelEnd",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Level_Current",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 423595406260974
+		},
+		{
+			"eventType": "variable",
+			"name": "LayoutTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 865370892004068
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LevelEnd",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 274831307625338,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 563315837212635,
+							"parameters": {
+								"variable": "LayoutTime",
+								"value": "0.1"
+							}
+						}
+					],
+					"sid": 701319788851827
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 646962419013624
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 837860809908119,
+							"parameters": {
+								"variable": "Level_Current",
+								"value": "1"
+							}
+						},
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 477028610734319
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 340425352779488,
+							"parameters": {
+								"audio-file": {
+									"path": "ChairImpact1"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 959513738909015,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "0.54"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "TextFont",
+							"sid": 902586147684648,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetZElevation",
+								"end-value": "Self.z+20",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 580195000592307
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 278212783772167,
+							"parameters": {
+								"variable": "LayoutTime",
+								"comparison": 4,
+								"value": "0.5"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 574481666342777,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 386787194296121
+								},
+								{
+									"id": "on-any-click",
+									"objectClass": "Mouse",
+									"sid": 805932935441135
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 605585300074345,
+									"parameters": {
+										"layout": "\"Level\"&Level_Current"
+									}
+								}
+							],
+							"sid": 813162538065961,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 535341148894208
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 762134634281593,
+									"parameters": {
+										"audio-file": {
+											"path": "Aim2"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 319472843436229
+						}
+					]
+				}
+			],
+			"sid": 479496323516662
+		}
+	],
+	"sid": 797541515295445
+}
