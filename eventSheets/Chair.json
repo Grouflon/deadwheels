@@ -130,6 +130,19 @@
 								"instance-variable": "health",
 								"value": "-collision_damage"
 							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 583576926298920,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"GoreBig\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 995680540388769
@@ -151,6 +164,292 @@
 					"sid": 816848738662993
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Doors",
+					"sid": 195597838755345
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Doors",
+					"sid": 358923876345662,
+					"parameters": {
+						"instance-variable": "ClosedAngle",
+						"value": "Self.Angle"
+					}
+				}
+			],
+			"sid": 124407926412826
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 608268979439599,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "1",
+						"offset-y": "0"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 376982866413937,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "-1",
+						"offset-y": "0"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 246752832270543,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "0",
+						"offset-y": "1"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 746711136780976,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "0",
+						"offset-y": "-1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 643921666984285,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 158915983524378
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 604040900425690,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 341177424013614
+				},
+				{
+					"eventType": "comment",
+					"text": "Destructible furniture"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Furniture",
+							"sid": 775745995039458,
+							"parameters": {
+								"instance-variable": "chairCanDestroy"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 676805544855309,
+							"parameters": {
+								"first-value": "abs(ChairController.velocity)",
+								"comparison": 5,
+								"second-value": "collision_damage_velocity_threshold*0.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Furniture",
+							"sid": 525567775586222
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 697882618128851,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"DestroyWood\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 744456493726605
+				},
+				{
+					"eventType": "comment",
+					"text": "Doors"
+				},
+				{
+					"eventType": "variable",
+					"name": "Side",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 157421326445149
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 927576116070270,
+							"parameters": {
+								"first-value": "abs(ChairController.velocity)",
+								"comparison": 5,
+								"second-value": "collision_damage_velocity_threshold*0.5"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Furniture",
+							"sid": 641722964950164,
+							"parameters": {
+								"instance-variable": "isDoor"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Doors",
+							"sid": 538549064063336,
+							"parameters": {
+								"unique-id": "Furniture.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 654416848434597,
+							"parameters": {
+								"variable": "Side",
+								"value": "sin(Doors.ClosedAngle)*(ChairController.X-Doors.X)-cos(Doors.ClosedAngle)*(ChairController.Y-Doors.Y)"
+							}
+						}
+					],
+					"sid": 933516190611671,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 761658503649212,
+									"parameters": {
+										"variable": "Side",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Doors",
+									"sid": 765835408959386,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "Self.ClosedAngle+90",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 319449795220436
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 432474726940377
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Doors",
+									"sid": 417625876778008,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "Self.ClosedAngle-90",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 660855918591793
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 130936565133269,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "ChairController.velocity * 0.2"
+							}
+						}
+					],
+					"sid": 577741657222682
+				}
+			],
+			"isOrBlock": true
 		},
 		{
 			"eventType": "block",
