@@ -2,6 +2,46 @@
 	"name": "UI",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "pistol_ui_uid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 604155646216417
+		},
+		{
+			"eventType": "variable",
+			"name": "shotgun_ui_uid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 452166121554494
+		},
+		{
+			"eventType": "variable",
+			"name": "smg_ui_uid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 377665303865924
+		},
+		{
+			"eventType": "variable",
+			"name": "gatling_ui_uid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 112473832422911
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -14,18 +54,96 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 242591854643968,
+					"sid": 935557014333306,
 					"parameters": {
 						"object-to-create": "HealthBarBackground",
 						"layer": "\"UI\"",
 						"x": "5",
-						"y": "5",
+						"y": "10",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
 				}
 			],
-			"sid": 886742783844172
+			"sid": 886742783844172,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 369163604226447,
+							"parameters": {
+								"object-to-create": "UIWeapon",
+								"layer": "\"UI\"",
+								"x": "100",
+								"y": "15",
+								"create-hierarchy": true,
+								"template-name": "\"UI\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "UIWeapon",
+							"sid": 396471492756811,
+							"parameters": {
+								"animation": "\"Pistol\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 454962668597359,
+							"parameters": {
+								"variable": "pistol_ui_uid",
+								"value": "UIWeapon.UID"
+							}
+						}
+					],
+					"sid": 786262797671779
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 229278692589202,
+							"parameters": {
+								"object-to-create": "UIWeapon",
+								"layer": "\"UI\"",
+								"x": "120",
+								"y": "15",
+								"create-hierarchy": true,
+								"template-name": "\"UI\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "UIWeapon",
+							"sid": 105894051343033,
+							"parameters": {
+								"animation": "\"Shotgun\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 859393179403853,
+							"parameters": {
+								"variable": "shotgun_ui_uid",
+								"value": "UIWeapon.UID"
+							}
+						}
+					],
+					"sid": 355102262428567
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -87,6 +205,18 @@
 				}
 			],
 			"sid": 934180112185970
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 208651550590369
+				}
+			],
+			"actions": [],
+			"sid": 300194745500203
 		}
 	],
 	"sid": 154043260739891
