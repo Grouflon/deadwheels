@@ -34,6 +34,10 @@
 			"includeSheet": "Audio"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Debris"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Setup",
@@ -410,6 +414,37 @@
 				}
 			],
 			"sid": 345752545051477
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Z Layering",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Zombies",
+							"sid": 650776757611402
+						}
+					],
+					"actions": [
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Zombies",
+							"sid": 614867876153143,
+							"parameters": {
+								"z": "11"
+							}
+						}
+					],
+					"sid": 105639474104487
+				}
+			],
+			"sid": 416805693131933
 		}
 	],
 	"sid": 171422187705970

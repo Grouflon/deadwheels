@@ -1,0 +1,366 @@
+{
+	"name": "Debris",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debris",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Debris",
+							"sid": 983828838378928
+						}
+					],
+					"actions": [
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Debris",
+							"sid": 963292302813438,
+							"parameters": {
+								"z": "random(5,20)"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Debris",
+							"sid": 633535185032108,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"GoUp\"",
+								"property": "offsetZElevation",
+								"end-value": "Self.Z+random(10,30)",
+								"time": "random(0.2,0.3)",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Debris",
+							"sid": 774240172566433,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"X\"",
+								"property": "offsetX",
+								"end-value": "Self.X+random(-50,50)",
+								"time": "1",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Debris",
+							"sid": 657881523182580,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Y\"",
+								"property": "offsetY",
+								"end-value": "Self.X+random(-50,50)",
+								"time": "1",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Debris",
+							"sid": 358227530053827,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Rotate\"",
+								"property": "offsetAngle",
+								"end-value": "Self.Angle+random(600)",
+								"time": "random(0.1,0.5)",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "move-to-object",
+							"objectClass": "Debris",
+							"sid": 159703485172643,
+							"parameters": {
+								"where": "in-front",
+								"object": "Floors"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Debris",
+							"sid": 259596217010034,
+							"parameters": {
+								"frame-number": "round(random(Self.AnimationFrameCount))"
+							}
+						},
+						{
+							"id": "set-animation-speed",
+							"objectClass": "Debris",
+							"sid": 667834431315427,
+							"parameters": {
+								"speed": "0"
+							}
+						}
+					],
+					"sid": 718392330898769
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Debris",
+							"sid": 960827950721824,
+							"parameters": {
+								"object": "Buildings"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "Debris",
+							"sid": 473689268355814,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"X\""
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "Debris",
+							"sid": 180176339487846,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Y\""
+							}
+						}
+					],
+					"sid": 623113455749180
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Debris",
+							"sid": 950331131901391,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"GoUp\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Debris",
+							"sid": 161651625949385,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"GoDown\"",
+								"property": "offsetZElevation",
+								"end-value": "0",
+								"time": "random(0.1,0.2)",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 318473496018849
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Debris",
+							"sid": 893393694666011,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"GoDown\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "Debris",
+							"sid": 209020563364766,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Rotate\""
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "Debris",
+							"sid": 593641320551082,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"X\""
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "Debris",
+							"sid": 324983015990682,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Y\""
+							}
+						}
+					],
+					"sid": 467887997217941
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Furniture",
+							"sid": 251531491994620
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Furniture",
+							"sid": 726433046506225,
+							"parameters": {
+								"instance-variable": "chairCanDestroy"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 364249797540995,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 926998653626731,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 635860166100496,
+									"parameters": {
+										"object-to-create": "Wood_Debris",
+										"layer": "Furniture.LayerName",
+										"x": "Furniture.X",
+										"y": "Furniture.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 197421017038188
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 511658657813213,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 179785847280746,
+							"parameters": {
+								"object-to-create": "Wood_Debris",
+								"layer": "\"World\"",
+								"x": "Mouse.X",
+								"y": "Mouse.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 172896506141690
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Zombies",
+							"sid": 420929728422796
+						}
+					],
+					"actions": [],
+					"sid": 429227784919519,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 794112243344959,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 542627572350830,
+									"parameters": {
+										"object-to-create": "Gore_Debris",
+										"layer": "Zombies.LayerName",
+										"x": "Zombies.X",
+										"y": "Zombies.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 685100826964995
+						}
+					]
+				}
+			],
+			"sid": 171228647712539
+		}
+	],
+	"sid": 535961549360984
+}
