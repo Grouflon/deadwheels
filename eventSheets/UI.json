@@ -72,76 +72,43 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "create-object",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 369163604226447,
+							"sid": 322388493338866,
 							"parameters": {
-								"object-to-create": "UIWeapon",
-								"layer": "\"UI\"",
-								"x": "100",
-								"y": "15",
-								"create-hierarchy": true,
-								"template-name": "\"UI\""
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "UIWeapon",
-							"sid": 396471492756811,
-							"parameters": {
-								"animation": "\"Pistol\"",
-								"from": "beginning"
+								"variable": "pistol_ui_uid",
+								"value": "Functions.CreateWeaponUI(0, \"Pistol\")"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 454962668597359,
+							"sid": 238249577356267,
 							"parameters": {
-								"variable": "pistol_ui_uid",
-								"value": "UIWeapon.UID"
+								"variable": "shotgun_ui_uid",
+								"value": "Functions.CreateWeaponUI(1, \"Shotgun\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 139412088150304,
+							"parameters": {
+								"variable": "smg_ui_uid",
+								"value": "Functions.CreateWeaponUI(2, \"Smg\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 149601675297831,
+							"parameters": {
+								"variable": "gatling_ui_uid",
+								"value": "Functions.CreateWeaponUI(3, \"Gatling\")"
 							}
 						}
 					],
 					"sid": 786262797671779
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 229278692589202,
-							"parameters": {
-								"object-to-create": "UIWeapon",
-								"layer": "\"UI\"",
-								"x": "120",
-								"y": "15",
-								"create-hierarchy": true,
-								"template-name": "\"UI\""
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "UIWeapon",
-							"sid": 105894051343033,
-							"parameters": {
-								"animation": "\"Shotgun\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 859393179403853,
-							"parameters": {
-								"variable": "shotgun_ui_uid",
-								"value": "UIWeapon.UID"
-							}
-						}
-					],
-					"sid": 355102262428567
 				}
 			]
 		},
@@ -215,8 +182,459 @@
 					"sid": 208651550590369
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"callFunction": "UpdateWeaponUI",
+					"sid": 142907879161069,
+					"parameters": [
+						"pistol_ui_uid",
+						"gun_ammo",
+						"gun_unlocked"
+					]
+				},
+				{
+					"callFunction": "UpdateWeaponUI",
+					"sid": 806409561218654,
+					"parameters": [
+						"shotgun_ui_uid",
+						"shotgun_ammo",
+						"shotgun_unlocked"
+					]
+				},
+				{
+					"callFunction": "UpdateWeaponUI",
+					"sid": 813510351462036,
+					"parameters": [
+						"smg_ui_uid",
+						"gun_ammo",
+						"smg_unlocked"
+					]
+				},
+				{
+					"callFunction": "UpdateWeaponUI",
+					"sid": 122837504293831,
+					"parameters": [
+						"gatling_ui_uid",
+						"gatling_ammo",
+						"gatling_unlocked"
+					]
+				}
+			],
 			"sid": 300194745500203
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for",
+					"objectClass": "System",
+					"sid": 908651892261082,
+					"parameters": {
+						"name": "\"\"",
+						"start-index": "1",
+						"end-index": "5"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "UIWeapon",
+					"sid": 165458355873272,
+					"parameters": {
+						"unique-id": "Functions.IndexToWeaponUID(loopindex)"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 144295277314439,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 256415685613295,
+							"parameters": {
+								"first-value": "loopindex",
+								"comparison": 0,
+								"second-value": "current_weapon"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "UIWeapon",
+							"sid": 286278040369101,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 129689557478376
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 967280329000976
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "UIWeapon",
+							"sid": 590346568451875,
+							"parameters": {
+								"opacity": "40"
+							}
+						}
+					],
+					"sid": 968947064230395
+				}
+			]
+		},
+		{
+			"functionName": "CreateWeaponUI",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "index",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 363634098680623
+				},
+				{
+					"name": "weapon",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 212562240369346
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 436824422964013,
+					"parameters": {
+						"object-to-create": "UIWeapon",
+						"layer": "\"UI\"",
+						"x": "100 + index * 20",
+						"y": "15",
+						"create-hierarchy": true,
+						"template-name": "\"UI\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "UIWeapon",
+					"sid": 708179414886626,
+					"parameters": {
+						"animation": "weapon",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 932877895007427,
+					"parameters": {
+						"value": "UIWeapon.UID"
+					}
+				}
+			],
+			"sid": 825164877583620,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 564149446497658
+				}
+			]
+		},
+		{
+			"functionName": "UpdateWeaponUI",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 366094747760670
+				},
+				{
+					"name": "ammo",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 578602852887101
+				},
+				{
+					"name": "unlocked",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 614571660243392
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 640005011618480,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "UIWeapon",
+							"sid": 659976705891895,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextFont",
+							"sid": 161457455772683,
+							"parameters": {
+								"text": "ammo"
+							}
+						}
+					],
+					"sid": 838044469771333,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 323561480095946,
+									"parameters": {
+										"variable": "unlocked",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UIWeapon",
+									"sid": 643918688659185,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 401000477263734
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 339268523327060
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UIWeapon",
+									"sid": 757714447012607,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 997963072293836
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "IndexToWeaponUID",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "index",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 122511540739967
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 921872995926270,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 680081409989286,
+							"parameters": {
+								"first-value": "index",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 532000379110352,
+							"parameters": {
+								"value": "pistol_ui_uid"
+							}
+						}
+					],
+					"sid": 115588357528482
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 933426611444955
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 292821941703737,
+							"parameters": {
+								"first-value": "index",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 253914269525281,
+							"parameters": {
+								"value": "shotgun_ui_uid"
+							}
+						}
+					],
+					"sid": 875143125889316
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 805270455062405
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 305119602805456,
+							"parameters": {
+								"first-value": "index",
+								"comparison": 0,
+								"second-value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 542924637712581,
+							"parameters": {
+								"value": "smg_ui_uid"
+							}
+						}
+					],
+					"sid": 727821810202167
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 503190701556129
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 267849756595473,
+							"parameters": {
+								"first-value": "index",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 593944636441134,
+							"parameters": {
+								"value": "gatling_ui_uid"
+							}
+						}
+					],
+					"sid": 635105021464298
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 316805527468749
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 247504968253610,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 151903839177551
+				}
+			]
 		}
 	],
 	"sid": 154043260739891
