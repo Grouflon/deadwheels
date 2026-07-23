@@ -66,26 +66,37 @@
 			"sid": 268812697834710
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"functionName": "audioGunSound",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
 				{
-					"id": "on-created",
-					"objectClass": "FireGFX",
-					"sid": 582597352600362
+					"name": "weapon",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 301471030377079
 				}
 			],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [],
-			"sid": 336717119251315,
+			"sid": 991460044723710,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 761252597362706,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 249052609087923,
 							"parameters": {
-								"animation": "\"Gatling\""
+								"variable": "weapon",
+								"comparison": 0,
+								"value": "\"Gatling\""
 							}
 						}
 					],
@@ -93,7 +104,7 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 594794913020502,
+							"sid": 874274549222589,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Gatling\"&choose(1,2,3)",
@@ -106,24 +117,26 @@
 						{
 							"id": "set-playback-rate",
 							"objectClass": "Audio",
-							"sid": 824932608343229,
+							"sid": 283734269048993,
 							"parameters": {
 								"tag": "\"\"",
 								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
-					"sid": 345857360611675
+					"sid": 635268030455434
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 936358367732614,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 584402403731770,
 							"parameters": {
-								"animation": "\"Pistol\""
+								"variable": "weapon",
+								"comparison": 0,
+								"value": "\"Pistol\""
 							}
 						}
 					],
@@ -131,7 +144,7 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 577269497654498,
+							"sid": 807935161975269,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Pistol\"&choose(1,2,3,4)",
@@ -144,24 +157,26 @@
 						{
 							"id": "set-playback-rate",
 							"objectClass": "Audio",
-							"sid": 590664999310085,
+							"sid": 311497214815473,
 							"parameters": {
 								"tag": "\"\"",
 								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
-					"sid": 645958813187406
+					"sid": 303834876342561
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 802646965006612,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 775447484390144,
 							"parameters": {
-								"animation": "\"Shotgun\""
+								"variable": "weapon",
+								"comparison": 0,
+								"value": "\"Shotgun\""
 							}
 						}
 					],
@@ -169,7 +184,7 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 752001664819687,
+							"sid": 742845005006696,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Shotgun\"&choose(1,2)",
@@ -182,24 +197,26 @@
 						{
 							"id": "set-playback-rate",
 							"objectClass": "Audio",
-							"sid": 790459031107336,
+							"sid": 331576705788313,
 							"parameters": {
 								"tag": "\"\"",
 								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
-					"sid": 154698536185002
+					"sid": 217843017831214
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 482055393147687,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 109108409066771,
 							"parameters": {
-								"animation": "\"Smg\""
+								"variable": "weapon",
+								"comparison": 0,
+								"value": "\"Smg\""
 							}
 						}
 					],
@@ -207,7 +224,7 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 268647666567766,
+							"sid": 268414611750154,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Smg\"&choose(1,2,3,4)",
@@ -220,14 +237,14 @@
 						{
 							"id": "set-playback-rate",
 							"objectClass": "Audio",
-							"sid": 357612552209493,
+							"sid": 765943801132604,
 							"parameters": {
 								"tag": "\"\"",
 								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
-					"sid": 548705811378517
+					"sid": 170175349579974
 				}
 			]
 		},
