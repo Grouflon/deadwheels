@@ -107,16 +107,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "smg_ammo",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 268962390101999
-		},
-		{
-			"eventType": "variable",
 			"name": "gatling_ammo",
 			"type": "number",
 			"initialValue": "0",
@@ -3590,6 +3580,39 @@
 					"sid": 952716434866901
 				}
 			]
+		},
+		{
+			"aceType": "action",
+			"aceName": "Heal",
+			"objectClass": "CharacterController",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "amount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 108585885202486
+				}
+			],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "CharacterController",
+					"sid": 921832405322751,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "clamp(CharacterController.health+amount,0,character_max_health)"
+					}
+				}
+			],
+			"sid": 805413802672535
 		}
 	],
 	"sid": 595366528436603

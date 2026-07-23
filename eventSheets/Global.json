@@ -692,37 +692,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Reward Debug",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "CharacterController",
-							"sid": 814181878420015,
-							"parameters": {
-								"object": "Health"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Health",
-							"sid": 220484705966499
-						}
-					],
-					"sid": 632874816716274
-				}
-			],
-			"sid": 590287243115562
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Button",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1255,6 +1224,332 @@
 				}
 			],
 			"sid": 701136920108105
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pickup",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 556337054272234,
+							"parameters": {
+								"object": "Pickups"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 913149741623699,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 906421340219000,
+									"parameters": {
+										"first-value": "Pickups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Health\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 767763508794069,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterController",
+											"sid": 172432216277523,
+											"parameters": {
+												"instance-variable": "health",
+												"comparison": 2,
+												"value": "character_max_health"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "PickObject",
+											"objectClass": "Pickups",
+											"sid": 378182368520986,
+											"parameters": [
+												"Pickups.AnimationName"
+											]
+										}
+									],
+									"sid": 764239508199993
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 300658651172459
+								}
+							],
+							"actions": [
+								{
+									"customAction": "PickObject",
+									"objectClass": "Pickups",
+									"sid": 757251285014266,
+									"parameters": [
+										"Pickups.AnimationName"
+									]
+								}
+							],
+							"sid": 112149181913096
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"aceType": "action",
+					"aceName": "PickObject",
+					"objectClass": "Pickups",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "pickUp",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 182095314748274
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 294170591288068,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 908207731583558,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"ammo_pistol\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 327116340409181,
+									"parameters": {
+										"variable": "gun_ammo",
+										"value": "10"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 916007538090972,
+									"parameters": {
+										"audio-file": {
+											"path": "pickammo"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 213312975745946
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 295345577572620,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"ammo_shotgun\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 158830029078719,
+									"parameters": {
+										"variable": "shotgun_ammo",
+										"value": "5"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 659829278989663,
+									"parameters": {
+										"audio-file": {
+											"path": "pickammo"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 124305408921043
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 823761502189782,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"ammo_gatling\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 305776274485313,
+									"parameters": {
+										"variable": "gatling_ammo",
+										"value": "30"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 577478626182613,
+									"parameters": {
+										"audio-file": {
+											"path": "pickammo"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 609881987767017
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 479596841724615,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"health_small\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Heal",
+									"objectClass": "CharacterController",
+									"sid": 239001089115505,
+									"parameters": [
+										"20"
+									]
+								}
+							],
+							"sid": 320216062698319
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 373005712891367,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"health_big\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Heal",
+									"objectClass": "CharacterController",
+									"sid": 799008018703604,
+									"parameters": [
+										"50"
+									]
+								}
+							],
+							"sid": 876649640010256
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 892067982200392,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"pick\"&pickUp",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"pick\"&pickUp"
+									}
+								}
+							],
+							"sid": 487248475184600
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Pickups",
+									"sid": 157579805452530
+								}
+							],
+							"sid": 464534172413126
+						}
+					]
+				}
+			],
+			"sid": 650324388187545
 		}
 	],
 	"sid": 171422187705970
