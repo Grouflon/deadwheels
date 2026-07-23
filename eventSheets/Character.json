@@ -2219,14 +2219,22 @@
 		},
 		{
 			"aceType": "action",
-			"aceName": "OnHit",
+			"aceName": "DoDamage",
 			"objectClass": "CharacterController",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionCopyPicked": false,
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "Damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 400927124587880
+				}
+			],
 			"eventType": "custom-ace-block",
 			"conditions": [],
 			"actions": [
@@ -2237,6 +2245,15 @@
 					"parameters": {
 						"instance-variable": "invulnerability_timer",
 						"value": "1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "CharacterController",
+					"sid": 660817094659742,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "-Damage"
 					}
 				}
 			],
