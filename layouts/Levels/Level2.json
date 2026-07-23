@@ -136,6 +136,49 @@
 					}
 				},
 				{
+					"type": "Floor_Tiles1",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 421672,
+					"sid": 779440181112250,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 224,
+						"y": 448,
+						"width": 32,
+						"height": 128,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "InsideWall",
 					"properties": {
 						"shape": "box",
@@ -913,7 +956,7 @@
 						"angular_deceleration": 700,
 						"angular_buffer_time": 0.2,
 						"max_angular_velocity": 400,
-						"direction": 90,
+						"direction": 0,
 						"velocity": 0,
 						"angular_velocity": 0,
 						"wheel_ticks": 0,
@@ -951,11 +994,338 @@
 							}
 						}
 					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "character",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "acceleration",
+												"state": true
+											},
+											{
+												"iv": "brake",
+												"state": true
+											},
+											{
+												"iv": "deceleration",
+												"state": true
+											},
+											{
+												"iv": "max_velocity",
+												"state": true
+											},
+											{
+												"iv": "collision_velocity_multiplier",
+												"state": true
+											},
+											{
+												"iv": "angular_acceleration",
+												"state": true
+											},
+											{
+												"iv": "angular_deceleration",
+												"state": true
+											},
+											{
+												"iv": "angular_buffer_time",
+												"state": true
+											},
+											{
+												"iv": "max_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "direction",
+												"state": true
+											},
+											{
+												"iv": "velocity",
+												"state": true
+											},
+											{
+												"iv": "angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "previous_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "previous_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "collision_cooldown",
+												"state": true
+											},
+											{
+												"iv": "turn_left_cooldown",
+												"state": true
+											},
+											{
+												"iv": "turn_right_cooldown",
+												"state": true
+											},
+											{
+												"iv": "max_velocity_multiplier",
+												"state": true
+											},
+											{
+												"iv": "read_input",
+												"state": true
+											},
+											{
+												"iv": "disabled",
+												"state": true
+											},
+											{
+												"iv": "just_pushed",
+												"state": true
+											},
+											{
+												"iv": "just_rotated",
+												"state": true
+											},
+											{
+												"iv": "health",
+												"state": true
+											},
+											{
+												"iv": "invulnerability_timer",
+												"state": true
+											},
+											{
+												"iv": "old_velocity",
+												"state": true
+											},
+											{
+												"iv": "old_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "old_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "old_previous_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "old_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "old_previous_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "is_aiming",
+												"state": true
+											},
+											{
+												"iv": "is_dead",
+												"state": true
+											},
+											{
+												"iv": "is_in_chair",
+												"state": true
+											},
+											{
+												"iv": "recoil",
+												"state": true
+											},
+											{
+												"iv": "angular_recoil",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Custom",
+										"state": [
+											[
+												"stepping-mode",
+												true
+											],
+											[
+												"pixels-per-step",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 272,
-						"y": 528,
+						"x": 288,
+						"y": 272,
 						"width": 12,
 						"height": 12,
 						"originX": 0.5,
@@ -5317,49 +5687,6 @@
 						],
 						"z": 0,
 						"depth": 32,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Floor_Tiles1",
-					"properties": {
-						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
-					},
-					"uid": 421672,
-					"sid": 779440181112250,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 224,
-						"y": 448,
-						"width": 32,
-						"height": 128,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
 						"angle": 0
 					}
 				},

@@ -390,17 +390,7 @@
 							"sid": 227697557931118
 						}
 					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "CharacterController",
-							"sid": 287476295414224,
-							"parameters": {
-								"x": "Mouse.X",
-								"y": "Mouse.Y"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 617971713858823,
 					"children": [
 						{
@@ -413,20 +403,54 @@
 									"parameters": {
 										"instance-variable": "is_in_chair"
 									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "ChairController",
+									"sid": 661140831808611,
+									"parameters": {
+										"which": "nearest",
+										"x": "CharacterController.X",
+										"y": "CharacterController.Y",
+										"z": "0",
+										"pick-all-tied": false
+									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-position-to-another-object",
+									"id": "set-position",
 									"objectClass": "ChairController",
-									"sid": 478030963033417,
+									"sid": 520417602526226,
 									"parameters": {
-										"object": "CharacterController",
-										"image-point-optional": "0"
+										"x": "Mouse.X",
+										"y": "Mouse.Y"
 									}
 								}
 							],
 							"sid": 700356876426276
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 630503234067998
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "CharacterController",
+									"sid": 692867157642618,
+									"parameters": {
+										"x": "Mouse.X",
+										"y": "Mouse.Y"
+									}
+								}
+							],
+							"sid": 604526154098350
 						}
 					]
 				}
