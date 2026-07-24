@@ -1830,6 +1830,285 @@
 				}
 			],
 			"sid": 264745073981096
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 785495654520773,
+							"parameters": {
+								"object": "Trigger"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 209343332226995,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Events",
+									"sid": 822772646120461,
+									"parameters": {
+										"unique-id": "Trigger.EventUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Events",
+									"sid": 765901021087089,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 489996802809062
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Events",
+									"sid": 434236461154127,
+									"parameters": {
+										"unique-id": "Trigger.Event2UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Events",
+									"sid": 935269722588754,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 656034133615826
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Events",
+									"sid": 603970383194107,
+									"parameters": {
+										"unique-id": "Trigger.Event3UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Events",
+									"sid": 727216158011380,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 233577331167376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Events",
+									"sid": 114366591508414,
+									"parameters": {
+										"unique-id": "Trigger.Event4UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Events",
+									"sid": 720735625588956,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 158436366984100
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Events",
+									"sid": 489747229280769,
+									"parameters": {
+										"unique-id": "Trigger.Event5UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Events",
+									"sid": 340575619885845,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 521149071421239
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 636739351100728,
+							"parameters": {
+								"instance-variable": "Triggered"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 496885486966429,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 699108143234997,
+									"parameters": {
+										"count": "Event_ZombieSpawn.Zombies"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 391886762528186,
+									"parameters": {
+										"object": "Mike",
+										"layer": "Self.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Mike",
+									"sid": 806659946877774,
+									"parameters": {
+										"x": "Self.X+random(-16,16)",
+										"y": "Self.Y+random(-16,16)"
+									}
+								}
+							],
+							"sid": 753227333296841,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Event_ZombieSpawn",
+											"sid": 654293819033091,
+											"parameters": {
+												"instance-variable": "ZombiesSpotPlayer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Mike",
+											"sid": 386523594855405,
+											"parameters": {
+												"instance-variable": "spottedPlayer",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 915378510247939
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 512635586388894
+								}
+							],
+							"sid": 402209256040267
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Event_Sound",
+							"sid": 217087100249267,
+							"parameters": {
+								"instance-variable": "Triggered"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 563078816189425,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "Event_Sound.Sound",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Event_Sound",
+							"sid": 320762182735153
+						}
+					],
+					"sid": 342921250935992
+				}
+			],
+			"sid": 142176945569411
 		}
 	],
 	"sid": 171422187705970
