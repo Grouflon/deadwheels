@@ -2,6 +2,46 @@
 	"name": "Zombies",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "zombie_revive_chance",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 369951752027750
+		},
+		{
+			"eventType": "variable",
+			"name": "zombie_min_revive_cooldown",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 450210535931341
+		},
+		{
+			"eventType": "variable",
+			"name": "zombie_max_revive_cooldown",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 134292276824462
+		},
+		{
+			"eventType": "variable",
+			"name": "zombie_interval",
+			"type": "number",
+			"initialValue": "13",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 862886533479377
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -83,40 +123,298 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "Zombies",
-					"sid": 319940785187036,
+					"id": "for",
+					"objectClass": "System",
+					"sid": 601410510167820,
 					"parameters": {
-						"object": "Zombies",
-						"offset-x": "10",
-						"offset-y": "10"
+						"name": "\"i\"",
+						"start-index": "0",
+						"end-index": "Zombies.Count-1"
 					}
 				}
 			],
 			"actions": [],
-			"sid": 182451360894035,
+			"sid": 223548558797445,
 			"children": [
+				{
+					"eventType": "variable",
+					"name": "i",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 824629243101182
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 795221011077224,
+							"parameters": {
+								"variable": "i",
+								"value": "loopindex(\"i\")"
+							}
+						}
+					],
+					"sid": 585804126217470
+				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-random-instance",
+							"id": "pick-nth-instance",
 							"objectClass": "System",
-							"sid": 731369807851099,
+							"sid": 179047884855235,
 							"parameters": {
-								"object": "Zombies"
+								"object": "Zombies",
+								"instance": "i"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "stop",
-							"objectClass": "Zombies",
-							"sid": 650949994020775,
-							"behaviorType": "Pathfinding"
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 906427263911517,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "i&\" \"&Zombies.UID"
+							}
 						}
 					],
-					"sid": 709453190881040
+					"sid": 501978859622797,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Zombies",
+									"sid": 474955906820310,
+									"parameters": {
+										"instance-variable": "spottedPlayer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Zombies",
+									"sid": 233869543094573,
+									"parameters": {
+										"instance-variable": "followPlayer",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 407993385046936,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 603610210106907,
+											"parameters": {
+												"name": "\"j\"",
+												"start-index": "0",
+												"end-index": "Zombies.Count-1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 387178860349007,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "j",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 809014908773785
+										},
+										{
+											"eventType": "variable",
+											"name": "forward_distance",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 679466000469270
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 205567011904366,
+													"parameters": {
+														"variable": "j",
+														"value": "loopindex(\"j\")"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 758192952879356,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "Zombies(i).UID & \":\" & Zombies(j).UID"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 880156889198721,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "Zombies(i).angle - Zombies(j).angle"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 392666986764477,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "distance(Zombies(i).X,Zombies(i).Y, Zombies(j).X,Zombies(j).Y)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 829284681087123,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "Functions.dot(cos(Zombies(i).angle),sin(Zombies(i).angle), Zombies(j).X-Zombies(i).X, Zombies(j).Y-Zombies(i).Y)"
+													}
+												}
+											],
+											"sid": 106292488198874
+										},
+										{
+											"eventType": "comment",
+											"text": "Zombie1 will stop if:\n- Zombie 2 is front of Zombie 1\n- Forward Zombie1->Zombie 2 distance is greater than Forward Zombie2->Zombie2 distance\n- Distance between Zombie1 and Zombie2 is lower than interval\n- Target is in front"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 618095850628558,
+													"parameters": {
+														"first-value": "i",
+														"comparison": 1,
+														"second-value": "j"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 180708459222908,
+													"parameters": {
+														"first-value": "Functions.dot(cos(Zombies(i).angle),sin(Zombies(i).angle), Zombies(j).X-Zombies(i).X, Zombies(j).Y-Zombies(i).Y)",
+														"comparison": 5,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 321484907638623,
+													"parameters": {
+														"first-value": "Functions.dot(cos(Zombies(i).angle),sin(Zombies(i).angle), Zombies(j).X-Zombies(i).X, Zombies(j).Y-Zombies(i).Y)",
+														"comparison": 5,
+														"second-value": "Functions.dot(cos(Zombies(j).angle),sin(Zombies(j).angle), Zombies(i).X-Zombies(j).X, Zombies(i).Y-Zombies(j).Y)"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 143359510815116,
+													"parameters": {
+														"first-value": "distance(Zombies(i).X,Zombies(i).Y, Zombies(j).X,Zombies(j).Y)",
+														"comparison": 3,
+														"second-value": "zombie_interval"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 709641607811651,
+													"parameters": {
+														"first-value": "Functions.dot(cos(Zombies(i).angle),sin(Zombies(i).angle), Zombies(i).moveToX-Zombies(i).X, Zombies(i).moveToY-Zombies(i).Y)",
+														"comparison": 5,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Zombies",
+													"sid": 661216952506783,
+													"parameters": {
+														"instance-variable": "followPlayer",
+														"value": "false"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 496062858058294,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"block \" & Zombies.UID"
+													}
+												}
+											],
+											"sid": 451353670360455
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 676241061558657
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Zombies",
+									"sid": 791749101421889,
+									"parameters": {
+										"instance-variable": "followPlayer",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 306372141866730
+						}
+					]
 				}
 			]
 		},
@@ -124,15 +422,81 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 255144583342447,
+					"parameters": {
+						"instance-variable": "followPlayer"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 366059484885923,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 609244290953218,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "find-path",
+							"objectClass": "Zombies",
+							"sid": 313944012673722,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "Self.moveToX",
+								"y": "Self.moveToY"
+							}
+						}
+					],
+					"sid": 129792643905789
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Zombies",
+					"sid": 408737306369667,
+					"parameters": {
+						"instance-variable": "followPlayer"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Zombies",
+					"sid": 852277308981977,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"sid": 328922973949373
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-path-found",
 					"objectClass": "Zombies",
-					"sid": 762187618113655,
+					"sid": 916048061352790,
 					"behaviorType": "Pathfinding"
 				},
 				{
 					"id": "is-boolean-instance-variable-set",
 					"objectClass": "Zombies",
-					"sid": 159904875068966,
+					"sid": 152448371600323,
 					"parameters": {
 						"instance-variable": "isAttacking"
 					},
@@ -143,11 +507,11 @@
 				{
 					"id": "move-along-path",
 					"objectClass": "Zombies",
-					"sid": 532082338136731,
+					"sid": 823656641409477,
 					"behaviorType": "Pathfinding"
 				}
 			],
-			"sid": 366059484885923
+			"sid": 903986519997569
 		},
 		{
 			"eventType": "block",
@@ -172,40 +536,6 @@
 				}
 			],
 			"sid": 685912461373943
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 742806936658401,
-					"parameters": {
-						"interval-seconds": "0.5"
-					}
-				},
-				{
-					"id": "is-boolean-instance-variable-set",
-					"objectClass": "Zombies",
-					"sid": 439059319161052,
-					"parameters": {
-						"instance-variable": "spottedPlayer"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "find-path",
-					"objectClass": "Zombies",
-					"sid": 619612016875523,
-					"behaviorType": "Pathfinding",
-					"parameters": {
-						"x": "Self.moveToX",
-						"y": "Self.moveToY"
-					}
-				}
-			],
-			"sid": 805037967076540
 		},
 		{
 			"eventType": "comment",
@@ -393,6 +723,11 @@
 						"where": "behind",
 						"object": "ChairSprite"
 					}
+				},
+				{
+					"customAction": "RollRevive",
+					"objectClass": "Corpse",
+					"sid": 695277730594817
 				}
 			],
 			"sid": 958342673849892
@@ -706,6 +1041,207 @@
 					"sid": 512831606305027
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "REVIVING ZOMBIES",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "RollRevive",
+					"objectClass": "Corpse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 986956967350029,
+							"parameters": {
+								"first-value": "random(100)",
+								"comparison": 3,
+								"second-value": "zombie_revive_chance"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Corpse",
+							"sid": 664258270931228,
+							"parameters": {
+								"instance-variable": "revive_cooldown",
+								"value": "random(zombie_min_revive_cooldown, zombie_max_revive_cooldown)"
+							}
+						}
+					],
+					"sid": 125206075670915
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Corpse",
+							"sid": 923216479496931,
+							"parameters": {
+								"instance-variable": "revive_cooldown",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Corpse",
+							"sid": 269707803952989,
+							"parameters": {
+								"instance-variable": "revive_cooldown",
+								"value": "-dt"
+							}
+						}
+					],
+					"sid": 389317076121730,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Corpse",
+									"sid": 832326718780888,
+									"parameters": {
+										"instance-variable": "revive_cooldown",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 755828221230076,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Corpse",
+											"sid": 529369508235106,
+											"parameters": {
+												"animation": "\"Mike\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Corpse",
+											"sid": 533609861563637,
+											"parameters": {
+												"object": "Mike",
+												"layer": "0",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "Mike",
+											"sid": 569307426939183,
+											"parameters": {
+												"where": "in-front",
+												"object": "Corpse"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Mike",
+											"sid": 426281120794482,
+											"parameters": {
+												"angle": "Corpse.Angle"
+											}
+										}
+									],
+									"sid": 889915261664641
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 367266152294187
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Corpse",
+											"sid": 507758369367867,
+											"parameters": {
+												"animation": "\"Sofia\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Corpse",
+											"sid": 247555936378921,
+											"parameters": {
+												"object": "Sofia",
+												"layer": "0",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "Sofia",
+											"sid": 346863342774614,
+											"parameters": {
+												"where": "in-front",
+												"object": "Corpse"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Sofia",
+											"sid": 137790221438885,
+											"parameters": {
+												"angle": "Corpse.Angle"
+											}
+										}
+									],
+									"sid": 732999182362239
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Corpse",
+											"sid": 416446799818166
+										}
+									],
+									"sid": 288466863715875
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 431918134465483
 		}
 	],
 	"sid": 810694807837553

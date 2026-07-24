@@ -3685,6 +3685,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -3764,6 +3765,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -3843,6 +3845,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -3922,6 +3925,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -4001,6 +4005,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -4080,6 +4085,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -4159,6 +4165,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -4238,6 +4245,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -4317,6 +4325,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -4396,6 +4405,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -8552,6 +8562,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -8973,6 +8984,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -11926,6 +11938,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -12005,6 +12018,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -13697,6 +13711,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
+						"followPlayer": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -14155,6 +14170,285 @@
 							}
 						}
 					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Chair",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "acceleration",
+												"state": true
+											},
+											{
+												"iv": "brake",
+												"state": true
+											},
+											{
+												"iv": "deceleration",
+												"state": true
+											},
+											{
+												"iv": "max_velocity",
+												"state": true
+											},
+											{
+												"iv": "collision_velocity_multiplier",
+												"state": true
+											},
+											{
+												"iv": "angular_acceleration",
+												"state": true
+											},
+											{
+												"iv": "angular_deceleration",
+												"state": true
+											},
+											{
+												"iv": "angular_buffer_time",
+												"state": true
+											},
+											{
+												"iv": "max_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "direction",
+												"state": false
+											},
+											{
+												"iv": "velocity",
+												"state": true
+											},
+											{
+												"iv": "angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "previous_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "previous_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "collision_cooldown",
+												"state": true
+											},
+											{
+												"iv": "turn_left_cooldown",
+												"state": true
+											},
+											{
+												"iv": "turn_right_cooldown",
+												"state": true
+											},
+											{
+												"iv": "max_velocity_multiplier",
+												"state": true
+											},
+											{
+												"iv": "read_input",
+												"state": true
+											},
+											{
+												"iv": "disabled",
+												"state": true
+											},
+											{
+												"iv": "just_pushed",
+												"state": true
+											},
+											{
+												"iv": "just_rotated",
+												"state": true
+											},
+											{
+												"iv": "wheels_blood_level",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Custom",
+										"state": [
+											[
+												"stepping-mode",
+												true
+											],
+											[
+												"pixels-per-step",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -14186,7 +14480,9 @@
 					"uid": 851980,
 					"sid": 570472204758292,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"revive_cooldown": 0
+					},
 					"behaviors": {},
 					"showing": true,
 					"locked": false,
