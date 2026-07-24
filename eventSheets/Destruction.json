@@ -442,7 +442,7 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "destroy furniturre with chair"
+					"text": "Hit furniture with chair"
 				},
 				{
 					"eventType": "block",
@@ -551,61 +551,6 @@
 								}
 							],
 							"sid": 407848769792958
-						},
-						{
-							"eventType": "comment",
-							"text": "Doors"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 175582791667881,
-									"parameters": {
-										"first-value": "abs(ChairController.velocity)",
-										"comparison": 5,
-										"second-value": "collision_damage_velocity_threshold*0.5"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Furniture",
-									"sid": 120961610578576,
-									"parameters": {
-										"instance-variable": "isDoor"
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Doors",
-									"sid": 829432211818306,
-									"parameters": {
-										"unique-id": "Furniture.UID"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Doors",
-									"sid": 244308897823751,
-									"parameters": {
-										"instance-variable": "CanBePushed"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "OpenDoor",
-									"objectClass": "Doors",
-									"sid": 132770067454828,
-									"parameters": [
-										"ChairController.X",
-										"ChairController.Y"
-									]
-								}
-							],
-							"sid": 380577377145563
 						},
 						{
 							"eventType": "block",

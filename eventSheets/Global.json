@@ -960,6 +960,111 @@
 					"sid": 747454593181733
 				},
 				{
+					"eventType": "comment",
+					"text": "Hit doors with chair"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "ChairController",
+							"sid": 317281432737390,
+							"parameters": {
+								"object": "Doors",
+								"offset-x": "1",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "ChairController",
+							"sid": 999117148466645,
+							"parameters": {
+								"object": "Doors",
+								"offset-x": "-1",
+								"offset-y": "0"
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "ChairController",
+							"sid": 700451813117475,
+							"parameters": {
+								"object": "Doors",
+								"offset-x": "0",
+								"offset-y": "1"
+							}
+						},
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "ChairController",
+							"sid": 826416126204250,
+							"parameters": {
+								"object": "Doors",
+								"offset-x": "0",
+								"offset-y": "-1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 212638652074139,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 869604372356686,
+									"parameters": {
+										"first-value": "abs(ChairController.velocity)",
+										"comparison": 5,
+										"second-value": "collision_damage_velocity_threshold*0.2"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Doors",
+									"sid": 188999783858264,
+									"parameters": {
+										"instance-variable": "CanBePushed"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenDoor",
+									"objectClass": "Doors",
+									"sid": 197785405115829,
+									"parameters": [
+										"ChairController.X",
+										"ChairController.Y"
+									]
+								}
+							],
+							"sid": 284981128023625
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ChairController",
+									"sid": 173501446340363,
+									"parameters": {
+										"instance-variable": "velocity",
+										"value": "ChairController.velocity * 0.2"
+									}
+								}
+							],
+							"sid": 668080672345655
+						}
+					],
+					"isOrBlock": true
+				},
+				{
 					"aceType": "action",
 					"aceName": "OpenDoor",
 					"objectClass": "Doors",
@@ -1055,6 +1160,46 @@
 								}
 							],
 							"sid": 239515095019589
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 518815946720556
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 707524494641821,
+									"parameters": {
+										"first-value": "Door_Button.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Door_Button\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Doors",
+									"sid": 789716762957655,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "0",
+										"time": "2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 570649243777126
 						},
 						{
 							"eventType": "block",
