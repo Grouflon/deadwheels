@@ -1662,19 +1662,19 @@
 												"state": true
 											},
 											{
-												"iv": "lastValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetY",
-												"state": true
-											},
-											{
 												"iv": "pendingValidTargetX",
 												"state": true
 											},
 											{
 												"iv": "pendingValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
 												"state": true
 											}
 										]
@@ -1686,6 +1686,27 @@
 								"component": [
 									{
 										"key": "AcquireVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -1756,27 +1777,6 @@
 									},
 									{
 										"key": "LineOfSight2",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
