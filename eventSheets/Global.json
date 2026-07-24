@@ -35,7 +35,7 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Debris"
+			"includeSheet": "Destruction"
 		},
 		{
 			"eventType": "group",
@@ -788,6 +788,14 @@
 							"parameters": {
 								"object": "ChairController"
 							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 179045969320381,
+							"parameters": {
+								"object": "Bullet"
+							}
 						}
 					],
 					"actions": [],
@@ -897,6 +905,27 @@
 						}
 					],
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bullet",
+							"sid": 723007107980334,
+							"parameters": {
+								"object": "ButtonSlot2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Bullet",
+							"sid": 237999811728343
+						}
+					],
+					"sid": 556646521618864
 				}
 			],
 			"sid": 896974003257226

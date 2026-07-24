@@ -655,6 +655,82 @@
 					"sid": 606227242332091
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 608268979439599,
+					"parameters": {
+						"object": "Buildings",
+						"offset-x": "1",
+						"offset-y": "0"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 376982866413937,
+					"parameters": {
+						"object": "Buildings",
+						"offset-x": "-1",
+						"offset-y": "0"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 246752832270543,
+					"parameters": {
+						"object": "Buildings",
+						"offset-x": "0",
+						"offset-y": "1"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 746711136780976,
+					"parameters": {
+						"object": "Buildings",
+						"offset-x": "0",
+						"offset-y": "-1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 643921666984285,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 158915983524378
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 177004472479128,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "-5",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 341177424013614
+				}
+			],
+			"isOrBlock": true
 		}
 	],
 	"sid": 128376728907050
