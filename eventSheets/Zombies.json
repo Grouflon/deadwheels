@@ -1131,98 +1131,58 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Corpse",
-											"sid": 529369508235106,
-											"parameters": {
-												"animation": "\"Mike\""
-											}
-										}
-									],
+									"conditions": [],
 									"actions": [
 										{
-											"id": "spawn-another-object",
-											"objectClass": "Corpse",
-											"sid": 533609861563637,
-											"parameters": {
-												"object": "Mike",
-												"layer": "0",
-												"image-point": "0",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "move-to-object",
-											"objectClass": "Mike",
-											"sid": 569307426939183,
-											"parameters": {
-												"where": "in-front",
-												"object": "Corpse"
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Mike",
-											"sid": 426281120794482,
-											"parameters": {
-												"angle": "Corpse.Angle"
-											}
-										}
-									],
-									"sid": 889915261664641
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
+											"id": "create-object-by-name",
 											"objectClass": "System",
-											"sid": 367266152294187
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Corpse",
-											"sid": 507758369367867,
+											"sid": 530653605865460,
 											"parameters": {
-												"animation": "\"Sofia\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Corpse",
-											"sid": 247555936378921,
-											"parameters": {
-												"object": "Sofia",
+												"object-name": "Corpse.AnimationName",
 												"layer": "0",
-												"image-point": "0",
+												"x": "Corpse.X",
+												"y": "Corpse.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
-										},
-										{
-											"id": "move-to-object",
-											"objectClass": "Sofia",
-											"sid": 346863342774614,
-											"parameters": {
-												"where": "in-front",
-												"object": "Corpse"
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Sofia",
-											"sid": 137790221438885,
-											"parameters": {
-												"angle": "Corpse.Angle"
-											}
 										}
 									],
-									"sid": 732999182362239
+									"sid": 907503325300715,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 218411452979761,
+													"parameters": {
+														"object": "Zombies"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "move-to-object",
+													"objectClass": "Zombies",
+													"sid": 450995757957083,
+													"parameters": {
+														"where": "in-front",
+														"object": "Corpse"
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "Zombies",
+													"sid": 166194793383408,
+													"parameters": {
+														"angle": "Corpse.Angle"
+													}
+												}
+											],
+											"sid": 602539249191259
+										}
+									]
 								},
 								{
 									"eventType": "block",
