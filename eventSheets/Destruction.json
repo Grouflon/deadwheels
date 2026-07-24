@@ -448,128 +448,145 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 573490691130295,
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 614523315786332,
 							"parameters": {
-								"object": "Furniture",
-								"offset-x": "1",
-								"offset-y": "0"
-							}
-						},
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 752519172274065,
-							"parameters": {
-								"object": "Furniture",
-								"offset-x": "-1",
-								"offset-y": "0"
-							}
-						},
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 407420123687674,
-							"parameters": {
-								"object": "Furniture",
-								"offset-x": "0",
-								"offset-y": "1"
-							}
-						},
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 577999287022413,
-							"parameters": {
-								"object": "Furniture",
-								"offset-x": "0",
-								"offset-y": "-1"
+								"object": "ChairController"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 703858601039250,
+					"sid": 985353527870480,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 657603522016775
-								}
-							],
-							"actions": [
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 231822994380177,
+									"id": "is-overlapping-at-offset",
+									"objectClass": "ChairController",
+									"sid": 108563712225529,
 									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								}
-							],
-							"sid": 261530651509598
-						},
-						{
-							"eventType": "comment",
-							"text": "Destructible furniture"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Furniture",
-									"sid": 225588393914075,
-									"parameters": {
-										"instance-variable": "chairCanDestroy"
+										"object": "Furniture",
+										"offset-x": "1",
+										"offset-y": "0"
 									}
 								},
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 488119593953842,
-									"parameters": {
-										"first-value": "abs(ChairController.velocity)",
-										"comparison": 5,
-										"second-value": "collision_damage_velocity_threshold*0.5"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Furniture",
-									"sid": 362349582101016
-								}
-							],
-							"sid": 407848769792958
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-instvar-value",
+									"id": "is-overlapping-at-offset",
 									"objectClass": "ChairController",
-									"sid": 282133335908321,
+									"sid": 575135489998507,
 									"parameters": {
-										"instance-variable": "velocity",
-										"value": "ChairController.velocity * 0.2"
+										"object": "Furniture",
+										"offset-x": "-1",
+										"offset-y": "0"
+									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "ChairController",
+									"sid": 599332605110214,
+									"parameters": {
+										"object": "Furniture",
+										"offset-x": "0",
+										"offset-y": "1"
+									}
+								},
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "ChairController",
+									"sid": 389274698182222,
+									"parameters": {
+										"object": "Furniture",
+										"offset-x": "0",
+										"offset-y": "-1"
 									}
 								}
 							],
-							"sid": 560392226620366
+							"actions": [],
+							"sid": 317987646753644,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 147980186100751
+										}
+									],
+									"actions": [
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 767103096431326,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 497285627181318
+								},
+								{
+									"eventType": "comment",
+									"text": "Destructible furniture"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Furniture",
+											"sid": 630591432932966,
+											"parameters": {
+												"instance-variable": "chairCanDestroy"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 400781138038476,
+											"parameters": {
+												"first-value": "abs(ChairController.velocity)",
+												"comparison": 5,
+												"second-value": "collision_damage_velocity_threshold*0.5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Furniture",
+											"sid": 200111441928279
+										}
+									],
+									"sid": 504229205930991
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ChairController",
+											"sid": 460403018698888,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "ChairController.velocity * 0.2"
+											}
+										}
+									],
+									"sid": 375368579196961
+								}
+							],
+							"isOrBlock": true
 						}
-					],
-					"isOrBlock": true
+					]
 				},
 				{
 					"eventType": "comment",
@@ -619,6 +636,12 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "regenerate-obstacle-map",
+							"objectClass": "Zombies",
+							"sid": 773462631747718,
+							"behaviorType": "Pathfinding"
+						},
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",

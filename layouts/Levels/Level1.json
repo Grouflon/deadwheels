@@ -9345,13 +9345,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -9443,6 +9456,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -9452,7 +9485,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -9523,6 +9556,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -9716,13 +9770,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -9814,6 +9881,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -9823,7 +9910,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -9894,6 +9981,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -10087,13 +10195,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -10185,6 +10306,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -10194,7 +10335,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -10265,6 +10406,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -12918,13 +13080,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -13016,6 +13191,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -13025,7 +13220,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -13096,6 +13291,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -13289,13 +13505,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -13387,6 +13616,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -13396,7 +13645,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -13467,6 +13716,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -13660,13 +13930,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -13758,6 +14041,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -13767,7 +14070,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -13838,6 +14141,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -14949,13 +15273,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -15047,6 +15384,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -15056,7 +15413,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -15127,6 +15484,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -17412,13 +17790,26 @@
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
-						"isAttacking": false
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0
 					},
 					"behaviors": {
-						"LineOfSight": {
+						"AcquireVision": {
 							"properties": {
 								"obstacles": "solids",
 								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -17510,6 +17901,26 @@
 											{
 												"iv": "isAttacking",
 												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
 											}
 										]
 									}
@@ -17519,7 +17930,7 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "LineOfSight",
+										"key": "AcquireVision",
 										"state": [
 											[
 												"obstacles",
@@ -17590,6 +18001,27 @@
 									},
 									{
 										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
 										"state": [
 											[
 												"obstacles",
@@ -21026,8 +21458,8 @@
 							"transformX": 0,
 							"transformY": 0,
 							"transformZ": 0,
-							"transformW": 0,
-							"transformH": 0,
+							"transformW": 2.220446049250313e-16,
+							"transformH": 2.220446049250313e-16,
 							"transformD": 0,
 							"transformA": 0,
 							"transformSX": 0,
@@ -21355,9 +21787,9 @@
 							"transformX": 0,
 							"transformY": 0,
 							"transformZ": 0,
-							"transformW": 0,
-							"transformH": 0,
-							"transformD": 0,
+							"transformW": 2.220446049250313e-16,
+							"transformH": 2.220446049250313e-16,
+							"transformD": 2.220446049250313e-16,
 							"transformA": 0,
 							"transformSX": 0,
 							"transformSY": 0,
@@ -21418,8 +21850,8 @@
 							"transformX": 0,
 							"transformY": 0,
 							"transformZ": 0,
-							"transformW": 0,
-							"transformH": 0,
+							"transformW": 2.220446049250313e-16,
+							"transformH": 2.220446049250313e-16,
 							"transformD": 0,
 							"transformA": 0,
 							"transformSX": 0,
@@ -21747,9 +22179,9 @@
 							"transformX": 0,
 							"transformY": 0,
 							"transformZ": 0,
-							"transformW": 0,
-							"transformH": 0,
-							"transformD": 0,
+							"transformW": 2.220446049250313e-16,
+							"transformH": 2.220446049250313e-16,
+							"transformD": 2.220446049250313e-16,
 							"transformA": 0,
 							"transformSX": 0,
 							"transformSY": 0,
