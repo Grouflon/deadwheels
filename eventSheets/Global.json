@@ -1588,8 +1588,51 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-visible",
+							"objectClass": "Arm",
+							"sid": 824959206583677,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Arm",
+							"sid": 682896172579017,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						}
+					],
+					"sid": 747843739063168
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Arm",
+							"sid": 322851407258886
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Arm",
+							"sid": 812549204928507,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						}
+					],
+					"sid": 750636951593801
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "CharacterController",
+							"objectClass": "CanPickUp",
 							"sid": 556337054272234,
 							"parameters": {
 								"object": "Pickups"
@@ -2143,14 +2186,14 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "CharacterController",
-							"sid": 785495654520773,
+							"sid": 158975757722231,
 							"parameters": {
 								"object": "Trigger"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 209343332226995,
+					"sid": 106358787962889,
 					"children": [
 						{
 							"eventType": "block",
@@ -2158,7 +2201,7 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Events",
-									"sid": 822772646120461,
+									"sid": 313199873437217,
 									"parameters": {
 										"unique-id": "Trigger.EventUID"
 									}
@@ -2168,14 +2211,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Events",
-									"sid": 765901021087089,
+									"sid": 204335206160810,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 489996802809062
+							"sid": 598088213169133
 						},
 						{
 							"eventType": "block",
@@ -2183,7 +2226,7 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Events",
-									"sid": 434236461154127,
+									"sid": 621488247074797,
 									"parameters": {
 										"unique-id": "Trigger.Event2UID"
 									}
@@ -2193,14 +2236,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Events",
-									"sid": 935269722588754,
+									"sid": 893950897639148,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 656034133615826
+							"sid": 931249657247045
 						},
 						{
 							"eventType": "block",
@@ -2208,7 +2251,7 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Events",
-									"sid": 603970383194107,
+									"sid": 467722585441807,
 									"parameters": {
 										"unique-id": "Trigger.Event3UID"
 									}
@@ -2218,14 +2261,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Events",
-									"sid": 727216158011380,
+									"sid": 539484665809759,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 233577331167376
+							"sid": 227122298588313
 						},
 						{
 							"eventType": "block",
@@ -2233,7 +2276,7 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Events",
-									"sid": 114366591508414,
+									"sid": 481879507077172,
 									"parameters": {
 										"unique-id": "Trigger.Event4UID"
 									}
@@ -2243,14 +2286,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Events",
-									"sid": 720735625588956,
+									"sid": 820134034080693,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 158436366984100
+							"sid": 813800467194273
 						},
 						{
 							"eventType": "block",
@@ -2258,7 +2301,7 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Events",
-									"sid": 489747229280769,
+									"sid": 254526104988479,
 									"parameters": {
 										"unique-id": "Trigger.Event5UID"
 									}
@@ -2268,14 +2311,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Events",
-									"sid": 340575619885845,
+									"sid": 800303055344300,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 521149071421239
+							"sid": 740551054702167
 						}
 					]
 				},
@@ -2285,14 +2328,14 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Event_ZombieSpawn",
-							"sid": 636739351100728,
+							"sid": 841261465527926,
 							"parameters": {
 								"instance-variable": "Triggered"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 496885486966429,
+					"sid": 897364073879097,
 					"children": [
 						{
 							"eventType": "block",
@@ -2300,7 +2343,7 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 699108143234997,
+									"sid": 626372102842879,
 									"parameters": {
 										"count": "Event_ZombieSpawn.Zombies"
 									}
@@ -2310,7 +2353,7 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Event_ZombieSpawn",
-									"sid": 391886762528186,
+									"sid": 976638502398537,
 									"parameters": {
 										"object": "Mike",
 										"layer": "Self.LayerName",
@@ -2322,14 +2365,14 @@
 								{
 									"id": "set-position",
 									"objectClass": "Mike",
-									"sid": 806659946877774,
+									"sid": 374228380652282,
 									"parameters": {
 										"x": "Self.X+random(-16,16)",
 										"y": "Self.Y+random(-16,16)"
 									}
 								}
 							],
-							"sid": 753227333296841,
+							"sid": 285041562423327,
 							"children": [
 								{
 									"eventType": "block",
@@ -2337,7 +2380,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Event_ZombieSpawn",
-											"sid": 654293819033091,
+											"sid": 461558016223427,
 											"parameters": {
 												"instance-variable": "ZombiesSpotPlayer"
 											}
@@ -2347,14 +2390,14 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Mike",
-											"sid": 386523594855405,
+											"sid": 595315248777135,
 											"parameters": {
 												"instance-variable": "spottedPlayer",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 915378510247939
+									"sid": 459716131097164
 								}
 							]
 						},
@@ -2365,10 +2408,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "Event_ZombieSpawn",
-									"sid": 512635586388894
+									"sid": 940566547415152
 								}
 							],
-							"sid": 402209256040267
+							"sid": 592203005960854
 						}
 					]
 				},
@@ -2378,7 +2421,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Event_Sound",
-							"sid": 217087100249267,
+							"sid": 280518291945603,
 							"parameters": {
 								"instance-variable": "Triggered"
 							}
@@ -2388,7 +2431,7 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 563078816189425,
+							"sid": 119194705476759,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "Event_Sound.Sound",
@@ -2401,13 +2444,58 @@
 						{
 							"id": "destroy",
 							"objectClass": "Event_Sound",
-							"sid": 320762182735153
+							"sid": 614438489062310
 						}
 					],
-					"sid": 342921250935992
+					"sid": 133983558114791
 				}
 			],
-			"sid": 142176945569411
+			"sid": 681703188924567
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 752813554860032
+				}
+			],
+			"actions": [],
+			"sid": 849495849219697,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "If the current layout name has level, set the variable current level to the number it contains"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 966152457529905,
+							"parameters": {
+								"first-value": "find(LayoutName, \"Level\")",
+								"comparison": 5,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 738391528473303,
+							"parameters": {
+								"variable": "Level_Current",
+								"value": "int(replace(LayoutName, \"Level\", \"\"))"
+							}
+						}
+					],
+					"sid": 522623718058249
+				}
+			]
 		}
 	],
 	"sid": 171422187705970
