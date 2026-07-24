@@ -42,7 +42,39 @@
 					}
 				}
 			],
-			"sid": 685983207059064
+			"sid": 685983207059064,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 100403099667236,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 377531302587311,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Voice/MaleEffortS\"&round(random(20))",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 294830439227322
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -346,12 +378,12 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 571030335238398,
+									"sid": 580974566251494,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
 										"loop": "not-looping",
-										"volume": "-5",
+										"volume": "0",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -381,12 +413,12 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 520463625870784,
+									"sid": 192813042704520,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"WheelChairPush\"&choose(1,2,3)",
 										"loop": "not-looping",
-										"volume": "-5",
+										"volume": "0",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -426,12 +458,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 643472486109118,
+							"sid": 256758691027721,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
 								"loop": "not-looping",
-								"volume": "-15",
+								"volume": "-10",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -469,12 +501,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 410077398115491,
+							"sid": 481950799457579,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
 								"loop": "not-looping",
-								"volume": "-15",
+								"volume": "-10",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -523,12 +555,25 @@
 				{
 					"id": "play-by-name",
 					"objectClass": "Audio",
-					"sid": 956591367219389,
+					"sid": 785406228715769,
 					"parameters": {
 						"folder": "sounds",
 						"audio-file-name": "\"ClothSoft\"&choose(1,2)",
 						"loop": "not-looping",
-						"volume": "-5",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 170965791767628,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Voice/MaleEffortS\"&round(random(12))",
+						"loop": "not-looping",
+						"volume": "0",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
@@ -622,10 +667,10 @@
 								{
 									"id": "set-volume",
 									"objectClass": "Audio",
-									"sid": 705020788168442,
+									"sid": 669587019480993,
 									"parameters": {
 										"tag": "\"chairLoop\"&ChairController.UID",
-										"db": "clamp(-40+ChairController.velocity/5,-40,0)"
+										"db": "clamp(-20+abs(ChairController.velocity/5),-40,0)"
 									}
 								}
 							],
@@ -716,12 +761,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 177004472479128,
+							"sid": 595275439461835,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
 								"loop": "not-looping",
-								"volume": "-5",
+								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}

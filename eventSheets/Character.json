@@ -1932,21 +1932,21 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 434637452807616,
+													"sid": 142768997816441,
 													"parameters": {
 														"first-value": "abs(CharacterController.velocity)",
 														"comparison": 4,
-														"second-value": "0"
+														"second-value": "0.5"
 													}
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 280660937811761,
+													"sid": 626071299128297,
 													"parameters": {
 														"first-value": "abs(CharacterController.angular_velocity)",
 														"comparison": 4,
-														"second-value": "0"
+														"second-value": "0.5"
 													}
 												}
 											],
@@ -2530,6 +2530,29 @@
 						"instance-variable": "health",
 						"value": "-Damage"
 					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 338571824593167,
+					"parameters": {
+						"audio-file": {
+							"path": "GoreBig1"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 472561195342184,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "2"
+					}
 				}
 			],
 			"sid": 866440990664613,
@@ -2571,9 +2594,52 @@
 								"instance-variable": "is_dead",
 								"value": "true"
 							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 747971666062095,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Voice/MaleDeath1\"",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 342855689686180
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 269851699793213,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 678796885179582,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Voice/MaleHurt\"&round(random(3))",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 195878570979466
 				},
 				{
 					"eventType": "block",
