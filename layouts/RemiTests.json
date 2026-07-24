@@ -937,13 +937,14 @@
 					"sid": 940298962899629,
 					"tags": "",
 					"instanceVariables": {
-						"acceleration": 200,
+						"acceleration": 300,
 						"brake": 300,
-						"deceleration": 30,
+						"deceleration": 70,
 						"max_velocity": 30,
 						"collision_velocity_multiplier": -0.2,
-						"angular_acceleration": 1500,
+						"angular_acceleration": 100,
 						"angular_deceleration": 700,
+						"angular_input_delay": 0.05,
 						"angular_buffer_time": 0.2,
 						"max_angular_velocity": 400,
 						"direction": 0,
@@ -961,7 +962,6 @@
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
-						"angular_input_delay": 0.05,
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
 						"health": 100,
@@ -1056,6 +1056,10 @@
 												"state": true
 											},
 											{
+												"iv": "angular_input_delay",
+												"state": true
+											},
+											{
 												"iv": "angular_buffer_time",
 												"state": true
 											},
@@ -1124,6 +1128,14 @@
 												"state": true
 											},
 											{
+												"iv": "left_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "right_angular_input_timer",
+												"state": true
+											},
+											{
 												"iv": "health",
 												"state": true
 											},
@@ -1173,18 +1185,6 @@
 											},
 											{
 												"iv": "angular_recoil",
-												"state": true
-											},
-											{
-												"iv": "angular_input_delay",
-												"state": true
-											},
-											{
-												"iv": "left_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "right_angular_input_timer",
 												"state": true
 											}
 										]

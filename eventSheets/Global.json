@@ -2448,6 +2448,168 @@
 						}
 					],
 					"sid": 133983558114791
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Event_FadeIn",
+							"sid": 913739751532913,
+							"parameters": {
+								"instance-variable": "Triggered"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 511660533392497,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Event_FadeIn",
+									"sid": 754928733974617,
+									"parameters": {
+										"child": "Fadable",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "Fadable",
+									"sid": 711152948845835,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "1"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Fadable",
+									"sid": 796346615305258,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "0"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Fadable",
+									"sid": 637244576324316,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "restart-fade",
+									"objectClass": "Fadable",
+									"sid": 670016328116499,
+									"disabled": true,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "Fadable",
+									"sid": 316327139642457,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 121845720686828
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Event_FadeIn",
+									"sid": 308835228685397
+								}
+							],
+							"sid": 466410654084529
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Event_FadeOut",
+							"sid": 562899364035987,
+							"parameters": {
+								"instance-variable": "Triggered"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 863722815634719,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Event_FadeOut",
+									"sid": 136443909872764,
+									"parameters": {
+										"child": "Fadable",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "Fadable",
+									"sid": 264954472689202,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "0"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Fadable",
+									"sid": 438805683414315,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "1"
+									}
+								},
+								{
+									"id": "restart-fade",
+									"objectClass": "Fadable",
+									"sid": 694237531298943,
+									"disabled": true,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "Fadable",
+									"sid": 155986127152083,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 670212157184325
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Event_FadeOut",
+									"sid": 744977769733489
+								}
+							],
+							"sid": 468962404783128
+						}
+					]
 				}
 			],
 			"sid": 681703188924567
