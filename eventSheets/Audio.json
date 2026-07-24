@@ -276,6 +276,385 @@
 				}
 			],
 			"sid": 810222233944750
+		},
+		{
+			"eventType": "comment",
+			"text": "Chair control sounds"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "CharacterController",
+					"sid": 988801513503160,
+					"parameters": {
+						"instance-variable": "is_in_chair"
+					}
+				},
+				{
+					"id": "pick-nearestfurthest",
+					"objectClass": "ChairController",
+					"sid": 530745159651299,
+					"parameters": {
+						"which": "nearest",
+						"x": "CharacterController.X",
+						"y": "CharacterController.Y",
+						"z": "0",
+						"pick-all-tied": false
+					}
+				}
+			],
+			"actions": [],
+			"sid": 486426710080503,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "CharacterSprite",
+							"sid": 749775866793462,
+							"parameters": {
+								"animation": "\"Both\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 119910141612921
+						}
+					],
+					"actions": [],
+					"sid": 112223976545743,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChairController",
+									"sid": 191216061053998,
+									"parameters": {
+										"instance-variable": "just_pushed",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 571030335238398,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 165932153526428,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "random(0.9,1.1)"
+									}
+								}
+							],
+							"sid": 958998929727604
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 594382329229917
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 520463625870784,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"WheelChairPush\"&choose(1,2,3)",
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 604163440348695,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "random(0.9,1.1)"
+									}
+								}
+							],
+							"sid": 634833795685235
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "CharacterSprite",
+							"sid": 129373398171328,
+							"parameters": {
+								"animation": "\"Left\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 767471707885690
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 643472486109118,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "-15",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 939643081294364,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(1.2,1.3)"
+							}
+						}
+					],
+					"sid": 447190180405875
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "CharacterSprite",
+							"sid": 972295171870666,
+							"parameters": {
+								"animation": "\"Right\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 691879286386392
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 410077398115491,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "-15",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 634688628939790,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(1.2,1.3)"
+							}
+						}
+					],
+					"sid": 996457433159012
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "CrawlingSprite",
+					"sid": 981802992825851,
+					"parameters": {
+						"animation": "\"MoveBoth\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "CrawlingSprite",
+					"sid": 304760418830176,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 779097521617906
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 956591367219389,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"ClothSoft\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 685862976937358,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				}
+			],
+			"sid": 518768876437128
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 945733084942778,
+					"parameters": {
+						"object": "ChairController"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 590918219482484,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "ChairController",
+							"sid": 486134399544113,
+							"behaviorType": "Custom"
+						}
+					],
+					"actions": [],
+					"sid": 884474309746440,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 735804916144862,
+									"parameters": {
+										"tag": "\"chairLoop\"&ChairController.UID"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 839693832621625,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"WheelChairLoop\"",
+										"loop": "looping",
+										"volume": "0",
+										"object": "ChairController",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"chairLoop\"&ChairController.UID"
+									}
+								}
+							],
+							"sid": 588728514134989
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 124989224070313,
+									"parameters": {
+										"tag": "\"chairLoop\"&ChairController.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 705020788168442,
+									"parameters": {
+										"tag": "\"chairLoop\"&ChairController.UID",
+										"db": "clamp(-40+ChairController.velocity/5,-40,0)"
+									}
+								}
+							],
+							"sid": 737605728242542
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 365212318927960
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 543607979855383,
+							"parameters": {
+								"tag": "\"chairLoop\"&ChairController.UID"
+							}
+						}
+					],
+					"sid": 606227242332091
+				}
+			]
 		}
 	],
 	"sid": 128376728907050
