@@ -16478,6 +16478,9 @@
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
+						"angular_input_delay": 0.05,
+						"left_angular_input_timer": 0,
+						"right_angular_input_timer": 0,
 						"health": 100,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -16688,6 +16691,18 @@
 											{
 												"iv": "angular_recoil",
 												"state": true
+											},
+											{
+												"iv": "angular_input_delay",
+												"state": true
+											},
+											{
+												"iv": "left_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "right_angular_input_timer",
+												"state": true
 											}
 										]
 									}
@@ -16865,7 +16880,7 @@
 						"deceleration": 30,
 						"max_velocity": 140,
 						"collision_velocity_multiplier": -0.4,
-						"angular_acceleration": 1800,
+						"angular_acceleration": 150,
 						"angular_deceleration": 900,
 						"angular_buffer_time": 0.3,
 						"max_angular_velocity": 700,
@@ -16884,6 +16899,9 @@
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
+						"angular_input_delay": 0.05,
+						"left_angular_input_timer": 0,
+						"right_angular_input_timer": 0,
 						"wheels_blood_level": 0
 					},
 					"behaviors": {
@@ -17033,6 +17051,18 @@
 											},
 											{
 												"iv": "wheels_blood_level",
+												"state": true
+											},
+											{
+												"iv": "angular_input_delay",
+												"state": true
+											},
+											{
+												"iv": "left_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "right_angular_input_timer",
 												"state": true
 											}
 										]

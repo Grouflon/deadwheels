@@ -313,6 +313,118 @@
 												}
 											],
 											"sid": 675388002630699
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 308702006171276,
+													"parameters": {
+														"instance-variable": "left_angular_input_timer",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 823820125375839,
+													"parameters": {
+														"instance-variable": "left_angular_input_timer",
+														"value": "-dt"
+													}
+												}
+											],
+											"sid": 785443534223572,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 745533747931095,
+															"parameters": {
+																"instance-variable": "left_angular_input_timer",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Controllers",
+															"sid": 362440633119934,
+															"parameters": {
+																"instance-variable": "angular_velocity",
+																"value": "-Controllers.angular_acceleration"
+															}
+														}
+													],
+													"sid": 998730058070123
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 302561295374311,
+													"parameters": {
+														"instance-variable": "right_angular_input_timer",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 734467383736457,
+													"parameters": {
+														"instance-variable": "right_angular_input_timer",
+														"value": "-dt"
+													}
+												}
+											],
+											"sid": 585389491841526,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 689011303695527,
+															"parameters": {
+																"instance-variable": "right_angular_input_timer",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Controllers",
+															"sid": 483368486830061,
+															"parameters": {
+																"instance-variable": "angular_velocity",
+																"value": "Controllers.angular_acceleration"
+															}
+														}
+													],
+													"sid": 627993798915412
+												}
+											]
 										}
 									]
 								},
@@ -396,15 +508,6 @@
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Controllers",
-													"sid": 117243576560836,
-													"parameters": {
-														"instance-variable": "turn_right_cooldown",
-														"value": "Controllers.angular_buffer_time"
-													}
-												},
-												{
 													"id": "add-to-instvar",
 													"objectClass": "Controllers",
 													"sid": 544553850620658,
@@ -412,9 +515,57 @@
 														"instance-variable": "rotate_ticks",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 481903370926111,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "Controllers.angular_acceleration"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 693658876025366,
+													"parameters": {
+														"instance-variable": "right_angular_input_timer",
+														"value": "Controllers.angular_input_delay"
+													}
 												}
 											],
-											"sid": 183437903806607
+											"sid": 183437903806607,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 248996706587758,
+															"parameters": {
+																"instance-variable": "turn_right_cooldown",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Controllers",
+															"sid": 117243576560836,
+															"parameters": {
+																"instance-variable": "turn_right_cooldown",
+																"value": "Controllers.angular_buffer_time"
+															}
+														}
+													],
+													"sid": 290435434645352
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -431,15 +582,6 @@
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Controllers",
-													"sid": 784779710381080,
-													"parameters": {
-														"instance-variable": "turn_left_cooldown",
-														"value": "Controllers.angular_buffer_time"
-													}
-												},
-												{
 													"id": "add-to-instvar",
 													"objectClass": "Controllers",
 													"sid": 845636838960603,
@@ -447,9 +589,129 @@
 														"instance-variable": "rotate_ticks",
 														"value": "-1"
 													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 444095274110336,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "turn_left_cooldown",
+														"value": "Controllers.angular_buffer_time"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 965061488180075,
+													"parameters": {
+														"instance-variable": "left_angular_input_timer",
+														"value": "Controllers.angular_input_delay"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 260078383838640,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "angular_velocity",
+														"value": "-Controllers.angular_acceleration"
+													}
 												}
 											],
-											"sid": 111976129748846
+											"sid": 111976129748846,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 352675131933756,
+															"parameters": {
+																"instance-variable": "turn_left_cooldown",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Controllers",
+															"sid": 785633757676488,
+															"parameters": {
+																"instance-variable": "turn_left_cooldown",
+																"value": "Controllers.angular_buffer_time"
+															}
+														}
+													],
+													"sid": 320446949710391
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "mouse-button-is-down",
+													"objectClass": "Mouse",
+													"sid": 679389259684734,
+													"parameters": {
+														"mouse-button": "left"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "mouse-button-is-down",
+													"objectClass": "Mouse",
+													"sid": 817343302300209,
+													"parameters": {
+														"mouse-button": "right"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 249511999736509,
+													"parameters": {
+														"instance-variable": "turn_left_cooldown",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 656727099277652,
+													"parameters": {
+														"instance-variable": "left_angular_input_timer",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 147257356749590,
+													"parameters": {
+														"instance-variable": "right_angular_input_timer",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 421865146816351,
+													"parameters": {
+														"instance-variable": "turn_right_cooldown",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 818362972904757
 										},
 										{
 											"eventType": "block",
@@ -478,6 +740,7 @@
 													"id": "add-to-instvar",
 													"objectClass": "Controllers",
 													"sid": 263966542275290,
+													"disabled": true,
 													"parameters": {
 														"instance-variable": "angular_velocity",
 														"value": "Controllers.angular_acceleration * dt"
@@ -513,6 +776,7 @@
 													"id": "add-to-instvar",
 													"objectClass": "Controllers",
 													"sid": 425748220266550,
+													"disabled": true,
 													"parameters": {
 														"instance-variable": "angular_velocity",
 														"value": "-Controllers.angular_acceleration * dt"
@@ -723,18 +987,47 @@
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 416728709372838,
+											"children": [
 												{
-													"id": "add-to-instvar",
-													"objectClass": "Controllers",
-													"sid": 996898316991357,
-													"parameters": {
-														"instance-variable": "angular_velocity",
-														"value": "-sign(Controllers.angular_velocity) * Controllers.angular_deceleration * dt"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 524404202065841,
+															"parameters": {
+																"instance-variable": "turn_left_cooldown",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 599392229353034,
+															"parameters": {
+																"instance-variable": "turn_right_cooldown",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Controllers",
+															"sid": 733267908782877,
+															"parameters": {
+																"instance-variable": "angular_velocity",
+																"value": "-sign(Controllers.angular_velocity) * Controllers.angular_deceleration * dt"
+															}
+														}
+													],
+													"sid": 687834556304211
 												}
-											],
-											"sid": 416728709372838
+											]
 										},
 										{
 											"eventType": "block",

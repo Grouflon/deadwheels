@@ -961,6 +961,9 @@
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
+						"angular_input_delay": 0.05,
+						"left_angular_input_timer": 0,
+						"right_angular_input_timer": 0,
 						"health": 100,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -1171,6 +1174,18 @@
 											{
 												"iv": "angular_recoil",
 												"state": true
+											},
+											{
+												"iv": "angular_input_delay",
+												"state": true
+											},
+											{
+												"iv": "left_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "right_angular_input_timer",
+												"state": true
 											}
 										]
 									}
@@ -1314,8 +1329,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 74.11972045898438,
-						"y": 57.930294036865234,
+						"x": 76.81849670410156,
+						"y": 286.1692199707031,
 						"width": 12,
 						"height": 12,
 						"originX": 0.5,
