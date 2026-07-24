@@ -821,6 +821,55 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-created",
+					"objectClass": "FireGFX",
+					"sid": 106307722610276
+				}
+			],
+			"actions": [],
+			"sid": 506539454507793,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 358685822763016,
+							"parameters": {
+								"object": "Zombies"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 137956924008194,
+							"parameters": {
+								"first-value": "distance(FireGFX.X,FireGFX.Y,Zombies.X,Zombies.Y)",
+								"comparison": 3,
+								"second-value": "150"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Zombies",
+							"sid": 714929218696785,
+							"parameters": {
+								"instance-variable": "spottedPlayer",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 641458806969387
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "has-los-to-object",
 					"objectClass": "Zombies",
 					"sid": 171334354066108,

@@ -776,7 +776,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "ButtonSlot2",
-							"sid": 237324594332216,
+							"sid": 162084459786503,
 							"parameters": {
 								"object": "Arm"
 							}
@@ -784,7 +784,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "ButtonSlot2",
-							"sid": 972615695031125,
+							"sid": 340756128015234,
 							"parameters": {
 								"object": "ChairController"
 							}
@@ -792,14 +792,14 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "ButtonSlot2",
-							"sid": 179045969320381,
+							"sid": 381263595941396,
 							"parameters": {
 								"object": "Bullet"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 804394825434658,
+					"sid": 484782233203519,
 					"children": [
 						{
 							"eventType": "block",
@@ -807,7 +807,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "ButtonSlot",
-									"sid": 619957350372297,
+									"sid": 773626480295337,
 									"parameters": {
 										"instance-variable": "Enabled"
 									},
@@ -816,9 +816,18 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ButtonSlot",
+									"sid": 435920969566075,
+									"parameters": {
+										"instance-variable": "Enabled",
+										"value": "true"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 414103226962216,
+									"sid": 595487929461840,
 									"parameters": {
 										"audio-file": {
 											"path": "Button1"
@@ -830,78 +839,26 @@
 									}
 								},
 								{
-									"id": "set-boolean-instvar",
-									"objectClass": "ButtonSlot",
-									"sid": 211369120797316,
-									"parameters": {
-										"instance-variable": "Enabled",
-										"value": "true"
-									}
-								},
-								{
 									"id": "move-forward",
 									"objectClass": "ButtonSlot2",
-									"sid": 762238226178619,
+									"sid": 439748861546880,
 									"parameters": {
 										"distance": "-2"
 									}
-								}
-							],
-							"sid": 316931648691454,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door_Button",
-											"sid": 477286009682474,
-											"parameters": {
-												"unique-id": "ButtonSlot.DoorUID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "OpenDoor",
-											"objectClass": "Door_Button",
-											"customActionObjectClass": "Doors",
-											"sid": 508478729048783,
-											"parameters": [
-												"ChairController.X",
-												"ChairController.Y"
-											]
-										}
-									],
-									"sid": 128675343249854
 								},
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door_Elevator",
-											"sid": 216160479132485,
-											"parameters": {
-												"unique-id": "ButtonSlot.DoorUID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "OpenDoor",
-											"objectClass": "Door_Elevator",
-											"customActionObjectClass": "Doors",
-											"sid": 705504606701331,
-											"parameters": [
-												"ChairController.X",
-												"ChairController.Y"
-											]
-										}
-									],
-									"sid": 292853168787111
+									"id": "start-timer",
+									"objectClass": "ButtonSlot",
+									"sid": 482865819428436,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "ButtonSlot.Time",
+										"type": "once",
+										"tag": "\"\"&ButtonSlot.UID"
+									}
 								}
-							]
+							],
+							"sid": 458122926210661
 						}
 					],
 					"isOrBlock": true
@@ -912,7 +869,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Bullet",
-							"sid": 723007107980334,
+							"sid": 669643375207104,
 							"parameters": {
 								"object": "ButtonSlot2"
 							}
@@ -922,10 +879,152 @@
 						{
 							"id": "destroy",
 							"objectClass": "Bullet",
-							"sid": 237999811728343
+							"sid": 877032149740643
 						}
 					],
-					"sid": 556646521618864
+					"sid": 213837527282939
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "ButtonSlot",
+							"sid": 787548417201705,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"\"&ButtonSlot.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 859912288588498,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Door_Button",
+									"sid": 287005655290944,
+									"parameters": {
+										"unique-id": "ButtonSlot.DoorUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenDoor",
+									"objectClass": "Door_Button",
+									"customActionObjectClass": "Doors",
+									"sid": 571456259611817,
+									"parameters": [
+										"ChairController.X",
+										"ChairController.Y"
+									]
+								}
+							],
+							"sid": 237843178851151
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Door_Elevator",
+									"sid": 740715584985372,
+									"parameters": {
+										"unique-id": "ButtonSlot.DoorUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenDoor",
+									"objectClass": "Door_Elevator",
+									"customActionObjectClass": "Doors",
+									"sid": 705995751897747,
+									"parameters": [
+										"ChairController.X",
+										"ChairController.Y"
+									]
+								}
+							],
+							"sid": 167096622460059
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "ButtonSlot",
+							"sid": 248216840048868,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"\"&ButtonSlot.UID"
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 399960642348044,
+							"parameters": {
+								"tag": "\"ElevatorLoop\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Door_Elevator",
+							"sid": 310804457870876,
+							"parameters": {
+								"unique-id": "ButtonSlot.DoorUID"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 716594369414734,
+							"parameters": {
+								"first-value": "Door_Elevator.PickedCount",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 258058662649443,
+							"parameters": {
+								"audio-file": {
+									"path": "ElevatorLoop"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"ElevatorLoop\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 290376843652148,
+							"parameters": {
+								"audio-file": {
+									"path": "ElevatorStart"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 602601766968749
 				}
 			],
 			"sid": 896974003257226
@@ -1016,11 +1115,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 869604372356686,
+									"sid": 738674467327140,
 									"parameters": {
 										"first-value": "abs(ChairController.velocity)",
 										"comparison": 5,
-										"second-value": "collision_damage_velocity_threshold*0.2"
+										"second-value": "collision_damage_velocity_threshold*0.1"
 									}
 								},
 								{
@@ -1447,7 +1546,33 @@
 							}
 						}
 					],
-					"sid": 330386645956702
+					"sid": 330386645956702,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 727656023509198,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 633870175851926,
+									"parameters": {
+										"tag": "\"ElevatorLoop\""
+									}
+								}
+							],
+							"sid": 505521075751838
+						}
+					]
 				}
 			],
 			"sid": 701136920108105
