@@ -32,6 +32,16 @@
 			"sid": 389517649766084
 		},
 		{
+			"eventType": "variable",
+			"name": "ram_cooldown_time",
+			"type": "number",
+			"initialValue": "0.35",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 387011523790533
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -143,6 +153,15 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 815861763927290,
+							"parameters": {
+								"instance-variable": "ram_cooldown",
+								"value": "ram_cooldown_time"
+							}
 						}
 					],
 					"sid": 995680540388769
@@ -155,6 +174,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "ChairController",
 							"sid": 593778185768377,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "velocity",
 								"value": "ChairController.velocity * 0.2"
@@ -175,6 +195,16 @@
 					"parameters": {
 						"object": "Zombies"
 					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "ChairController",
+					"sid": 945234735277115,
+					"parameters": {
+						"instance-variable": "ram_cooldown",
+						"comparison": 4,
+						"value": "0"
+					}
 				}
 			],
 			"actions": [
@@ -188,7 +218,8 @@
 					}
 				}
 			],
-			"sid": 737732811917050
+			"sid": 737732811917050,
+			"isOrBlock": true
 		},
 		{
 			"eventType": "block",
@@ -211,6 +242,33 @@
 				}
 			],
 			"sid": 587267652117449
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "ChairController",
+					"sid": 523145009214027,
+					"parameters": {
+						"instance-variable": "ram_cooldown",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "ChairController",
+					"sid": 134325636879636,
+					"parameters": {
+						"instance-variable": "ram_cooldown",
+						"value": "-dt"
+					}
+				}
+			],
+			"sid": 370359656817681
 		},
 		{
 			"eventType": "group",
