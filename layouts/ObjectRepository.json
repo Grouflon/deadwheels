@@ -1127,39 +1127,6 @@
 					}
 				},
 				{
-					"type": "ChairSprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 398944,
-					"sid": 698683160105946,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 163.56170654296875,
-						"y": 142.33590698242188,
-						"width": 24,
-						"height": 24,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "Wood_Debris",
 					"properties": {
 						"initially-visible": true,
@@ -2145,6 +2112,39 @@
 					}
 				},
 				{
+					"type": "ChairSprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 398944,
+					"sid": 698683160105946,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 163.56170654296875,
+						"y": 142.33590698242188,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 1,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Legs",
 					"properties": {
 						"initially-visible": true,
@@ -2220,6 +2220,83 @@
 						],
 						"z": 1,
 						"angle": 0
+					}
+				},
+				{
+					"type": "ButtonLight",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 2",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 153512,
+					"sid": 302850879543704,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "opacity",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 80,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Rotate": {
+							"properties": {
+								"speed": 180,
+								"acceleration": 0,
+								"rotation-type": "rotation-y",
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"HardLight": {
+							"isEnabled": true,
+							"parameters": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 97,
+						"y": 161,
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							0,
+							0,
+							1
+						],
+						"z": 3,
+						"angle": 0,
+						"rotation3d": {
+							"quaternion": [
+								0.08715564012527466,
+								0,
+								0,
+								-0.9961947202682495
+							],
+							"euler": [
+								6.108652591705322,
+								0,
+								0
+							]
+						},
+						"blendMode": "additive"
 					}
 				},
 				{

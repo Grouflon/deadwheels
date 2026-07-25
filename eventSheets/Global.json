@@ -718,6 +718,47 @@
 							"sid": 326237056461216
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 941855564378159
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 809357747554152,
+							"parameters": {
+								"object-to-create": "FPSDisplay",
+								"layer": "\"UI\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 710362519342786
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "FPSDisplay",
+							"sid": 695858735886966,
+							"parameters": {
+								"text": "\"FPS \"&fps"
+							}
+						}
+					],
+					"sid": 899699270861342
 				}
 			],
 			"sid": 345752545051477
@@ -878,7 +919,66 @@
 									}
 								}
 							],
-							"sid": 458122926210661
+							"sid": 458122926210661,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ButtonSlot",
+											"sid": 582585079906850,
+											"parameters": {
+												"instance-variable": "Time",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 546820917254837,
+											"parameters": {
+												"object-to-create": "ButtonLight",
+												"layer": "ButtonSlot.LayerName",
+												"x": "ButtonSlot.X",
+												"y": "ButtonSlot.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "ButtonSlot",
+											"sid": 205607276666824,
+											"parameters": {
+												"child": "ButtonLight",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-z-elevation": true,
+												"transform-w": true,
+												"transform-h": true,
+												"transform-d": true,
+												"transform-a": true,
+												"transform-o": false,
+												"transform-visibility": false,
+												"destroy-with-parent": false
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "ButtonLight",
+											"sid": 935249136323944,
+											"parameters": {
+												"angle": "ButtonSlot.Angle"
+											}
+										}
+									],
+									"sid": 845262859619571
+								}
+							]
 						}
 					],
 					"isOrBlock": true
@@ -971,6 +1071,31 @@
 								}
 							],
 							"sid": 167096622460059
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 556742130302399,
+									"parameters": {
+										"child": "ButtonLight",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonLight",
+									"sid": 660258989483177,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 592148723821342
 						}
 					]
 				},
@@ -2262,18 +2387,18 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Trigger",
-							"sid": 392147996333124,
+							"objectClass": "ButtonSlot",
+							"sid": 310611320157109,
 							"parameters": {
-								"unique-id": "363019"
+								"unique-id": "725286"
 							}
 						},
 						{
 							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Trigger",
-							"sid": 602507216088578,
+							"objectClass": "ButtonSlot",
+							"sid": 708563599094596,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"instance-variable": "Enabled"
 							}
 						}
 					],
@@ -2291,16 +2416,19 @@
 							],
 							"actions": [
 								{
-									"id": "play",
+									"id": "play-at-object",
 									"objectClass": "Audio",
-									"sid": 909678193818832,
+									"sid": 222807120976355,
 									"parameters": {
 										"audio-file": {
 											"path": "Radio1"
 										},
 										"loop": "not-looping",
-										"volume": "-10",
-										"stereo-pan": "0",
+										"volume": "-5",
+										"object": "Radio",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
 										"tag-optional": "\"\""
 									}
 								},
@@ -2316,13 +2444,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 450640529241809,
+									"sid": 209897114976238,
 									"parameters": {
 										"audio-file": {
 											"path": "Radio1"
 										},
 										"loop": "not-looping",
-										"volume": "-10",
+										"volume": "0",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -2346,6 +2474,16 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 973953017309090,
+									"parameters": {
+										"first-value": "Zombies.Count",
+										"comparison": 2,
+										"second-value": "100"
+									}
+								},
 								{
 									"id": "every-x-seconds",
 									"objectClass": "System",
@@ -2396,6 +2534,21 @@
 								}
 							],
 							"sid": 316134521890655
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonLight",
+									"sid": 272307809165464,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 120334873189136
 						}
 					]
 				},
