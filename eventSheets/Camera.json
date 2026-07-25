@@ -3,22 +3,6 @@
 	"events": [
 		{
 			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-position",
-					"objectClass": "Camera",
-					"sid": 655734581984997,
-					"parameters": {
-						"x": "lerp(Self.X,CharacterController.X,0.07)",
-						"y": "lerp(Self.Y,CharacterController.Y,0.07)"
-					}
-				}
-			],
-			"sid": 370082706499756
-		},
-		{
-			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-created",
@@ -42,6 +26,22 @@
 				}
 			],
 			"sid": 631788852355467
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 818609414247741,
+					"parameters": {
+						"x": "lerp(Self.X,CharacterController.X,0.07)",
+						"y": "lerp(Self.Y,CharacterController.Y,0.07)"
+					}
+				}
+			],
+			"sid": 985902596946858
 		}
 	],
 	"sid": 166569372868084
