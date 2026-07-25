@@ -555,12 +555,12 @@
 				{
 					"id": "play-by-name",
 					"objectClass": "Audio",
-					"sid": 785406228715769,
+					"sid": 641835156661798,
 					"parameters": {
 						"folder": "sounds",
 						"audio-file-name": "\"ClothSoft\"&choose(1,2)",
 						"loop": "not-looping",
-						"volume": "0",
+						"volume": "-5",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
@@ -568,12 +568,12 @@
 				{
 					"id": "play-by-name",
 					"objectClass": "Audio",
-					"sid": 170965791767628,
+					"sid": 270932251624788,
 					"parameters": {
 						"folder": "sounds",
 						"audio-file-name": "\"Voice/MaleEffortS\"&round(random(12))",
 						"loop": "not-looping",
-						"volume": "0",
+						"volume": "-5",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
@@ -667,10 +667,10 @@
 								{
 									"id": "set-volume",
 									"objectClass": "Audio",
-									"sid": 523538647005336,
+									"sid": 947011415403349,
 									"parameters": {
 										"tag": "\"chairLoop\"&ChairController.UID",
-										"db": "clamp(-10+abs(ChairController.velocity/5),-40,0)"
+										"db": "clamp(-20+abs(ChairController.velocity/5),-40,0)"
 									}
 								}
 							],
@@ -762,6 +762,15 @@
 							}
 						},
 						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 271814888499393,
+							"parameters": {
+								"tag": "\"chairImpact\""
+							},
+							"isInverted": true
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 158915983524378
@@ -779,6 +788,15 @@
 								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 107208820331647,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
