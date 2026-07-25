@@ -2199,11 +2199,12 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Events",
-									"sid": 313199873437217,
+									"id": "pick-children",
+									"objectClass": "Trigger",
+									"sid": 490378708865556,
 									"parameters": {
-										"unique-id": "Trigger.EventUID"
+										"child": "Events",
+										"which": "own"
 									}
 								}
 							],
@@ -2211,114 +2212,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Events",
-									"sid": 204335206160810,
+									"sid": 445931197747812,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 598088213169133
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Events",
-									"sid": 621488247074797,
-									"parameters": {
-										"unique-id": "Trigger.Event2UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Events",
-									"sid": 893950897639148,
-									"parameters": {
-										"instance-variable": "Triggered",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 931249657247045
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Events",
-									"sid": 467722585441807,
-									"parameters": {
-										"unique-id": "Trigger.Event3UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Events",
-									"sid": 539484665809759,
-									"parameters": {
-										"instance-variable": "Triggered",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 227122298588313
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Events",
-									"sid": 481879507077172,
-									"parameters": {
-										"unique-id": "Trigger.Event4UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Events",
-									"sid": 820134034080693,
-									"parameters": {
-										"instance-variable": "Triggered",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 813800467194273
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Events",
-									"sid": 254526104988479,
-									"parameters": {
-										"unique-id": "Trigger.Event5UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Events",
-									"sid": 800303055344300,
-									"parameters": {
-										"instance-variable": "Triggered",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 740551054702167
+							"sid": 384948628380135
 						}
 					]
 				},
@@ -2412,6 +2313,12 @@
 								}
 							],
 							"sid": 592203005960854
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 772122866561221
 						}
 					]
 				},
