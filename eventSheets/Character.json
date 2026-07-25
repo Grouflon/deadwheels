@@ -301,6 +301,28 @@
 							"sid": 928371230527755
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-load-complete",
+							"objectClass": "System",
+							"sid": 418913662805934
+						}
+					],
+					"actions": [
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "CharacterController",
+							"sid": 112086996656564,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "\"Crawlable\""
+							}
+						}
+					],
+					"sid": 201223684002035
 				}
 			],
 			"sid": 946525652850119
