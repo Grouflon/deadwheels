@@ -133,18 +133,18 @@
 					],
 					"actions": [
 						{
-							"id": "add-to-instvar",
+							"customAction": "DoDamage",
 							"objectClass": "Zombies",
-							"sid": 964055041834298,
-							"parameters": {
-								"instance-variable": "health",
-								"value": "-collision_damage"
-							}
+							"sid": 436894251361529,
+							"parameters": [
+								"collision_damage",
+								"20"
+							]
 						},
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 583576926298920,
+							"sid": 198746552215523,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"GoreBig\"&choose(1,2)",

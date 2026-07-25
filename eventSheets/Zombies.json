@@ -3,16 +3,6 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "zombie_revive_chance",
-			"type": "number",
-			"initialValue": "10",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 369951752027750
-		},
-		{
-			"eventType": "variable",
 			"name": "zombie_min_revive_cooldown",
 			"type": "number",
 			"initialValue": "4",
@@ -955,40 +945,13 @@
 					"sid": 570953392468760
 				},
 				{
-					"id": "set-effect-enabled",
+					"customAction": "DoDamage",
 					"objectClass": "Zombies",
-					"sid": 697029192102321,
-					"parameters": {
-						"mode": "enable",
-						"effect": "\"Brightness\""
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Zombies",
-					"sid": 489091099277697,
-					"parameters": {
-						"instance-variable": "health",
-						"value": "-25"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 536024543772814,
-					"parameters": {
-						"seconds": "0.1",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "set-effect-enabled",
-					"objectClass": "Zombies",
-					"sid": 911064261873986,
-					"parameters": {
-						"mode": "disable",
-						"effect": "\"Brightness\""
-					}
+					"sid": 161123740777063,
+					"parameters": [
+						"25",
+						"10"
+					]
 				}
 			],
 			"sid": 954561544486224,
@@ -1007,35 +970,13 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"customAction": "zombieVoice",
-							"objectClass": "Zombies",
-							"sid": 896537988292882,
-							"parameters": [
-								"\"Pain\""
-							]
-						}
-					],
+					"actions": [],
 					"sid": 544017420411465
 				},
 				{
 					"eventType": "block",
 					"conditions": [],
-					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Zombies",
-							"sid": 481086453090436,
-							"parameters": {
-								"object": "Gore_Debris",
-								"layer": "Self.LayerName",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 955438893755898
 				}
 			]
@@ -1066,78 +1007,220 @@
 			"text": "Zombie death"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"aceType": "action",
+			"aceName": "DoDamage",
+			"objectClass": "Zombies",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "Zombies",
-					"sid": 203530980782577,
-					"parameters": {
-						"instance-variable": "health",
-						"comparison": 3,
-						"value": "0"
-					}
+					"name": "damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 686905515308010
+				},
+				{
+					"name": "reviveChance",
+					"type": "number",
+					"initialValue": "10",
+					"comment": "",
+					"sid": 325035230637407
 				}
 			],
+			"eventType": "custom-ace-block",
+			"conditions": [],
 			"actions": [
 				{
-					"customAction": "zombieVoice",
+					"id": "add-to-instvar",
 					"objectClass": "Zombies",
-					"sid": 353265452310966,
-					"parameters": [
-						"\"Death\""
-					]
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Zombies",
-					"sid": 619577559486209
-				},
-				{
-					"id": "spawn-another-object",
-					"objectClass": "Zombies",
-					"sid": 461798467817154,
+					"sid": 672780243014545,
 					"parameters": {
-						"object": "Corpse",
-						"layer": "Self.LayerName",
-						"image-point": "0",
-						"create-hierarchy": false,
-						"template-name": "\"\""
+						"instance-variable": "health",
+						"value": "-damage"
 					}
-				},
-				{
-					"id": "set-angle",
-					"objectClass": "Corpse",
-					"sid": 830318392599014,
-					"parameters": {
-						"angle": "Zombies.Angle"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Corpse",
-					"sid": 471227429933982,
-					"parameters": {
-						"animation": "Zombies.ObjectTypeName",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "move-to-object",
-					"objectClass": "Corpse",
-					"sid": 533276653360928,
-					"parameters": {
-						"where": "behind",
-						"object": "ChairSprite"
-					}
-				},
-				{
-					"customAction": "RollRevive",
-					"objectClass": "Corpse",
-					"sid": 695277730594817
 				}
 			],
-			"sid": 958342673849892
+			"sid": 416406142780834,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombies",
+							"sid": 855077822292532,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "zombieVoice",
+							"objectClass": "Zombies",
+							"sid": 240361423747150,
+							"parameters": [
+								"\"Pain\""
+							]
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Zombies",
+							"sid": 448756560083508,
+							"parameters": {
+								"object": "Gore_Debris",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Zombies",
+							"sid": 902550794273154,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 143062881676776,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Zombies",
+							"sid": 417911157937711,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						}
+					],
+					"sid": 379527317283892
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 592953057462573
+						}
+					],
+					"actions": [],
+					"sid": 740316427672473,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 169646275678250,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 811360937750777,
+									"parameters": {
+										"object-to-create": "Gore_Debris",
+										"layer": "Zombies.LayerName",
+										"x": "Zombies.X",
+										"y": "Zombies.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 317381743255751
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"customAction": "zombieVoice",
+									"objectClass": "Zombies",
+									"sid": 975048887028795,
+									"parameters": [
+										"\"Death\""
+									]
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Zombies",
+									"sid": 314145168311465,
+									"parameters": {
+										"object": "Corpse",
+										"layer": "Self.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Corpse",
+									"sid": 178832966094868,
+									"parameters": {
+										"angle": "Zombies.Angle"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Corpse",
+									"sid": 865972691179738,
+									"parameters": {
+										"animation": "Zombies.ObjectTypeName",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "Corpse",
+									"sid": 717255578583471,
+									"parameters": {
+										"where": "behind",
+										"object": "ChairSprite"
+									}
+								},
+								{
+									"customAction": "RollRevive",
+									"objectClass": "Corpse",
+									"sid": 176591174469486,
+									"parameters": [
+										"reviveChance"
+									]
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Zombies",
+									"sid": 756384339343818
+								}
+							],
+							"sid": 361386883300186
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "comment",
@@ -1489,17 +1572,25 @@
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "reviveChance",
+							"type": "number",
+							"initialValue": "10",
+							"comment": "",
+							"sid": 141058520386944
+						}
+					],
 					"eventType": "custom-ace-block",
 					"conditions": [
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 986956967350029,
+							"sid": 141518928422922,
 							"parameters": {
 								"first-value": "random(100)",
 								"comparison": 3,
-								"second-value": "zombie_revive_chance"
+								"second-value": "reviveChance"
 							}
 						}
 					],

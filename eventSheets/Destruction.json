@@ -386,49 +386,6 @@
 							"sid": 537093366059616
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-destroyed",
-							"objectClass": "Zombies",
-							"sid": 420929728422796
-						}
-					],
-					"actions": [],
-					"sid": 429227784919519,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "repeat",
-									"objectClass": "System",
-									"sid": 794112243344959,
-									"parameters": {
-										"count": "5"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 542627572350830,
-									"parameters": {
-										"object-to-create": "Gore_Debris",
-										"layer": "Zombies.LayerName",
-										"x": "Zombies.X",
-										"y": "Zombies.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 685100826964995
-						}
-					]
 				}
 			],
 			"sid": 171228647712539
