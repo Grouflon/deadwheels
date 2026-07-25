@@ -441,6 +441,16 @@
 								"instance-variable": "is_dead"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 757650181669656,
+							"parameters": {
+								"first-value": "current_weapon",
+								"comparison": 4,
+								"second-value": "0"
+							}
 						}
 					],
 					"actions": [
@@ -2023,7 +2033,8 @@
 							]
 						}
 					],
-					"sid": 107421302506952
+					"sid": 107421302506952,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2031,9 +2042,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 119438600105702,
+							"sid": 188927286762755,
 							"parameters": {
-								"key": 50
+								"key": 49
 							}
 						},
 						{
@@ -2063,9 +2074,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 566704096610232,
+							"sid": 571521143680529,
 							"parameters": {
-								"key": 51
+								"key": 50
 							}
 						},
 						{
@@ -2095,9 +2106,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 932612505614957,
+							"sid": 131526125681347,
 							"parameters": {
-								"key": 52
+								"key": 51
 							}
 						},
 						{
@@ -2127,9 +2138,9 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 102155692536932,
+							"sid": 281240257869480,
 							"parameters": {
-								"key": 53
+								"key": 52
 							}
 						},
 						{
@@ -3543,6 +3554,7 @@
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 378959277554865,
+									"disabled": true,
 									"parameters": {
 										"variable": "break",
 										"value": "true"
