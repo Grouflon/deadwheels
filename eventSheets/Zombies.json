@@ -1308,38 +1308,93 @@
 			"sid": 274793918371644
 		},
 		{
+			"eventType": "variable",
+			"name": "zombie_damage",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 926491910685479
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-overlapping-another-object",
+					"id": "is-boolean-instance-variable-set",
 					"objectClass": "CharacterController",
-					"sid": 700525062959512,
+					"sid": 174598878158614,
 					"parameters": {
-						"object": "ZombiesHitbox"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "CharacterController",
-					"sid": 208695483764015,
-					"parameters": {
-						"instance-variable": "invulnerability_timer",
-						"comparison": 3,
-						"value": "0"
+						"instance-variable": "is_in_chair"
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 726085486346524,
+			"children": [
 				{
-					"customAction": "DoDamage",
-					"objectClass": "CharacterController",
-					"sid": 129760474574570,
-					"parameters": [
-						"10"
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterSprite",
+							"sid": 861441787988390,
+							"parameters": {
+								"object": "ZombiesHitbox"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DoDamage",
+							"objectClass": "CharacterController",
+							"sid": 430297642369827,
+							"parameters": [
+								"zombie_damage"
+							]
+						}
+					],
+					"sid": 118784169832126
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 518337281215027
 				}
 			],
-			"sid": 827011764177462
+			"actions": [],
+			"sid": 718915118712643,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CrawlingSprite",
+							"sid": 593466217023377,
+							"parameters": {
+								"object": "ZombiesHitbox"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DoDamage",
+							"objectClass": "CharacterController",
+							"sid": 368780752318449,
+							"parameters": [
+								"zombie_damage"
+							]
+						}
+					],
+					"sid": 962529017501288
+				}
+			]
 		},
 		{
 			"eventType": "block",
