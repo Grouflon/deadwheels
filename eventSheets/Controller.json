@@ -93,37 +93,19 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Controllers",
-											"sid": 207526706307829,
-											"parameters": {
-												"object": "Buildings"
-											}
-										},
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Controllers",
-											"sid": 571551710373373,
-											"parameters": {
-												"object": "Furniture"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 543699241854919,
-											"parameters": {
-												"type": "log",
-												"message": "\"col\""
-											}
-										}
-									],
-									"sid": 720053534443103,
+									"aceType": "action",
+									"aceName": "OnCollision",
+									"objectClass": "Controllers",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "custom-ace-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 776436013894415,
 									"children": [
 										{
 											"eventType": "block",
@@ -131,7 +113,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Controllers",
-													"sid": 868898820465031,
+													"sid": 994618378316982,
 													"parameters": {
 														"instance-variable": "collision_cooldown",
 														"comparison": 3,
@@ -143,14 +125,14 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Controllers",
-													"sid": 169308376067726,
+													"sid": 528045143859400,
 													"parameters": {
 														"instance-variable": "collision_cooldown",
 														"value": "0.1"
 													}
 												}
 											],
-											"sid": 932928490902197,
+											"sid": 440164530243971,
 											"children": [
 												{
 													"eventType": "block",
@@ -158,7 +140,7 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 792211291878217,
+															"sid": 675856873025261,
 															"parameters": {
 																"first-value": "Controllers.velocity",
 																"comparison": 5,
@@ -170,14 +152,14 @@
 														{
 															"id": "push-out-solid-at-angle",
 															"objectClass": "Controllers",
-															"sid": 973061687765972,
+															"sid": 524671578650779,
 															"behaviorType": "Custom",
 															"parameters": {
 																"angle": "Controllers.direction+180"
 															}
 														}
 													],
-													"sid": 335340392387892
+													"sid": 382293099390081
 												},
 												{
 													"eventType": "block",
@@ -185,21 +167,21 @@
 														{
 															"id": "else",
 															"objectClass": "System",
-															"sid": 224402009947193
+															"sid": 843975954405959
 														}
 													],
 													"actions": [
 														{
 															"id": "push-out-solid-at-angle",
 															"objectClass": "Controllers",
-															"sid": 361787277524165,
+															"sid": 319828655308256,
 															"behaviorType": "Custom",
 															"parameters": {
 																"angle": "Controllers.direction"
 															}
 														}
 													],
-													"sid": 917100020832754
+													"sid": 969839508234868
 												},
 												{
 													"eventType": "block",
@@ -208,14 +190,234 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Controllers",
-															"sid": 819832196023704,
+															"sid": 437604606048531,
 															"parameters": {
 																"instance-variable": "velocity",
 																"value": "Controllers.velocity * Controllers.collision_velocity_multiplier"
 															}
 														}
 													],
-													"sid": 768030101952157
+													"sid": 573693372881260
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Controllers",
+											"sid": 207526706307829,
+											"parameters": {
+												"object": "Buildings"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 720053534443103,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Buildings",
+													"sid": 170035954211650,
+													"parameters": {
+														"tags": "Controllers.excluded_collisions"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"customAction": "OnCollision",
+													"objectClass": "Controllers",
+													"sid": 270178241669971
+												}
+											],
+											"sid": 866289839376208
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Controllers",
+											"sid": 839550717830059,
+											"parameters": {
+												"object": "Furniture"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 660321771784260,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Furniture",
+													"sid": 639097007140367,
+													"parameters": {
+														"tags": "Controllers.excluded_collisions"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"customAction": "OnCollision",
+													"objectClass": "Controllers",
+													"sid": 575693571758919
+												}
+											],
+											"sid": 799192828469396
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Controllers",
+											"sid": 654813989233588,
+											"parameters": {
+												"object": "Buildings"
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "Buildings",
+											"sid": 345645750074381,
+											"parameters": {
+												"tags": "Controllers.excluded_collisions"
+											}
+										},
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Controllers",
+											"sid": 607520938775755,
+											"parameters": {
+												"object": "Furniture"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 152096358126210,
+											"parameters": {
+												"type": "log",
+												"message": "\"col\""
+											}
+										}
+									],
+									"sid": 674230473690154,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 220316135893395,
+													"parameters": {
+														"instance-variable": "collision_cooldown",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 365131679166238,
+													"parameters": {
+														"instance-variable": "collision_cooldown",
+														"value": "0.1"
+													}
+												}
+											],
+											"sid": 534329050004474,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 944234414809185,
+															"parameters": {
+																"first-value": "Controllers.velocity",
+																"comparison": 5,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push-out-solid-at-angle",
+															"objectClass": "Controllers",
+															"sid": 727663968878264,
+															"behaviorType": "Custom",
+															"parameters": {
+																"angle": "Controllers.direction+180"
+															}
+														}
+													],
+													"sid": 655219758560489,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 387618176323239
+														}
+													],
+													"actions": [
+														{
+															"id": "push-out-solid-at-angle",
+															"objectClass": "Controllers",
+															"sid": 633383777918424,
+															"behaviorType": "Custom",
+															"parameters": {
+																"angle": "Controllers.direction"
+															}
+														}
+													],
+													"sid": 604195340982036,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Controllers",
+															"sid": 617293519203291,
+															"parameters": {
+																"instance-variable": "velocity",
+																"value": "Controllers.velocity * Controllers.collision_velocity_multiplier"
+															}
+														}
+													],
+													"sid": 556508394758795,
+													"disabled": true
 												}
 											]
 										}

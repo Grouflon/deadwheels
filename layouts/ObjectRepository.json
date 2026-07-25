@@ -545,11 +545,11 @@
 												"state": true
 											},
 											{
-												"iv": "wheels_blood_level",
+												"iv": "excluded_collisions",
 												"state": true
 											},
 											{
-												"iv": "excluded_collisions",
+												"iv": "wheels_blood_level",
 												"state": true
 											}
 										]
@@ -750,7 +750,7 @@
 						"just_rotated": 0,
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
-						"excluded_collisions": "",
+						"excluded_collisions": "Crawlable",
 						"health": 100,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -923,6 +923,10 @@
 												"state": true
 											},
 											{
+												"iv": "excluded_collisions",
+												"state": true
+											},
+											{
 												"iv": "health",
 												"state": true
 											},
@@ -972,10 +976,6 @@
 											},
 											{
 												"iv": "angular_recoil",
-												"state": true
-											},
-											{
-												"iv": "excluded_collisions",
 												"state": true
 											}
 										]
@@ -2118,6 +2118,297 @@
 							1
 						],
 						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "InsideWallVentFrame",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 170259,
+					"sid": 977984585217721,
+					"tags": "Crawlable",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": "Crawlable"
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"template": {
+						"mode": "template",
+						"templateName": "VentFrame",
+						"sourceTemplateName": "",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									},
+									{
+										"key": "NoSave",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 307.12774658203125,
+						"y": 28.82537078857422,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
 						"angle": 0
 					}
 				},
