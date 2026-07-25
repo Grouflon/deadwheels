@@ -42,6 +42,16 @@
 			"sid": 387011523790533
 		},
 		{
+			"eventType": "variable",
+			"name": "ram_deviation_force",
+			"type": "number",
+			"initialValue": "7",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 835993556900074
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -161,6 +171,15 @@
 							"parameters": {
 								"instance-variable": "ram_cooldown",
 								"value": "ram_cooldown_time"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "ChairController",
+							"sid": 178447487075165,
+							"parameters": {
+								"instance-variable": "angular_velocity",
+								"value": "-ram_deviation_force * clamp(Functions.SignedAngleBetween(ChairController.direction, angle(ChairController.X, ChairController.Y, Zombies.X, Zombies.Y)) / 45, -1, 1)"
 							}
 						}
 					],

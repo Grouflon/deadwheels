@@ -1,0 +1,192 @@
+{
+	"name": "Math",
+	"events": [
+		{
+			"functionName": "dot",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 242818587490438
+				},
+				{
+					"name": "y1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 884529369402757
+				},
+				{
+					"name": "x2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 407088953114643
+				},
+				{
+					"name": "y2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 417519118822968
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 877108674423198,
+					"parameters": {
+						"value": "x1*x2 + y1*y2"
+					}
+				}
+			],
+			"sid": 264745073981096
+		},
+		{
+			"functionName": "SignedAngleBetween",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "a1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 415739919524172
+				},
+				{
+					"name": "a2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 225008610032002
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 855766699016934,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "result",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 551986029231582
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 483489731948441,
+							"parameters": {
+								"variable": "result",
+								"value": "(a2%360)-(a1%360)"
+							}
+						}
+					],
+					"sid": 379403487239769
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 644637499860323,
+							"parameters": {
+								"variable": "result",
+								"comparison": 4,
+								"value": "180"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 168531155939710,
+							"parameters": {
+								"variable": "result",
+								"value": "-360"
+							}
+						}
+					],
+					"sid": 861463525880295
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 921624034988205,
+							"parameters": {
+								"variable": "result",
+								"comparison": 2,
+								"value": "-180"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 236893563575711,
+							"parameters": {
+								"variable": "result",
+								"value": "360"
+							}
+						}
+					],
+					"sid": 751426192116358
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 719698176050177,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "a1&\"(\"&(a1%360)&\") - \"&a2&\"(\"&(a2%360)&\"): \"&result"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 341821140369690,
+							"parameters": {
+								"value": "result"
+							}
+						}
+					],
+					"sid": 181142347132413
+				}
+			]
+		}
+	],
+	"sid": 150942305447680
+}
