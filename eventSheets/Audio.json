@@ -667,10 +667,10 @@
 								{
 									"id": "set-volume",
 									"objectClass": "Audio",
-									"sid": 669587019480993,
+									"sid": 523538647005336,
 									"parameters": {
 										"tag": "\"chairLoop\"&ChairController.UID",
-										"db": "clamp(-20+abs(ChairController.velocity/5),-40,0)"
+										"db": "clamp(-10+abs(ChairController.velocity/5),-40,0)"
 									}
 								}
 							],
@@ -751,6 +751,16 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ChairController",
+							"sid": 646777554763073,
+							"parameters": {
+								"instance-variable": "velocity",
+								"comparison": 1,
+								"value": "0"
+							}
+						},
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
