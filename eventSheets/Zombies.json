@@ -235,18 +235,51 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 763127993930324,
+			"children": [
 				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Zombies",
-					"sid": 849019857678028,
-					"parameters": {
-						"instance-variable": "spottedPlayer",
-						"value": "true"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Zombies",
+							"sid": 878205747800273,
+							"parameters": {
+								"instance-variable": "spottedPlayer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"customAction": "zombieVoice",
+							"objectClass": "Zombies",
+							"sid": 963493141411247,
+							"parameters": [
+								"\"Hostile\""
+							]
+						}
+					],
+					"sid": 745731263290053
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Zombies",
+							"sid": 600931995464865,
+							"parameters": {
+								"instance-variable": "spottedPlayer",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 943047761484755
 				}
-			],
-			"sid": 763127993930324
+			]
 		},
 		{
 			"eventType": "block",
@@ -962,6 +995,32 @@
 			"children": [
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombies",
+							"sid": 442327009713136,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "zombieVoice",
+							"objectClass": "Zombies",
+							"sid": 896537988292882,
+							"parameters": [
+								"\"Pain\""
+							]
+						}
+					],
+					"sid": 544017420411465
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
@@ -1022,9 +1081,17 @@
 			],
 			"actions": [
 				{
+					"customAction": "zombieVoice",
+					"objectClass": "Zombies",
+					"sid": 353265452310966,
+					"parameters": [
+						"\"Death\""
+					]
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Zombies",
-					"sid": 732972508768601
+					"sid": 619577559486209
 				},
 				{
 					"id": "spawn-another-object",
