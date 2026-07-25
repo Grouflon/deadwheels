@@ -2184,7 +2184,17 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Trigger",
+							"sid": 153393831455182,
+							"parameters": {
+								"instance-variable": "Triggered",
+								"value": "true"
+							}
+						}
+					],
 					"sid": 106358787962889,
 					"children": [
 						{
@@ -2212,6 +2222,32 @@
 								}
 							],
 							"sid": 384948628380135
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Trigger",
+									"sid": 638281889259916,
+									"parameters": {
+										"child": "Doors",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenDoor",
+									"objectClass": "Doors",
+									"sid": 438200598358166,
+									"parameters": [
+										"Doors.X",
+										"Doors.Y"
+									]
+								}
+							],
+							"sid": 255323814023345
 						}
 					]
 				},
@@ -2299,18 +2335,21 @@
 							"conditions": [],
 							"actions": [
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 767563046659610,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
 									"id": "destroy",
 									"objectClass": "Event_ZombieSpawn",
-									"sid": 940566547415152
+									"sid": 879334912099668
 								}
 							],
 							"sid": 592203005960854
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 772122866561221
 						}
 					]
 				},
@@ -2614,6 +2653,339 @@
 					"sid": 522623718058249
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Helicopter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "The roof trigger spawns a helicopter after X seconds"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Trigger",
+							"sid": 392147996333124,
+							"parameters": {
+								"unique-id": "363019"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Trigger",
+							"sid": 602507216088578,
+							"parameters": {
+								"instance-variable": "Triggered"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 139857431570250,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 599023274463806
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 909678193818832,
+									"parameters": {
+										"audio-file": {
+											"path": "Radio1"
+										},
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 795420291073881,
+									"parameters": {
+										"seconds": "60",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 450640529241809,
+									"parameters": {
+										"audio-file": {
+											"path": "Radio1"
+										},
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 609796816574024,
+									"parameters": {
+										"object-to-create": "Helicopter",
+										"layer": "\"World\"",
+										"x": "LayoutWidth/2",
+										"y": "LayoutHeight",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 154686117791691
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 814212034256514,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								},
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 486903303647538,
+									"parameters": {
+										"object": "Event_ZombieSpawn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 918425621625425,
+									"parameters": {
+										"object": "Mike",
+										"layer": "Self.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Mike",
+									"sid": 971249510265040,
+									"parameters": {
+										"instance-variable": "spottedPlayer",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Mike",
+									"sid": 527394315195399,
+									"parameters": {
+										"x": "Self.X+random(-5,5)",
+										"y": "Self.Y+random(-5,5)"
+									}
+								}
+							],
+							"sid": 316134521890655
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Helicopter",
+							"sid": 170370993466336
+						}
+					],
+					"actions": [
+						{
+							"id": "set-z-elevation",
+							"objectClass": "HelicopterRotor",
+							"sid": 186685647999292,
+							"parameters": {
+								"z": "Helicopter.Z+1"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "HelicopterRotor",
+							"sid": 943245535749638,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Helicopter",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": true
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 691927242890272,
+							"parameters": {
+								"audio-file": {
+									"path": "HelicopterLoop2"
+								},
+								"loop": "looping",
+								"volume": "-200",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 203924105640179,
+							"parameters": {
+								"tag": "\"\"",
+								"db": "-10",
+								"duration": "4",
+								"ending": "keep-playing"
+							}
+						},
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 878422931756525,
+							"parameters": {
+								"audio-file": {
+									"path": "HelicopterLoop"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"object": "Helicopter",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 905660915868454,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "move-to-object",
+									"objectClass": "Helicopter",
+									"sid": 103428742908516,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Helipad",
+										"image-point": "0",
+										"mode": "direct"
+									}
+								}
+							],
+							"sid": 238183274774931
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Helicopter",
+							"sid": 499498320937822,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Helicopter",
+							"sid": 310743984405041,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"goDown\"",
+								"property": "offsetZElevation",
+								"end-value": "20",
+								"time": "5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 611878703941076
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "Helicopter",
+							"sid": 133148086726238,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 3,
+								"z-elevation": "20"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 907250658851631,
+							"parameters": {
+								"object": "Helicopter"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 567197182180651,
+							"parameters": {
+								"audio-file": {
+									"path": "Cloth1"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 134062033095794,
+							"parameters": {
+								"layout": "LevelEnd"
+							}
+						}
+					],
+					"sid": 333323871019905
+				}
+			],
+			"sid": 843205154340389
 		}
 	],
 	"sid": 171422187705970
