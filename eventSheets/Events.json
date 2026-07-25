@@ -106,6 +106,33 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 174193320274947,
+									"parameters": {
+										"instance-variable": "ZombieName",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 279225055068374,
+									"parameters": {
+										"instance-variable": "ZombieName",
+										"value": "\"Mike\""
+									}
+								}
+							],
+							"sid": 306725955549169
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "repeat",
 									"objectClass": "System",
 									"sid": 626372102842879,
@@ -116,24 +143,16 @@
 							],
 							"actions": [
 								{
-									"id": "spawn-another-object",
-									"objectClass": "Event_ZombieSpawn",
-									"sid": 976638502398537,
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 674616235590627,
 									"parameters": {
-										"object": "Mike",
-										"layer": "Self.LayerName",
-										"image-point": "0",
+										"object-name": "Event_ZombieSpawn.ZombieName",
+										"layer": "Event_ZombieSpawn.LayerName",
+										"x": "Event_ZombieSpawn.X+random(-16,16)",
+										"y": "Event_ZombieSpawn.Y+random(-16,16)",
 										"create-hierarchy": false,
 										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "Mike",
-									"sid": 374228380652282,
-									"parameters": {
-										"x": "Self.X+random(-16,16)",
-										"y": "Self.Y+random(-16,16)"
 									}
 								}
 							],
@@ -149,12 +168,20 @@
 											"parameters": {
 												"instance-variable": "ZombiesSpotPlayer"
 											}
+										},
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 186843087430105,
+											"parameters": {
+												"object": "Zombies"
+											}
 										}
 									],
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Mike",
+											"objectClass": "Zombies",
 											"sid": 518913492001512,
 											"parameters": {
 												"instance-variable": "spottedPlayer",
