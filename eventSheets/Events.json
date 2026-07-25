@@ -162,14 +162,23 @@
 								{
 									"id": "create-object-by-name",
 									"objectClass": "System",
-									"sid": 674616235590627,
+									"sid": 553180662655002,
 									"parameters": {
 										"object-name": "Event_ZombieSpawn.ZombieName",
 										"layer": "Event_ZombieSpawn.LayerName",
-										"x": "Event_ZombieSpawn.X+random(-16,16)",
-										"y": "Event_ZombieSpawn.Y+random(-16,16)",
+										"x": "Event_ZombieSpawn.X+random(-Event_ZombieSpawn.SpawnRange,Event_ZombieSpawn.SpawnRange)",
+										"y": "Event_ZombieSpawn.Y+random(-Event_ZombieSpawn.SpawnRange,Event_ZombieSpawn.SpawnRange)",
 										"create-hierarchy": false,
-										"template-name": "\"\""
+										"template-name": "Event_ZombieSpawn.ZombieName"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 876262778527836,
+									"parameters": {
+										"type": "log",
+										"message": "Event_ZombieSpawn.ZombieName"
 									}
 								}
 							],
@@ -203,6 +212,23 @@
 											"parameters": {
 												"instance-variable": "spottedPlayer",
 												"value": "true"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Zombies",
+											"sid": 741193609308772,
+											"parameters": {
+												"angle": "angle(Zombies.X, Zombies.Y, CharacterController.X, CharacterController.Y)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 406443889656931,
+											"parameters": {
+												"type": "log",
+												"message": "Zombies.Pathfinding.CellSize"
 											}
 										}
 									],

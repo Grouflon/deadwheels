@@ -385,7 +385,8 @@
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
 						"excluded_collisions": "",
-						"wheels_blood_level": 0
+						"wheels_blood_level": 0,
+						"ram_cooldown": 0
 					},
 					"behaviors": {
 						"Custom": {
@@ -550,6 +551,10 @@
 											},
 											{
 												"iv": "wheels_blood_level",
+												"state": true
+											},
+											{
+												"iv": "ram_cooldown",
 												"state": true
 											}
 										]
@@ -1450,7 +1455,8 @@
 						"Triggered": false,
 						"ZombiesSpotPlayer": false,
 						"Zombies": 1,
-						"ZombieName": ""
+						"ZombieName": "",
+						"SpawnRange": 16
 					},
 					"behaviors": {},
 					"showing": true,
@@ -1554,8 +1560,8 @@
 						},
 						"Pathfinding": {
 							"properties": {
-								"cell-size": 3,
-								"cell-border": -1,
+								"cell-size": 8,
+								"cell-border": 3,
 								"obstacles": "solids",
 								"max-speed": 20,
 								"acceleration": 20,
@@ -2168,13 +2174,13 @@
 						},
 						"Pathfinding": {
 							"properties": {
-								"cell-size": 3,
-								"cell-border": -1,
+								"cell-size": 8,
+								"cell-border": 3,
 								"obstacles": "solids",
 								"max-speed": 70,
 								"acceleration": 100,
 								"deceleration": 600,
-								"rotate-speed": 200,
+								"rotate-speed": 250,
 								"rotate-object": true,
 								"diagonals": true,
 								"direct-movement": "to-destination",
