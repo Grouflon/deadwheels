@@ -1021,7 +1021,17 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 879177552601967,
+							"parameters": {
+								"variable": "disable_gore_debris"
+							},
+							"isInverted": true
+						}
+					],
 					"actions": [
 						{
 							"id": "spawn-another-object",
