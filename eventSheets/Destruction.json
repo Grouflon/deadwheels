@@ -647,10 +647,16 @@
 					],
 					"actions": [
 						{
-							"id": "regenerate-obstacle-map",
+							"id": "regenerate-region",
 							"objectClass": "Zombies",
-							"sid": 773462631747718,
-							"behaviorType": "Pathfinding"
+							"sid": 935000978438157,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"start-x": "Furniture.X - 20",
+								"start-y": "Furniture.Y - 20",
+								"end-x": "Furniture.X + 20",
+								"end-y": "Furniture.Y + 20"
+							}
 						},
 						{
 							"id": "play-by-name",

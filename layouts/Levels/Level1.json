@@ -3912,7 +3912,7 @@
 					},
 					"uid": 672624,
 					"sid": 538611715011291,
-					"tags": "",
+					"tags": "Crawlable",
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -3925,6 +3925,240 @@
 						"NoSave": {
 							"properties": {}
 						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "VentFrame",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									},
+									{
+										"key": "NoSave",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
 					},
 					"showing": true,
 					"locked": false,
@@ -17551,6 +17785,7 @@
 						"just_rotated": 0,
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
+						"excluded_collisions": "Crawlable",
 						"health": 100,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -17720,6 +17955,10 @@
 											},
 											{
 												"iv": "right_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "excluded_collisions",
 												"state": true
 											},
 											{
@@ -17972,6 +18211,7 @@
 						"just_rotated": 0,
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
+						"excluded_collisions": "",
 						"wheels_blood_level": 0
 					},
 					"behaviors": {
@@ -18129,6 +18369,10 @@
 											},
 											{
 												"iv": "right_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "excluded_collisions",
 												"state": true
 											},
 											{
