@@ -1,0 +1,478 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 408238854633000
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 637507351722383,
+					"parameters": {
+						"audio-file": {
+							"path": "HelicopterLoop2"
+						},
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"Rotor\""
+					}
+				},
+				{
+					"id": "set-cursor-style2",
+					"objectClass": "Mouse",
+					"sid": 544750647468103,
+					"parameters": {
+						"cursor-style": "crosshair"
+					}
+				},
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 463520395127295,
+					"parameters": {
+						"mode": "stretch-letterbox-scale",
+						"navigation-ui": "auto"
+					}
+				}
+			],
+			"sid": 972144372622994
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Rotor effect stuff",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "MenuRotor",
+							"sid": 788332386315628,
+							"parameters": {
+								"instance-variable": "TotalSpeed",
+								"value": "clamp(Self.BaseSpeed+Self.AddedMouseSpeed,0.05,0.5)"
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 684383297407339,
+							"parameters": {
+								"tag": "\"Rotor\"",
+								"playback-rate": "MenuRotor.TotalSpeed"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "MenuRotor",
+							"sid": 847978379564668,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"speed": "MenuRotor.TotalSpeed*1000"
+							}
+						}
+					],
+					"sid": 672664945123264,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 632960153971976,
+									"parameters": {
+										"interval-seconds": "0.1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 702217765629645,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MenuRotor",
+											"sid": 125350494379879,
+											"parameters": {
+												"instance-variable": "AddedMouseSpeed",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MenuRotor",
+											"sid": 209439347097001,
+											"parameters": {
+												"instance-variable": "AddedMouseSpeed",
+												"value": "-0.05"
+											}
+										}
+									],
+									"sid": 552220636744909
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MenuRotor",
+											"sid": 613124918274017,
+											"parameters": {
+												"instance-variable": "AddedMouseSpeed",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MenuRotor",
+											"sid": 814535858540448,
+											"parameters": {
+												"instance-variable": "AddedMouseSpeed",
+												"value": "0.05"
+											}
+										}
+									],
+									"sid": 256368358827015
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 148251186706151,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "MenuRotor",
+							"sid": 480073704984190,
+							"parameters": {
+								"instance-variable": "AddedMouseSpeed",
+								"value": "0.05"
+							}
+						}
+					],
+					"sid": 550897834273128
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 590492495384471,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "MenuRotor",
+							"sid": 522930598606974,
+							"parameters": {
+								"instance-variable": "AddedMouseSpeed",
+								"value": "-0.05"
+							}
+						}
+					],
+					"sid": 639993913243844
+				}
+			],
+			"sid": 434909488577852
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu buttons",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Button effect"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Button",
+							"sid": 563398597084054,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						}
+					],
+					"sid": 707261437204060,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 297032592255167,
+									"parameters": {
+										"object": "Button"
+									}
+								},
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "Button",
+									"sid": 291848899843965,
+									"parameters": {
+										"which": "nearest",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
+										"z": "0",
+										"pick-all-tied": false
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Button",
+									"sid": 409304576449847,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Brightness\""
+									}
+								}
+							],
+							"sid": 284050072071222
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Click menu button"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 408032227187767,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "MenuButton"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "MenuButton",
+							"sid": 523219192681968
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 965960682503563,
+							"parameters": {
+								"audio-file": {
+									"path": "pickammo"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 132771862277338,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "2"
+							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 218514149671558,
+							"parameters": {
+								"tag": "\"Rotor\"",
+								"db": "-100",
+								"duration": "1.5",
+								"ending": "stop"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 187401845168295,
+							"parameters": {
+								"object-to-create": "FadeToBlack",
+								"layer": "\"Menu\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 653779653987671,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 898356301299859,
+									"parameters": {
+										"object": "MenuButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "MenuButton",
+									"sid": 974393857805900,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 321369250744552
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 871031191406734,
+									"parameters": {
+										"seconds": "3",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 709909761458835
+								}
+							],
+							"sid": 997873249674444,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "MenuButton",
+											"sid": 261481982348820,
+											"parameters": {
+												"animation": "\"Start\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 215900375355785,
+											"parameters": {
+												"layout": "Level1"
+											}
+										}
+									],
+									"sid": 133010136799379
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "MenuButton",
+											"sid": 643553008758798,
+											"parameters": {
+												"animation": "\"Load\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "load",
+											"objectClass": "System",
+											"sid": 945060521692856,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										}
+									],
+									"sid": 548372554598497
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "MenuButton",
+											"sid": 252159471370373,
+											"parameters": {
+												"animation": "\"Exit\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "close",
+											"objectClass": "Browser",
+											"sid": 689014584369324
+										}
+									],
+									"sid": 193242582924900
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 724417892016317
+		}
+	],
+	"sid": 854902394825117
+}

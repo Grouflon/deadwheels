@@ -64,6 +64,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
@@ -127,6 +134,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
 			"author": "Scirra",
@@ -173,42 +187,13 @@
 			"name": "Hard light",
 			"author": "Scirra",
 			"bundled": false
-		},
-		{
-			"type": "effect",
-			"id": "screen",
-			"name": "Screen",
-			"author": "Scirra",
-			"bundled": false
 		}
 	],
 	"uniqueId": "iayubuot2br",
 	"objectTypes": {
 		"items": [
-			"Floor_Tiles1",
-			"LightMask",
-			"Darkness",
-			"ZombiesHitbox",
-			"Floor_Elevator",
-			"AudioSource",
 			"Dummy",
-			"Ray",
-			"UIWeapon",
-			"ButtonSlot",
-			"ButtonSlot2",
-			"Floor_Tiles2",
-			"Event_ZombieSpawn",
-			"Trigger",
-			"Event_Sound",
-			"Event_FadeIn",
-			"Event_FadeOut",
-			"CityStreet1",
-			"CityStreet2",
-			"Floor_Concrete1",
-			"Helipad",
-			"TiledBackground",
-			"Helicopter",
-			"HelicopterRotor"
+			"Text"
 		],
 		"subfolders": [
 			{
@@ -263,7 +248,12 @@
 					"Corpse",
 					"Mike",
 					"Sofia",
-					"3DCamera"
+					"3DCamera",
+					"ButtonSlot",
+					"ButtonSlot2",
+					"Helicopter",
+					"HelicopterRotor",
+					"ZombiesHitbox"
 				],
 				"subfolders": [],
 				"name": "Game"
@@ -273,14 +263,17 @@
 					"FireGFX",
 					"TireMark",
 					"Snowflake",
-					"GroundLight"
+					"GroundLight",
+					"FadeToBlack"
 				],
 				"subfolders": [],
 				"name": "Effects"
 			},
 			{
 				"items": [
-					"MenuArt"
+					"MenuArt",
+					"MenuButton",
+					"MenuRotor"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -290,7 +283,8 @@
 					"TextFont",
 					"HealthBarForeground",
 					"HealthBarBackground",
-					"InputIcon"
+					"InputIcon",
+					"UIWeapon"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -322,7 +316,15 @@
 					"CounterWood",
 					"OuterWallVent",
 					"BuildingSide",
-					"RoofTopBlockade"
+					"RoofTopBlockade",
+					"CityStreet1",
+					"CityStreet2",
+					"Floor_Concrete1",
+					"Floor_Elevator",
+					"Floor_Tiles1",
+					"Floor_Tiles2",
+					"Helipad",
+					"Black"
 				],
 				"subfolders": [],
 				"name": "World"
@@ -344,6 +346,26 @@
 				],
 				"subfolders": [],
 				"name": "Pickups"
+			},
+			{
+				"items": [
+					"AudioSource",
+					"Event_FadeIn",
+					"Event_FadeOut",
+					"Event_Sound",
+					"Event_ZombieSpawn",
+					"Trigger"
+				],
+				"subfolders": [],
+				"name": "Events"
+			},
+			{
+				"items": [
+					"Darkness",
+					"Ray"
+				],
+				"subfolders": [],
+				"name": "Lightning"
 			}
 		]
 	},
@@ -396,7 +418,8 @@
 			"Pickups",
 			"Events",
 			"CanPickUp",
-			"Fadable"
+			"Fadable",
+			"Button"
 		],
 		"subfolders": []
 	},
@@ -407,7 +430,8 @@
 			"ThomasTests",
 			"RemiTests",
 			"Game Over",
-			"LevelEnd"
+			"LevelEnd",
+			"Menu"
 		],
 		"subfolders": [
 			{
@@ -434,7 +458,8 @@
 			"Chair",
 			"Controller",
 			"Destruction",
-			"LevelEnd"
+			"LevelEnd",
+			"Menu"
 		],
 		"subfolders": []
 	},
@@ -1125,5 +1150,5 @@
 	},
 	"viewportWidth": 320,
 	"viewportHeight": 180,
-	"firstLayout": null
+	"firstLayout": "Menu"
 }

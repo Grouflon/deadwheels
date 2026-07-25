@@ -2651,6 +2651,21 @@
 						}
 					],
 					"sid": 522623718058249
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 795546724279620,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 391076304163214
 				}
 			]
 		},
@@ -2986,6 +3001,60 @@
 				}
 			],
 			"sid": 843205154340389
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game Over",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "GameOver",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 136525792517541,
+							"parameters": {
+								"object-to-create": "FadeToBlack",
+								"layer": "\"UI\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 137511493288597,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 273012897910552,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 371635239091555
+				}
+			],
+			"sid": 632043697341628
 		}
 	],
 	"sid": 171422187705970
