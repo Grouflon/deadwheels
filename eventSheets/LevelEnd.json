@@ -151,17 +151,44 @@
 									"sid": 805932935441135
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 813162538065961,
+							"children": [
 								{
-									"id": "go-to-layout-by-name",
-									"objectClass": "System",
-									"sid": 605585300074345,
-									"parameters": {
-										"layout": "\"Level\"&Level_Current"
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "go-to-layout-by-name",
+											"objectClass": "System",
+											"sid": 656228942609093,
+											"parameters": {
+												"layout": "\"Level\"&Level_Current"
+											}
+										}
+									],
+									"sid": 827468817459710
+								},
+								{
+									"eventType": "comment",
+									"text": "Fall back on going to menu if the previous line didn't work out"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 842435355806245,
+											"parameters": {
+												"layout": "Menu"
+											}
+										}
+									],
+									"sid": 938886396459862
 								}
 							],
-							"sid": 813162538065961,
 							"isOrBlock": true
 						},
 						{
