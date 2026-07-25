@@ -2326,27 +2326,84 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 133983558114791,
+					"children": [
 						{
-							"id": "play-by-name",
-							"objectClass": "Audio",
-							"sid": 119194705476759,
-							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "Event_Sound.Sound",
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Event_Sound",
+									"sid": 246924060129210,
+									"parameters": {
+										"instance-variable": "PlayAtThisObject"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 143534659813211,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "Event_Sound.Sound",
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "Event_Sound",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 547704215503241
 						},
 						{
-							"id": "destroy",
-							"objectClass": "Event_Sound",
-							"sid": 614438489062310
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Event_Sound",
+									"sid": 560597176427534,
+									"parameters": {
+										"instance-variable": "PlayAtThisObject"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 416448783803517,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "Event_Sound.Sound",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 133341822128056
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Event_Sound",
+									"sid": 192168087430998
+								}
+							],
+							"sid": 943208425535533
 						}
-					],
-					"sid": 133983558114791
+					]
 				},
 				{
 					"eventType": "block",
