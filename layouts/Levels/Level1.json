@@ -17595,6 +17595,7 @@
 						"angular_buffer_time": 0.2,
 						"max_angular_velocity": 400,
 						"direction": 90,
+						"excluded_collisions": "Crawlable",
 						"velocity": 0,
 						"angular_velocity": 0,
 						"wheel_ticks": 0,
@@ -17611,7 +17612,7 @@
 						"just_rotated": 0,
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
-						"excluded_collisions": "Crawlable",
+						"consecutive_wheel_ticks": 0,
 						"health": 100,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -17838,6 +17839,10 @@
 											{
 												"iv": "angular_recoil",
 												"state": true
+											},
+											{
+												"iv": "consecutive_wheel_ticks",
+												"state": true
 											}
 										]
 									}
@@ -18021,6 +18026,7 @@
 						"angular_buffer_time": 0.3,
 						"max_angular_velocity": 700,
 						"direction": 180,
+						"excluded_collisions": "",
 						"velocity": 0,
 						"angular_velocity": 0,
 						"wheel_ticks": 0,
@@ -18037,7 +18043,7 @@
 						"just_rotated": 0,
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
-						"excluded_collisions": "",
+						"consecutive_wheel_ticks": 0,
 						"wheels_blood_level": 0,
 						"ram_cooldown": 0
 					},
@@ -18208,6 +18214,10 @@
 											},
 											{
 												"iv": "ram_cooldown",
+												"state": true
+											},
+											{
+												"iv": "consecutive_wheel_ticks",
 												"state": true
 											}
 										]

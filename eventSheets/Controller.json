@@ -2,6 +2,16 @@
 	"name": "Controller",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "max_consecutive_wheel_ticks",
+			"type": "number",
+			"initialValue": "7",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 516315526985837
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "CONTROLLER",
@@ -1077,6 +1087,101 @@
 									]
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 900462753531820,
+											"parameters": {
+												"first-value": "sign(Controllers.previous_wheel_ticks)",
+												"comparison": 0,
+												"second-value": "sign(Controllers.wheel_ticks)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 753150207294115,
+											"parameters": {
+												"first-value": "abs(Controllers.wheel_ticks)",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 718386322960075,
+											"parameters": {
+												"instance-variable": "consecutive_wheel_ticks",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 582494742828826
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 787753883540753
+										}
+									],
+									"actions": [],
+									"sid": 478240108230057,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 621130844575516,
+													"parameters": {
+														"instance-variable": "consecutive_wheel_ticks",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 770173280654570,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"cwt \"&Controllers.consecutive_wheel_ticks"
+													}
+												}
+											],
+											"sid": 464837480066642
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Controllers",
+													"sid": 545957155429719,
+													"parameters": {
+														"instance-variable": "consecutive_wheel_ticks",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 438236998464268
+										}
+									]
+								},
+								{
 									"eventType": "comment",
 									"text": "Rotation"
 								},
@@ -1229,53 +1334,72 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Controllers",
-											"sid": 542837928222906,
+											"sid": 770569605084787,
 											"parameters": {
-												"instance-variable": "wheel_ticks",
-												"comparison": 4,
-												"value": "0"
+												"instance-variable": "consecutive_wheel_ticks",
+												"comparison": 3,
+												"value": "max_consecutive_wheel_ticks"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 964126503237063,
+									"children": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Controllers",
-											"sid": 973602141288447,
-											"parameters": {
-												"instance-variable": "velocity",
-												"value": "Controllers.wheel_ticks * Controllers.acceleration"
-											}
-										}
-									],
-									"sid": 377025262150299
-								},
-								{
-									"eventType": "block",
-									"conditions": [
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 943316953675939,
+													"parameters": {
+														"instance-variable": "wheel_ticks",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 614430001466749,
+													"parameters": {
+														"instance-variable": "velocity",
+														"value": "Controllers.wheel_ticks * Controllers.acceleration"
+													}
+												}
+											],
+											"sid": 431129183412883
+										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Controllers",
-											"sid": 305611074219107,
-											"parameters": {
-												"instance-variable": "wheel_ticks",
-												"comparison": 2,
-												"value": "0"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 168603888301534,
+													"parameters": {
+														"instance-variable": "wheel_ticks",
+														"comparison": 2,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Controllers",
+													"sid": 566597531524196,
+													"parameters": {
+														"instance-variable": "velocity",
+														"value": "Controllers.wheel_ticks * Controllers.brake"
+													}
+												}
+											],
+											"sid": 855685045555294
 										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "Controllers",
-											"sid": 916103246463321,
-											"parameters": {
-												"instance-variable": "velocity",
-												"value": "Controllers.wheel_ticks * Controllers.brake"
-											}
-										}
-									],
-									"sid": 638378151515293
+									]
 								},
 								{
 									"eventType": "comment",
