@@ -34,9 +34,40 @@
 							"parameters": {
 								"collisions": "enabled"
 							}
+						},
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "Controllers",
+							"sid": 135545455181076,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "Self.excluded_collisions"
+							}
 						}
 					],
 					"sid": 694229538160187
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-load-complete",
+							"objectClass": "System",
+							"sid": 418913662805934
+						}
+					],
+					"actions": [
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "Controllers",
+							"sid": 638825797556063,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "Self.excluded_collisions"
+							}
+						}
+					],
+					"sid": 201223684002035
 				},
 				{
 					"eventType": "block",
@@ -81,7 +112,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 543699241854919,
+											"parameters": {
+												"type": "log",
+												"message": "\"col\""
+											}
+										}
+									],
 									"sid": 720053534443103,
 									"children": [
 										{
