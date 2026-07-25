@@ -537,6 +537,15 @@
 										"variable": "SpriteAngle",
 										"value": "CharacterSprite.Angle"
 									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 880572626848916,
+									"parameters": {
+										"variable": "AimAngle",
+										"value": "angle(CharacterSprite.ImagePointX(\"arm_anchor\"),CharacterSprite.ImagePointY(\"arm_anchor\"),Mouse.X,Mouse.Y)"
+									}
 								}
 							],
 							"sid": 904545893841052
@@ -561,6 +570,15 @@
 									}
 								},
 								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 657528533070867,
+									"parameters": {
+										"variable": "AimAngle",
+										"value": "angle(CrawlingSprite.ImagePointX(\"arm_anchor\"),CrawlingSprite.ImagePointY(\"arm_anchor\"),Mouse.X,Mouse.Y)"
+									}
+								},
+								{
 									"id": "set-boolean-instvar",
 									"objectClass": "CharacterController",
 									"sid": 402828800519040,
@@ -576,15 +594,6 @@
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 499106954034854,
-									"parameters": {
-										"variable": "AimAngle",
-										"value": "angle(CharacterSprite.ImagePointX(\"arm_anchor\"),CharacterSprite.ImagePointY(\"arm_anchor\"),Mouse.X,Mouse.Y)"
-									}
-								},
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
