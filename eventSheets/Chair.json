@@ -208,59 +208,76 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "ChairController",
-					"sid": 421908914115481,
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 353713818618570,
 					"parameters": {
-						"object": "Zombies"
+						"object": "ChairController"
 					}
+				}
+			],
+			"actions": [],
+			"sid": 194913716227851,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "ChairController",
+							"sid": 831784862751186,
+							"parameters": {
+								"object": "Zombies"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ChairController",
+							"sid": 753505488268399,
+							"parameters": {
+								"instance-variable": "ram_cooldown",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 102985465656657,
+							"parameters": {
+								"instance-variable": "max_velocity_multiplier",
+								"value": "0.2"
+							}
+						}
+					],
+					"sid": 701484479703377,
+					"isOrBlock": true
 				},
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "ChairController",
-					"sid": 945234735277115,
-					"parameters": {
-						"instance-variable": "ram_cooldown",
-						"comparison": 4,
-						"value": "0"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 707037672057793
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 884938631146453,
+							"parameters": {
+								"instance-variable": "max_velocity_multiplier",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 347896389018833
 				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "ChairController",
-					"sid": 772041033533425,
-					"parameters": {
-						"instance-variable": "max_velocity_multiplier",
-						"value": "0.2"
-					}
-				}
-			],
-			"sid": 737732811917050,
-			"isOrBlock": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 382213073818207
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "ChairController",
-					"sid": 944486659300609,
-					"parameters": {
-						"instance-variable": "max_velocity_multiplier",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 587267652117449
+			]
 		},
 		{
 			"eventType": "block",
