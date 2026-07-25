@@ -2449,6 +2449,49 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "LEVEL 4",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Trigger",
+							"sid": 992153283294877,
+							"parameters": {
+								"unique-id": "768703"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 479142660353786,
+							"parameters": {
+								"variable": "shotgun_unlocked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Trigger",
+							"sid": 619119533357979,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 891955290602421
+				}
+			],
+			"sid": 698625344974069
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Helicopter",
 			"description": "",
 			"isActiveOnStart": true,
