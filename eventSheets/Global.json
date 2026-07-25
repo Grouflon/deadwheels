@@ -466,6 +466,30 @@
 							]
 						},
 						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 663582992394334,
+									"parameters": {
+										"key": 80
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "DoDamage",
+									"objectClass": "CharacterController",
+									"sid": 745452742060737,
+									"parameters": [
+										"10"
+									]
+								}
+							],
+							"sid": 554133068851282
+						},
+						{
 							"eventType": "comment",
 							"text": "Unlock all weapons"
 						},
@@ -2639,24 +2663,17 @@
 								"variable": "Level_Current",
 								"value": "int(replace(LayoutName, \"Level\", \"\"))"
 							}
-						}
-					],
-					"sid": 522623718058249
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
+						},
 						{
 							"id": "save",
 							"objectClass": "System",
-							"sid": 795546724279620,
+							"sid": 564601428165409,
 							"parameters": {
 								"slot": "\"mysave\""
 							}
 						}
 					],
-					"sid": 391076304163214
+					"sid": 522623718058249
 				}
 			]
 		},
