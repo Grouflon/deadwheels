@@ -2374,6 +2374,49 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "LEVEL 1",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Trigger",
+							"sid": 300594227858263,
+							"parameters": {
+								"unique-id": "801187"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 796481111114426,
+							"parameters": {
+								"variable": "gun_unlocked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Trigger",
+							"sid": 128348336025587,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 784761059569699
+				}
+			],
+			"sid": 637610906268977
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Helicopter",
 			"description": "",
 			"isActiveOnStart": true,

@@ -20,70 +20,87 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Trigger",
-							"sid": 153393831455182,
-							"parameters": {
-								"instance-variable": "Triggered",
-								"value": "true"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 106358787962889,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-children",
+									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Trigger",
-									"sid": 490378708865556,
+									"sid": 754488324975806,
 									"parameters": {
-										"child": "Events",
-										"which": "own"
+										"instance-variable": "enabled"
 									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-boolean-instvar",
-									"objectClass": "Events",
-									"sid": 445931197747812,
+									"objectClass": "Trigger",
+									"sid": 464877720641622,
 									"parameters": {
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 384948628380135
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"sid": 111305308500410,
+							"children": [
 								{
-									"id": "pick-children",
-									"objectClass": "Trigger",
-									"sid": 638281889259916,
-									"parameters": {
-										"child": "Doors",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Trigger",
+											"sid": 490715496331003,
+											"parameters": {
+												"child": "Events",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Events",
+											"sid": 322003062288259,
+											"parameters": {
+												"instance-variable": "Triggered",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 140820457530759
+								},
 								{
-									"customAction": "OpenDoor",
-									"objectClass": "Doors",
-									"sid": 438200598358166,
-									"parameters": [
-										"Doors.X",
-										"Doors.Y"
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Trigger",
+											"sid": 839820827938167,
+											"parameters": {
+												"child": "Doors",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "OpenDoor",
+											"objectClass": "Doors",
+											"sid": 515504637193151,
+											"parameters": [
+												"Doors.X",
+												"Doors.Y"
+											]
+										}
+									],
+									"sid": 184855228346799
 								}
-							],
-							"sid": 255323814023345
+							]
 						}
 					]
 				},
