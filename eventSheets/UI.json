@@ -644,6 +644,188 @@
 					"sid": 151903839177551
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "FADE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 332266691197086
+						}
+					],
+					"actions": [
+						{
+							"id": "add-layer",
+							"objectClass": "System",
+							"sid": 235194370402127,
+							"parameters": {
+								"name": "\"Fade\"",
+								"insert-by": "\"UI\"",
+								"where": "above"
+							}
+						},
+						{
+							"id": "set-layer-parallax",
+							"objectClass": "System",
+							"sid": 642708830083056,
+							"parameters": {
+								"layer": "\"Fade\"",
+								"parallax-x": "0",
+								"parallax-y": "0"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 772490793954088,
+							"parameters": {
+								"object-to-create": "FadeToBlack",
+								"layer": "\"Fade\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "FadeToBlack",
+							"sid": 983037585128409,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"customAction": "FadeFromBlack",
+							"objectClass": "FadeToBlack",
+							"sid": 223223350230143,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 849172682403990
+				}
+			],
+			"sid": 261627662999613
+		},
+		{
+			"aceType": "action",
+			"aceName": "FadeToBlack",
+			"objectClass": "FadeToBlack",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "duration",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 818446228664127
+				}
+			],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "FadeToBlack",
+					"sid": 285989688121504,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "stop-all-tweens",
+					"objectClass": "FadeToBlack",
+					"sid": 614890387297674,
+					"behaviorType": "Tween"
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "FadeToBlack",
+					"sid": 137171193757166,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeToBlack\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "duration",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 208357648131381
+		},
+		{
+			"aceType": "action",
+			"aceName": "FadeFromBlack",
+			"objectClass": "FadeToBlack",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "duration",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 666929781466562
+				}
+			],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "stop-all-tweens",
+					"objectClass": "FadeToBlack",
+					"sid": 887905076925428,
+					"behaviorType": "Tween"
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "FadeToBlack",
+					"sid": 539148325354575,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeFromBlack\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "duration",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "FadeToBlack",
+					"sid": 140820315138942,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 468031659086117
 		}
 	],
 	"sid": 154043260739891

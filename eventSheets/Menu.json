@@ -14,21 +14,7 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 965706442278624,
-					"parameters": {
-						"audio-file": {
-							"path": "Title"
-						},
-						"loop": "looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"Rotor\""
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 639786409324735,
+					"sid": 637507351722383,
 					"parameters": {
 						"audio-file": {
 							"path": "HelicopterLoop2"
@@ -55,6 +41,27 @@
 						"mode": "stretch-letterbox-scale",
 						"navigation-ui": "auto"
 					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 603792727783129,
+					"parameters": {
+						"object-to-create": "FadeToBlack",
+						"layer": "\"Menu\"",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"customAction": "FadeFromBlack",
+					"objectClass": "FadeToBlack",
+					"sid": 237870003210133,
+					"parameters": [
+						"1"
+					]
 				}
 			],
 			"sid": 972144372622994
@@ -351,17 +358,12 @@
 							}
 						},
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 187401845168295,
-							"parameters": {
-								"object-to-create": "FadeToBlack",
-								"layer": "\"Menu\"",
-								"x": "0",
-								"y": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
+							"customAction": "FadeToBlack",
+							"objectClass": "FadeToBlack",
+							"sid": 681679649002279,
+							"parameters": [
+								"2"
+							]
 						}
 					],
 					"sid": 653779653987671,
