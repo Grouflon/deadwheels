@@ -1919,13 +1919,13 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 172432216277523,
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 617692653127130,
 											"parameters": {
-												"instance-variable": "health",
+												"first-value": "health",
 												"comparison": 2,
-												"value": "character_max_health"
+												"second-value": "character_max_health"
 											}
 										}
 									],
@@ -3108,17 +3108,248 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
+						}
+					],
+					"sid": 333323871019905,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Camera",
+									"sid": 151403972846562,
+									"parameters": {
+										"instance-variable": "follow_target",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 316418799452942,
+									"parameters": {
+										"instance-variable": "target_x",
+										"value": "Helicopter.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 840951794234911,
+									"parameters": {
+										"instance-variable": "target_y",
+										"value": "Helicopter.Y"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 788962500365405,
+									"parameters": {
+										"instance-variable": "follow_speed",
+										"value": "0.01"
+									}
+								}
+							],
+							"sid": 951622075395172
 						},
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 134062033095794,
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 520751811164511,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "ChairController",
+									"sid": 250873829668623
+								}
+							],
+							"sid": 975267484665489
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "CharacterController",
+									"sid": 780717603079821
+								}
+							],
+							"sid": 531697371448614
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 437183820176423,
+									"parameters": {
+										"seconds": "2.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "Helicopter",
+									"sid": 198828861702571,
+									"behaviorType": "Tween"
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Helicopter",
+									"sid": 825734438792293,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"goUp\"",
+										"property": "offsetZElevation",
+										"end-value": "80",
+										"time": "3",
+										"ease": "easeinoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 875160545948772,
+									"parameters": {
+										"seconds": "2.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Helicopter",
+									"sid": 746181741478008,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"goForward\"",
+										"property": "offsetY",
+										"end-value": "0",
+										"time": "4",
+										"ease": "easeincubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "Helicopter",
+									"sid": 759509649416119,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"zoom\"",
+										"start-value": "1",
+										"end-value": "0.5",
+										"time": "6",
+										"ease": "easeincubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 306539835646692,
+									"parameters": {
+										"seconds": "2.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "Audio",
+									"sid": 431301552052221,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "-100",
+										"duration": "4",
+										"ending": "stop"
+									}
+								},
+								{
+									"customAction": "FadeToBlack",
+									"objectClass": "FadeToBlack",
+									"sid": 981127593722109,
+									"parameters": [
+										"3.5"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 344617977683622,
+									"parameters": {
+										"seconds": "5.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 345741384843976,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "0"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 138075458843569,
+									"parameters": {
+										"layout": "TheEnd"
+									}
+								}
+							],
+							"sid": 559528021189298
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Helicopter",
+							"sid": 792940393502138,
+							"behaviorType": "Tween",
 							"parameters": {
-								"layout": "LevelEnd"
+								"tags": "\"zoom\""
 							}
 						}
 					],
-					"sid": 333323871019905
+					"actions": [
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 761018293270905,
+							"parameters": {
+								"scale": "Helicopter.Tween.Value(\"zoom\")"
+							}
+						}
+					],
+					"sid": 980778154931882
 				}
 			],
 			"sid": 843205154340389

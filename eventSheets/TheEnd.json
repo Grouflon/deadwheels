@@ -2,28 +2,46 @@
 	"name": "TheEnd",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "start_scroll",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 516946109615798
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-x-seconds",
+					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 251029846685064,
+					"sid": 643662809358487,
 					"parameters": {
-						"interval-seconds": "0.1"
+						"variable": "start_scroll"
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 884435617873111,
+			"children": [
 				{
-					"id": "scroll-to-y",
-					"objectClass": "System",
-					"sid": 889453163741852,
-					"parameters": {
-						"y": "scrolly+1"
-					}
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "scroll-to-y",
+							"objectClass": "System",
+							"sid": 877135254630642,
+							"parameters": {
+								"y": "scrolly+10*dt"
+							}
+						}
+					],
+					"sid": 210286117403929
 				}
-			],
-			"sid": 845688712750898
+			]
 		},
 		{
 			"eventType": "block",
@@ -48,25 +66,72 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
-				}
-			],
-			"sid": 854731362765928
-		},
-		{
-			"eventType": "block",
-			"conditions": [
+				},
 				{
-					"id": "compare-two-values",
+					"id": "create-object",
 					"objectClass": "System",
-					"sid": 146069954819901,
+					"sid": 778283258834954,
 					"parameters": {
-						"first-value": "scrolly",
-						"comparison": 4,
-						"second-value": "LayoutHeight-OriginalViewportWidth/2-10"
+						"object-to-create": "FadeToBlack",
+						"layer": "\"Fade\"",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
 					}
-				}
-			],
-			"actions": [
+				},
+				{
+					"customAction": "FadeFromBlack",
+					"objectClass": "FadeToBlack",
+					"sid": 589404246443980,
+					"parameters": [
+						"3"
+					]
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 756488181304568,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 622367242946643,
+					"parameters": {
+						"variable": "start_scroll",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 149829343807320,
+					"parameters": {
+						"seconds": "25",
+						"use-timescale": true
+					}
+				},
+				{
+					"customAction": "FadeToBlack",
+					"objectClass": "FadeToBlack",
+					"sid": 809417293842182,
+					"parameters": [
+						"3"
+					]
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 952996726202542,
+					"parameters": {
+						"seconds": "3.5",
+						"use-timescale": true
+					}
+				},
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
@@ -76,7 +141,7 @@
 					}
 				}
 			],
-			"sid": 758156503410982
+			"sid": 854731362765928
 		}
 	],
 	"sid": 792792720885224

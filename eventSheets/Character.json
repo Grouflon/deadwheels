@@ -136,6 +136,16 @@
 			"sid": 473453104263243
 		},
 		{
+			"eventType": "variable",
+			"name": "health",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 722901039087567
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "INIT",
@@ -207,11 +217,12 @@
 							}
 						},
 						{
-							"id": "set-instvar-value",
-							"objectClass": "CharacterController",
-							"sid": 546025107967009,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 223745390809824,
+							"disabled": true,
 							"parameters": {
-								"instance-variable": "health",
+								"variable": "health",
 								"value": "character_max_health"
 							}
 						},
@@ -3117,11 +3128,11 @@
 					}
 				},
 				{
-					"id": "add-to-instvar",
-					"objectClass": "CharacterController",
-					"sid": 660817094659742,
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 959967653613862,
 					"parameters": {
-						"instance-variable": "health",
+						"variable": "health",
 						"value": "-Damage"
 					}
 				},
@@ -3155,13 +3166,13 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "CharacterController",
-							"sid": 823881843101878,
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 144557761462149,
 							"parameters": {
-								"instance-variable": "health",
+								"first-value": "health",
 								"comparison": 3,
-								"value": "0"
+								"second-value": "0"
 							}
 						},
 						{
@@ -4578,12 +4589,12 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-instvar-value",
-					"objectClass": "CharacterController",
-					"sid": 921832405322751,
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 717479365681478,
 					"parameters": {
-						"instance-variable": "health",
-						"value": "clamp(CharacterController.health+amount,0,character_max_health)"
+						"variable": "health",
+						"value": "clamp(health+amount,0,character_max_health)"
 					}
 				}
 			],

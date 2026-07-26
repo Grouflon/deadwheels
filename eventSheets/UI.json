@@ -165,9 +165,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "HealthBarForeground",
-					"sid": 561649542826266,
+					"sid": 167185781046525,
 					"parameters": {
-						"width": "HealthBarBackground.Width * clamp(CharacterController.health / character_max_health, 0, 1)"
+						"width": "HealthBarBackground.Width * clamp(health / character_max_health, 0, 1)"
 					}
 				}
 			],
@@ -680,6 +680,15 @@
 								"layer": "\"Fade\"",
 								"parallax-x": "0",
 								"parallax-y": "0"
+							}
+						},
+						{
+							"id": "set-layer-scale-rate",
+							"objectClass": "System",
+							"sid": 699947343415240,
+							"parameters": {
+								"layer": "\"Fade\"",
+								"scale-rate": "0"
 							}
 						},
 						{

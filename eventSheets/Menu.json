@@ -88,7 +88,92 @@
 					]
 				}
 			],
-			"sid": 972144372622994
+			"sid": 972144372622994,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Reset game state"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 217130369664323,
+							"parameters": {
+								"variable": "gun_unlocked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 411063215989891,
+							"parameters": {
+								"variable": "shotgun_unlocked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 790419291612695,
+							"parameters": {
+								"variable": "smg_unlocked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 101450937996879,
+							"parameters": {
+								"variable": "gatling_unlocked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 805718872647597,
+							"parameters": {
+								"variable": "health",
+								"value": "character_max_health"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 397399728463591,
+							"parameters": {
+								"variable": "gun_ammo",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 356422080220001,
+							"parameters": {
+								"variable": "shotgun_ammo",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 369945015123637,
+							"parameters": {
+								"variable": "gatling_ammo",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 422517577630179
+				}
+			]
 		},
 		{
 			"eventType": "group",
