@@ -2727,21 +2727,56 @@
 										"seconds": "1.0",
 										"use-timescale": true
 									}
-								},
-								{
-									"id": "regenerate-region",
-									"objectClass": "Zombies",
-									"sid": 793600914865267,
-									"behaviorType": "Pathfinding",
-									"parameters": {
-										"start-x": "Elevator.X - 32",
-										"start-y": "Elevator.Y - 32",
-										"end-x": "Elevator.X + 32",
-										"end-y": "Elevator.Y + 32"
-									}
 								}
 							],
 							"sid": 647885068300086
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 936158039159912,
+									"parameters": {
+										"object": "Zombies"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 231509882906788,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 601585808740645,
+											"parameters": {
+												"first-value": "distance(Zombies.X, Zombies.Y, Elevator.X, Elevator.Y)",
+												"comparison": 2,
+												"second-value": "50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "regenerate-region",
+											"objectClass": "Zombies",
+											"sid": 558010862178268,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"start-x": "Elevator.X - 32",
+												"start-y": "Elevator.Y - 32",
+												"end-x": "Elevator.X + 32",
+												"end-y": "Elevator.Y + 32"
+											}
+										}
+									],
+									"sid": 206514710736152
+								}
+							]
 						}
 					]
 				}
