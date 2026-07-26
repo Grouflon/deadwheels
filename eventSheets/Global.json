@@ -1610,6 +1610,14 @@
 							"parameters": {
 								"object": "Elevator"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Elevator",
+							"sid": 756569578079893,
+							"parameters": {
+								"instance-variable": "enabled"
+							}
 						}
 					],
 					"actions": [
@@ -1724,6 +1732,15 @@
 							"sid": 125378914460811,
 							"parameters": {
 								"angle": "Elevator.Angle+90"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Elevator",
+							"sid": 875206618050510,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
 							}
 						}
 					],
@@ -2438,6 +2455,144 @@
 						}
 					],
 					"sid": 891955290602421
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Door_Elevator",
+							"sid": 190709676299882,
+							"parameters": {
+								"unique-id": "992220"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Elevator",
+							"sid": 742717570311239,
+							"parameters": {
+								"instance-variable": "enabled"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 715456095175887,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 563549451037327,
+									"parameters": {
+										"unique-id": "683350"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 688481740970212,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 606289587365087
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 764421154245294,
+									"parameters": {
+										"unique-id": "101912"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 754300898970454,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 214903678780492
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 622605337270498,
+									"parameters": {
+										"unique-id": "177914"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 332642504578325,
+									"parameters": {
+										"instance-variable": "Triggered",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 530399592493140
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Door_Elevator",
+									"sid": 388879474459153,
+									"behaviorType": "Solid",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 291277379806743,
+									"disabled": true,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 793600914865267,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "Elevator.X - 32",
+										"start-y": "Elevator.Y - 32",
+										"end-x": "Elevator.X + 32",
+										"end-y": "Elevator.Y + 32"
+									}
+								}
+							],
+							"sid": 647885068300086
+						}
+					]
 				}
 			],
 			"sid": 698625344974069
