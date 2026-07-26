@@ -879,6 +879,12 @@
 				},
 				{
 					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 754485318653364
+				},
+				{
+					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
@@ -1023,6 +1029,71 @@
 										}
 									],
 									"sid": 845262859619571
+								},
+								{
+									"eventType": "comment",
+									"text": "If elevator, alert zombies"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Door_Elevator",
+											"sid": 220941496073825,
+											"parameters": {
+												"unique-id": "ButtonSlot.DoorUID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 651620027644384,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 283672479194928,
+													"parameters": {
+														"object": "Zombies"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 707620080090388,
+													"parameters": {
+														"first-value": "distance(CharacterController.X,CharacterController.Y,Zombies.X,Zombies.Y)",
+														"comparison": 3,
+														"second-value": "zombie_elevator_detection_distance"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Zombies",
+													"sid": 349441773536593,
+													"parameters": {
+														"instance-variable": "moveToX",
+														"value": "CharacterController.X"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Zombies",
+													"sid": 380846868961665,
+													"parameters": {
+														"instance-variable": "moveToY",
+														"value": "CharacterController.Y"
+													}
+												}
+											],
+											"sid": 551582733868362
+										}
+									]
 								}
 							]
 						}
@@ -1779,6 +1850,12 @@
 								}
 							],
 							"sid": 505521075751838
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 241286741386500
 						}
 					]
 				}
