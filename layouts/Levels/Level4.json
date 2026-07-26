@@ -120,9 +120,9 @@
 					"locked": false,
 					"world": {
 						"x": 377.05678164188794,
-						"y": 647.8074664690386,
+						"y": 640.5208583893044,
 						"width": 40.95130551631519,
-						"height": 16.71339192026585,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -41580,6 +41580,110 @@
 					}
 				},
 				{
+					"type": "Plant_Pot",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 593866,
+					"sid": 607990265346834,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 648,
+						"y": 952,
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 8,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Bed2",
+					"properties": {
+						"shape": "box",
+						"z-origin": "middle",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 635821,
+					"sid": 986934751645388,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 656,
+						"y": 896,
+						"width": 20,
+						"height": 33,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 14,
+						"originZ": 0.5,
+						"angle": 0.02322073603386221
+					}
+				},
+				{
 					"type": "Ammo",
 					"properties": {
 						"initially-visible": true,
@@ -42260,114 +42364,7 @@
 			"name": "Light",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [
-				{
-					"type": "Ray",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 578497,
-					"sid": 541005868563275,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"effects": {
-						"HardLight": {
-							"isEnabled": true,
-							"parameters": {}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 182.42037746809146,
-						"y": 136.35714584892366,
-						"width": 74.03042109153688,
-						"height": 162.33476313490323,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							0.9058823529411765,
-							0.2784313725490196,
-							0.12
-						],
-						"z": 14.359477996826172,
-						"angle": 0,
-						"rotation3d": {
-							"quaternion": [
-								0.08583154529333115,
-								0.015134417451918125,
-								-0.17298738658428192,
-								-0.981060266494751
-							],
-							"euler": [
-								6.108652591705322,
-								0,
-								0.3490658402442932
-							]
-						},
-						"blendMode": "additive"
-					}
-				},
-				{
-					"type": "Ray",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 880318,
-					"sid": 529503186692784,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"effects": {
-						"HardLight": {
-							"isEnabled": true,
-							"parameters": {}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 121.61223602294922,
-						"y": 132.17327880859375,
-						"width": 74.03042109153688,
-						"height": 162.33476313490323,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							0.9058823529411765,
-							0.2784313725490196,
-							0.12
-						],
-						"z": 14.359477996826172,
-						"angle": 0,
-						"rotation3d": {
-							"quaternion": [
-								0.08583154529333115,
-								0.015134417451918125,
-								-0.17298738658428192,
-								-0.981060266494751
-							],
-							"euler": [
-								6.108652591705322,
-								0,
-								0.3490658402442932
-							]
-						},
-						"blendMode": "additive"
-					}
-				}
-			],
+			"instances": [],
 			"sid": 649658513535007,
 			"effectTypes": [],
 			"isInitiallyVisible": true,

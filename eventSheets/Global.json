@@ -3957,6 +3957,98 @@
 				}
 			],
 			"sid": 874277693130697
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "World",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Plant_Pot",
+							"sid": 617507537907016
+						}
+					],
+					"actions": [],
+					"sid": 485831453399337,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "FirstFoliageAngle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 527998438303058
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 458909640412875,
+									"parameters": {
+										"variable": "FirstFoliageAngle",
+										"value": "random(360)"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 731102841072963,
+									"parameters": {
+										"object-to-create": "Plant_Foliage",
+										"layer": "Plant_Pot.LayerName",
+										"x": "Plant_Pot.X",
+										"y": "Plant_Pot.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Plant_Foliage",
+									"sid": 411674088222441,
+									"parameters": {
+										"angle": "FirstFoliageAngle"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 362701309275294,
+									"parameters": {
+										"object-to-create": "Plant_Foliage",
+										"layer": "Plant_Pot.LayerName",
+										"x": "Plant_Pot.X",
+										"y": "Plant_Pot.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Plant_Foliage",
+									"sid": 360050525857967,
+									"parameters": {
+										"angle": "FirstFoliageAngle+90"
+									}
+								}
+							],
+							"sid": 909915556473839
+						}
+					]
+				}
+			],
+			"sid": 196033189552279
 		}
 	],
 	"sid": 171422187705970
