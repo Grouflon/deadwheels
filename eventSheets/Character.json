@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "chair_enter_distance",
 			"type": "number",
-			"initialValue": "22",
+			"initialValue": "26",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -124,6 +124,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 845573094538669
+		},
+		{
+			"eventType": "variable",
+			"name": "interact_time",
+			"type": "number",
+			"initialValue": "0.8",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 473453104263243
 		},
 		{
 			"eventType": "group",
@@ -1998,6 +2008,16 @@
 													"id": "else",
 													"objectClass": "System",
 													"sid": 518951590235712
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "CharacterController",
+													"sid": 172576599956760,
+													"parameters": {
+														"instance-variable": "interact_timer",
+														"comparison": 3,
+														"value": "0"
+													}
 												}
 											],
 											"actions": [
@@ -2770,20 +2790,247 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "Small buffer on input"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-click",
-							"objectClass": "Mouse",
-							"sid": 420841180053790,
+							"id": "pick-nearestfurthest",
+							"objectClass": "ChairController",
+							"sid": 804954964901161,
 							"parameters": {
-								"mouse-button": "middle",
-								"click-type": "clicked"
+								"which": "nearest",
+								"x": "CharacterController.X",
+								"y": "CharacterController.Y",
+								"z": "0",
+								"pick-all-tied": false
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 727150907018768,
+							"parameters": {
+								"first-value": "distance(CharacterController.X, CharacterController.Y, ChairController.X, ChairController.Y)",
+								"comparison": 3,
+								"second-value": "chair_enter_distance"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 239320584547756,
+					"sid": 226135984471351,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-released",
+									"objectClass": "Mouse",
+									"sid": 824714423753410,
+									"parameters": {
+										"mouse-button": "middle"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 547280316334603,
+									"parameters": {
+										"instance-variable": "interact_timer",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 333119977639566
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 120558058382835,
+									"parameters": {
+										"instance-variable": "interact_timer",
+										"comparison": 5,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 270177795641897,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 222406599734186,
+											"parameters": {
+												"mouse-button": "middle"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "CharacterController",
+											"sid": 217869680233513,
+											"parameters": {
+												"instance-variable": "interact_timer",
+												"value": "dt"
+											}
+										}
+									],
+									"sid": 575663365712461
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 820126654015338
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 776394182920669,
+											"parameters": {
+												"instance-variable": "interact_timer",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 530173127637467
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 464182384913273,
+									"parameters": {
+										"first-value": "CharacterController.interact_timer",
+										"comparison": 5,
+										"second-value": "interact_time"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 326526735259142,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterController",
+											"sid": 879976029765676,
+											"parameters": {
+												"instance-variable": "interact_timer",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 825592663903660
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 972685074900155,
+											"parameters": {
+												"instance-variable": "is_in_chair"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "ExitChair",
+											"objectClass": "CharacterController",
+											"sid": 395637863103871
+										}
+									],
+									"sid": 651719806740685
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 170360378318490
+										}
+									],
+									"actions": [
+										{
+											"customAction": "EnterChair",
+											"objectClass": "CharacterController",
+											"sid": 669113822118401
+										}
+									],
+									"sid": 480206223786683
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 807113880331804
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 136726982601896,
+							"parameters": {
+								"instance-variable": "interact_timer",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 763312085249099
+				},
+				{
+					"eventType": "comment",
+					"text": "Animations"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterController",
+							"sid": 872073799045714,
+							"parameters": {
+								"instance-variable": "interact_timer",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 328553672941650,
 					"children": [
 						{
 							"eventType": "block",
@@ -2791,20 +3038,74 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "CharacterController",
-									"sid": 128957210335758,
+									"sid": 884169284753736,
 									"parameters": {
 										"instance-variable": "is_in_chair"
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 819938871114899,
+							"children": [
 								{
-									"customAction": "ExitChair",
-									"objectClass": "CharacterController",
-									"sid": 874474535132425
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "CharacterSprite",
+											"sid": 407876447081784,
+											"parameters": {
+												"animation": "\"leaveChair\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "CharacterSprite",
+											"sid": 707817928772485,
+											"parameters": {
+												"animation": "\"leaveChair\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 273324018572992,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Audio",
+													"sid": 469056633657129,
+													"parameters": {
+														"tag": "\"oumf\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 183766516325836,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"oumf\""
+													}
+												}
+											],
+											"sid": 446422516906623
+										}
+									]
 								}
-							],
-							"sid": 738879549619133
+							]
 						},
 						{
 							"eventType": "block",
@@ -2812,41 +3113,134 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 846784880030333
-								},
+									"sid": 407936451414795
+								}
+							],
+							"actions": [],
+							"sid": 286425516243405,
+							"children": [
 								{
-									"id": "pick-nearestfurthest",
-									"objectClass": "ChairController",
-									"sid": 996928003252212,
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "CrawlingSprite",
+											"sid": 236580302717205,
+											"parameters": {
+												"animation": "\"enterChair\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "CrawlingSprite",
+											"sid": 790059999291047,
+											"parameters": {
+												"animation": "\"enterChair\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 235539093545897,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Audio",
+													"sid": 624885158906287,
+													"parameters": {
+														"tag": "\"oumf\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 478627824937567,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"oumf\""
+													}
+												}
+											],
+											"sid": 382245931983925
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 539554867251945
+						}
+					],
+					"actions": [],
+					"sid": 600432263217068,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "CharacterSprite",
+									"sid": 345883783291443,
 									"parameters": {
-										"which": "nearest",
-										"x": "CharacterController.X",
-										"y": "CharacterController.Y",
-										"z": "0",
-										"pick-all-tied": false
+										"animation": "\"leaveChair\""
 									}
 								},
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 153402382678567,
+									"id": "is-animation-playing",
+									"objectClass": "CrawlingSprite",
+									"sid": 279169821098293,
 									"parameters": {
-										"first-value": "distance(CharacterController.X, CharacterController.Y, ChairController.X, ChairController.Y)",
-										"comparison": 3,
-										"second-value": "chair_enter_distance"
+										"animation": "\"enterChair\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"customAction": "EnterChair",
-									"objectClass": "CharacterController",
-									"sid": 392666229063118
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 726602751274643,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "CrawlingSprite",
+									"sid": 942441271492463,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
 								}
 							],
-							"sid": 784230291969412
+							"sid": 763155537481922,
+							"isOrBlock": true
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Enter / Exit Chair"
 				},
 				{
 					"aceType": "action",
@@ -2938,6 +3332,15 @@
 							}
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "CrawlingSprite",
+							"sid": 353866446325271,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-position",
 							"objectClass": "CharacterController",
 							"sid": 724656000185926,
@@ -2975,6 +3378,15 @@
 							"parameters": {
 								"instance-variable": "read_input",
 								"value": "false"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "ChairController",
+							"sid": 316813559516093,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "-20"
 							}
 						}
 					],
@@ -3061,6 +3473,15 @@
 							"sid": 959135953182298,
 							"parameters": {
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "CharacterSprite",
+							"sid": 610980746404193,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
 							}
 						},
 						{
