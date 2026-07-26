@@ -1,0 +1,83 @@
+{
+	"name": "TheEnd",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 251029846685064,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "scroll-to-y",
+					"objectClass": "System",
+					"sid": 457907331403411,
+					"parameters": {
+						"y": "scrolly+10"
+					}
+				}
+			],
+			"sid": 845688712750898
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 306396007050225
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 177301029085796,
+					"parameters": {
+						"audio-file": {
+							"path": "DeadWheelsTheme"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 854731362765928
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 146069954819901,
+					"parameters": {
+						"first-value": "scrolly",
+						"comparison": 4,
+						"second-value": "LayoutHeight-OriginalViewportWidth/2-10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 557855144302412,
+					"parameters": {
+						"layout": "Menu"
+					}
+				}
+			],
+			"sid": 758156503410982
+		}
+	],
+	"sid": 792792720885224
+}
