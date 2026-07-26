@@ -378,12 +378,12 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 580974566251494,
+									"sid": 539354233407399,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "-10",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -413,12 +413,12 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 192813042704520,
+									"sid": 559969336943681,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"WheelChairPush\"&choose(1,2,3)",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "-20",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -458,12 +458,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 256758691027721,
+							"sid": 886065736782067,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
 								"loop": "not-looping",
-								"volume": "-10",
+								"volume": "-20",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -501,12 +501,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 481950799457579,
+							"sid": 957929834750681,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"WheelChairBrake\"&choose(1,2,3)",
 								"loop": "not-looping",
-								"volume": "-10",
+								"volume": "-20",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -667,10 +667,10 @@
 								{
 									"id": "set-volume",
 									"objectClass": "Audio",
-									"sid": 947011415403349,
+									"sid": 433023372691112,
 									"parameters": {
 										"tag": "\"chairLoop\"&ChairController.UID",
-										"db": "clamp(-20+abs(ChairController.velocity/5),-40,0)"
+										"db": "clamp(-30+abs(ChairController.velocity/10),-40,0)"
 									}
 								}
 							],
@@ -752,23 +752,15 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
+							"id": "compare-speed",
 							"objectClass": "ChairController",
-							"sid": 104279996079701,
+							"sid": 421383239142196,
+							"behaviorType": "Custom",
 							"parameters": {
-								"instance-variable": "velocity",
+								"which": "overall",
 								"comparison": 4,
-								"value": "0"
+								"speed": "50"
 							}
-						},
-						{
-							"id": "is-tag-playing",
-							"objectClass": "Audio",
-							"sid": 271814888499393,
-							"parameters": {
-								"tag": "\"chairImpact\""
-							},
-							"isInverted": true
 						},
 						{
 							"id": "trigger-once-while-true",
@@ -780,12 +772,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 595275439461835,
+							"sid": 981304188450470,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-20",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -793,14 +785,110 @@
 						{
 							"id": "set-playback-rate",
 							"objectClass": "Audio",
-							"sid": 107208820331647,
+							"sid": 660978374724015,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.5,0.6)"
+							}
+						}
+					],
+					"sid": 341177424013614
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 283202357509780,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "1",
+						"offset-y": "0"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 757354230517255,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "-1",
+						"offset-y": "0"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 330089054001072,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "0",
+						"offset-y": "1"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "ChairController",
+					"sid": 659840928283567,
+					"parameters": {
+						"object": "Furniture",
+						"offset-x": "0",
+						"offset-y": "-1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 857722618485962,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "ChairController",
+							"sid": 576709975552041,
+							"behaviorType": "Custom",
+							"parameters": {
+								"which": "overall",
+								"comparison": 4,
+								"speed": "50"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 296974055534804
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 425653203480547,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "-15",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 675678161282722,
 							"parameters": {
 								"tag": "\"\"",
 								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
-					"sid": 341177424013614
+					"sid": 215923185687101
 				}
 			],
 			"isOrBlock": true
