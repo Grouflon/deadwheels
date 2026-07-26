@@ -19505,8 +19505,8 @@
 					"sid": 399437715198035,
 					"tags": "",
 					"instanceVariables": {
-						"soundName": "Amb/AmbTVNoise",
-						"dbOffset": -30
+						"soundName": "Amb/Amb_Room1",
+						"dbOffset": 0
 					},
 					"behaviors": {},
 					"showing": true,
@@ -22121,6 +22121,99 @@
 						"blend-margin-x": 0.1,
 						"blend-margin-y": 0.1
 					},
+					"uid": 801187,
+					"sid": 892231826013339,
+					"tags": "",
+					"instanceVariables": {
+						"Triggered": false,
+						"enabled": false
+					},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 801187,
+						"children": [
+							{
+								"uid": 976696,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 853.77392578125,
+						"y": 143.59471130371094,
+						"width": 55.439420741009656,
+						"height": 44.28685106668283,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Trigger",
+					"properties": {
+						"initially-visible": false,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
 					"uid": 235716,
 					"sid": 269724297386298,
 					"tags": "",
@@ -22480,99 +22573,6 @@
 					}
 				},
 				{
-					"type": "Trigger",
-					"properties": {
-						"initially-visible": false,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0,
-						"enable-tile-randomization": false,
-						"x-random": 1,
-						"y-random": 1,
-						"angle-random": 1,
-						"blend-margin-x": 0.1,
-						"blend-margin-y": 0.1
-					},
-					"uid": 801187,
-					"sid": 892231826013339,
-					"tags": "",
-					"instanceVariables": {
-						"Triggered": false,
-						"enabled": false
-					},
-					"behaviors": {},
-					"sceneGraphData": {
-						"parent-uid": null,
-						"uid": 801187,
-						"children": [
-							{
-								"uid": 976696,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"d": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"sm": "normal"
-								}
-							}
-						],
-						"flags": {
-							"x": true,
-							"y": true,
-							"z": true,
-							"w": true,
-							"h": true,
-							"d": true,
-							"a": true,
-							"o": false,
-							"v": false,
-							"sm": "normal"
-						},
-						"preview": {
-							"transformX": 0,
-							"transformY": 0,
-							"transformZ": 0,
-							"transformW": 0,
-							"transformH": 0,
-							"transformD": 0,
-							"transformA": 0,
-							"transformSX": 0,
-							"transformSY": 0,
-							"transformSZ": 0,
-							"transformO": 0,
-							"previewSceneGraph": false
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 853.77392578125,
-						"y": 143.59471130371094,
-						"width": 55.439420741009656,
-						"height": 44.28685106668283,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "Event_FadeIn",
 					"properties": {
 						"initially-visible": false,
@@ -22766,6 +22766,41 @@
 						],
 						"z": 0,
 						"angle": 0.0007325068793186673
+					}
+				},
+				{
+					"type": "LevelManager",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 169387,
+					"sid": 831942621734342,
+					"tags": "",
+					"instanceVariables": {
+						"globalAtmosphere": "Amb/Amb_Hall1"
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 24,
+						"y": 16,
+						"width": 34,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
 					}
 				},
 				{

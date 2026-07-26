@@ -176,12 +176,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 807935161975269,
+							"sid": 938919845791656,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Pistol\"&choose(1,2,3,4)",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-5",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -216,12 +216,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 742845005006696,
+							"sid": 305416904234502,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Shotgun\"&choose(1,2)",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-3",
 								"stereo-pan": "0",
 								"tag-optional": "\"shotgun\"\n\n"
 							}
@@ -256,12 +256,12 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 268414611750154,
+							"sid": 750563054000644,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Smg\"&choose(1,2,3,4)",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-5",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -1056,12 +1056,12 @@
 						{
 							"id": "play-at-object-by-name",
 							"objectClass": "Audio",
-							"sid": 756208518256391,
+							"sid": 617400478293702,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2)",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "-5",
 								"object": "Zombies",
 								"inner-angle": "360",
 								"outer-angle": "360",
@@ -1107,6 +1107,32 @@
 					"sid": 302476906518372
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 778177465582415
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 397716114599080,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "LevelManager.globalAtmosphere",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Amb\""
+					}
+				}
+			],
+			"sid": 581036979373655
 		}
 	],
 	"sid": 128376728907050
