@@ -689,7 +689,56 @@
 					}
 				}
 			],
-			"sid": 518768876437128
+			"sid": 518768876437128,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 617390909499135,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 203014949297329,
+							"parameters": {
+								"object": "Floor_Tiles2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 632295178112780,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Vent\"&choose(1,2,3,4)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 786414075000793,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 950962843254578
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -754,7 +803,56 @@
 					}
 				}
 			],
-			"sid": 491559573955217
+			"sid": 491559573955217,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 672988477815500,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 645220749333170,
+							"parameters": {
+								"object": "Floor_Tiles2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 136650655468943,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Vent\"&choose(1,2,3,4)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 893285598192268,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 663530262537228
+				}
+			]
 		},
 		{
 			"eventType": "block",
