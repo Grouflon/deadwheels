@@ -13,6 +13,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "open_door_velocity_threshold",
+			"type": "number",
+			"initialValue": "35",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 760702427230012
+		},
+		{
+			"eventType": "variable",
 			"name": "collision_damage",
 			"type": "number",
 			"initialValue": "100",
@@ -113,127 +123,481 @@
 			"sid": 223756107724982
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "ChairController",
-					"sid": 769170699733280,
-					"parameters": {
-						"object": "Zombies"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 464355320995215,
+			"eventType": "group",
+			"disabled": false,
+			"title": "SOLID COLLISIONS",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 263533509100534,
+							"id": "on-collision-with-another-object",
+							"objectClass": "ChairController",
+							"sid": 154475147402857,
 							"parameters": {
-								"first-value": "abs(ChairController.velocity)",
-								"comparison": 5,
-								"second-value": "collision_damage_velocity_threshold"
+								"object": "Buildings"
 							}
 						}
 					],
 					"actions": [
 						{
-							"customAction": "DoDamage",
-							"objectClass": "Zombies",
-							"sid": 436894251361529,
-							"parameters": [
-								"collision_damage",
-								"20"
-							]
-						},
-						{
-							"id": "play-by-name",
-							"objectClass": "Audio",
-							"sid": 198746552215523,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 708428906710331,
 							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "\"GoreBig\"&choose(1,2)",
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ChairController",
-							"sid": 815861763927290,
-							"parameters": {
-								"instance-variable": "ram_cooldown",
-								"value": "ram_cooldown_time"
-							}
-						},
-						{
-							"id": "add-to-instvar",
-							"objectClass": "ChairController",
-							"sid": 336407744602505,
-							"parameters": {
-								"instance-variable": "angular_velocity",
-								"value": "-ram_deviation_force * clamp(Functions.SignedAngleBetween(ChairController.direction, angle(ChairController.X, ChairController.Y, Zombies.X, Zombies.Y)) / 45, -1, 1) * 45"
+								"type": "log",
+								"message": "\"ccccol\""
 							}
 						}
 					],
-					"sid": 995680540388769
+					"sid": 393783859938677,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 294604994025188
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 980186527870642,
+									"parameters": {
+										"variable": "uid",
+										"value": "Buildings.UID"
+									}
+								},
+								{
+									"customAction": "OnChairCollision",
+									"objectClass": "ChairController",
+									"sid": 133979240054628,
+									"parameters": [
+										"0",
+										"uid",
+										"0"
+									]
+								}
+							],
+							"sid": 818156634969632,
+							"disabled": true
+						}
+					]
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [
+					"conditions": [
 						{
-							"id": "set-instvar-value",
+							"id": "on-collision-with-another-object",
 							"objectClass": "ChairController",
-							"sid": 593778185768377,
-							"disabled": true,
+							"sid": 686339673073702,
 							"parameters": {
-								"instance-variable": "velocity",
-								"value": "ChairController.velocity * 0.2"
+								"object": "Furniture"
 							}
 						}
 					],
-					"sid": 816848738662993
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 816905974554478,
+							"parameters": {
+								"type": "log",
+								"message": "\"ccccol\""
+							}
+						}
+					],
+					"sid": 188917957092761,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 551101669221537
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 375548736859467,
+									"parameters": {
+										"variable": "uid",
+										"value": "Furniture.UID"
+									}
+								},
+								{
+									"customAction": "OnChairCollision",
+									"objectClass": "ChairController",
+									"sid": 473676226287091,
+									"parameters": [
+										"0",
+										"uid",
+										"0"
+									]
+								}
+							],
+							"sid": 176955633475584,
+							"disabled": true
+						}
+					]
+				},
 				{
-					"id": "for-each",
-					"objectClass": "System",
-					"sid": 353713818618570,
-					"parameters": {
-						"object": "ChairController"
-					}
+					"aceType": "action",
+					"aceName": "OnChairCollision",
+					"objectClass": "ChairController",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "collision_velocity",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 130090882437186
+						},
+						{
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 188247994336235
+						},
+						{
+							"name": "is_furniture",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 443338789779800
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 399496051831272,
+							"parameters": {
+								"type": "log",
+								"message": "\"ccccol\"&collision_velocity"
+							}
+						}
+					],
+					"sid": 447232687942506,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "volume",
+							"type": "number",
+							"initialValue": "-20",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 352649694945617
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 517017974397175,
+									"parameters": {
+										"first-value": "is_furniture",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 429314131926019,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"ccsssccol\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 943108827516329,
+									"parameters": {
+										"variable": "volume",
+										"value": "-15"
+									}
+								}
+							],
+							"sid": 271307213127596
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 381054063136040,
+									"parameters": {
+										"first-value": "collision_velocity",
+										"comparison": 4,
+										"second-value": "open_door_velocity_threshold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 153842704586796,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
+										"loop": "not-looping",
+										"volume": "volume",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 949490844421533,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "random(0.5,0.6)"
+									}
+								}
+							],
+							"sid": 789048039598479,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Doors",
+											"sid": 425567673591036,
+											"parameters": {
+												"unique-id": "uid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "OpenDoor",
+											"objectClass": "Doors",
+											"sid": 419641898209196,
+											"parameters": [
+												"ChairController.X",
+												"ChairController.Y"
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ChairController",
+											"sid": 600669539237015,
+											"parameters": {
+												"instance-variable": "ram_cooldown",
+												"value": "ram_cooldown_time"
+											}
+										}
+									],
+									"sid": 552594519821912
+								}
+							]
+						}
+					]
 				}
 			],
-			"actions": [],
-			"sid": 194913716227851,
+			"sid": 949142428936870
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ZOMBIE COLLISION",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
+							"id": "on-collision-with-another-object",
 							"objectClass": "ChairController",
-							"sid": 831784862751186,
+							"sid": 932313694939833,
 							"parameters": {
 								"object": "Zombies"
 							}
+						}
+					],
+					"actions": [],
+					"sid": 501048257990596,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 535311173493639,
+									"parameters": {
+										"first-value": "abs(ChairController.velocity)",
+										"comparison": 5,
+										"second-value": "collision_damage_velocity_threshold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "DoDamage",
+									"objectClass": "Zombies",
+									"sid": 123059278333142,
+									"parameters": [
+										"collision_damage",
+										"20"
+									]
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 489485464459956,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"GoreBig\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ChairController",
+									"sid": 816664581466579,
+									"parameters": {
+										"instance-variable": "ram_cooldown",
+										"value": "ram_cooldown_time"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "ChairController",
+									"sid": 953543200019858,
+									"parameters": {
+										"instance-variable": "angular_velocity",
+										"value": "-ram_deviation_force * clamp(Functions.SignedAngleBetween(ChairController.direction, angle(ChairController.X, ChairController.Y, Zombies.X, Zombies.Y)) / 45, -1, 1) * 45"
+									}
+								}
+							],
+							"sid": 377881573872900
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 533937392292972,
+							"parameters": {
+								"object": "ChairController"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 655251877088771,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "ChairController",
+									"sid": 511914024811381,
+									"parameters": {
+										"object": "Zombies"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChairController",
+									"sid": 651557882331023,
+									"parameters": {
+										"instance-variable": "ram_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ChairController",
+									"sid": 823840586692298,
+									"parameters": {
+										"instance-variable": "max_velocity_multiplier",
+										"value": "0.2"
+									}
+								}
+							],
+							"sid": 382631177566480,
+							"isOrBlock": true
 						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 266141905561093
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ChairController",
+									"sid": 333294411026297,
+									"parameters": {
+										"instance-variable": "max_velocity_multiplier",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 290625051235360
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "ChairController",
-							"sid": 753505488268399,
+							"sid": 257360032945393,
 							"parameters": {
 								"instance-variable": "ram_cooldown",
 								"comparison": 4,
@@ -243,68 +607,19 @@
 					],
 					"actions": [
 						{
-							"id": "set-instvar-value",
+							"id": "add-to-instvar",
 							"objectClass": "ChairController",
-							"sid": 102985465656657,
+							"sid": 265834128862983,
 							"parameters": {
-								"instance-variable": "max_velocity_multiplier",
-								"value": "0.2"
+								"instance-variable": "ram_cooldown",
+								"value": "-dt"
 							}
 						}
 					],
-					"sid": 701484479703377,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 707037672057793
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ChairController",
-							"sid": 884938631146453,
-							"parameters": {
-								"instance-variable": "max_velocity_multiplier",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 347896389018833
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "ChairController",
-					"sid": 523145009214027,
-					"parameters": {
-						"instance-variable": "ram_cooldown",
-						"comparison": 4,
-						"value": "0"
-					}
+					"sid": 761303222180671
 				}
 			],
-			"actions": [
-				{
-					"id": "add-to-instvar",
-					"objectClass": "ChairController",
-					"sid": 134325636879636,
-					"parameters": {
-						"instance-variable": "ram_cooldown",
-						"value": "-dt"
-					}
-				}
-			],
-			"sid": 370359656817681
+			"sid": 825929060293347
 		},
 		{
 			"eventType": "group",

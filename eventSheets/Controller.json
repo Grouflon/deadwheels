@@ -111,12 +111,53 @@
 									"functionReturnType": "none",
 									"functionCopyPicked": false,
 									"functionIsAsync": false,
-									"functionParameters": [],
+									"functionParameters": [
+										{
+											"name": "uid",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 998271693874139
+										},
+										{
+											"name": "is_furniture",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 329598470322529
+										}
+									],
 									"eventType": "custom-ace-block",
 									"conditions": [],
 									"actions": [],
 									"sid": 776436013894415,
 									"children": [
+										{
+											"eventType": "variable",
+											"name": "collision_velocity",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 717755784874656
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 250608655627610,
+													"parameters": {
+														"variable": "collision_velocity",
+														"value": "Controllers.velocity"
+													}
+												}
+											],
+											"sid": 273817982281006
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -208,6 +249,32 @@
 														}
 													],
 													"sid": 573693372881260
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "ChairController",
+															"sid": 725196460458723,
+															"parameters": {
+																"unique-id": "Controllers.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"customAction": "OnChairCollision",
+															"objectClass": "ChairController",
+															"sid": 237552910289980,
+															"parameters": [
+																"collision_velocity",
+																"uid",
+																"is_furniture"
+															]
+														}
+													],
+													"sid": 909891663494906
 												}
 											]
 										}
@@ -255,7 +322,11 @@
 												{
 													"customAction": "OnCollision",
 													"objectClass": "Controllers",
-													"sid": 270178241669971
+													"sid": 543707312594513,
+													"parameters": [
+														"Buildings.UID",
+														"0"
+													]
 												}
 											],
 											"sid": 866289839376208,
@@ -305,7 +376,11 @@
 												{
 													"customAction": "OnCollision",
 													"objectClass": "Controllers",
-													"sid": 575693571758919
+													"sid": 532107783833009,
+													"parameters": [
+														"Furniture.UID",
+														"1"
+													]
 												}
 											],
 											"sid": 799192828469396,

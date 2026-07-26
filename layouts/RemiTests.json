@@ -1030,7 +1030,8 @@
 						"is_in_chair": true,
 						"recoil": 0,
 						"angular_recoil": 0,
-						"interact_timer": 0
+						"interact_timer": 0,
+						"shoot_cooldown": 0
 					},
 					"behaviors": {
 						"Custom": {
@@ -1251,6 +1252,10 @@
 											},
 											{
 												"iv": "interact_timer",
+												"state": true
+											},
+											{
+												"iv": "shoot_cooldown",
 												"state": true
 											}
 										]
@@ -3743,6 +3748,70 @@
 						"z": 0,
 						"depth": 8,
 						"angle": 1.6670457052563306
+					}
+				},
+				{
+					"type": "Door_Windowed",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 277897,
+					"sid": 352460714744838,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": true,
+						"ClosedAngle": 0,
+						"CanBePushed": true
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 160,
+						"y": 96,
+						"width": 28,
+						"height": 4,
+						"originX": -0.0625,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 4.71238898038469
 					}
 				}
 			],

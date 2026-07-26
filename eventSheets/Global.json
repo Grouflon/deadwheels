@@ -1361,111 +1361,6 @@
 					"sid": 747454593181733
 				},
 				{
-					"eventType": "comment",
-					"text": "Hit doors with chair"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 317281432737390,
-							"parameters": {
-								"object": "Doors",
-								"offset-x": "1",
-								"offset-y": "0"
-							}
-						},
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 999117148466645,
-							"parameters": {
-								"object": "Doors",
-								"offset-x": "-1",
-								"offset-y": "0"
-							}
-						},
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 700451813117475,
-							"parameters": {
-								"object": "Doors",
-								"offset-x": "0",
-								"offset-y": "1"
-							}
-						},
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "ChairController",
-							"sid": 826416126204250,
-							"parameters": {
-								"object": "Doors",
-								"offset-x": "0",
-								"offset-y": "-1"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 212638652074139,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 738674467327140,
-									"parameters": {
-										"first-value": "abs(ChairController.velocity)",
-										"comparison": 5,
-										"second-value": "collision_damage_velocity_threshold*0.1"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Doors",
-									"sid": 188999783858264,
-									"parameters": {
-										"instance-variable": "CanBePushed"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "OpenDoor",
-									"objectClass": "Doors",
-									"sid": 197785405115829,
-									"parameters": [
-										"ChairController.X",
-										"ChairController.Y"
-									]
-								}
-							],
-							"sid": 284981128023625
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "ChairController",
-									"sid": 173501446340363,
-									"parameters": {
-										"instance-variable": "velocity",
-										"value": "ChairController.velocity * 0.2"
-									}
-								}
-							],
-							"sid": 668080672345655
-						}
-					],
-					"isOrBlock": true
-				},
-				{
 					"aceType": "action",
 					"aceName": "OpenDoor",
 					"objectClass": "Doors",
@@ -2511,6 +2406,90 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 187722900963253
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 265335382081036,
+							"parameters": {
+								"seconds": "4",
+								"use-timescale": true
+							}
+						}
+					],
+					"sid": 671731069568190,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Trigger",
+									"sid": 910155366896342,
+									"parameters": {
+										"unique-id": "118936"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Trigger",
+									"sid": 647456384259523,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 402518679297015
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Trigger",
+									"sid": 299546021874838,
+									"parameters": {
+										"unique-id": "235716"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Trigger",
+									"sid": 554607466399557,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 581972353226494
+						}
+					]
+				}
+			],
+			"sid": 362842619651452
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LEVEL 2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Trigger",
 							"sid": 149334327167070,
@@ -3350,10 +3329,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "IntroTextFont",
-									"sid": 326185626039071,
+									"sid": 304941624059034,
 									"parameters": {
 										"instance-variable": "SourceText",
-										"value": "\"Subject : \"&choose(\"James\", \"Olivia\", \"Liam\", \"Emma\", \"Noah\", \"Ava\", \"Ethan\", \"Mia\", \"Lucas\", \"Sophia\", \"Mason\", \"Isabella\", \"Leo\", \"Amelia\", \"Oliver\", \"Harper\", \"Daniel\", \"Ella\", \"Mateo\", \"Chloe\", \"Alexander\", \"Luna\", \"Benjamin\", \"Aria\", \"Henry\", \"Nora\", \"Sebastian\", \"Maya\", \"Jack\", \"Zoe\")&\" \"&choose(\"Smith\", \"Johnson\", \"Williams\", \"Brown\", \"Jones\", \"Garcia\", \"Miller\", \"Davis\", \"Rodriguez\", \"Martinez\", \"Wilson\", \"Anderson\", \"Taylor\", \"Thomas\", \"Moore\", \"Jackson\", \"Martin\", \"Lee\", \"Perez\", \"Thompson\", \"White\", \"Harris\", \"Sanchez\", \"Clark\", \"Ramirez\", \"Lewis\", \"Robinson\", \"Walker\", \"Young\", \"Allen\")"
+										"value": "\"Subject : \"&choose(\"James\", \"Olivia\", \"Liam\", \"Emma\", \"Noah\", \"Ava\", \"Ethan\", \"Mia\", \"Lucas\", \"Sophia\", \"Mason\", \"Isabella\", \"Leo\", \"Amelia\", \"Oliver\", \"Harper\", \"Daniel\", \"Ella\", \"Mateo\", \"Chloe\", \"Alexander\", \"Luna\", \"Benjamin\", \"Aria\", \"Henry\", \"Nora\", \"Sebastian\", \"Maya\", \"Jack\", \"Zoe\")&\" \"&choose(\"Smith\", \"Johnson\", \"Williams\", \"Brown\", \"Jones\", \"Garcia\", \"Miller\", \"Davis\", \"Rodriguez\", \"Martinez\", \"Wilson\", \"Anderson\", \"Taylor\", \"Thomas\", \"Moore\", \"Jackson\", \"Martin\", \"Lee\", \"Perez\", \"Thompson\", \"White\", \"Harris\", \"Sanchez\", \"Clark\", \"Ramirez\", \"Lewis\", \"Robinson\", \"Walker\", \"Young\", \"Allen\",\"Morteroue\")"
 									}
 								},
 								{

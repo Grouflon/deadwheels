@@ -2,6 +2,16 @@
 	"name": "Audio",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "gun_empty_sound_cooldown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 230112795558517
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -279,6 +289,97 @@
 					"sid": 170175349579974
 				}
 			]
+		},
+		{
+			"functionName": "audioGunEmptySound",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "weapon",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 206430186444316
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 918885169811427,
+					"parameters": {
+						"first-value": "gun_empty_sound_cooldown",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 402457153719506,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Aim1\"",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 789950772890113,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 806416569212834,
+					"parameters": {
+						"variable": "gun_empty_sound_cooldown",
+						"value": "0.3"
+					}
+				}
+			],
+			"sid": 593312954128715
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 741881458993404,
+					"parameters": {
+						"first-value": "gun_empty_sound_cooldown",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 573197265294161,
+					"parameters": {
+						"variable": "gun_empty_sound_cooldown",
+						"value": "-dt"
+					}
+				}
+			],
+			"sid": 259119695835309
 		},
 		{
 			"eventType": "block",
@@ -700,198 +801,6 @@
 					"sid": 606227242332091
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 608268979439599,
-					"parameters": {
-						"object": "Buildings",
-						"offset-x": "1",
-						"offset-y": "0"
-					}
-				},
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 376982866413937,
-					"parameters": {
-						"object": "Buildings",
-						"offset-x": "-1",
-						"offset-y": "0"
-					}
-				},
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 246752832270543,
-					"parameters": {
-						"object": "Buildings",
-						"offset-x": "0",
-						"offset-y": "1"
-					}
-				},
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 746711136780976,
-					"parameters": {
-						"object": "Buildings",
-						"offset-x": "0",
-						"offset-y": "-1"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 643921666984285,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-speed",
-							"objectClass": "ChairController",
-							"sid": 421383239142196,
-							"behaviorType": "Custom",
-							"parameters": {
-								"which": "overall",
-								"comparison": 4,
-								"speed": "50"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 158915983524378
-						}
-					],
-					"actions": [
-						{
-							"id": "play-by-name",
-							"objectClass": "Audio",
-							"sid": 981304188450470,
-							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
-								"loop": "not-looping",
-								"volume": "-20",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-playback-rate",
-							"objectClass": "Audio",
-							"sid": 660978374724015,
-							"parameters": {
-								"tag": "\"\"",
-								"playback-rate": "random(0.5,0.6)"
-							}
-						}
-					],
-					"sid": 341177424013614
-				}
-			],
-			"isOrBlock": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 283202357509780,
-					"parameters": {
-						"object": "Furniture",
-						"offset-x": "1",
-						"offset-y": "0"
-					}
-				},
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 757354230517255,
-					"parameters": {
-						"object": "Furniture",
-						"offset-x": "-1",
-						"offset-y": "0"
-					}
-				},
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 330089054001072,
-					"parameters": {
-						"object": "Furniture",
-						"offset-x": "0",
-						"offset-y": "1"
-					}
-				},
-				{
-					"id": "is-overlapping-at-offset",
-					"objectClass": "ChairController",
-					"sid": 659840928283567,
-					"parameters": {
-						"object": "Furniture",
-						"offset-x": "0",
-						"offset-y": "-1"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 857722618485962,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-speed",
-							"objectClass": "ChairController",
-							"sid": 576709975552041,
-							"behaviorType": "Custom",
-							"parameters": {
-								"which": "overall",
-								"comparison": 4,
-								"speed": "50"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 296974055534804
-						}
-					],
-					"actions": [
-						{
-							"id": "play-by-name",
-							"objectClass": "Audio",
-							"sid": 425653203480547,
-							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "\"ChairImpact\"&choose(1,2,3)",
-								"loop": "not-looping",
-								"volume": "-15",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-playback-rate",
-							"objectClass": "Audio",
-							"sid": 675678161282722,
-							"parameters": {
-								"tag": "\"\"",
-								"playback-rate": "random(0.9,1.1)"
-							}
-						}
-					],
-					"sid": 215923185687101
-				}
-			],
-			"isOrBlock": true
 		},
 		{
 			"eventType": "comment",
