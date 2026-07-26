@@ -252,6 +252,27 @@
 							"sid": 892210901901260
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-load-complete",
+							"objectClass": "System",
+							"sid": 145185291535529
+						}
+					],
+					"actions": [
+						{
+							"customAction": "FadeFromBlack",
+							"objectClass": "FadeToBlack",
+							"sid": 917635428752468,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 354372342939935
 				}
 			],
 			"sid": 220484299871804
@@ -392,7 +413,22 @@
 								{
 									"id": "restart-layout",
 									"objectClass": "System",
-									"sid": 782204541538031
+									"sid": 782204541538031,
+									"disabled": true
+								},
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "FadeToBlack",
+									"sid": 419415449157069,
+									"behaviorType": "Tween"
+								},
+								{
+									"id": "load",
+									"objectClass": "System",
+									"sid": 215635490126482,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
 								}
 							],
 							"sid": 261770001585834,
