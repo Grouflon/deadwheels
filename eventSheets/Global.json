@@ -2487,23 +2487,9 @@
 							],
 							"actions": [
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 183892809027021,
-									"parameters": {
-										"audio-file": {
-											"path": "FinalFight"
-										},
-										"loop": "looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"Music\""
-									}
-								},
-								{
 									"id": "play-at-object",
 									"objectClass": "Audio",
-									"sid": 501718140943923,
+									"sid": 222807120976355,
 									"parameters": {
 										"audio-file": {
 											"path": "Radio1"
@@ -2836,17 +2822,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 136525792517541,
-							"parameters": {
-								"object-to-create": "FadeToBlack",
-								"layer": "\"UI\"",
-								"x": "0",
-								"y": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
+							"customAction": "FadeToBlack",
+							"objectClass": "FadeToBlack",
+							"sid": 578395610242143,
+							"parameters": [
+								"1"
+							]
 						},
 						{
 							"id": "wait",
