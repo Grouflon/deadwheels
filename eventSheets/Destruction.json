@@ -386,6 +386,110 @@
 							"sid": 537093366059616
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bullet",
+							"sid": 767585500172783,
+							"parameters": {
+								"object": "Glass"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Glass",
+							"sid": 981773617783163
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 939137849861479,
+							"parameters": {
+								"audio-file": {
+									"path": "BulletGlass"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 967226976204443
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Glass",
+							"sid": 891217831689354
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 808276553291754,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"DestroyGlass\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Glass",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 760177298079595,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 435100821302470,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 960505308369927,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 142467702099705,
+									"parameters": {
+										"object-to-create": "Glass_Debris",
+										"layer": "Glass.LayerName",
+										"x": "Glass.X",
+										"y": "Glass.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 282281265026266
+						}
+					]
 				}
 			],
 			"sid": 171228647712539
@@ -581,14 +685,23 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 335724200910677,
+							"sid": 198776442471586,
 							"parameters": {
 								"folder": "sounds",
-								"audio-file-name": "\"DestroyWood\"&choose(1,2,3)",
+								"audio-file-name": "\"DestroyWood\"&choose(1,2)",
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 259249987054683,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
 							}
 						}
 					],
@@ -732,6 +845,135 @@
 					"isOrBlock": true
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 311401751606145,
+					"parameters": {
+						"object": "Mirror"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Mirror",
+					"sid": 923374255915904,
+					"parameters": {
+						"instance-variable": "Broken"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-face-image",
+					"objectClass": "Mirror",
+					"sid": 765285099430150,
+					"parameters": {
+						"face": "top",
+						"image": "back"
+					}
+				},
+				{
+					"id": "set-face-image",
+					"objectClass": "Mirror",
+					"sid": 383178286511391,
+					"parameters": {
+						"face": "bottom",
+						"image": "back"
+					}
+				},
+				{
+					"id": "play-at-object-by-name",
+					"objectClass": "Audio",
+					"sid": 738177988509716,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"DestroyGlass\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "0",
+						"object": "Mirror",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 729272768034685,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Mirror",
+					"sid": 100181422701897,
+					"parameters": {
+						"instance-variable": "Broken",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 195584142710765,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 537230290422787,
+							"parameters": {
+								"count": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 219087709491669,
+							"parameters": {
+								"object-to-create": "Glass_Debris",
+								"layer": "Mirror.LayerName",
+								"x": "Mirror.X",
+								"y": "Mirror.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 180591271249479
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 619291638148873,
+					"parameters": {
+						"object": "Doors"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 419552673889740
+				}
+			],
+			"sid": 891388481082980
 		}
 	],
 	"sid": 535961549360984
