@@ -2826,6 +2826,32 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 596636637982398,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ChairController",
+									"sid": 296977729812135,
+									"parameters": {
+										"instance-variable": "highlight_cooldown",
+										"value": "0.05"
+									}
+								}
+							],
+							"sid": 603910530768516
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "on-button-released",
 									"objectClass": "Mouse",
 									"sid": 824714423753410,

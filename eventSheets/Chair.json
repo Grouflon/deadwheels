@@ -503,6 +503,102 @@
 						}
 					],
 					"sid": 124110911821378
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "ChairController",
+							"sid": 902992432122752,
+							"parameters": {
+								"child": "ChairSprite",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 133102140052922,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChairController",
+									"sid": 951176833292878,
+									"parameters": {
+										"instance-variable": "highlight_cooldown",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ChairSprite",
+									"sid": 873698632360030,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "120"
+									}
+								}
+							],
+							"sid": 294565590270104
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 186642751921406
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ChairSprite",
+									"sid": 420748055298600,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 897478589766442
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ChairController",
+							"sid": 407313241399996,
+							"parameters": {
+								"instance-variable": "highlight_cooldown",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "ChairController",
+							"sid": 203761535922811,
+							"parameters": {
+								"instance-variable": "highlight_cooldown",
+								"value": "-dt"
+							}
+						}
+					],
+					"sid": 879324337850182
 				}
 			],
 			"sid": 949924596718864
