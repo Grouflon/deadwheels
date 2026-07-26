@@ -974,6 +974,40 @@
 				}
 			],
 			"sid": 891388481082980
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 421832380041215,
+					"parameters": {
+						"first-value": "Shell.Count",
+						"comparison": 4,
+						"second-value": "200"
+					}
+				},
+				{
+					"id": "pick-by-highest-lowest-value",
+					"objectClass": "System",
+					"sid": 486375393079483,
+					"parameters": {
+						"object": "Shell",
+						"which": "lowest",
+						"expression": "Shell.IID",
+						"pick-all-tied": false
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Shell",
+					"sid": 932748584586238
+				}
+			],
+			"sid": 474674007489578
 		}
 	],
 	"sid": 535961549360984
