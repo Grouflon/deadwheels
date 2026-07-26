@@ -116,6 +116,20 @@
 								"ping-pong": "yes",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 936921919916453,
+							"parameters": {
+								"audio-file": {
+									"path": "LevelEnd"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"Music\""
+							}
 						}
 					],
 					"sid": 580195000592307
@@ -156,68 +170,37 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 556645092281054
-										}
-									],
+									"conditions": [],
 									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 602265635104524,
-											"parameters": {
-												"object-to-create": "FadeToBlack",
-												"layer": "\"Fade\"",
-												"x": "0",
-												"y": "0",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"customAction": "FadeToBlack",
-											"objectClass": "FadeToBlack",
-											"sid": 581658468443686,
-											"parameters": [
-												"1"
-											]
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 469674859351542,
-											"parameters": {
-												"seconds": "1.5",
-												"use-timescale": true
-											}
-										},
 										{
 											"id": "go-to-layout-by-name",
 											"objectClass": "System",
-											"sid": 929668266747482,
+											"sid": 656228942609093,
 											"parameters": {
 												"layout": "\"Level\"&Level_Current"
 											}
-										},
+										}
+									],
+									"sid": 827468817459710
+								},
+								{
+									"eventType": "comment",
+									"text": "Fall back on going to menu if the previous line didn't work out"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
 										{
 											"id": "go-to-layout",
 											"objectClass": "System",
-											"sid": 840353557566506,
+											"sid": 823612347753848,
 											"parameters": {
-												"layout": "Menu"
+												"layout": "TheEnd"
 											}
 										}
 									],
-									"sid": 827468817459710,
-									"children": [
-										{
-											"eventType": "comment",
-											"text": "Fall back on going to menu if the previous line didn't work out"
-										}
-									]
+									"sid": 938886396459862
 								}
 							],
 							"isOrBlock": true
