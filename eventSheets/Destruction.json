@@ -80,12 +80,12 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Debris",
-							"sid": 358227530053827,
+							"sid": 333373410903047,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"Rotate\"",
 								"property": "offsetAngle",
-								"end-value": "Self.Angle+random(600)",
+								"end-value": "Self.Angle+random(Self.RandomAngleOffset)",
 								"time": "random(0.1,0.5)",
 								"ease": "easeoutsine",
 								"destroy-on-complete": "no",
@@ -596,6 +596,142 @@
 				}
 			],
 			"sid": 405833195542634
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "FireGFX",
+					"sid": 841707708735971
+				}
+			],
+			"actions": [],
+			"sid": 579099813373378,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 475088543160035,
+							"parameters": {
+								"animation": "\"Pistol\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 652966374739630,
+							"parameters": {
+								"animation": "\"Smg\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Arm",
+							"sid": 338306913020793,
+							"parameters": {
+								"object": "Shell",
+								"layer": "Self.LayerName",
+								"image-point": "2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Shell",
+							"sid": 590317290672103,
+							"parameters": {
+								"animation": "\"Gun\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 619612913920306,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 311267668850417,
+							"parameters": {
+								"animation": "\"Shotgun\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Arm",
+							"sid": 785737600646528,
+							"parameters": {
+								"object": "Shell",
+								"layer": "Self.LayerName",
+								"image-point": "2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Shell",
+							"sid": 943568077844033,
+							"parameters": {
+								"animation": "\"Shotgun\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 859516659604058,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Arm",
+							"sid": 159110259862341,
+							"parameters": {
+								"animation": "\"Gatling\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Arm",
+							"sid": 210336954203928,
+							"parameters": {
+								"object": "Shell",
+								"layer": "Self.LayerName",
+								"image-point": "2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Shell",
+							"sid": 998253729621870,
+							"parameters": {
+								"animation": "\"Gatling\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 505360992384452,
+					"isOrBlock": true
+				}
+			]
 		}
 	],
 	"sid": 535961549360984
