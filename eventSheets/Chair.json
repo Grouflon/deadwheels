@@ -393,18 +393,17 @@
 											"parameters": {
 												"unique-id": "uid"
 											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Doors",
+											"sid": 149882718877127,
+											"parameters": {
+												"instance-variable": "CanBePushed"
+											}
 										}
 									],
 									"actions": [
-										{
-											"customAction": "OpenDoor",
-											"objectClass": "Doors",
-											"sid": 419641898209196,
-											"parameters": [
-												"ChairController.X",
-												"ChairController.Y"
-											]
-										},
 										{
 											"id": "set-instvar-value",
 											"objectClass": "ChairController",
@@ -413,6 +412,15 @@
 												"instance-variable": "ram_cooldown",
 												"value": "ram_cooldown_time"
 											}
+										},
+										{
+											"customAction": "OpenDoor",
+											"objectClass": "Doors",
+											"sid": 688090554794683,
+											"parameters": [
+												"ChairController.X",
+												"ChairController.Y"
+											]
 										}
 									],
 									"sid": 552594519821912
