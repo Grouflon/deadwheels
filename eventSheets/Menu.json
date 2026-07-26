@@ -2,6 +2,16 @@
 	"name": "Menu",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "hasASave",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 511670094216716
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -255,6 +265,60 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "MenuButton",
+							"sid": 467976465677457
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 467097601261905,
+							"parameters": {
+								"variable": "hasASave"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "MenuButton",
+							"sid": 829823207479117,
+							"parameters": {
+								"instance-variable": "locked",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 897507937027442
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "MenuButton",
+							"sid": 364745112680376,
+							"parameters": {
+								"instance-variable": "locked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "MenuButton",
+							"sid": 620411317878556,
+							"parameters": {
+								"opacity": "30"
+							}
+						}
+					],
+					"sid": 119343843689675
+				},
+				{
 					"eventType": "comment",
 					"text": "Button effect"
 				},
@@ -334,6 +398,15 @@
 							"id": "is-visible",
 							"objectClass": "MenuButton",
 							"sid": 523219192681968
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "MenuButton",
+							"sid": 320626901313833,
+							"parameters": {
+								"instance-variable": "locked"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
