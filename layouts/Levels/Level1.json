@@ -17521,8 +17521,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 264,
-						"y": 72,
+						"x": 260,
+						"y": 76,
 						"width": 16,
 						"height": 1,
 						"originX": 0.5,
@@ -17535,7 +17535,20 @@
 						],
 						"z": 0,
 						"depth": 28,
-						"angle": 0.0920241598091901
+						"angle": 0.0958159169672701,
+						"rotation3d": {
+							"quaternion": [
+								0.13052619993686676,
+								0,
+								0,
+								0.9914448857307434
+							],
+							"euler": [
+								0.2617993950843811,
+								0,
+								0
+							]
+						}
 					}
 				},
 				{
@@ -17899,9 +17912,9 @@
 					"locked": false,
 					"world": {
 						"x": 240,
-						"y": 88,
+						"y": 85.5,
 						"width": 26,
-						"height": 41,
+						"height": 36,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -20866,6 +20879,41 @@
 					}
 				},
 				{
+					"type": "IntroHero",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Sleeping",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 265564,
+					"sid": 451310507899522,
+					"tags": "",
+					"instanceVariables": {
+						"canGoDown": false
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 239.93104553222656,
+						"y": 85.60369873046875,
+						"width": 24,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5277777777777778,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 6,
+						"angle": 0.10003561553103801
+					}
+				},
+				{
 					"type": "Corpse",
 					"properties": {
 						"initially-visible": true,
@@ -22226,8 +22274,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 239.5458221435547,
-						"y": 120.59727478027344,
+						"x": 254.05572509765625,
+						"y": 120.21875,
 						"width": 22.13637365665955,
 						"height": 22.13637365665955,
 						"originX": 0.5,
@@ -22330,7 +22378,7 @@
 											],
 											[
 												"initially-visible",
-												true
+												false
 											],
 											[
 												"origin",
@@ -22428,15 +22476,15 @@
 											],
 											[
 												"a",
-												true
+												false
 											],
 											[
 												"o",
-												true
+												false
 											],
 											[
 												"c",
-												true
+												false
 											],
 											[
 												"sx",
@@ -22555,7 +22603,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 248,
+						"x": 262.38213592403156,
 						"y": 120,
 						"width": 30,
 						"height": 15,
@@ -22565,7 +22613,7 @@
 							1,
 							1,
 							1,
-							1
+							0
 						],
 						"z": 50,
 						"angle": 0
@@ -23807,6 +23855,41 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "2d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "IntroText",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 376212903094553,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				1,
+				1,
+				1
+			],
+			"isTransparent": true,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",

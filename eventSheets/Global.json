@@ -385,9 +385,14 @@
 							],
 							"actions": [
 								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 351396471334755
+								},
+								{
 									"id": "restart-layout",
 									"objectClass": "System",
-									"sid": 232395777757282
+									"sid": 782204541538031
 								}
 							],
 							"sid": 261770001585834,
@@ -3167,6 +3172,866 @@
 				}
 			],
 			"sid": 205401932152300
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Intro",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 997546727671436,
+							"parameters": {
+								"key": 27
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "IntroHero",
+							"sid": 463725821502224
+						}
+					],
+					"sid": 216148981527530
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 202595671863914
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 749119220420639,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Level1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 578484747964387,
+							"parameters": {
+								"instance-variable": "disabled",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 442448811852115,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CrawlingSprite",
+							"sid": 142707414100128,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 174154289196631,
+							"parameters": {
+								"layer": "\"Tutorials\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 977401850699296,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 235356295744644,
+							"parameters": {
+								"x": "IntroHero.X",
+								"y": "IntroHero.Y"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 648676874397229,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						}
+					],
+					"sid": 811637387029189,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 496234468641715,
+									"parameters": {
+										"count": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 869018689508813,
+									"parameters": {
+										"seconds": "loopindex*0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 573987456804838,
+									"parameters": {
+										"y": "Self.Y+0.1"
+									}
+								}
+							],
+							"sid": 728705274189762
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 838182040748219,
+									"parameters": {
+										"first-value": "IntroHero.Count",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 257720527113337,
+									"parameters": {
+										"object-to-create": "IntroTextFont",
+										"layer": "\"World\"",
+										"x": "scrollx",
+										"y": "scrolly+50",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "IntroTextFont",
+									"sid": 326185626039071,
+									"parameters": {
+										"instance-variable": "SourceText",
+										"value": "\"Subject : \"&choose(\"James\", \"Olivia\", \"Liam\", \"Emma\", \"Noah\", \"Ava\", \"Ethan\", \"Mia\", \"Lucas\", \"Sophia\", \"Mason\", \"Isabella\", \"Leo\", \"Amelia\", \"Oliver\", \"Harper\", \"Daniel\", \"Ella\", \"Mateo\", \"Chloe\", \"Alexander\", \"Luna\", \"Benjamin\", \"Aria\", \"Henry\", \"Nora\", \"Sebastian\", \"Maya\", \"Jack\", \"Zoe\")&\" \"&choose(\"Smith\", \"Johnson\", \"Williams\", \"Brown\", \"Jones\", \"Garcia\", \"Miller\", \"Davis\", \"Rodriguez\", \"Martinez\", \"Wilson\", \"Anderson\", \"Taylor\", \"Thomas\", \"Moore\", \"Jackson\", \"Martin\", \"Lee\", \"Perez\", \"Thompson\", \"White\", \"Harris\", \"Sanchez\", \"Clark\", \"Ramirez\", \"Lewis\", \"Robinson\", \"Walker\", \"Young\", \"Allen\")"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 306064310975526,
+									"parameters": {
+										"seconds": "5",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 631805870955389,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 663053479920702,
+											"parameters": {
+												"first-value": "IntroHero.Count",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "IntroTextFont",
+											"sid": 783038272097054
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "IntroHero",
+											"sid": 905651401522226,
+											"parameters": {
+												"animation": "\"WakeUp\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 368208105120019,
+											"parameters": {
+												"audio-file": {
+													"path": "ClothSoft1"
+												},
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 621110897733005,
+											"parameters": {
+												"object-to-create": "IntroTextFont",
+												"layer": "\"World\"",
+												"x": "scrollx",
+												"y": "scrolly+50",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "IntroTextFont",
+											"sid": 169934671742760,
+											"parameters": {
+												"instance-variable": "SourceText",
+												"value": "\"Status: Former \"&choose(\"Plumber\", \"Barman\", \"Sex Worker\", \"Nurse\", \"Teacher\", \"Electrician\", \"Graphic Designer\", \"Data Scientist\", \"Chef\", \"Police Officer\", \"Journalist\", \"Architect\", \"Pilot\", \"Photographer\", \"Mechanic\", \"Lawyer\", \"Accountant\", \"Farmer\", \"Dentist\", \"Firefighter\", \"Game Developer\", \"Delivery Driver\", \"Scientist\", \"Film Director\", \"Social Worker\", \"Marketing Manager\", \"Web Designer\", \"Translator\", \"Construction Worker\", \"Musician\")"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 857876498030958,
+											"parameters": {
+												"seconds": "5",
+												"use-timescale": true
+											}
+										}
+									],
+									"sid": 515244804139441,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 637995708106336,
+													"parameters": {
+														"first-value": "IntroHero.Count",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "IntroTextFont",
+													"sid": 972623904245007
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "IntroHero",
+													"sid": 549783807961456,
+													"parameters": {
+														"animation": "\"GetUp1\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 763988636914241,
+													"parameters": {
+														"audio-file": {
+															"path": "Cloth2"
+														},
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 272166834167108,
+													"parameters": {
+														"object-to-create": "IntroTextFont",
+														"layer": "\"World\"",
+														"x": "scrollx",
+														"y": "scrolly+50",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "IntroTextFont",
+													"sid": 745717369294683,
+													"parameters": {
+														"instance-variable": "SourceText",
+														"value": "\"Injury : Spinal Trauma\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 492744155897861,
+													"parameters": {
+														"seconds": "5",
+														"use-timescale": true
+													}
+												}
+											],
+											"sid": 894422591265647,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 246215078028027,
+															"parameters": {
+																"first-value": "IntroHero.Count",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "IntroTextFont",
+															"sid": 390001408767773
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 741824266468960,
+															"parameters": {
+																"object-to-create": "IntroTextFont",
+																"layer": "\"World\"",
+																"x": "scrollx",
+																"y": "scrolly+50",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "IntroTextFont",
+															"sid": 460485697513497,
+															"parameters": {
+																"instance-variable": "SourceText",
+																"value": "\"Survival Chances:\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 115197755460560,
+															"parameters": {
+																"seconds": "3",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "IntroTextFont",
+															"sid": 117109745421833,
+															"parameters": {
+																"instance-variable": "SourceText",
+																"value": "\"Survival Chances: ???\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 275542199605007,
+															"parameters": {
+																"seconds": "3",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "IntroHero",
+															"sid": 672363949338563,
+															"parameters": {
+																"instance-variable": "canGoDown",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 554384458771428,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 650721829289698,
+																	"parameters": {
+																		"first-value": "IntroHero.Count",
+																		"comparison": 0,
+																		"second-value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "IntroTextFont",
+																	"sid": 359789326204208
+																},
+																{
+																	"id": "set-layer-visible",
+																	"objectClass": "System",
+																	"sid": 649100052011257,
+																	"parameters": {
+																		"layer": "\"Tutorials\"",
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 428440894730483,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "TextFont",
+																			"sid": 326243653624798,
+																			"parameters": {
+																				"unique-id": "461565"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "wait",
+																			"objectClass": "System",
+																			"sid": 465594345977757,
+																			"parameters": {
+																				"seconds": "2",
+																				"use-timescale": true
+																			}
+																		},
+																		{
+																			"id": "set-fade-in-time",
+																			"objectClass": "TextFont",
+																			"sid": 364928031989173,
+																			"behaviorType": "Fade",
+																			"parameters": {
+																				"fade-in-time": "1"
+																			}
+																		},
+																		{
+																			"id": "start-fade",
+																			"objectClass": "TextFont",
+																			"sid": 249198659800382,
+																			"behaviorType": "Fade"
+																		},
+																		{
+																			"id": "set-fade-out-time",
+																			"objectClass": "TextFont",
+																			"sid": 131962633737879,
+																			"behaviorType": "Fade",
+																			"parameters": {
+																				"fade-out-time": "0"
+																			}
+																		}
+																	],
+																	"sid": 403742712682868
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 453173930389396,
+							"parameters": {
+								"direction": "up"
+							}
+						},
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 175993395029834,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 102850084053208,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "IntroHero",
+									"sid": 192618546485226,
+									"parameters": {
+										"instance-variable": "canGoDown"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 697174219736236,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "IntroHero",
+											"sid": 115536020300920,
+											"parameters": {
+												"animation": "\"Fall\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 874680912902869,
+											"parameters": {
+												"audio-file": {
+													"path": "ClothSoft1"
+												},
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "IntroHero",
+											"sid": 271436173669605,
+											"parameters": {
+												"animation": "\"Fall\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 691375762330903
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "IntroHero",
+							"sid": 301156218755462,
+							"parameters": {
+								"animation": "\"Fall\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 196850121657742,
+							"parameters": {
+								"x": "lerp(Self.X,CharacterController.X,0.01)",
+								"y": "lerp(Self.Y,CharacterController.Y,0.01)"
+							}
+						}
+					],
+					"sid": 884404481986702
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "IntroHero",
+							"sid": 531506209579843,
+							"parameters": {
+								"animation": "\"Fall\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Camera",
+							"sid": 693458235224073,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "5",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "IntroHero",
+							"sid": 866776154839586
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 642208741453379,
+							"parameters": {
+								"audio-file": {
+									"path": "Voice/MaleHurt2"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 419662655351695,
+							"parameters": {
+								"audio-file": {
+									"path": "ChairImpact1"
+								},
+								"loop": "not-looping",
+								"volume": "-5",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 717768480557146
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "IntroHero",
+							"sid": 518123785906540
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "CharacterController",
+							"sid": 400827396259906,
+							"parameters": {
+								"object": "DustParticle",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "IntroTextFont",
+							"sid": 794090121234161
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 338449948684504,
+							"parameters": {
+								"instance-variable": "disabled",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 348964264065131,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CrawlingSprite",
+							"sid": 535023179432814,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 719695002008437,
+							"parameters": {
+								"layer": "\"Tutorials\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 151185007685202,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 238918794423056,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 928884831129207,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 995272565572292
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 534674919582979,
+							"parameters": {
+								"interval-seconds": "0.05"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 560371253202010,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "IntroTextFont",
+									"sid": 173833972620896,
+									"parameters": {
+										"instance-variable": "TypeIndex",
+										"comparison": 2,
+										"value": "len(Self.SourceText)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "IntroTextFont",
+									"sid": 945970295533271,
+									"parameters": {
+										"instance-variable": "TypeIndex",
+										"value": "min(Self.TypeIndex+ 1, len(Self.SourceText))"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 321916408563067,
+									"parameters": {
+										"audio-file": {
+											"path": "Aim1"
+										},
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 983006496298743,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "1.5"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "IntroTextFont",
+									"sid": 391517367249623,
+									"parameters": {
+										"text": "left(Self.SourceText, Self.TypeIndex)"
+									}
+								}
+							],
+							"sid": 738726276804682
+						}
+					]
+				}
+			],
+			"sid": 874277693130697
 		}
 	],
 	"sid": 171422187705970
