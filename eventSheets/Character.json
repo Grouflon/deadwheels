@@ -3007,6 +3007,31 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-button-released",
+							"objectClass": "Mouse",
+							"sid": 260288082964172,
+							"parameters": {
+								"mouse-button": "middle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 849806574277393,
+							"parameters": {
+								"instance-variable": "interact_timer",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 537537592763552
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "pick-nearestfurthest",
 							"objectClass": "ChairController",
 							"sid": 804954964901161,
@@ -3057,31 +3082,6 @@
 								}
 							],
 							"sid": 603910530768516
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-button-released",
-									"objectClass": "Mouse",
-									"sid": 824714423753410,
-									"parameters": {
-										"mouse-button": "middle"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "CharacterController",
-									"sid": 547280316334603,
-									"parameters": {
-										"instance-variable": "interact_timer",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 333119977639566
 						},
 						{
 							"eventType": "block",
@@ -3439,7 +3439,25 @@
 									"parameters": {
 										"animation": "\"leaveChair\""
 									}
-								},
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterSprite",
+									"sid": 726602751274643,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 763155537481922,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
 									"id": "is-animation-playing",
 									"objectClass": "CrawlingSprite",
@@ -3452,15 +3470,6 @@
 							"actions": [
 								{
 									"id": "set-animation",
-									"objectClass": "CharacterSprite",
-									"sid": 726602751274643,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-animation",
 									"objectClass": "CrawlingSprite",
 									"sid": 942441271492463,
 									"parameters": {
@@ -3469,8 +3478,7 @@
 									}
 								}
 							],
-							"sid": 763155537481922,
-							"isOrBlock": true
+							"sid": 969844424303736
 						}
 					]
 				},
