@@ -849,16 +849,6 @@
 												"comparison": 0,
 												"value": "1"
 											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 136486925142163,
-											"parameters": {
-												"variable": "gun_ammo",
-												"comparison": 4,
-												"value": "0"
-											}
 										}
 									],
 									"actions": [
@@ -884,6 +874,16 @@
 													"parameters": {
 														"mouse-button": "left",
 														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 395990608215351,
+													"parameters": {
+														"variable": "gun_ammo",
+														"comparison": 4,
+														"value": "0"
 													}
 												}
 											],
@@ -979,16 +979,6 @@
 												"comparison": 0,
 												"value": "2"
 											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 920145254124398,
-											"parameters": {
-												"variable": "shotgun_ammo",
-												"comparison": 4,
-												"value": "0"
-											}
 										}
 									],
 									"actions": [
@@ -1014,6 +1004,16 @@
 													"parameters": {
 														"mouse-button": "left",
 														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 940885472079763,
+													"parameters": {
+														"variable": "shotgun_ammo",
+														"comparison": 4,
+														"value": "0"
 													}
 												}
 											],
@@ -1156,16 +1156,6 @@
 												"comparison": 0,
 												"value": "3"
 											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 818599098064150,
-											"parameters": {
-												"variable": "gun_ammo",
-												"comparison": 4,
-												"value": "0"
-											}
 										}
 									],
 									"actions": [
@@ -1193,94 +1183,113 @@
 													}
 												},
 												{
-													"id": "every-x-seconds",
+													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 900334268843393,
-													"parameters": {
-														"interval-seconds": "0.1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Arm",
-													"sid": 404373946057852,
-													"parameters": {
-														"object": "Bullet",
-														"layer": "Self.LayerName",
-														"image-point": "0",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 504713918691099,
+													"sid": 882055304040085,
 													"parameters": {
 														"variable": "gun_ammo",
-														"value": "-1"
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Arm",
-													"sid": 533621587274172,
-													"parameters": {
-														"object": "FireGFX",
-														"layer": "Self.LayerName",
-														"image-point": "1",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "shake",
-													"objectClass": "Camera",
-													"sid": 227248468982577,
-													"behaviorType": "ScrollTo",
-													"parameters": {
-														"magnitude": "0.3",
-														"duration": "0.1",
-														"mode": "reducing-magnitude"
-													}
-												},
-												{
-													"id": "set-angle",
-													"objectClass": "Bullet",
-													"sid": 542314406478467,
-													"parameters": {
-														"angle": "Self.Angle+random(-10,10)"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "CharacterController",
-													"sid": 143351231305947,
-													"parameters": {
-														"instance-variable": "recoil",
-														"value": "3"
-													}
-												},
-												{
-													"callFunction": "audioGunSound",
-													"sid": 793801907323073,
-													"parameters": [
-														"\"Smg\""
-													]
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "CharacterController",
-													"sid": 436849617416281,
-													"parameters": {
-														"instance-variable": "angular_recoil",
-														"value": "7"
+														"comparison": 4,
+														"value": "0"
 													}
 												}
 											],
-											"sid": 588192297107614
+											"actions": [],
+											"sid": 588192297107614,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 139433580140645,
+															"parameters": {
+																"interval-seconds": "0.1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Arm",
+															"sid": 313640902279764,
+															"parameters": {
+																"object": "Bullet",
+																"layer": "Self.LayerName",
+																"image-point": "0",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 352108529026462,
+															"parameters": {
+																"variable": "gun_ammo",
+																"value": "-1"
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Arm",
+															"sid": 127879140581121,
+															"parameters": {
+																"object": "FireGFX",
+																"layer": "Self.LayerName",
+																"image-point": "1",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "shake",
+															"objectClass": "Camera",
+															"sid": 961264911397184,
+															"behaviorType": "ScrollTo",
+															"parameters": {
+																"magnitude": "0.3",
+																"duration": "0.1",
+																"mode": "reducing-magnitude"
+															}
+														},
+														{
+															"id": "set-angle",
+															"objectClass": "Bullet",
+															"sid": 587452617589423,
+															"parameters": {
+																"angle": "Self.Angle+random(-10,10)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "CharacterController",
+															"sid": 716289998678475,
+															"parameters": {
+																"instance-variable": "recoil",
+																"value": "3"
+															}
+														},
+														{
+															"callFunction": "audioGunSound",
+															"sid": 889989080473610,
+															"parameters": [
+																"\"Smg\""
+															]
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "CharacterController",
+															"sid": 444410333127545,
+															"parameters": {
+																"instance-variable": "angular_recoil",
+																"value": "7"
+															}
+														}
+													],
+													"sid": 359232047141745
+												}
+											]
 										}
 									]
 								},
@@ -1300,16 +1309,6 @@
 												"variable": "current_weapon",
 												"comparison": 0,
 												"value": "4"
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 653082161633327,
-											"parameters": {
-												"variable": "gatling_ammo",
-												"comparison": 4,
-												"value": "0"
 											}
 										}
 									],
@@ -1335,6 +1334,16 @@
 													"sid": 656136036154957,
 													"parameters": {
 														"mouse-button": "left"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 801750107706248,
+													"parameters": {
+														"variable": "gatling_ammo",
+														"comparison": 4,
+														"value": "0"
 													}
 												}
 											],
