@@ -293,17 +293,7 @@
 					],
 					"eventType": "custom-ace-block",
 					"conditions": [],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 399496051831272,
-							"parameters": {
-								"type": "log",
-								"message": "\"ccccol\"&collision_velocity"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 447232687942506,
 					"children": [
 						{
@@ -859,6 +849,15 @@
 										"parameter-index": "0",
 										"value": "120"
 									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "ChairSprite",
+									"sid": 258976852921536,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Brightness\""
+									}
 								}
 							],
 							"sid": 294565590270104
@@ -881,6 +880,15 @@
 										"effect": "\"Brightness\"",
 										"parameter-index": "0",
 										"value": "100"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "ChairSprite",
+									"sid": 713968766534237,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Brightness\""
 									}
 								}
 							],
