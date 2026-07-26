@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "chair_enter_distance",
 			"type": "number",
-			"initialValue": "26",
+			"initialValue": "35",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -1837,6 +1837,237 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterController",
+									"sid": 618434273201104,
+									"parameters": {
+										"instance-variable": "interact_timer",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 753404722345433,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 628846033612955,
+											"parameters": {
+												"instance-variable": "is_in_chair"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 150589055586114,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "CharacterSprite",
+													"sid": 540643394874147,
+													"parameters": {
+														"animation": "\"leaveChair\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "CharacterSprite",
+													"sid": 488722465493210,
+													"parameters": {
+														"animation": "\"leaveChair\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 889505651576672,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "Audio",
+															"sid": 587715225924180,
+															"parameters": {
+																"tag": "\"oumf\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 817692733407526,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"oumf\""
+															}
+														}
+													],
+													"sid": 486680641065760
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 711341212923788
+										}
+									],
+									"actions": [],
+									"sid": 319813538351010,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "CrawlingSprite",
+													"sid": 717351303445843,
+													"parameters": {
+														"animation": "\"enterChair\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "CrawlingSprite",
+													"sid": 609049798070303,
+													"parameters": {
+														"animation": "\"enterChair\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 958522057285240,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "Audio",
+															"sid": 762113785751064,
+															"parameters": {
+																"tag": "\"oumf\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play-by-name",
+															"objectClass": "Audio",
+															"sid": 230941579277478,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"oumf\""
+															}
+														}
+													],
+													"sid": 658377534939525
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 998634017986949
+								}
+							],
+							"actions": [],
+							"sid": 864209171771010,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "CharacterSprite",
+											"sid": 972080057507297,
+											"parameters": {
+												"animation": "\"leaveChair\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "CharacterSprite",
+											"sid": 198652422065603,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 956449390482425,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "CrawlingSprite",
+											"sid": 772933358154557,
+											"parameters": {
+												"animation": "\"enterChair\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "CrawlingSprite",
+											"sid": 251994750735993,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 883511640733988
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "CharacterController",
 									"sid": 846056206416851,
@@ -2169,153 +2400,9 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 207429174733880,
-													"parameters": {
-														"first-value": "CharacterController.velocity",
-														"comparison": 4,
-														"second-value": "0.5"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "CrawlingSprite",
-													"sid": 597869682672882,
-													"parameters": {
-														"animation": "\"MoveBoth\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-speed",
-													"objectClass": "CrawlingSprite",
-													"sid": 766838659552751,
-													"parameters": {
-														"speed": "CharacterController.velocity*0.2"
-													}
-												}
-											],
-											"sid": 584314065581687
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 899933432031010
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 272830086000156,
-													"parameters": {
-														"first-value": "CharacterController.velocity",
-														"comparison": 2,
-														"second-value": "-0.5"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "CrawlingSprite",
-													"sid": 391004745318757,
-													"parameters": {
-														"animation": "\"MoveBack\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-speed",
-													"objectClass": "CrawlingSprite",
-													"sid": 752234612294456,
-													"parameters": {
-														"speed": "CharacterController.velocity*0.2"
-													}
-												}
-											],
-											"sid": 513368147186983
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 601898179442445
-												},
-												{
 													"id": "compare-instance-variable",
 													"objectClass": "CharacterController",
-													"sid": 581877839680141,
-													"parameters": {
-														"instance-variable": "just_rotated",
-														"comparison": 4,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "CrawlingSprite",
-													"sid": 874848522881538,
-													"parameters": {
-														"animation": "\"MoveLeft\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 180026307738781
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 169910223547461
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "CharacterController",
-													"sid": 819618115452283,
-													"parameters": {
-														"instance-variable": "just_rotated",
-														"comparison": 2,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "CrawlingSprite",
-													"sid": 288693359080739,
-													"parameters": {
-														"animation": "\"MoveLeft\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 343667229420600
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 518951590235712
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "CharacterController",
-													"sid": 172576599956760,
+													"sid": 831255095661076,
 													"parameters": {
 														"instance-variable": "interact_timer",
 														"comparison": 3,
@@ -2323,68 +2410,256 @@
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 923007603995942,
+											"children": [
 												{
-													"id": "set-animation",
-													"objectClass": "CrawlingSprite",
-													"sid": 660003437745985,
-													"parameters": {
-														"animation": "\"Idle\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 565196487511236
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-animation-finished",
-													"objectClass": "CrawlingSprite",
-													"sid": 993746520414416,
-													"parameters": {
-														"animation": "\"MoveBoth\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterController",
+															"sid": 593440081836796,
+															"parameters": {
+																"instance-variable": "angular_velocity",
+																"comparison": 4,
+																"value": "0.5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 660744123633360,
+															"parameters": {
+																"animation": "\"MoveRight\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 656043012084237
 												},
 												{
-													"id": "on-animation-finished",
-													"objectClass": "CrawlingSprite",
-													"sid": 347613361495019,
-													"parameters": {
-														"animation": "\"MoveBack\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 286085138649332
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterController",
+															"sid": 700257066311745,
+															"parameters": {
+																"instance-variable": "angular_velocity",
+																"comparison": 2,
+																"value": "-0.5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 465710031917859,
+															"parameters": {
+																"animation": "\"MoveLeft\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 225193216290383
 												},
 												{
-													"id": "on-animation-finished",
-													"objectClass": "CrawlingSprite",
-													"sid": 504045222738437,
-													"parameters": {
-														"animation": "\"MoveLeft\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 595432773119052
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 160804990206817,
+															"parameters": {
+																"first-value": "CharacterController.velocity",
+																"comparison": 4,
+																"second-value": "0.5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 910226137167988,
+															"parameters": {
+																"animation": "\"MoveBoth\"",
+																"from": "current-frame"
+															}
+														},
+														{
+															"id": "set-animation-speed",
+															"objectClass": "CrawlingSprite",
+															"sid": 729459059539165,
+															"parameters": {
+																"speed": "CharacterController.velocity*0.2"
+															}
+														}
+													],
+													"sid": 430029143464114
 												},
 												{
-													"id": "is-animation-playing",
-													"objectClass": "CrawlingSprite",
-													"sid": 540181588791519,
-													"parameters": {
-														"animation": "\"MoveRight\""
-													}
-												}
-											],
-											"actions": [
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 776519043949346
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 505202921513730,
+															"parameters": {
+																"first-value": "CharacterController.velocity",
+																"comparison": 2,
+																"second-value": "-0.5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 168531062157192,
+															"parameters": {
+																"animation": "\"MoveBack\"",
+																"from": "current-frame"
+															}
+														},
+														{
+															"id": "set-animation-speed",
+															"objectClass": "CrawlingSprite",
+															"sid": 795552047863438,
+															"parameters": {
+																"speed": "abs(CharacterController.velocity)*0.2"
+															}
+														}
+													],
+													"sid": 473511351765422
+												},
 												{
-													"id": "set-animation",
-													"objectClass": "CrawlingSprite",
-													"sid": 506692159318906,
-													"parameters": {
-														"animation": "\"Idle\"",
-														"from": "beginning"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 289318736188378
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 315510235787731,
+															"parameters": {
+																"animation": "\"Idle\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 533008050577711
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [],
+													"sid": 330896025948856
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-animation-finished",
+															"objectClass": "CrawlingSprite",
+															"sid": 645702949704096,
+															"parameters": {
+																"animation": "\"MoveLeft\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 315955707322775,
+															"parameters": {
+																"animation": "\"Idle\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 244915655915606,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-animation-finished",
+															"objectClass": "CrawlingSprite",
+															"sid": 220614453019627,
+															"parameters": {
+																"animation": "\"MoveRight\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "CrawlingSprite",
+															"sid": 548925985365883,
+															"parameters": {
+																"animation": "\"Idle\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 971998553717190,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "CrawlingSprite",
+															"sid": 540181588791519,
+															"disabled": true,
+															"parameters": {
+																"animation": "\"MoveRight\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "CrawlingSprite",
+															"sid": 150126575172368,
+															"disabled": true,
+															"parameters": {
+																"animation": "\"MoveLeft\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 468122876374609
 												}
-											],
-											"sid": 407647988151922,
-											"isOrBlock": true
+											]
 										}
 									]
 								}
@@ -3389,241 +3664,6 @@
 						}
 					],
 					"sid": 763312085249099
-				},
-				{
-					"eventType": "comment",
-					"text": "Animations"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "CharacterController",
-							"sid": 872073799045714,
-							"parameters": {
-								"instance-variable": "interact_timer",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 328553672941650,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "CharacterController",
-									"sid": 884169284753736,
-									"parameters": {
-										"instance-variable": "is_in_chair"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 819938871114899,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "CharacterSprite",
-											"sid": 407876447081784,
-											"parameters": {
-												"animation": "\"leaveChair\""
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "CharacterSprite",
-											"sid": 707817928772485,
-											"parameters": {
-												"animation": "\"leaveChair\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 273324018572992,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-tag-playing",
-													"objectClass": "Audio",
-													"sid": 469056633657129,
-													"parameters": {
-														"tag": "\"oumf\""
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "play-by-name",
-													"objectClass": "Audio",
-													"sid": 183766516325836,
-													"parameters": {
-														"folder": "sounds",
-														"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
-														"loop": "not-looping",
-														"volume": "0",
-														"stereo-pan": "0",
-														"tag-optional": "\"oumf\""
-													}
-												}
-											],
-											"sid": 446422516906623
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 407936451414795
-								}
-							],
-							"actions": [],
-							"sid": 286425516243405,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "CrawlingSprite",
-											"sid": 236580302717205,
-											"parameters": {
-												"animation": "\"enterChair\""
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "CrawlingSprite",
-											"sid": 790059999291047,
-											"parameters": {
-												"animation": "\"enterChair\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 235539093545897,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-tag-playing",
-													"objectClass": "Audio",
-													"sid": 624885158906287,
-													"parameters": {
-														"tag": "\"oumf\""
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "play-by-name",
-													"objectClass": "Audio",
-													"sid": 478627824937567,
-													"parameters": {
-														"folder": "sounds",
-														"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
-														"loop": "not-looping",
-														"volume": "0",
-														"stereo-pan": "0",
-														"tag-optional": "\"oumf\""
-													}
-												}
-											],
-											"sid": 382245931983925
-										}
-									]
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 539554867251945
-						}
-					],
-					"actions": [],
-					"sid": 600432263217068,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "CharacterSprite",
-									"sid": 345883783291443,
-									"parameters": {
-										"animation": "\"leaveChair\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "CharacterSprite",
-									"sid": 726602751274643,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 763155537481922,
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "CrawlingSprite",
-									"sid": 279169821098293,
-									"parameters": {
-										"animation": "\"enterChair\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "CrawlingSprite",
-									"sid": 942441271492463,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 969844424303736
-						}
-					]
 				},
 				{
 					"eventType": "comment",
