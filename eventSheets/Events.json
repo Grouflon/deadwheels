@@ -270,116 +270,165 @@
 									}
 								}
 							],
-							"sid": 726356975153671
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"sid": 726356975153671,
+							"children": [
 								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Event_Sound",
-									"sid": 246924060129210,
-									"parameters": {
-										"instance-variable": "PlayAtThisObject"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play-at-object-by-name",
-									"objectClass": "Audio",
-									"sid": 699101819168944,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "Event_Sound.Sound",
-										"loop": "not-looping",
-										"volume": "0",
-										"object": "Event_Sound",
-										"inner-angle": "360",
-										"outer-angle": "360",
-										"outer-gain": "0",
-										"tag-optional": "Event_Sound.SoundTag"
-									}
-								}
-							],
-							"sid": 547704215503241
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Event_Sound",
-									"sid": 560597176427534,
-									"parameters": {
-										"instance-variable": "PlayAtThisObject"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 738559978685763,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "Event_Sound.Sound",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "Event_Sound.SoundTag"
-									}
-								}
-							],
-							"sid": 133341822128056
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Event_Sound",
-									"sid": 696360646987300,
-									"parameters": {
-										"instance-variable": "SoundTag",
-										"comparison": 1,
-										"value": "\"\""
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Event_Sound",
+											"sid": 773919849025739,
+											"parameters": {
+												"instance-variable": "PlayAtThisObject"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play-at-object-by-name",
+											"objectClass": "Audio",
+											"sid": 185113551581088,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "Event_Sound.Sound",
+												"loop": "not-looping",
+												"volume": "0",
+												"object": "Event_Sound",
+												"inner-angle": "360",
+												"outer-angle": "360",
+												"outer-gain": "0",
+												"tag-optional": "Event_Sound.SoundTag"
+											}
+										}
+									],
+									"sid": 690691543126394
 								},
 								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Event_Sound",
-									"sid": 922118632206707,
-									"parameters": {
-										"instance-variable": "SoundLoop"
-									}
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Event_Sound",
+											"sid": 902411501192298,
+											"parameters": {
+												"instance-variable": "PlayAtThisObject"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 654056320067417,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Event_Sound",
+													"sid": 470815759336365,
+													"parameters": {
+														"instance-variable": "SoundLoop"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 570587654521091,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "Event_Sound.Sound",
+														"loop": "looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "Event_Sound.SoundTag"
+													}
+												}
+											],
+											"sid": 866147910721340
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Event_Sound",
+													"sid": 398330025050507,
+													"parameters": {
+														"instance-variable": "SoundLoop"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 149714677417031,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "Event_Sound.Sound",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "Event_Sound.SoundTag"
+													}
+												}
+											],
+											"sid": 801076829179627
+										}
+									]
+								},
 								{
-									"id": "set-looping",
-									"objectClass": "Audio",
-									"sid": 510686502678381,
-									"parameters": {
-										"tag": "Event_Sound.SoundTag",
-										"state": "looping"
-									}
-								}
-							],
-							"sid": 188264622039898
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Event_Sound",
+											"sid": 511123822613301,
+											"parameters": {
+												"instance-variable": "SoundTag",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Event_Sound",
+											"sid": 979322815961729,
+											"parameters": {
+												"instance-variable": "SoundLoop"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-looping",
+											"objectClass": "Audio",
+											"sid": 982057048133750,
+											"parameters": {
+												"tag": "Event_Sound.SoundTag",
+												"state": "looping"
+											}
+										}
+									],
+									"sid": 931586313702010
+								},
 								{
-									"id": "destroy",
-									"objectClass": "Event_Sound",
-									"sid": 192168087430998
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Event_Sound",
+											"sid": 680973522897861
+										}
+									],
+									"sid": 349522437993645
 								}
-							],
-							"sid": 943208425535533
+							]
 						}
 					]
 				},
