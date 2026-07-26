@@ -695,6 +695,201 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "is-animation-playing",
+					"objectClass": "CrawlingSprite",
+					"sid": 867784012351623,
+					"parameters": {
+						"animation": "\"MoveBack\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "CrawlingSprite",
+					"sid": 846156654499172,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 112683483583225
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 521001856649521,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"ClothSoft\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 897070916722985,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Voice/MaleEffortS\"&round(random(12))",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 620305514091950,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				}
+			],
+			"sid": 491559573955217
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "CrawlingSprite",
+					"sid": 425650749452696,
+					"parameters": {
+						"animation": "\"MoveLeft\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "CrawlingSprite",
+					"sid": 158170037582494,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 236934630674181
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 150923698120678,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"ClothSoft\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 964236781816803,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Voice/MaleEffortS\"&round(random(12))",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 752954992064776,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				}
+			],
+			"sid": 788837472323459
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "CrawlingSprite",
+					"sid": 375702504026668,
+					"parameters": {
+						"animation": "\"MoveRight\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "CrawlingSprite",
+					"sid": 808871366245220,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 499055189665357
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 946755927360516,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"ClothSoft\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 252115444422594,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Voice/MaleEffortS\"&round(random(12))",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 926717068852827,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				}
+			],
+			"sid": 508185744259564
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "for-each",
 					"objectClass": "System",
 					"sid": 945733084942778,
