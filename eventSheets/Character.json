@@ -463,18 +463,52 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 435223472076218,
+					"children": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "CharacterController",
-							"sid": 226643669092013,
-							"parameters": {
-								"instance-variable": "is_aiming",
-								"value": "true"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 627524047969193,
+									"parameters": {
+										"instance-variable": "is_aiming"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 272807466934364,
+									"parameters": {
+										"variable": "weapon_scroll_cooldown",
+										"value": "0.3"
+									}
+								}
+							],
+							"sid": 658489638527111
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 542945364849232,
+									"parameters": {
+										"instance-variable": "is_aiming",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 286898330740788
 						}
-					],
-					"sid": 435223472076218
+					]
 				},
 				{
 					"eventType": "block",
