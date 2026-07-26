@@ -2506,6 +2506,90 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 187722900963253
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 265335382081036,
+							"parameters": {
+								"seconds": "4",
+								"use-timescale": true
+							}
+						}
+					],
+					"sid": 671731069568190,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Trigger",
+									"sid": 910155366896342,
+									"parameters": {
+										"unique-id": "118936"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Trigger",
+									"sid": 647456384259523,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 402518679297015
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Trigger",
+									"sid": 299546021874838,
+									"parameters": {
+										"unique-id": "235716"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Trigger",
+									"sid": 554607466399557,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 581972353226494
+						}
+					]
+				}
+			],
+			"sid": 362842619651452
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LEVEL 2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Trigger",
 							"sid": 149334327167070,
