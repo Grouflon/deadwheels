@@ -259,6 +259,21 @@
 					"children": [
 						{
 							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 441267058734277,
+									"parameters": {
+										"tag": "Event_Sound.StopTag"
+									}
+								}
+							],
+							"sid": 726356975153671
+						},
+						{
+							"eventType": "block",
 							"conditions": [
 								{
 									"id": "is-boolean-instance-variable-set",
@@ -273,7 +288,7 @@
 								{
 									"id": "play-at-object-by-name",
 									"objectClass": "Audio",
-									"sid": 143534659813211,
+									"sid": 699101819168944,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "Event_Sound.Sound",
@@ -283,7 +298,7 @@
 										"inner-angle": "360",
 										"outer-angle": "360",
 										"outer-gain": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "Event_Sound.SoundTag"
 									}
 								}
 							],
@@ -306,18 +321,53 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 416448783803517,
+									"sid": 738559978685763,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "Event_Sound.Sound",
 										"loop": "not-looping",
 										"volume": "0",
 										"stereo-pan": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "Event_Sound.SoundTag"
 									}
 								}
 							],
 							"sid": 133341822128056
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Event_Sound",
+									"sid": 696360646987300,
+									"parameters": {
+										"instance-variable": "SoundTag",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Event_Sound",
+									"sid": 922118632206707,
+									"parameters": {
+										"instance-variable": "SoundLoop"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-looping",
+									"objectClass": "Audio",
+									"sid": 510686502678381,
+									"parameters": {
+										"tag": "Event_Sound.SoundTag",
+										"state": "looping"
+									}
+								}
+							],
+							"sid": 188264622039898
 						},
 						{
 							"eventType": "block",
