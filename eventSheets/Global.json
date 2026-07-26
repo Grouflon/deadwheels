@@ -4111,6 +4111,284 @@
 				}
 			],
 			"sid": 196033189552279
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Dust Particles",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "dust_angle",
+					"type": "number",
+					"initialValue": "-37",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 931249002000373
+				},
+				{
+					"eventType": "variable",
+					"name": "dust_lifetime",
+					"type": "number",
+					"initialValue": "3",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 266903155238453
+				},
+				{
+					"eventType": "variable",
+					"name": "dust_speed",
+					"type": "number",
+					"initialValue": "4",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 973809075745691
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 627677378532044,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 787338540337654,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 612345640670081,
+									"parameters": {
+										"object": "LightCone"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 548168285532056,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 858069382023390,
+											"parameters": {
+												"count": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 699198458026791,
+											"parameters": {
+												"object-to-create": "LightDust",
+												"layer": "\"Light\"",
+												"x": "random(LightCone.BBoxLeft, LightCone.BBoxRight)",
+												"y": "random(LightCone.BBoxTop, LightCone.BBoxBottom)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "LightDust",
+											"sid": 419620210987553,
+											"parameters": {
+												"z": "random(3,10)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "LightDust",
+											"sid": 189763250947470,
+											"parameters": {
+												"instance-variable": "t",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "LightDust",
+											"sid": 166440523437231,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "LightDust",
+											"sid": 662027320290821,
+											"parameters": {
+												"instance-variable": "float_angle",
+												"value": "dust_angle + random(-5,5)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "LightDust",
+											"sid": 585559677729529,
+											"parameters": {
+												"instance-variable": "float_speed",
+												"value": "dust_speed+ random(-2,2)"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "LightDust",
+											"sid": 754607759812032,
+											"parameters": {
+												"width": "LightDust.Width * random(0.3, 0.8)"
+											}
+										},
+										{
+											"id": "set-height",
+											"objectClass": "LightDust",
+											"sid": 971225153152306,
+											"parameters": {
+												"height": "LightDust.Width"
+											}
+										}
+									],
+									"sid": 234568809054808,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "LightDust",
+													"sid": 230188435463688,
+													"parameters": {
+														"object": "LightCone"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "LightDust",
+													"sid": 288251681878812
+												}
+											],
+											"sid": 860978699506591
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 773021190910412,
+							"parameters": {
+								"object": "LightDust"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "LightDust",
+							"sid": 773886086624959,
+							"parameters": {
+								"instance-variable": "t",
+								"value": "dt / dust_lifetime"
+							}
+						}
+					],
+					"sid": 742262924331202,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "LightDust",
+									"sid": 955531963958520,
+									"parameters": {
+										"object": "LightCone"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "LightDust",
+									"sid": 252005696965093,
+									"parameters": {
+										"instance-variable": "t",
+										"comparison": 5,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "LightDust",
+									"sid": 905023448998848
+								}
+							],
+							"sid": 943117014289490,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "LightDust",
+									"sid": 761290083651570,
+									"parameters": {
+										"opacity": "sin(LightDust.t * 180) * 40"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "LightDust",
+									"sid": 122952546587275,
+									"parameters": {
+										"x": "LightDust.X + cos(LightDust.float_angle) * LightDust.float_speed * dt",
+										"y": "LightDust.Y + sin(LightDust.float_angle) * LightDust.float_speed * dt"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "LightDust",
+									"sid": 123170986013002,
+									"parameters": {
+										"z": "LightDust.Z + sin(LightDust.Angle) * dust_speed * dt"
+									}
+								}
+							],
+							"sid": 998247725615810
+						}
+					]
+				}
+			],
+			"sid": 835211306959490
 		}
 	],
 	"sid": 171422187705970
