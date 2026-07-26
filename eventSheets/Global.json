@@ -564,35 +564,6 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 166667584009429,
-									"parameters": {
-										"key": 68
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 314834828647611,
-									"parameters": {
-										"object-to-create": "DustParticle",
-										"layer": "CharacterController.LayerName",
-										"x": "CharacterController.X",
-										"y": "CharacterController.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 542112456209420
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
 									"sid": 398423783548800,
 									"parameters": {
 										"key": 49
@@ -3126,31 +3097,6 @@
 				}
 			],
 			"sid": 632043697341628
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "Corpse",
-					"sid": 907729243858251
-				}
-			],
-			"actions": [
-				{
-					"id": "spawn-another-object",
-					"objectClass": "Corpse",
-					"sid": 713484958797521,
-					"parameters": {
-						"object": "DustParticle",
-						"layer": "Self.LayerName",
-						"image-point": "0",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				}
-			],
-			"sid": 205401932152300
 		},
 		{
 			"eventType": "group",
