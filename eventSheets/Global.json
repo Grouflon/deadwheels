@@ -1902,18 +1902,16 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "for-each",
 									"objectClass": "System",
-									"sid": 906421340219000,
+									"sid": 795948053063994,
 									"parameters": {
-										"first-value": "Pickups.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"Health\""
+										"object": "Pickups"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 767763508794069,
+							"sid": 668750971190892,
 							"children": [
 								{
 									"eventType": "block",
@@ -1921,48 +1919,67 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 617692653127130,
+											"sid": 176972595849512,
 											"parameters": {
-												"first-value": "health",
-												"comparison": 2,
-												"second-value": "character_max_health"
+												"first-value": "Pickups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"Health\""
 											}
+										}
+									],
+									"actions": [],
+									"sid": 113093809112075,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 957229068579639,
+													"parameters": {
+														"first-value": "health",
+														"comparison": 2,
+														"second-value": "character_max_health"
+													}
+												}
+											],
+											"actions": [
+												{
+													"customAction": "PickObject",
+													"objectClass": "Pickups",
+													"sid": 746502246107152,
+													"parameters": [
+														"Pickups.AnimationName"
+													]
+												}
+											],
+											"sid": 870181629454714
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 321329636452975
 										}
 									],
 									"actions": [
 										{
 											"customAction": "PickObject",
 											"objectClass": "Pickups",
-											"sid": 378182368520986,
+											"sid": 803517392785686,
 											"parameters": [
 												"Pickups.AnimationName"
 											]
 										}
 									],
-									"sid": 764239508199993
+									"sid": 200181361719757
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 300658651172459
-								}
-							],
-							"actions": [
-								{
-									"customAction": "PickObject",
-									"objectClass": "Pickups",
-									"sid": 757251285014266,
-									"parameters": [
-										"Pickups.AnimationName"
-									]
-								}
-							],
-							"sid": 112149181913096
 						}
 					],
 					"isOrBlock": true
@@ -1987,7 +2004,18 @@
 					],
 					"eventType": "custom-ace-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 604313617073581,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "pickUp"
+							}
+						}
+					],
 					"sid": 294170591288068,
 					"children": [
 						{
