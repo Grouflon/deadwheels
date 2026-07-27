@@ -39,18 +39,111 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 985902596946858,
+			"children": [
 				{
-					"id": "set-position",
-					"objectClass": "Camera",
-					"sid": 818609414247741,
-					"parameters": {
-						"x": "lerp(Self.X,CharacterController.X,0.07)",
-						"y": "lerp(Self.Y,CharacterController.Y,0.07)"
-					}
+					"eventType": "variable",
+					"name": "final_target_x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 291097317004280
+				},
+				{
+					"eventType": "variable",
+					"name": "final_target_y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 436838985689397
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Camera",
+							"sid": 862596172351399,
+							"parameters": {
+								"instance-variable": "follow_target"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 311679552757275,
+							"parameters": {
+								"variable": "final_target_x",
+								"value": "Camera.target_x"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 185802672860973,
+							"parameters": {
+								"variable": "final_target_y",
+								"value": "Camera.target_y"
+							}
+						}
+					],
+					"sid": 284687939407104
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 980550021316646
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 932601969532991,
+							"parameters": {
+								"variable": "final_target_x",
+								"value": "CharacterController.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 186424566837892,
+							"parameters": {
+								"variable": "final_target_y",
+								"value": "CharacterController.Y"
+							}
+						}
+					],
+					"sid": 489664427759082
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 788009967025041,
+							"parameters": {
+								"x": "lerp(Self.X,final_target_x,Self.follow_speed)",
+								"y": "lerp(Self.Y,final_target_y,Self.follow_speed)"
+							}
+						}
+					],
+					"sid": 161368223141857
 				}
-			],
-			"sid": 985902596946858
+			]
 		}
 	],
 	"sid": 166569372868084
