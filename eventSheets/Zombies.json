@@ -665,6 +665,32 @@
 			]
 		},
 		{
+			"eventType": "variable",
+			"name": "pathfinding_request_count",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 258077725006146
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 657441539440985,
+					"parameters": {
+						"variable": "pathfinding_request_count",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 339635714824572
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -673,6 +699,16 @@
 					"sid": 195184428029073,
 					"parameters": {
 						"object": "Zombies"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 948775353768587,
+					"parameters": {
+						"first-value": "pathfinding_request_count",
+						"comparison": 3,
+						"second-value": "5"
 					}
 				}
 			],
@@ -732,6 +768,16 @@
 										"comparison": 3,
 										"value": "0"
 									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 592416118996652,
+									"parameters": {
+										"first-value": "distance(Zombies.moveToX,Zombies.moveToY,Zombies.lastValidTargetX,Zombies.lastValidTargetY)",
+										"comparison": 4,
+										"second-value": "1"
+									}
 								}
 							],
 							"actions": [
@@ -780,6 +826,15 @@
 									"parameters": {
 										"type": "log",
 										"message": "Zombies.UID & \" \" & distance(Zombies.X, Zombies.Y, Zombies.moveToX, Zombies.moveToY)"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 582819652931929,
+									"parameters": {
+										"variable": "pathfinding_request_count",
+										"value": "1"
 									}
 								}
 							],
