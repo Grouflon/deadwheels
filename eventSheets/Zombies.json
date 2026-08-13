@@ -1567,6 +1567,12 @@
 						"instance-variable": "isAttacking"
 					},
 					"isInverted": true
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Zombies",
+					"sid": 581522056048141,
+					"behaviorType": "Pathfinding"
 				}
 			],
 			"actions": [],
@@ -1789,6 +1795,109 @@
 				}
 			],
 			"sid": 431918134465483
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Chimio",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "For chimio to ignore his own armchair, we set LOS obstacles to Custom and manually add buildings"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Chimio",
+							"sid": 915676918261570
+						}
+					],
+					"actions": [
+						{
+							"id": "add-obstacle",
+							"objectClass": "Chimio",
+							"sid": 619461729491006,
+							"behaviorType": "AcquireVision",
+							"parameters": {
+								"obstacle": "Buildings"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Chimio",
+							"sid": 175057926408050,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"set": "disabled"
+							}
+						}
+					],
+					"sid": 125548132483487
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Chimio",
+							"sid": 357892176286828,
+							"parameters": {
+								"instance-variable": "spottedPlayer"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Chimio",
+							"sid": 319054957135547,
+							"parameters": {
+								"animation": "\"Move\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Chimio",
+							"sid": 425596167171135,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 495913010175152
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Chimio",
+							"sid": 881011103034580,
+							"parameters": {
+								"object": "CharacterController"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DoDamage",
+							"objectClass": "CharacterController",
+							"sid": 960510156042353,
+							"parameters": [
+								"10"
+							]
+						}
+					],
+					"sid": 663952441892851
+				}
+			],
+			"sid": 218360608730011
 		}
 	],
 	"sid": 810694807837553

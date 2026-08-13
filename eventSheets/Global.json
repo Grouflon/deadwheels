@@ -904,6 +904,36 @@
 						}
 					],
 					"sid": 105639474104487
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Chimio",
+							"sid": 548860102604014
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 503579316206661,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Chimio",
+							"sid": 941527704520222,
+							"parameters": {
+								"z": "3"
+							}
+						}
+					],
+					"sid": 106787580037157
 				}
 			],
 			"sid": 416805693131933

@@ -1219,6 +1219,33 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
+							"sid": 981322175004422,
+							"parameters": {
+								"first-value": "Zombies.ObjectTypeName",
+								"comparison": 0,
+								"second-value": "\"Chimio\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 341210373913588,
+							"parameters": {
+								"variable": "VoiceType",
+								"value": "\"B\""
+							}
+						}
+					],
+					"sid": 513597883546455
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
 							"sid": 828102649964968,
 							"parameters": {
 								"first-value": "Zombies.ObjectTypeName",
@@ -1293,10 +1320,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Zombies",
-							"sid": 982897842506797,
+							"sid": 965723120161693,
 							"parameters": {
 								"instance-variable": "VoiceCoolDown",
-								"value": "0.5"
+								"value": "0.8"
 							}
 						}
 					],

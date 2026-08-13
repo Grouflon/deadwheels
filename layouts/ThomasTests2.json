@@ -3724,120 +3724,6 @@
 						"object-top": -1,
 						"object-bottom": -1
 					},
-					"uid": 997848,
-					"sid": 942137568147840,
-					"tags": "",
-					"instanceVariables": {
-						"chairCanDestroy": true,
-						"isDoor": false
-					},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": true,
-								"tags": ""
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 200,
-						"y": 556,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 8,
-						"angle": 0
-					}
-				},
-				{
-					"type": "CounterWood",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 818222,
-					"sid": 453351531800191,
-					"tags": "",
-					"instanceVariables": {
-						"chairCanDestroy": true,
-						"isDoor": false
-					},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": true,
-								"tags": ""
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 200,
-						"y": 572,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 8,
-						"angle": 0
-					}
-				},
-				{
-					"type": "CounterWood",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
 					"uid": 153057,
 					"sid": 214436358277426,
 					"tags": "",
@@ -3932,307 +3818,130 @@
 					}
 				},
 				{
-					"type": "Roach",
+					"type": "ArmChair",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 553053,
-					"sid": 921341752185277,
+					"uid": 434025,
+					"sid": 155317909856753,
 					"tags": "",
 					"instanceVariables": {
-						"Spooked": false
+						"chairCanDestroy": false,
+						"isDoor": false
 					},
 					"behaviors": {
-						"LineOfSight_HidePlaces": {
+						"Solid": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 200,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"MoveTo": {
-							"properties": {
-								"max-speed": 70,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 1000,
-								"set-angle": true,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
-						"LineOfSight_SpookyThings": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 50,
-								"cone-of-view": 360,
-								"use-collision-cells": true
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
 							}
 						}
-					},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Roach",
-						"replicaHierarchyInSyncWithTemplate": false,
-						"templatePropagateHierarchyChanges": true,
-						"replicaIgnoreTemplateHierarchyChanges": false,
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"initial-animation",
-												true
-											],
-											[
-												"initial-frame",
-												true
-											],
-											[
-												"enable-collisions",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "Spooked",
-												"state": true
-											}
-										]
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": [
-									{
-										"key": "LineOfSight_HidePlaces",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "MoveTo",
-										"state": [
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"set-angle",
-												true
-											],
-											[
-												"stop-on-solids",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "LineOfSight_SpookyThings",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "effect",
-								"component": []
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												true
-											],
-											[
-												"w",
-												true
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"d",
-												true
-											],
-											[
-												"a",
-												false
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												true
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"sz",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"sam",
-												true
-											],
-											[
-												"tgs",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpd",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 240,
-						"y": 556,
-						"width": 7,
-						"height": 5,
-						"originX": 0.5714285714285714,
-						"originY": 0.4,
+						"x": 204,
+						"y": 564,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": 1,
-						"angle": 5.757652828602668
+						"z": 0,
+						"depth": 2,
+						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "Perfusion",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": false,
+						"face-right": false,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 594716,
+					"sid": 850434333304761,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 197.7974395751953,
+						"y": 550.6354370117188,
+						"width": 16,
+						"height": 1,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 28,
+						"angle": 5.964590622983052,
+						"rotation3d": {
+							"quaternion": [
+								0.13052619993686676,
+								0,
+								0,
+								0.9914448857307434
+							],
+							"euler": [
+								0.2617993950843811,
+								0,
+								0
+							]
+						}
 					}
 				},
 				{
@@ -4523,8 +4232,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 256,
-						"y": 564,
+						"x": 304,
+						"y": 568,
 						"width": 7,
 						"height": 5,
 						"originX": 0.5714285714285714,
@@ -4844,129 +4553,97 @@
 					}
 				},
 				{
-					"type": "Roach",
+					"type": "Chimio",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Sleep",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 527188,
-					"sid": 299652679294642,
+					"uid": 600063,
+					"sid": 862962298596009,
 					"tags": "",
 					"instanceVariables": {
-						"Spooked": false
+						"spottedPlayer": false,
+						"followPlayer": false,
+						"health": 100,
+						"moveToX": 0,
+						"moveToY": 0,
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0,
+						"VoiceCoolDown": 0
 					},
 					"behaviors": {
-						"LineOfSight_HidePlaces": {
+						"AcquireVision": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 200,
+								"obstacles": "custom",
+								"range": 120,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
 						},
-						"MoveTo": {
+						"LoseVision": {
 							"properties": {
-								"max-speed": 70,
-								"acceleration": 600,
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 3,
+								"cell-border": -1,
+								"obstacles": "solids",
+								"max-speed": 0,
+								"acceleration": 20,
 								"deceleration": 600,
-								"rotate-speed": 1000,
-								"set-angle": true,
-								"stop-on-solids": false,
+								"rotate-speed": 0,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
 								"enabled": true
 							}
 						},
-						"LineOfSight_SpookyThings": {
+						"LineOfSight2": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 50,
-								"cone-of-view": 360,
+								"range": 25,
+								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
 							}
 						}
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 312,
-						"y": 328,
-						"width": 7,
-						"height": 5,
-						"originX": 0.5714285714285714,
-						"originY": 0.4,
+						"x": 204,
+						"y": 564,
+						"width": 32,
+						"height": 32,
+						"originX": 0.46875,
+						"originY": 0.59375,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": 1,
-						"angle": 5.202588872052313
-					}
-				},
-				{
-					"type": "Roach",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 238600,
-					"sid": 257430032649138,
-					"tags": "",
-					"instanceVariables": {
-						"Spooked": false
-					},
-					"behaviors": {
-						"LineOfSight_HidePlaces": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 200,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"MoveTo": {
-							"properties": {
-								"max-speed": 70,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 1000,
-								"set-angle": true,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
-						"LineOfSight_SpookyThings": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 50,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 212,
-						"y": 288,
-						"width": 7,
-						"height": 5,
-						"originX": 0.5714285714285714,
-						"originY": 0.4,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 1,
-						"angle": 5.202588872052313
+						"z": 3,
+						"angle": 0
 					}
 				},
 				{
