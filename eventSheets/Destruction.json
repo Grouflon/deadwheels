@@ -1312,6 +1312,47 @@
 									"sid": 907226594851908
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 895759457651443
+								}
+							],
+							"actions": [],
+							"sid": 145461593177137,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-random-instance",
+											"objectClass": "System",
+											"sid": 996465929409039,
+											"parameters": {
+												"object": "Furniture"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-object",
+											"objectClass": "Roach",
+											"sid": 727550986599780,
+											"behaviorType": "MoveTo",
+											"parameters": {
+												"object": "Furniture",
+												"image-point": "0",
+												"mode": "direct"
+											}
+										}
+									],
+									"sid": 833031767374028
+								}
+							]
 						}
 					]
 				}
