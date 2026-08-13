@@ -1284,7 +1284,35 @@
 									"sid": 756384339343818
 								}
 							],
-							"sid": 361386883300186
+							"sid": 361386883300186,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 764516505139440,
+											"parameters": {
+												"first-value": "Zombies.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"Chimio\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Corpse",
+											"sid": 718052907301691,
+											"parameters": {
+												"z": "Chimio.Z"
+											}
+										}
+									],
+									"sid": 620747012935432
+								}
+							]
 						}
 					]
 				}
@@ -1856,57 +1884,51 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Chimio",
-							"sid": 357892176286828,
+							"sid": 265911757225100,
 							"parameters": {
-								"instance-variable": "spottedPlayer"
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "Chimio",
-							"sid": 319054957135547,
-							"parameters": {
-								"animation": "\"Move\""
+								"instance-variable": "isAttacking"
 							},
 							"isInverted": true
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 529918162738019,
+					"children": [
 						{
-							"id": "set-animation",
-							"objectClass": "Chimio",
-							"sid": 425596167171135,
-							"parameters": {
-								"animation": "\"Idle\"",
-								"from": "beginning"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Chimio",
+									"sid": 155828906842475,
+									"parameters": {
+										"instance-variable": "spottedPlayer"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Chimio",
+									"sid": 922133498410403,
+									"parameters": {
+										"animation": "\"Move\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Chimio",
+									"sid": 807502239600808,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 530522590743131
 						}
-					],
-					"sid": 495913010175152
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Chimio",
-							"sid": 881011103034580,
-							"parameters": {
-								"object": "CharacterController"
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "DoDamage",
-							"objectClass": "CharacterController",
-							"sid": 960510156042353,
-							"parameters": [
-								"10"
-							]
-						}
-					],
-					"sid": 663952441892851
+					]
 				}
 			],
 			"sid": 218360608730011

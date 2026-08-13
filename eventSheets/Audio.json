@@ -1335,7 +1335,7 @@
 								{
 									"id": "play-at-object-by-name",
 									"objectClass": "Audio",
-									"sid": 172405122465000,
+									"sid": 930559636780415,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2,3,4,5,6)",
@@ -1345,7 +1345,7 @@
 										"inner-angle": "360",
 										"outer-angle": "360",
 										"outer-gain": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "\"Zombie\"&Zombies.UID"
 									}
 								}
 							],
@@ -1368,9 +1368,17 @@
 							],
 							"actions": [
 								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 119495248454728,
+									"parameters": {
+										"tag": "\"Zombie\"&Zombies.UID"
+									}
+								},
+								{
 									"id": "play-at-object-by-name",
 									"objectClass": "Audio",
-									"sid": 107378174811119,
+									"sid": 949360726258780,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2)",
@@ -1380,7 +1388,7 @@
 										"inner-angle": "360",
 										"outer-angle": "360",
 										"outer-gain": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "\"Zombie\"&Zombies.UID"
 									}
 								}
 							],
@@ -1393,9 +1401,9 @@
 								{
 									"id": "set-playback-rate",
 									"objectClass": "Audio",
-									"sid": 751552295267148,
+									"sid": 197035829884145,
 									"parameters": {
-										"tag": "\"\"",
+										"tag": "\"Zombie\"&Zombies.UID",
 										"playback-rate": "random(0.8,1.1)"
 									}
 								},
