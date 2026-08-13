@@ -1120,9 +1120,10 @@
 				{
 					"customAction": "zombieVoice",
 					"objectClass": "Zombies",
-					"sid": 888541648105617,
+					"sid": 858090278874004,
 					"parameters": [
-						"\"Hostile\""
+						"\"Hostile\"",
+						true
 					]
 				}
 			],
@@ -1169,6 +1170,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 520589280401776
+				},
+				{
+					"name": "OverrideCoolDown",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 478002296841026
 				}
 			],
 			"eventType": "custom-ace-block",
@@ -1185,6 +1193,31 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 947984159814933
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 412419908953111,
+							"parameters": {
+								"variable": "OverrideCoolDown"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombies",
+							"sid": 167714194200085,
+							"parameters": {
+								"instance-variable": "VoiceCoolDown",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 590340250065894
 				},
 				{
 					"eventType": "block",
@@ -1231,10 +1264,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 341210373913588,
+							"sid": 269336814356606,
 							"parameters": {
 								"variable": "VoiceType",
-								"value": "\"B\""
+								"value": "\"C\""
 							}
 						}
 					],
@@ -1273,7 +1306,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Zombies",
-							"sid": 701636035526776,
+							"sid": 424297544795045,
 							"parameters": {
 								"instance-variable": "VoiceCoolDown",
 								"comparison": 3,
@@ -1281,59 +1314,104 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "play-at-object-by-name",
-							"objectClass": "Audio",
-							"sid": 617400478293702,
-							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2)",
-								"loop": "not-looping",
-								"volume": "-5",
-								"object": "Zombies",
-								"inner-angle": "360",
-								"outer-angle": "360",
-								"outer-gain": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 818318623049241,
-							"disabled": true,
-							"parameters": {
-								"type": "log",
-								"message": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2)"
-							}
-						},
-						{
-							"id": "set-playback-rate",
-							"objectClass": "Audio",
-							"sid": 172996519141914,
-							"parameters": {
-								"tag": "\"\"",
-								"playback-rate": "random(0.8,1.1)"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Zombies",
-							"sid": 965723120161693,
-							"parameters": {
-								"instance-variable": "VoiceCoolDown",
-								"value": "0.8"
-							}
-						}
-					],
-					"sid": 367021704825132
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
 					"actions": [],
-					"sid": 302476906518372
+					"sid": 316814640258220,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 861055523578943,
+									"parameters": {
+										"first-value": "sound",
+										"comparison": 0,
+										"second-value": "\"Idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 172405122465000,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2,3,4,5,6)",
+										"loop": "not-looping",
+										"volume": "-10",
+										"object": "Zombies",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 939162318684816
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 141546805931592,
+									"parameters": {
+										"first-value": "sound",
+										"comparison": 0,
+										"second-value": "\"Idle\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 107378174811119,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "-5",
+										"object": "Zombies",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 936085064933646
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 751552295267148,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "random(0.8,1.1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombies",
+									"sid": 349563935198227,
+									"parameters": {
+										"instance-variable": "VoiceCoolDown",
+										"value": "random(2,4)"
+									}
+								}
+							],
+							"sid": 254438633893468
+						}
+					]
 				}
 			]
 		},

@@ -255,9 +255,10 @@
 						{
 							"customAction": "zombieVoice",
 							"objectClass": "Zombies",
-							"sid": 963493141411247,
+							"sid": 758669566532413,
 							"parameters": [
-								"\"Hostile\""
+								"\"Hostile\"",
+								true
 							]
 						}
 					],
@@ -1129,9 +1130,10 @@
 						{
 							"customAction": "zombieVoice",
 							"objectClass": "Zombies",
-							"sid": 240361423747150,
+							"sid": 267231305759331,
 							"parameters": [
-								"\"Pain\""
+								"\"Pain\"",
+								true
 							]
 						},
 						{
@@ -1224,9 +1226,10 @@
 								{
 									"customAction": "zombieVoice",
 									"objectClass": "Zombies",
-									"sid": 975048887028795,
+									"sid": 380893176165453,
 									"parameters": [
-										"\"Death\""
+										"\"Death\"",
+										true
 									]
 								},
 								{
@@ -1827,6 +1830,15 @@
 							}
 						},
 						{
+							"id": "add-obstacle",
+							"objectClass": "Chimio",
+							"sid": 347580342115744,
+							"behaviorType": "LoseVision",
+							"parameters": {
+								"obstacle": "Buildings"
+							}
+						},
+						{
 							"id": "set-enabled",
 							"objectClass": "Chimio",
 							"sid": 175057926408050,
@@ -1898,6 +1910,43 @@
 				}
 			],
 			"sid": 218360608730011
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Zombies",
+					"sid": 436236046820343,
+					"parameters": {
+						"instance-variable": "VoiceCoolDown",
+						"comparison": 3,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 472806741876455,
+					"parameters": {
+						"first-value": "distance(Zombies.X,Zombies.Y,scrollx,scrolly)",
+						"comparison": 3,
+						"second-value": "300"
+					}
+				}
+			],
+			"actions": [
+				{
+					"customAction": "zombieVoice",
+					"objectClass": "Zombies",
+					"sid": 538269006031724,
+					"parameters": [
+						"\"Idle\"",
+						false
+					]
+				}
+			],
+			"sid": 169932662811499
 		}
 	],
 	"sid": 810694807837553
