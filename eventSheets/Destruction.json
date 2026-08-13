@@ -711,248 +711,292 @@
 			"sid": 405833195542634
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "FireGFX",
-					"sid": 841707708735971
-				}
-			],
-			"actions": [],
-			"sid": 579099813373378,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Gun shells",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 475088543160035,
-							"parameters": {
-								"animation": "\"Pistol\""
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 652966374739630,
-							"parameters": {
-								"animation": "\"Smg\""
-							}
+							"id": "on-created",
+							"objectClass": "FireGFX",
+							"sid": 878333418082238
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 908992262616324,
+					"children": [
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Arm",
-							"sid": 338306913020793,
-							"parameters": {
-								"object": "Shell",
-								"layer": "Self.LayerName",
-								"image-point": "2",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Arm",
+									"sid": 388038781257308,
+									"parameters": {
+										"animation": "\"Pistol\""
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Arm",
+									"sid": 445102455103474,
+									"parameters": {
+										"animation": "\"Smg\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Arm",
+									"sid": 921514012710039,
+									"parameters": {
+										"object": "Shell",
+										"layer": "Self.LayerName",
+										"image-point": "2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Shell",
+									"sid": 820436611883233,
+									"parameters": {
+										"animation": "\"Gun\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 778126920652634,
+							"isOrBlock": true
 						},
 						{
-							"id": "set-animation",
-							"objectClass": "Shell",
-							"sid": 590317290672103,
-							"parameters": {
-								"animation": "\"Gun\"",
-								"from": "beginning"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Arm",
+									"sid": 555035402915170,
+									"parameters": {
+										"animation": "\"Shotgun\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Arm",
+									"sid": 460155642962639,
+									"parameters": {
+										"object": "Shell",
+										"layer": "Self.LayerName",
+										"image-point": "2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Shell",
+									"sid": 710227988523281,
+									"parameters": {
+										"animation": "\"Shotgun\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 836312178104784,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Arm",
+									"sid": 461601083664874,
+									"parameters": {
+										"animation": "\"Gatling\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Arm",
+									"sid": 752733288155494,
+									"parameters": {
+										"object": "Shell",
+										"layer": "Self.LayerName",
+										"image-point": "2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Shell",
+									"sid": 312385706101016,
+									"parameters": {
+										"animation": "\"Gatling\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 955873452570424,
+							"isOrBlock": true
 						}
-					],
-					"sid": 619612913920306,
-					"isOrBlock": true
+					]
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 311267668850417,
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bullet",
+							"sid": 287254474594206,
 							"parameters": {
-								"animation": "\"Shotgun\""
+								"object": "Mirror"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Mirror",
+							"sid": 575652873212678,
+							"parameters": {
+								"instance-variable": "Broken"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Arm",
-							"sid": 785737600646528,
+							"id": "set-face-image",
+							"objectClass": "Mirror",
+							"sid": 773351290921206,
 							"parameters": {
-								"object": "Shell",
-								"layer": "Self.LayerName",
-								"image-point": "2",
-								"create-hierarchy": false,
-								"template-name": "\"\""
+								"face": "top",
+								"image": "back"
 							}
 						},
 						{
-							"id": "set-animation",
-							"objectClass": "Shell",
-							"sid": 943568077844033,
+							"id": "set-face-image",
+							"objectClass": "Mirror",
+							"sid": 858965037037145,
 							"parameters": {
-								"animation": "\"Shotgun\"",
-								"from": "beginning"
+								"face": "bottom",
+								"image": "back"
+							}
+						},
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 967099838903324,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"DestroyGlass\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Mirror",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 304250126783587,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.9,1.1)"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Mirror",
+							"sid": 213517461495686,
+							"parameters": {
+								"instance-variable": "Broken",
+								"value": "true"
 							}
 						}
 					],
-					"sid": 859516659604058,
-					"isOrBlock": true
+					"sid": 287329376748427,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 936099414574010,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 487988465776718,
+									"parameters": {
+										"object-to-create": "Glass_Debris",
+										"layer": "Mirror.LayerName",
+										"x": "Mirror.X",
+										"y": "Mirror.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 523688429349013
+						}
+					]
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Arm",
-							"sid": 159110259862341,
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 448174615598001,
 							"parameters": {
-								"animation": "\"Gatling\""
+								"first-value": "Shell.Count",
+								"comparison": 4,
+								"second-value": "200"
+							}
+						},
+						{
+							"id": "pick-by-highest-lowest-value",
+							"objectClass": "System",
+							"sid": 290045947050376,
+							"parameters": {
+								"object": "Shell",
+								"which": "lowest",
+								"expression": "Shell.IID",
+								"pick-all-tied": false
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Arm",
-							"sid": 210336954203928,
-							"parameters": {
-								"object": "Shell",
-								"layer": "Self.LayerName",
-								"image-point": "2",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-animation",
+							"id": "destroy",
 							"objectClass": "Shell",
-							"sid": 998253729621870,
-							"parameters": {
-								"animation": "\"Gatling\"",
-								"from": "beginning"
-							}
+							"sid": 721735265401309
 						}
 					],
-					"sid": 505360992384452,
-					"isOrBlock": true
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Bullet",
-					"sid": 311401751606145,
-					"parameters": {
-						"object": "Mirror"
-					}
-				},
-				{
-					"id": "is-boolean-instance-variable-set",
-					"objectClass": "Mirror",
-					"sid": 923374255915904,
-					"parameters": {
-						"instance-variable": "Broken"
-					},
-					"isInverted": true
+					"sid": 564894595816732
 				}
 			],
-			"actions": [
-				{
-					"id": "set-face-image",
-					"objectClass": "Mirror",
-					"sid": 765285099430150,
-					"parameters": {
-						"face": "top",
-						"image": "back"
-					}
-				},
-				{
-					"id": "set-face-image",
-					"objectClass": "Mirror",
-					"sid": 383178286511391,
-					"parameters": {
-						"face": "bottom",
-						"image": "back"
-					}
-				},
-				{
-					"id": "play-at-object-by-name",
-					"objectClass": "Audio",
-					"sid": 738177988509716,
-					"parameters": {
-						"folder": "sounds",
-						"audio-file-name": "\"DestroyGlass\"&choose(1,2)",
-						"loop": "not-looping",
-						"volume": "0",
-						"object": "Mirror",
-						"inner-angle": "360",
-						"outer-angle": "360",
-						"outer-gain": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "set-playback-rate",
-					"objectClass": "Audio",
-					"sid": 729272768034685,
-					"parameters": {
-						"tag": "\"\"",
-						"playback-rate": "random(0.9,1.1)"
-					}
-				},
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Mirror",
-					"sid": 100181422701897,
-					"parameters": {
-						"instance-variable": "Broken",
-						"value": "true"
-					}
-				}
-			],
-			"sid": 195584142710765,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "repeat",
-							"objectClass": "System",
-							"sid": 537230290422787,
-							"parameters": {
-								"count": "5"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 219087709491669,
-							"parameters": {
-								"object-to-create": "Glass_Debris",
-								"layer": "Mirror.LayerName",
-								"x": "Mirror.X",
-								"y": "Mirror.Y",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 180591271249479
-				}
-			]
+			"sid": 305375089008441
 		},
 		{
 			"eventType": "block",
@@ -976,38 +1020,303 @@
 			"sid": 891388481082980
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Roach",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 421832380041215,
-					"parameters": {
-						"first-value": "Shell.Count",
-						"comparison": 4,
-						"second-value": "200"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "ChairController",
+							"sid": 354334708549201,
+							"parameters": {
+								"object": "Roach"
+							}
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "ChairController",
+							"sid": 679293967875526,
+							"behaviorType": "Custom"
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Roach",
+							"sid": 918420972505782
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Roach",
+							"sid": 867305354361755,
+							"parameters": {
+								"object": "BloodStain",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 360180745938545,
+							"parameters": {
+								"audio-file": {
+									"path": "GoreBig1"
+								},
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 323560751358921,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "2"
+							}
+						}
+					],
+					"sid": 449560150680036
 				},
 				{
-					"id": "pick-by-highest-lowest-value",
-					"objectClass": "System",
-					"sid": 486375393079483,
-					"parameters": {
-						"object": "Shell",
-						"which": "lowest",
-						"expression": "Shell.IID",
-						"pick-all-tied": false
-					}
-				}
-			],
-			"actions": [
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Roach",
+							"sid": 234427424714517
+						}
+					],
+					"actions": [
+						{
+							"id": "set-max-speed",
+							"objectClass": "Roach",
+							"sid": 175708642463834,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"max-speed": "random(Self.MoveTo.MaxSpeed*0.8,Self.MoveTo.MaxSpeed*1)"
+							}
+						},
+						{
+							"id": "set-rotate-speed",
+							"objectClass": "Roach",
+							"sid": 767206038594501,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"rotate-speed": "random(Self.MoveTo.RotateSpeed*0.8,Self.MoveTo.RotateSpeed*1)"
+							}
+						}
+					],
+					"sid": 882150116418298
+				},
 				{
-					"id": "destroy",
-					"objectClass": "Shell",
-					"sid": 932748584586238
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "Roach",
+							"sid": 588346210312642,
+							"behaviorType": "LineOfSight_SpookyThings",
+							"parameters": {
+								"object": "CharacterController",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "Roach",
+							"sid": 871772517371892,
+							"behaviorType": "MoveTo",
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Roach",
+							"sid": 482808184244672,
+							"parameters": {
+								"object": "Furniture"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Roach",
+							"sid": 909660154737253,
+							"parameters": {
+								"instance-variable": "Spooked",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 893180773977136
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Roach",
+							"sid": 305393229881785,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Roach",
+							"sid": 656227682961201,
+							"parameters": {
+								"instance-variable": "Spooked",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 837857770965217
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Furniture",
+							"sid": 525133362264577
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Roach",
+							"sid": 510461121000036,
+							"parameters": {
+								"object": "Furniture"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Roach",
+							"sid": 211067664735516,
+							"parameters": {
+								"instance-variable": "Spooked",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 340486419593061
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Roach",
+							"sid": 612018583051618,
+							"parameters": {
+								"instance-variable": "Spooked"
+							}
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "Roach",
+							"sid": 503876713933760,
+							"behaviorType": "MoveTo",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 325704165783910,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Roach\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Roach",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 588057947488505,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(1,1.2)"
+							}
+						}
+					],
+					"sid": 533153365069813,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Roach picks nearest place to hide"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "Roach",
+									"sid": 351190755333101,
+									"behaviorType": "LineOfSight_HidePlaces",
+									"parameters": {
+										"object": "Furniture",
+										"image-point": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 571129782747350,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-random-instance",
+											"objectClass": "System",
+											"sid": 993299946170983,
+											"parameters": {
+												"object": "Furniture"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-object",
+											"objectClass": "Roach",
+											"sid": 974604957023436,
+											"behaviorType": "MoveTo",
+											"parameters": {
+												"object": "Furniture",
+												"image-point": "0",
+												"mode": "direct"
+											}
+										}
+									],
+									"sid": 907226594851908
+								}
+							]
+						}
+					]
 				}
 			],
-			"sid": 474674007489578
+			"sid": 894541841934281
 		}
 	],
 	"sid": 535961549360984
