@@ -985,12 +985,6 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 754485318653364
-				},
-				{
-					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
@@ -1243,6 +1237,27 @@
 					"actions": [],
 					"sid": 859912288588498,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "IronShutter",
+									"sid": 289031143845785,
+									"parameters": {
+										"unique-id": "ButtonSlot.DoorUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "ToggleShutter",
+									"objectClass": "IronShutter",
+									"sid": 112580209380951
+								}
+							],
+							"sid": 535802952226751
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -4800,6 +4815,544 @@
 				}
 			],
 			"sid": 835211306959490
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "IronShutter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "ToggleShutter",
+					"objectClass": "IronShutter",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "IronShutter",
+							"sid": 821199729524453,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 788910358149164,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-z-elevation",
+									"objectClass": "IronShutter",
+									"sid": 346289665187690,
+									"parameters": {
+										"which": "z-elevation",
+										"comparison": 3,
+										"z-elevation": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 204137049390221,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/IronShutterUse"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "IronShutter",
+									"sid": 144479601147789,
+									"behaviorType": "TweenSelf",
+									"parameters": {
+										"tags": "\"ShutterMovement\"",
+										"property": "offsetZElevation",
+										"end-value": "32",
+										"time": "IronShutter.ClosingTime",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 158874553576273
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 295254275731466
+								},
+								{
+									"id": "compare-z-elevation",
+									"objectClass": "IronShutter",
+									"sid": 356484990521641,
+									"parameters": {
+										"which": "z-elevation",
+										"comparison": 4,
+										"z-elevation": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 587664236753041,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/IronShutterUse"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "IronShutter",
+									"sid": 971416233779913,
+									"behaviorType": "TweenSelf",
+									"parameters": {
+										"tags": "\"ShutterMovement\"",
+										"property": "offsetZElevation",
+										"end-value": "0",
+										"time": "IronShutter.ClosingTime",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 357370440833963
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 841624671718304,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/IronShutterLoop"
+										},
+										"loop": "looping",
+										"volume": "0",
+										"object": "IronShutter",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"IronShutter\"&IronShutter.UID"
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 516775942797248,
+									"parameters": {
+										"tag": "\"IronShutter\"&IronShutter.UID",
+										"playback-rate": "1"
+									}
+								}
+							],
+							"sid": 413608861831115
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 817264844526370,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 0,
+								"z-elevation": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "change-tags",
+							"objectClass": "IronShutter",
+							"sid": 867475157688686,
+							"parameters": {
+								"action": "replace",
+								"tags": "\"\""
+							}
+						}
+					],
+					"sid": 989244761149770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 436501291597561,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 5,
+								"z-elevation": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "change-tags",
+							"objectClass": "IronShutter",
+							"sid": 261820060351391,
+							"parameters": {
+								"action": "replace",
+								"tags": "\"Crawlable\""
+							}
+						}
+					],
+					"sid": 285841916677857
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 951817911144096,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 2,
+								"z-elevation": "15"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "IronShutter",
+							"sid": 288282859168026,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 326407229537747,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 981558904425408
+								}
+							],
+							"actions": [
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 777416628518218,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "IronShutter.X - 32",
+										"start-y": "IronShutter.Y - 32",
+										"end-x": "IronShutter.X + 32",
+										"end-y": "IronShutter.Y + 32"
+									}
+								}
+							],
+							"sid": 887885349978362
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 222543379190668,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 5,
+								"z-elevation": "15"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "IronShutter",
+							"sid": 968065612294057,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "change-tags",
+							"objectClass": "IronShutter",
+							"sid": 195132149672683,
+							"parameters": {
+								"action": "replace",
+								"tags": "\"Crawlable Chair\""
+							}
+						}
+					],
+					"sid": 979833528863973
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "IronShutter",
+							"sid": 190952688033346,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 418526454918209,
+							"parameters": {
+								"audio-file": {
+									"path": "Interactive/IronShutterUse"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 731541686884062,
+							"parameters": {
+								"tag": "\"IronShutter\"&IronShutter.UID"
+							}
+						}
+					],
+					"sid": 540748866045551,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-z-elevation",
+									"objectClass": "IronShutter",
+									"sid": 680127112663314,
+									"parameters": {
+										"which": "z-elevation",
+										"comparison": 0,
+										"z-elevation": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 319196349751234,
+									"parameters": {
+										"object-to-create": "DustParticle",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.X",
+										"y": "IronShutter.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 543927501843256,
+									"parameters": {
+										"object-to-create": "DustParticle",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.FaceImagePointX(0,1)",
+										"y": "IronShutter.FaceImagePointY(0,1)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 683164404438014,
+									"parameters": {
+										"object-to-create": "DustParticle",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.FaceImagePointX(0,2)",
+										"y": "IronShutter.FaceImagePointY(0,2)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 806997834497891
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 394096504238003,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 3,
+								"z-elevation": "1"
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "IronShutter",
+							"sid": 885203298989080,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 710831391991068,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "IronShutter",
+									"sid": 795823415966073,
+									"parameters": {
+										"object": "CrawlingSprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "DoDamage",
+									"objectClass": "CharacterController",
+									"sid": 484185747646557,
+									"parameters": [
+										"200"
+									]
+								}
+							],
+							"sid": 862598685815957
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 928431920545933,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 2,
+								"z-elevation": "14"
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "IronShutter",
+							"sid": 834131713039956,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 614410561945389,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "IronShutter",
+									"sid": 485257289603821,
+									"parameters": {
+										"object": "Zombies"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 933824528259391,
+									"parameters": {
+										"audio-file": {
+											"path": "GoreBig2"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "IronShutter",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"customAction": "DoDamage",
+									"objectClass": "Zombies",
+									"sid": 387989949461132,
+									"parameters": [
+										"200",
+										"0"
+									]
+								}
+							],
+							"sid": 696145529201395
+						}
+					]
+				}
+			],
+			"sid": 968014154452411
 		}
 	],
 	"sid": 171422187705970
