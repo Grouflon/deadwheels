@@ -1150,6 +1150,15 @@
 						"instance-variable": "VoiceCoolDown",
 						"value": "-0.1"
 					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Zombies",
+					"sid": 330686273691081,
+					"parameters": {
+						"instance-variable": "footStepCoolDown",
+						"value": "-0.1"
+					}
 				}
 			],
 			"sid": 573766048221595
@@ -1448,6 +1457,64 @@
 				}
 			],
 			"sid": 581036979373655
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving-along-path",
+					"objectClass": "Zombies",
+					"sid": 614426954715409,
+					"behaviorType": "Pathfinding"
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Zombies",
+					"sid": 613858735067737,
+					"parameters": {
+						"instance-variable": "footStepCoolDown",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 845294093887883,
+					"parameters": {
+						"instance-variable": "footStepCoolDown",
+						"value": "0.6"
+					}
+				},
+				{
+					"id": "play-at-object-by-name",
+					"objectClass": "Audio",
+					"sid": 722046218081747,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Footsteps/StepTile\"&choose(1,2,3,4)",
+						"loop": "not-looping",
+						"volume": "0",
+						"object": "Zombies",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 713666734693178,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				}
+			],
+			"sid": 417797537673553
 		}
 	],
 	"sid": 128376728907050
