@@ -1007,27 +1007,49 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"customAction": "ButtonEnabled",
+							"objectClass": "ButtonSlot",
+							"sid": 275926059853115
+						}
+					],
 					"sid": 484782233203519,
+					"isOrBlock": true
+				},
+				{
+					"aceType": "action",
+					"aceName": "ButtonEnabled",
+					"objectClass": "ButtonSlot",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ButtonSlot",
+							"sid": 956342641841470,
+							"parameters": {
+								"instance-variable": "Enabled"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 634017433369764,
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "ButtonSlot",
-									"sid": 773626480295337,
-									"parameters": {
-										"instance-variable": "Enabled"
-									},
-									"isInverted": true
-								}
-							],
+							"conditions": [],
 							"actions": [
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "ButtonSlot",
-									"sid": 435920969566075,
+									"sid": 215630532554285,
 									"parameters": {
 										"instance-variable": "Enabled",
 										"value": "true"
@@ -1036,7 +1058,7 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 595487929461840,
+									"sid": 562202636493800,
 									"parameters": {
 										"audio-file": {
 											"path": "Button1"
@@ -1050,7 +1072,7 @@
 								{
 									"id": "move-forward",
 									"objectClass": "ButtonSlot2",
-									"sid": 439748861546880,
+									"sid": 345016472240087,
 									"parameters": {
 										"distance": "-2"
 									}
@@ -1058,7 +1080,7 @@
 								{
 									"id": "start-timer",
 									"objectClass": "ButtonSlot",
-									"sid": 482865819428436,
+									"sid": 960310203117513,
 									"behaviorType": "Timer",
 									"parameters": {
 										"duration": "ButtonSlot.Time",
@@ -1067,163 +1089,139 @@
 									}
 								}
 							],
-							"sid": 458122926210661,
+							"sid": 779045628555775
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ButtonSlot",
+									"sid": 231923560383450,
+									"parameters": {
+										"instance-variable": "Time",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 587503583268432,
+									"parameters": {
+										"object-to-create": "ButtonLight",
+										"layer": "ButtonSlot.LayerName",
+										"x": "ButtonSlot.X",
+										"y": "ButtonSlot.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "ButtonSlot",
+									"sid": 253754600228926,
+									"parameters": {
+										"child": "ButtonLight",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-z-elevation": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-d": true,
+										"transform-a": true,
+										"transform-o": false,
+										"transform-visibility": false,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "ButtonLight",
+									"sid": 602910493107216,
+									"parameters": {
+										"angle": "ButtonSlot.Angle"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonLight",
+									"sid": 937429046341703,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 180136127039688
+						},
+						{
+							"eventType": "comment",
+							"text": "If elevator, alert zombies"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Door_Elevator",
+									"sid": 428300215816732,
+									"parameters": {
+										"unique-id": "ButtonSlot.DoorUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 504853706277629,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "ButtonSlot",
-											"sid": 582585079906850,
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 209773857990474,
 											"parameters": {
-												"instance-variable": "Time",
-												"comparison": 4,
-												"value": "0"
+												"object": "Zombies"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 160032569645334,
+											"parameters": {
+												"first-value": "distance(CharacterController.X,CharacterController.Y,Zombies.X,Zombies.Y)",
+												"comparison": 3,
+												"second-value": "zombie_elevator_detection_distance"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 546820917254837,
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 562467792604191,
 											"parameters": {
-												"object-to-create": "ButtonLight",
-												"layer": "ButtonSlot.LayerName",
-												"x": "ButtonSlot.X",
-												"y": "ButtonSlot.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
+												"instance-variable": "moveToX",
+												"value": "CharacterController.X"
 											}
 										},
 										{
-											"id": "add-child",
-											"objectClass": "ButtonSlot",
-											"sid": 205607276666824,
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 502082649137929,
 											"parameters": {
-												"child": "ButtonLight",
-												"transform-x": true,
-												"transform-y": true,
-												"transform-z-elevation": true,
-												"transform-w": true,
-												"transform-h": true,
-												"transform-d": true,
-												"transform-a": true,
-												"transform-o": false,
-												"transform-visibility": false,
-												"destroy-with-parent": false
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "ButtonLight",
-											"sid": 935249136323944,
-											"parameters": {
-												"angle": "ButtonSlot.Angle"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "ButtonLight",
-											"sid": 798753410609083,
-											"parameters": {
-												"visibility": "visible"
+												"instance-variable": "moveToY",
+												"value": "CharacterController.Y"
 											}
 										}
 									],
-									"sid": 845262859619571
-								},
-								{
-									"eventType": "comment",
-									"text": "If elevator, alert zombies"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door_Elevator",
-											"sid": 220941496073825,
-											"parameters": {
-												"unique-id": "ButtonSlot.DoorUID"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 651620027644384,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 283672479194928,
-													"parameters": {
-														"object": "Zombies"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 707620080090388,
-													"parameters": {
-														"first-value": "distance(CharacterController.X,CharacterController.Y,Zombies.X,Zombies.Y)",
-														"comparison": 3,
-														"second-value": "zombie_elevator_detection_distance"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Zombies",
-													"sid": 349441773536593,
-													"parameters": {
-														"instance-variable": "moveToX",
-														"value": "CharacterController.X"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Zombies",
-													"sid": 380846868961665,
-													"parameters": {
-														"instance-variable": "moveToY",
-														"value": "CharacterController.Y"
-													}
-												}
-											],
-											"sid": 551582733868362
-										}
-									]
+									"sid": 472723852369483
 								}
 							]
 						}
-					],
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Bullet",
-							"sid": 669643375207104,
-							"parameters": {
-								"object": "ButtonSlot2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Bullet",
-							"sid": 877032149740643
-						}
-					],
-					"sid": 213837527282939
+					]
 				},
 				{
 					"eventType": "block",

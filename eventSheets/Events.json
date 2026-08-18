@@ -99,10 +99,36 @@
 										}
 									],
 									"sid": 184855228346799
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Trigger",
+											"sid": 275185590969356,
+											"parameters": {
+												"child": "ButtonSlot",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "ButtonEnabled",
+											"objectClass": "ButtonSlot",
+											"sid": 426922934747561
+										}
+									],
+									"sid": 933087257597995
 								}
 							]
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "ZombieSpawn"
 				},
 				{
 					"eventType": "block",
@@ -171,16 +197,6 @@
 										"create-hierarchy": false,
 										"template-name": "Event_ZombieSpawn.ZombieName"
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 876262778527836,
-									"disabled": true,
-									"parameters": {
-										"type": "log",
-										"message": "Event_ZombieSpawn.ZombieName"
-									}
 								}
 							],
 							"sid": 285041562423327,
@@ -241,6 +257,10 @@
 							"sid": 592203005960854
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Sound"
 				},
 				{
 					"eventType": "block",
@@ -433,6 +453,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "Fade in something"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -518,6 +542,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "Fade out something"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -593,6 +621,10 @@
 							"sid": 468962404783128
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Destroy something"
 				},
 				{
 					"eventType": "block",
