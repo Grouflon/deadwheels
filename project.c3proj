@@ -207,20 +207,7 @@
 	"objectTypes": {
 		"items": [
 			"Dummy",
-			"Text",
-			"FPSDisplay",
-			"DirtMarkVents",
-			"LevelManager",
-			"IntroHero",
-			"Plant_Pot",
-			"Plant_Foliage",
-			"Glass",
-			"Particles",
-			"Roach",
-			"Chimio",
-			"WallTextureStretched",
-			"WallTextureStretched2",
-			"Texture_IronShutter"
+			"Text"
 		],
 		"subfolders": [
 			{
@@ -232,31 +219,11 @@
 					"Legs",
 					"Arm",
 					"CrawlingSprite",
-					"ChairController"
+					"ChairController",
+					"IntroHero"
 				],
 				"subfolders": [],
 				"name": "Character"
-			},
-			{
-				"items": [
-					"Building3x3",
-					"Building4x3",
-					"Building5x3",
-					"Building6x3",
-					"Building7x3",
-					"Awning",
-					"Cables",
-					"Tree",
-					"Umbrella",
-					"LampPostLight",
-					"LampPostPole",
-					"Pillar",
-					"Obelisk",
-					"Wall",
-					"MapReference"
-				],
-				"subfolders": [],
-				"name": "WorldExample"
 			},
 			{
 				"items": [
@@ -281,7 +248,9 @@
 					"HelicopterRotor",
 					"ZombiesHitbox",
 					"Andrea",
-					"Radio"
+					"Radio",
+					"Chimio",
+					"Roach"
 				],
 				"subfolders": [],
 				"name": "Game"
@@ -296,7 +265,8 @@
 					"ButtonLight",
 					"Dust",
 					"DustParticle",
-					"BloodStain"
+					"BloodStain",
+					"Particles"
 				],
 				"subfolders": [],
 				"name": "Effects"
@@ -317,64 +287,140 @@
 					"HealthBarBackground",
 					"InputIcon",
 					"UIWeapon",
-					"IntroTextFont"
+					"IntroTextFont",
+					"FPSDisplay"
 				],
 				"subfolders": [],
 				"name": "UI"
 			},
 			{
-				"items": [
-					"Table",
-					"Bed",
-					"Table2",
-					"OuterWall",
-					"InsideWallDoorFrame",
-					"InsideWallElevator",
-					"InsideWallVentFrame",
-					"InsideWallWindow",
-					"Barricades",
-					"Door_Windowed",
-					"Sign1",
-					"Sign2",
-					"InnerWall",
-					"Mirror",
-					"DisabilityBar",
-					"Sink",
-					"Toilet",
-					"ToiletTop",
-					"Counter",
-					"Door_Button",
-					"Door_Elevator",
-					"Elevator",
-					"CounterWood",
-					"OuterWallVent",
-					"BuildingSide",
-					"RoofTopBlockade",
-					"CityStreet1",
-					"CityStreet2",
-					"Floor_Concrete1",
-					"Floor_Elevator",
-					"Floor_Tiles1",
-					"Floor_Tiles2",
-					"Helipad",
-					"Black",
-					"VentPlate",
-					"Sign3",
-					"Sheet",
-					"Perfusion",
-					"Bed2",
-					"InnerWall2",
-					"Floor_Tiles3",
-					"Floor_Tiles4",
-					"InnerWallBrick",
-					"Shelves1",
-					"Shelves2",
-					"Floor_Tiles5",
-					"ArmChair",
-					"WallStretched",
-					"IronShutter"
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"OuterWallStretched",
+							"InnerWallStretched"
+						],
+						"subfolders": [],
+						"name": "Walls_Scalable"
+					},
+					{
+						"items": [
+							"ArmChair",
+							"Barricades",
+							"Bed",
+							"Bed2",
+							"Counter",
+							"CounterWood",
+							"DisabilityBar",
+							"Mirror",
+							"Perfusion",
+							"Sheet",
+							"Shelves1",
+							"Shelves2",
+							"Sign1",
+							"Sign2",
+							"Sign3",
+							"Sink",
+							"Table",
+							"Table2",
+							"Toilet",
+							"ToiletTop",
+							"VentPlate",
+							"Glass",
+							"Plant_Foliage",
+							"Plant_Pot"
+						],
+						"subfolders": [],
+						"name": "Furniture"
+					},
+					{
+						"items": [
+							"Black"
+						],
+						"subfolders": [],
+						"name": "Misc"
+					},
+					{
+						"items": [
+							"BuildingSide",
+							"CityStreet1",
+							"CityStreet2"
+						],
+						"subfolders": [],
+						"name": "City"
+					},
+					{
+						"items": [
+							"Door_Button",
+							"Door_Elevator",
+							"Door_Windowed",
+							"Elevator"
+						],
+						"subfolders": [],
+						"name": "Interactive"
+					},
+					{
+						"items": [
+							"Floor_Elevator",
+							"Floor_Concrete1",
+							"Floor_Tiles1",
+							"Floor_Tiles2",
+							"Floor_Tiles3",
+							"Floor_Tiles4",
+							"Floor_Tiles5",
+							"Helipad"
+						],
+						"subfolders": [],
+						"name": "Floors"
+					},
+					{
+						"items": [
+							"InnerWall",
+							"InnerWall2",
+							"InnerWallBrick",
+							"InsideWallDoorFrame",
+							"InsideWallElevator",
+							"InsideWallVentFrame",
+							"InsideWallWindow",
+							"IronShutter",
+							"OuterWall",
+							"OuterWallVent",
+							"RoofTopBlockade"
+						],
+						"subfolders": [],
+						"name": "Walls"
+					},
+					{
+						"items": [
+							"DirtMarkVents"
+						],
+						"subfolders": [],
+						"name": "2D Elements"
+					},
+					{
+						"items": [
+							"WallTextureTop",
+							"WallTextureSide",
+							"Texture_IronShutter"
+						],
+						"subfolders": [],
+						"name": "WorldTextures"
+					},
+					{
+						"items": [
+							"Building3x3",
+							"Building4x3",
+							"Building5x3",
+							"Building6x3",
+							"Building7x3",
+							"Cables",
+							"Obelisk"
+						],
+						"subfolders": [],
+						"name": "OldExample"
+					}
 				],
-				"subfolders": [],
 				"name": "World"
 			},
 			{
@@ -405,7 +451,8 @@
 					"Event_Sound",
 					"Event_ZombieSpawn",
 					"Trigger",
-					"Event_BreakFurniture"
+					"Event_BreakFurniture",
+					"LevelManager"
 				],
 				"subfolders": [],
 				"name": "Events"
