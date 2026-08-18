@@ -2,6 +2,26 @@
 	"name": "Destruction",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "max_debris_count",
+			"type": "number",
+			"initialValue": "150",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 845223702411872
+		},
+		{
+			"eventType": "variable",
+			"name": "max_shell_count",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 765330717158276
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Debris",
@@ -455,6 +475,44 @@
 							"sid": 282281265026266
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Max debris destroy"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 898645413744666,
+							"parameters": {
+								"first-value": "Debris.Count",
+								"comparison": 4,
+								"second-value": "max_debris_count"
+							}
+						},
+						{
+							"id": "pick-by-highest-lowest-value",
+							"objectClass": "System",
+							"sid": 624463577317556,
+							"parameters": {
+								"object": "Debris",
+								"which": "lowest",
+								"expression": "Debris.IID",
+								"pick-all-tied": false
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Debris",
+							"sid": 883143694706301
+						}
+					],
+					"sid": 725484241947433
 				}
 			],
 			"sid": 171228647712539
@@ -786,11 +844,11 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 448174615598001,
+							"sid": 136711442093373,
 							"parameters": {
 								"first-value": "Shell.Count",
 								"comparison": 4,
-								"second-value": "200"
+								"second-value": "max_shell_count"
 							}
 						},
 						{
