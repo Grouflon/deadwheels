@@ -391,41 +391,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Bullet",
-							"sid": 767585500172783,
-							"parameters": {
-								"object": "Glass"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Glass",
-							"sid": 981773617783163
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 939137849861479,
-							"parameters": {
-								"audio-file": {
-									"path": "BulletGlass"
-								},
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
-						}
-					],
-					"sid": 967226976204443
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-destroyed",
 							"objectClass": "Glass",
 							"sid": 891217831689354
@@ -621,44 +586,6 @@
 							"isOrBlock": true
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Destroy furniture with bullets"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Furniture",
-							"sid": 582015855416306,
-							"parameters": {
-								"instance-variable": "chairCanDestroy"
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Bullet",
-							"sid": 517218787512610,
-							"parameters": {
-								"object": "Furniture"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Bullet",
-							"sid": 397377675794342
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Furniture",
-							"sid": 912922750785923
-						}
-					],
-					"sid": 115805568457796
 				},
 				{
 					"eventType": "block",
@@ -857,114 +784,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Bullet",
-							"sid": 287254474594206,
-							"parameters": {
-								"object": "Mirror"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Mirror",
-							"sid": 575652873212678,
-							"parameters": {
-								"instance-variable": "Broken"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-face-image",
-							"objectClass": "Mirror",
-							"sid": 773351290921206,
-							"parameters": {
-								"face": "top",
-								"image": "back"
-							}
-						},
-						{
-							"id": "set-face-image",
-							"objectClass": "Mirror",
-							"sid": 858965037037145,
-							"parameters": {
-								"face": "bottom",
-								"image": "back"
-							}
-						},
-						{
-							"id": "play-at-object-by-name",
-							"objectClass": "Audio",
-							"sid": 967099838903324,
-							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "\"DestroyGlass\"&choose(1,2)",
-								"loop": "not-looping",
-								"volume": "0",
-								"object": "Mirror",
-								"inner-angle": "360",
-								"outer-angle": "360",
-								"outer-gain": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-playback-rate",
-							"objectClass": "Audio",
-							"sid": 304250126783587,
-							"parameters": {
-								"tag": "\"\"",
-								"playback-rate": "random(0.9,1.1)"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Mirror",
-							"sid": 213517461495686,
-							"parameters": {
-								"instance-variable": "Broken",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 287329376748427,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "repeat",
-									"objectClass": "System",
-									"sid": 936099414574010,
-									"parameters": {
-										"count": "5"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 487988465776718,
-									"parameters": {
-										"object-to-create": "Glass_Debris",
-										"layer": "Mirror.LayerName",
-										"x": "Mirror.X",
-										"y": "Mirror.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 523688429349013
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "compare-two-values",
 							"objectClass": "System",
 							"sid": 448174615598001,
@@ -997,27 +816,6 @@
 				}
 			],
 			"sid": 305375089008441
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Bullet",
-					"sid": 619291638148873,
-					"parameters": {
-						"object": "Doors"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Bullet",
-					"sid": 419552673889740
-				}
-			],
-			"sid": 891388481082980
 		},
 		{
 			"eventType": "group",

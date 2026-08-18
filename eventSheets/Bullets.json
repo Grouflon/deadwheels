@@ -1,0 +1,348 @@
+{
+	"name": "Bullets",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Bullets are hidden at the beginning of their lifetime (this is because they actually spawn from the arms' hand, not the gun tip)"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Bullet",
+					"sid": 946911955207236
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 247539491108973,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Bullet",
+					"sid": 178411972849816,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 293544077854530
+		},
+		{
+			"eventType": "comment",
+			"text": "Zombies get shot"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 317806488826573,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 706073982060603,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"BulletFlesh\"&choose(1,2,3)",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 205794354057317,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 570953392468760
+				},
+				{
+					"customAction": "DoDamage",
+					"objectClass": "Zombies",
+					"sid": 385481463785577,
+					"parameters": [
+						"Bullet.damage",
+						"10"
+					]
+				}
+			],
+			"sid": 954561544486224,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombies",
+							"sid": 442327009713136,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 544017420411465
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 955438893755898
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Bullets hit walls"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 543266368322729,
+					"parameters": {
+						"object": "Buildings"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 483146497911271
+				}
+			],
+			"sid": 455727725082029
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 619291638148873,
+					"parameters": {
+						"object": "Doors"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 419552673889740
+				}
+			],
+			"sid": 891388481082980
+		},
+		{
+			"eventType": "comment",
+			"text": "Destroy furniture with bullets"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 557031198809766,
+					"parameters": {
+						"object": "Glass"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Glass",
+					"sid": 711386849061849
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 327481295769289,
+					"parameters": {
+						"audio-file": {
+							"path": "BulletGlass"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 817336661846293
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Furniture",
+					"sid": 582015855416306,
+					"parameters": {
+						"instance-variable": "chairCanDestroy"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Bullet",
+					"sid": 517218787512610,
+					"parameters": {
+						"object": "Furniture"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 397377675794342
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Furniture",
+					"sid": 912922750785923
+				}
+			],
+			"sid": 115805568457796
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 287254474594206,
+					"parameters": {
+						"object": "Mirror"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Mirror",
+					"sid": 575652873212678,
+					"parameters": {
+						"instance-variable": "Broken"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-face-image",
+					"objectClass": "Mirror",
+					"sid": 773351290921206,
+					"parameters": {
+						"face": "top",
+						"image": "back"
+					}
+				},
+				{
+					"id": "set-face-image",
+					"objectClass": "Mirror",
+					"sid": 858965037037145,
+					"parameters": {
+						"face": "bottom",
+						"image": "back"
+					}
+				},
+				{
+					"id": "play-at-object-by-name",
+					"objectClass": "Audio",
+					"sid": 967099838903324,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"DestroyGlass\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "0",
+						"object": "Mirror",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 304250126783587,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(0.9,1.1)"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Mirror",
+					"sid": 213517461495686,
+					"parameters": {
+						"instance-variable": "Broken",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 287329376748427,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 936099414574010,
+							"parameters": {
+								"count": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 487988465776718,
+							"parameters": {
+								"object-to-create": "Glass_Debris",
+								"layer": "Mirror.LayerName",
+								"x": "Mirror.X",
+								"y": "Mirror.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 523688429349013
+				}
+			]
+		}
+	],
+	"sid": 141441738865416
+}
