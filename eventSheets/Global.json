@@ -1004,7 +1004,7 @@
 									"objectClass": "System",
 									"sid": 587503583268432,
 									"parameters": {
-										"object-to-create": "ButtonLight",
+										"object-to-create": "LightButton",
 										"layer": "ButtonSlot.LayerName",
 										"x": "ButtonSlot.X",
 										"y": "ButtonSlot.Y",
@@ -1017,7 +1017,7 @@
 									"objectClass": "ButtonSlot",
 									"sid": 253754600228926,
 									"parameters": {
-										"child": "ButtonLight",
+										"child": "LightButton",
 										"transform-x": true,
 										"transform-y": true,
 										"transform-z-elevation": true,
@@ -1032,7 +1032,7 @@
 								},
 								{
 									"id": "set-angle",
-									"objectClass": "ButtonLight",
+									"objectClass": "LightButton",
 									"sid": 602910493107216,
 									"parameters": {
 										"angle": "ButtonSlot.Angle"
@@ -1040,7 +1040,7 @@
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "ButtonLight",
+									"objectClass": "LightButton",
 									"sid": 937429046341703,
 									"parameters": {
 										"visibility": "visible"
@@ -1213,7 +1213,7 @@
 									"objectClass": "ButtonSlot",
 									"sid": 556742130302399,
 									"parameters": {
-										"child": "ButtonLight",
+										"child": "LightButton",
 										"which": "own"
 									}
 								}
@@ -1221,7 +1221,7 @@
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "ButtonLight",
+									"objectClass": "LightButton",
 									"sid": 660258989483177,
 									"parameters": {
 										"visibility": "invisible"
@@ -2935,7 +2935,7 @@
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "ButtonLight",
+									"objectClass": "LightButton",
 									"sid": 272307809165464,
 									"parameters": {
 										"visibility": "visible"
@@ -4876,6 +4876,53 @@
 										"tag": "\"IronShutter\"&IronShutter.UID",
 										"playback-rate": "1"
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 329551873849880,
+									"parameters": {
+										"object-to-create": "LightShutter",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.BBoxMidX",
+										"y": "IronShutter.BBoxMidY",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "IronShutter",
+									"sid": 283126754166177,
+									"parameters": {
+										"child": "LightShutter",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-z-elevation": false,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-d": false,
+										"transform-a": true,
+										"transform-o": false,
+										"transform-visibility": false,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "LightShutter",
+									"sid": 524877714680240,
+									"parameters": {
+										"angle": "IronShutter.Angle"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LightShutter",
+									"sid": 302074641782091,
+									"parameters": {
+										"visibility": "visible"
+									}
 								}
 							],
 							"sid": 413608861831115
@@ -5121,6 +5168,28 @@
 								}
 							],
 							"sid": 806997834497891
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "IronShutter",
+									"sid": 149611957256809,
+									"parameters": {
+										"child": "LightShutter",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "LightShutter",
+									"sid": 696914567040189
+								}
+							],
+							"sid": 129768241772334
 						}
 					]
 				},

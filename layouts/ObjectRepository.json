@@ -1475,7 +1475,8 @@
 						"lastValidTargetX": 0,
 						"lastValidTargetY": 0,
 						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -1608,6 +1609,10 @@
 											},
 											{
 												"iv": "footStepCoolDown",
+												"state": true
+											},
+											{
+												"iv": "onCreatedAngle",
 												"state": true
 											}
 										]
@@ -2089,7 +2094,8 @@
 						"lastValidTargetX": 0,
 						"lastValidTargetY": 0,
 						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -2222,6 +2228,10 @@
 											},
 											{
 												"iv": "footStepCoolDown",
+												"state": true
+											},
+											{
+												"iv": "onCreatedAngle",
 												"state": true
 											}
 										]
@@ -3336,52 +3346,6 @@
 					}
 				},
 				{
-					"type": "Plant_Foliage",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": false,
-						"face-right": false,
-						"face-top": false,
-						"face-bottom": false,
-						"back-face-culling": false,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 152131,
-					"sid": 482544222855413,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 196.1159210205078,
-						"y": 96.6275863647461,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 16,
-						"angle": 0
-					}
-				},
-				{
 					"type": "WallTextureSide",
 					"properties": {
 						"initially-visible": true,
@@ -3809,7 +3773,40 @@
 					}
 				},
 				{
-					"type": "ButtonLight",
+					"type": "ChimioLegs",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 265671,
+					"sid": 364663962653014,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 23.006454467773438,
+						"y": 156.41258239746094,
+						"width": 26,
+						"height": 17,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 3,
+						"angle": 0
+					}
+				},
+				{
+					"type": "LightButton",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 2",
@@ -3883,6 +3880,577 @@
 							]
 						},
 						"blendMode": "additive"
+					}
+				},
+				{
+					"type": "LightShutter",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 523145,
+					"sid": 474520023191422,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "opacity",
+								"wave": "sine",
+								"period": 0.5,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Rotate": {
+							"properties": {
+								"speed": 500,
+								"acceleration": 0,
+								"rotation-type": "2d",
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"HardLight": {
+							"isEnabled": true,
+							"parameters": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 61.258235931396484,
+						"y": 157.72816467285156,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							0,
+							0,
+							0.5
+						],
+						"z": 4,
+						"angle": 0,
+						"rotation3d": {
+							"quaternion": [
+								0,
+								0,
+								0,
+								1
+							],
+							"euler": [
+								0,
+								0,
+								0
+							]
+						},
+						"blendMode": "additive"
+					}
+				},
+				{
+					"type": "Chimio",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Sleep",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 513489,
+					"sid": 462585431549733,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": false,
+						"followPlayer": false,
+						"health": 150,
+						"moveToX": 0,
+						"moveToY": 0,
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0,
+						"VoiceCoolDown": 0,
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0
+					},
+					"behaviors": {
+						"AcquireVision": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 300,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 3,
+								"cell-border": -1,
+								"obstacles": "solids",
+								"max-speed": 0,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						},
+						"LineOfSight2": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 35,
+								"cone-of-view": 75,
+								"use-collision-cells": true
+							}
+						},
+						"Turret": {
+							"properties": {
+								"range": 300,
+								"rate-of-fire": 0,
+								"rotate": true,
+								"rotate-speed": 100,
+								"target-mode": "first-in-range",
+								"predictive-aim": false,
+								"projectile-speed": 500,
+								"use-collision-cells": true,
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "template",
+						"templateName": "Chimio",
+						"sourceTemplateName": "",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "spottedPlayer",
+												"state": true
+											},
+											{
+												"iv": "followPlayer",
+												"state": true
+											},
+											{
+												"iv": "health",
+												"state": true
+											},
+											{
+												"iv": "moveToX",
+												"state": true
+											},
+											{
+												"iv": "moveToY",
+												"state": true
+											},
+											{
+												"iv": "isAttacking",
+												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "VoiceCoolDown",
+												"state": true
+											},
+											{
+												"iv": "footStepCoolDown",
+												"state": true
+											},
+											{
+												"iv": "onCreatedAngle",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "AcquireVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "Pathfinding",
+										"state": [
+											[
+												"cell-size",
+												true
+											],
+											[
+												"cell-border",
+												true
+											],
+											[
+												"obstacles",
+												true
+											],
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"rotate-object",
+												true
+											],
+											[
+												"diagonals",
+												true
+											],
+											[
+												"direct-movement",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "LineOfSight2",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "Turret",
+										"state": [
+											[
+												"range",
+												true
+											],
+											[
+												"rate-of-fire",
+												true
+											],
+											[
+												"rotate",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"target-mode",
+												true
+											],
+											[
+												"predictive-aim",
+												true
+											],
+											[
+												"projectile-speed",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": [
+									{
+										"key": "Brightness",
+										"state": [
+											[
+												"brightness",
+												true
+											],
+											[
+												"<<effect-template-enable>>",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 25.501750946044922,
+						"y": 155.99787139892578,
+						"width": 48,
+						"height": 32,
+						"originX": 0.4791666666666667,
+						"originY": 0.59375,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 7,
+						"angle": 0
 					}
 				},
 				{

@@ -162,6 +162,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Turret",
+			"name": "Turret",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
@@ -207,7 +214,8 @@
 	"objectTypes": {
 		"items": [
 			"Dummy",
-			"Text"
+			"Text",
+			"ChimioLegs"
 		],
 		"subfolders": [
 			{
@@ -262,11 +270,12 @@
 					"Snowflake",
 					"GroundLight",
 					"FadeToBlack",
-					"ButtonLight",
+					"LightButton",
 					"Dust",
 					"DustParticle",
 					"BloodStain",
-					"Particles"
+					"Particles",
+					"LightShutter"
 				],
 				"subfolders": [],
 				"name": "Effects"
@@ -309,7 +318,7 @@
 							"ArmChair",
 							"Barricades",
 							"Bed",
-							"Bed2",
+							"Stretcher",
 							"Counter",
 							"CounterWood",
 							"DisabilityBar",
@@ -502,6 +511,12 @@
 				"Helicopter",
 				"HelicopterRotor"
 			]
+		},
+		{
+			"members": [
+				"Chimio",
+				"ChimioLegs"
+			]
 		}
 	],
 	"families": {
@@ -525,6 +540,7 @@
 		"items": [
 			"ObjectRepository",
 			"UIRepository",
+			"WorldObjectRepository",
 			"RemiTests",
 			"Game Over",
 			"LevelEnd",

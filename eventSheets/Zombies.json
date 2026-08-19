@@ -96,6 +96,15 @@
 						"where": "in-front",
 						"object": "CharacterSprite"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 602863361098693,
+					"parameters": {
+						"instance-variable": "onCreatedAngle",
+						"value": "Self.Angle"
+					}
 				}
 			],
 			"sid": 522080804761410
@@ -1772,6 +1781,23 @@
 							"parameters": {
 								"set": "disabled"
 							}
+						},
+						{
+							"id": "add-object-to-target",
+							"objectClass": "Chimio",
+							"sid": 758302206434844,
+							"behaviorType": "Turret",
+							"parameters": {
+								"target": "CharacterController"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "ChimioLegs",
+							"sid": 134418817039005,
+							"parameters": {
+								"angle": "Chimio.Angle"
+							}
 						}
 					],
 					"sid": 125548132483487
@@ -1827,6 +1853,60 @@
 							"sid": 530522590743131
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Chimio",
+							"sid": 929049911919606,
+							"parameters": {
+								"instance-variable": "spottedPlayer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "unacquire-target",
+							"objectClass": "Chimio",
+							"sid": 104241603425593,
+							"behaviorType": "Turret"
+						},
+						{
+							"id": "rotate-toward-angle",
+							"objectClass": "Chimio",
+							"sid": 830385344990098,
+							"parameters": {
+								"degrees": "1",
+								"angle": "Self.onCreatedAngle"
+							}
+						}
+					],
+					"sid": 114954351447100
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-target",
+							"objectClass": "Chimio",
+							"sid": 718674054328297,
+							"behaviorType": "Turret"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Chimio",
+							"sid": 335323460977858,
+							"parameters": {
+								"angle": "Self.onCreatedAngle\n+ clamp(\n    ((Self.Angle - Self.onCreatedAngle + 180) % 360) - 180,\n    -50,\n    50\n)"
+							}
+						}
+					],
+					"sid": 671110412836502
 				}
 			],
 			"sid": 218360608730011
