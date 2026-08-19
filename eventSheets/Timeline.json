@@ -1,0 +1,109 @@
+{
+	"name": "Timeline",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Friend",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Friend",
+							"sid": 924618087743415
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Friend",
+							"sid": 489960615379270,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ChairController",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 418569543876091
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 335611104878044,
+							"parameters": {
+								"first-value": "Friend.Count",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 361362732755430,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 148986919392316
+						}
+					],
+					"actions": [
+						{
+							"id": "play-timeline",
+							"objectClass": "TimelineController",
+							"sid": 680700507602793,
+							"parameters": {
+								"timeline": "PushedChairTest",
+								"tags": "\"Chair\""
+							}
+						}
+					],
+					"sid": 880137376232226
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing-by-tags",
+							"objectClass": "TimelineController",
+							"sid": 591438381663312,
+							"parameters": {
+								"tags": "\"Chair\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 634736132756342,
+							"parameters": {
+								"instance-variable": "direction",
+								"value": "ChairController.Angle"
+							}
+						}
+					],
+					"sid": 196579220654370
+				}
+			],
+			"sid": 596477750735758
+		}
+	],
+	"sid": 853813521845268
+}
