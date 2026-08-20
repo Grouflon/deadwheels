@@ -917,6 +917,11 @@
 													],
 													"actions": [
 														{
+															"customAction": "RecoilTween",
+															"objectClass": "Arm",
+															"sid": 119486262661411
+														},
+														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
 															"sid": 753053783091519,
@@ -1094,6 +1099,11 @@
 																"duration": "0.1",
 																"mode": "reducing-magnitude"
 															}
+														},
+														{
+															"customAction": "RecoilTween",
+															"objectClass": "Arm",
+															"sid": 699601309419753
 														},
 														{
 															"id": "set-instvar-value",
@@ -1299,6 +1309,11 @@
 													],
 													"actions": [
 														{
+															"customAction": "RecoilTween",
+															"objectClass": "Arm",
+															"sid": 999124421442771
+														},
+														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
 															"sid": 589849811939868,
@@ -1473,6 +1488,11 @@
 														}
 													],
 													"actions": [
+														{
+															"customAction": "RecoilTween",
+															"objectClass": "Arm",
+															"sid": 249320365226183
+														},
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
@@ -1763,6 +1783,47 @@
 								}
 							],
 							"sid": 375132822307874
+						},
+						{
+							"aceType": "action",
+							"aceName": "RecoilTween",
+							"objectClass": "Arm",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "custom-ace-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Arm",
+									"sid": 651492144662227,
+									"parameters": {
+										"width": "Self.ImageWidth"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Arm",
+									"sid": 916899155252311,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "Arm.Width*0.8",
+										"time": "0.05",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 518193089021940
 						}
 					],
 					"sid": 944309818635467
