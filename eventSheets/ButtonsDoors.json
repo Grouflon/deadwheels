@@ -1,0 +1,1555 @@
+{
+	"name": "ButtonsDoors",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "ButtonSlot",
+							"sid": 787119291925999
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 702353702071445,
+							"parameters": {
+								"object": "ButtonSlot",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "ButtonSlot2",
+							"sid": 973503263056763,
+							"parameters": {
+								"z": "ButtonSlot.Z"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "ButtonSlot2",
+							"sid": 513231924152141,
+							"parameters": {
+								"angle": "ButtonSlot.Angle+90"
+							}
+						}
+					],
+					"sid": 988050305670649
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 162084459786503,
+							"parameters": {
+								"object": "CanPickUp"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ButtonSlot2",
+							"sid": 381263595941396,
+							"parameters": {
+								"object": "Bullet"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "ButtonEnabled",
+							"objectClass": "ButtonSlot",
+							"sid": 275926059853115
+						}
+					],
+					"sid": 484782233203519,
+					"isOrBlock": true
+				},
+				{
+					"aceType": "action",
+					"aceName": "ButtonEnabled",
+					"objectClass": "ButtonSlot",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ButtonSlot",
+							"sid": 956342641841470,
+							"parameters": {
+								"instance-variable": "Enabled"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 634017433369764,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ButtonSlot",
+									"sid": 215630532554285,
+									"parameters": {
+										"instance-variable": "Enabled",
+										"value": "true"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 562202636493800,
+									"parameters": {
+										"audio-file": {
+											"path": "Button1"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "move-forward",
+									"objectClass": "ButtonSlot2",
+									"sid": 345016472240087,
+									"parameters": {
+										"distance": "-2"
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "ButtonSlot",
+									"sid": 960310203117513,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "ButtonSlot.Time",
+										"type": "once",
+										"tag": "\"\"&ButtonSlot.UID"
+									}
+								}
+							],
+							"sid": 779045628555775
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ButtonSlot",
+									"sid": 231923560383450,
+									"parameters": {
+										"instance-variable": "Time",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 587503583268432,
+									"parameters": {
+										"object-to-create": "LightButton",
+										"layer": "ButtonSlot.LayerName",
+										"x": "ButtonSlot.X",
+										"y": "ButtonSlot.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "ButtonSlot",
+									"sid": 253754600228926,
+									"parameters": {
+										"child": "LightButton",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-z-elevation": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-d": true,
+										"transform-a": true,
+										"transform-o": false,
+										"transform-visibility": false,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "LightButton",
+									"sid": 602910493107216,
+									"parameters": {
+										"angle": "ButtonSlot.Angle"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LightButton",
+									"sid": 937429046341703,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 180136127039688
+						},
+						{
+							"eventType": "comment",
+							"text": "If elevator, alert zombies"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 956012177930923,
+									"parameters": {
+										"child": "Door_Elevator",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 504853706277629,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 209773857990474,
+											"parameters": {
+												"object": "Zombies"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 160032569645334,
+											"parameters": {
+												"first-value": "distance(CharacterController.X,CharacterController.Y,Zombies.X,Zombies.Y)",
+												"comparison": 3,
+												"second-value": "zombie_elevator_detection_distance"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 562467792604191,
+											"parameters": {
+												"instance-variable": "moveToX",
+												"value": "CharacterController.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 502082649137929,
+											"parameters": {
+												"instance-variable": "moveToY",
+												"value": "CharacterController.Y"
+											}
+										}
+									],
+									"sid": 472723852369483
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "ButtonSlot",
+							"sid": 787548417201705,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"\"&ButtonSlot.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 859912288588498,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 464838773094536,
+									"parameters": {
+										"child": "IronShutter",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "ToggleShutter",
+									"objectClass": "IronShutter",
+									"sid": 112580209380951
+								}
+							],
+							"sid": 535802952226751
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 340407234416582,
+									"parameters": {
+										"child": "Door_Button",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenDoor",
+									"objectClass": "Door_Button",
+									"customActionObjectClass": "Doors",
+									"sid": 571456259611817,
+									"parameters": [
+										"ChairController.X",
+										"ChairController.Y"
+									]
+								}
+							],
+							"sid": 237843178851151
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 546128708527350,
+									"parameters": {
+										"child": "Door_Elevator",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenDoor",
+									"objectClass": "Door_Elevator",
+									"customActionObjectClass": "Doors",
+									"sid": 705995751897747,
+									"parameters": [
+										"ChairController.X",
+										"ChairController.Y"
+									]
+								}
+							],
+							"sid": 167096622460059
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 556742130302399,
+									"parameters": {
+										"child": "LightButton",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "LightButton",
+									"sid": 660258989483177,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 592148723821342
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "ButtonSlot",
+							"sid": 248216840048868,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"\"&ButtonSlot.UID"
+							}
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 399960642348044,
+							"parameters": {
+								"tag": "\"ElevatorLoop\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 602601766968749,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ButtonSlot",
+									"sid": 463117123051557,
+									"parameters": {
+										"child": "Door_Button",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 369698159261328,
+									"parameters": {
+										"audio-file": {
+											"path": "ElevatorLoop"
+										},
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"ElevatorLoop\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 940725631964424,
+									"parameters": {
+										"audio-file": {
+											"path": "ElevatorStart"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 752931840835143
+						}
+					]
+				}
+			],
+			"sid": 896974003257226
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Doors",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Doors",
+							"sid": 120417696358059
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Doors",
+							"sid": 543677900882593,
+							"parameters": {
+								"instance-variable": "ClosedAngle",
+								"value": "Self.Angle"
+							}
+						}
+					],
+					"sid": 747454593181733
+				},
+				{
+					"aceType": "action",
+					"aceName": "OpenDoor",
+					"objectClass": "Doors",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "OpenerX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 419440102794434
+						},
+						{
+							"name": "OpenerY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 456333856768355
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 227777274669928,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "Side",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 325238255734920
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 434791905583013,
+									"parameters": {
+										"first-value": "Doors.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Door_Elevator\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Doors",
+									"sid": 323973510554090,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "0",
+										"time": "2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 196456344026101,
+									"parameters": {
+										"audio-file": {
+											"path": "ElevatorEvent"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "Doors",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"customAction": "Enable",
+									"objectClass": "Elevator",
+									"sid": 531506692790863
+								}
+							],
+							"sid": 239515095019589
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 518815946720556
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 707524494641821,
+									"parameters": {
+										"first-value": "Door_Button.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Door_Button\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Doors",
+									"sid": 789716762957655,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "0",
+										"time": "2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 570649243777126
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 606799992540604
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 924018945852321,
+									"parameters": {
+										"variable": "Side",
+										"value": "sin(Doors.ClosedAngle)*(OpenerX-Doors.X)-cos(Doors.ClosedAngle)*(OpenerY-Doors.Y)"
+									}
+								}
+							],
+							"sid": 332724905356098,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 849353218578396,
+											"parameters": {
+												"variable": "Side",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Doors",
+											"sid": 367859424286167,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetAngle",
+												"end-value": "Self.ClosedAngle+90",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 969879016080687,
+											"parameters": {
+												"variable": "Side",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 546209473321709
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 328727111319937
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Doors",
+											"sid": 687750964375570,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetAngle",
+												"end-value": "Self.ClosedAngle-90",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 768176574956857,
+											"parameters": {
+												"variable": "Side",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 915609653541673
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 159107266233541
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Elevator",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterController",
+							"sid": 335258738205742,
+							"parameters": {
+								"object": "Elevator"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Elevator",
+							"sid": 756569578079893,
+							"parameters": {
+								"instance-variable": "enabled"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 173572749169377,
+							"parameters": {
+								"layout": "LevelEnd"
+							}
+						}
+					],
+					"sid": 269951651595966
+				},
+				{
+					"aceType": "action",
+					"aceName": "Enable",
+					"objectClass": "Elevator",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 344492034885800,
+							"parameters": {
+								"audio-file": {
+									"path": "Amb/Amb_ElevatorMusic"
+								},
+								"loop": "looping",
+								"volume": "-20",
+								"object": "Elevator",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 157468213780324,
+							"parameters": {
+								"object": "InsideWallElevator",
+								"layer": "Self.LayerName",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 237134621994536,
+							"parameters": {
+								"object": "Floor_Elevator",
+								"layer": "Self.LayerName",
+								"image-point": "4",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "InsideWallElevator",
+							"sid": 461935147830206,
+							"parameters": {
+								"angle": "Elevator.Angle+180"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 155652112373473,
+							"parameters": {
+								"object": "InsideWallElevator",
+								"layer": "Self.LayerName",
+								"image-point": "2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "InsideWallElevator",
+							"sid": 144824950592323,
+							"parameters": {
+								"angle": "Elevator.Angle+270"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Elevator",
+							"sid": 383116041265571,
+							"parameters": {
+								"object": "InsideWallElevator",
+								"layer": "Self.LayerName",
+								"image-point": "3",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "InsideWallElevator",
+							"sid": 125378914460811,
+							"parameters": {
+								"angle": "Elevator.Angle+90"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Elevator",
+							"sid": 875206618050510,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 330386645956702,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 727656023509198,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 633870175851926,
+									"parameters": {
+										"tag": "\"ElevatorLoop\""
+									}
+								}
+							],
+							"sid": 505521075751838
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 241286741386500
+						}
+					]
+				}
+			],
+			"sid": 701136920108105
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "IronShutter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "ToggleShutter",
+					"objectClass": "IronShutter",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "IronShutter",
+							"sid": 821199729524453,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 788910358149164,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-z-elevation",
+									"objectClass": "IronShutter",
+									"sid": 346289665187690,
+									"parameters": {
+										"which": "z-elevation",
+										"comparison": 3,
+										"z-elevation": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 204137049390221,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/IronShutterUse"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "IronShutter",
+									"sid": 144479601147789,
+									"behaviorType": "TweenSelf",
+									"parameters": {
+										"tags": "\"ShutterMovement\"",
+										"property": "offsetZElevation",
+										"end-value": "32",
+										"time": "IronShutter.ClosingTime",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 158874553576273
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 295254275731466
+								},
+								{
+									"id": "compare-z-elevation",
+									"objectClass": "IronShutter",
+									"sid": 356484990521641,
+									"parameters": {
+										"which": "z-elevation",
+										"comparison": 4,
+										"z-elevation": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 587664236753041,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/IronShutterUse"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "IronShutter",
+									"sid": 971416233779913,
+									"behaviorType": "TweenSelf",
+									"parameters": {
+										"tags": "\"ShutterMovement\"",
+										"property": "offsetZElevation",
+										"end-value": "0",
+										"time": "IronShutter.ClosingTime",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 357370440833963
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 841624671718304,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/IronShutterLoop"
+										},
+										"loop": "looping",
+										"volume": "0",
+										"object": "IronShutter",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"IronShutter\"&IronShutter.UID"
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 516775942797248,
+									"parameters": {
+										"tag": "\"IronShutter\"&IronShutter.UID",
+										"playback-rate": "1"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 329551873849880,
+									"parameters": {
+										"object-to-create": "LightShutter",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.BBoxMidX",
+										"y": "IronShutter.BBoxMidY",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "IronShutter",
+									"sid": 283126754166177,
+									"parameters": {
+										"child": "LightShutter",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-z-elevation": false,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-d": false,
+										"transform-a": true,
+										"transform-o": false,
+										"transform-visibility": false,
+										"destroy-with-parent": false
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "LightShutter",
+									"sid": 524877714680240,
+									"parameters": {
+										"angle": "IronShutter.Angle"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LightShutter",
+									"sid": 302074641782091,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 413608861831115
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 817264844526370,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 0,
+								"z-elevation": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "change-tags",
+							"objectClass": "IronShutter",
+							"sid": 867475157688686,
+							"parameters": {
+								"action": "replace",
+								"tags": "\"\""
+							}
+						}
+					],
+					"sid": 989244761149770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 436501291597561,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 5,
+								"z-elevation": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "change-tags",
+							"objectClass": "IronShutter",
+							"sid": 261820060351391,
+							"parameters": {
+								"action": "replace",
+								"tags": "\"Crawlable\""
+							}
+						}
+					],
+					"sid": 285841916677857
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 951817911144096,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 2,
+								"z-elevation": "15"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "IronShutter",
+							"sid": 288282859168026,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 326407229537747,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 981558904425408
+								}
+							],
+							"actions": [
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 777416628518218,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "IronShutter.X - 32",
+										"start-y": "IronShutter.Y - 32",
+										"end-x": "IronShutter.X + 32",
+										"end-y": "IronShutter.Y + 32"
+									}
+								}
+							],
+							"sid": 887885349978362
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 222543379190668,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 5,
+								"z-elevation": "15"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "IronShutter",
+							"sid": 968065612294057,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "change-tags",
+							"objectClass": "IronShutter",
+							"sid": 195132149672683,
+							"parameters": {
+								"action": "replace",
+								"tags": "\"Crawlable Chair\""
+							}
+						}
+					],
+					"sid": 979833528863973
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "IronShutter",
+							"sid": 190952688033346,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 418526454918209,
+							"parameters": {
+								"audio-file": {
+									"path": "Interactive/IronShutterUse"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 731541686884062,
+							"parameters": {
+								"tag": "\"IronShutter\"&IronShutter.UID"
+							}
+						}
+					],
+					"sid": 540748866045551,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-z-elevation",
+									"objectClass": "IronShutter",
+									"sid": 680127112663314,
+									"parameters": {
+										"which": "z-elevation",
+										"comparison": 0,
+										"z-elevation": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 319196349751234,
+									"parameters": {
+										"object-to-create": "DustParticle",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.X",
+										"y": "IronShutter.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 543927501843256,
+									"parameters": {
+										"object-to-create": "DustParticle",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.FaceImagePointX(0,1)",
+										"y": "IronShutter.FaceImagePointY(0,1)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 683164404438014,
+									"parameters": {
+										"object-to-create": "DustParticle",
+										"layer": "IronShutter.LayerName",
+										"x": "IronShutter.FaceImagePointX(0,2)",
+										"y": "IronShutter.FaceImagePointY(0,2)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 806997834497891
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "IronShutter",
+									"sid": 149611957256809,
+									"parameters": {
+										"child": "LightShutter",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "LightShutter",
+									"sid": 696914567040189
+								}
+							],
+							"sid": 129768241772334
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 394096504238003,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 3,
+								"z-elevation": "1"
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "IronShutter",
+							"sid": 885203298989080,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 710831391991068,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "IronShutter",
+									"sid": 795823415966073,
+									"parameters": {
+										"object": "CrawlingSprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "DoDamage",
+									"objectClass": "CharacterController",
+									"sid": 484185747646557,
+									"parameters": [
+										"200"
+									]
+								}
+							],
+							"sid": 862598685815957
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-z-elevation",
+							"objectClass": "IronShutter",
+							"sid": 928431920545933,
+							"parameters": {
+								"which": "z-elevation",
+								"comparison": 2,
+								"z-elevation": "14"
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "IronShutter",
+							"sid": 834131713039956,
+							"behaviorType": "TweenSelf",
+							"parameters": {
+								"tags": "\"ShutterMovement\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 614410561945389,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "IronShutter",
+									"sid": 485257289603821,
+									"parameters": {
+										"object": "Zombies"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 933824528259391,
+									"parameters": {
+										"audio-file": {
+											"path": "GoreBig2"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "IronShutter",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"customAction": "DoDamage",
+									"objectClass": "Zombies",
+									"sid": 387989949461132,
+									"parameters": [
+										"200",
+										"0"
+									]
+								}
+							],
+							"sid": 696145529201395
+						}
+					]
+				}
+			],
+			"sid": 968014154452411
+		}
+	],
+	"sid": 287643589064356
+}
