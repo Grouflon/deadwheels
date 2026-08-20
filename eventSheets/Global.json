@@ -3780,6 +3780,349 @@
 				}
 			],
 			"sid": 835211306959490
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Explosion",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Sprite2",
+							"sid": 927046055074158
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 457785945555668,
+							"parameters": {
+								"audio-file": {
+									"path": "Explosion"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Camera",
+							"sid": 758337745465461,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "20",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 553531881593460
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Sprite2",
+							"sid": 755827004377888
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Sprite2",
+							"sid": 852635673082041
+						}
+					],
+					"sid": 455552795677250
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Sprite2",
+							"sid": 174277287295939,
+							"parameters": {
+								"comparison": 4,
+								"number": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Sprite2",
+							"sid": 678967800510847,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						}
+					],
+					"sid": 897320261957950
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Mine",
+							"sid": 480358892588420
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Mine",
+							"sid": 113216539452805,
+							"parameters": {
+								"object": "Sprite2",
+								"layer": "\"World\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 631797236055576
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MineRay",
+							"sid": 301870177358134,
+							"parameters": {
+								"object": "Zombies"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MineRay",
+							"sid": 463990340267620,
+							"parameters": {
+								"object": "Controllers"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MineRay",
+							"sid": 718562959210195,
+							"parameters": {
+								"object": "Controllers"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Mine",
+							"sid": 112902865506573
+						}
+					],
+					"sid": 318457760566976,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Sprite2",
+							"sid": 475258940153200,
+							"parameters": {
+								"object": "Zombies"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 668523553257580
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DoDamage",
+							"objectClass": "Zombies",
+							"sid": 407506738594741,
+							"parameters": [
+								"100",
+								"20"
+							]
+						}
+					],
+					"sid": 476210631251903
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Sprite2",
+							"sid": 411604218447030,
+							"parameters": {
+								"object": "CharacterController"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DoDamage",
+							"objectClass": "CharacterController",
+							"sid": 358168991181629,
+							"parameters": [
+								"50"
+							]
+						}
+					],
+					"sid": 206126055200551
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Sprite2",
+							"sid": 809105900691728,
+							"parameters": {
+								"object": "Mine"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Mine",
+							"sid": 872864640691452
+						}
+					],
+					"sid": 712712594254685
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Bullet",
+							"sid": 165006785381954,
+							"parameters": {
+								"object": "Mine",
+								"offset-x": "0",
+								"offset-y": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 153601548316722,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Bullet/BulletMetal\"&choose(1,2,3,4)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Bullet",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 480734103386516,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(1,1.2)"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Bullet",
+							"sid": 925281343958128
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Mine",
+							"sid": 706879654177602
+						}
+					],
+					"sid": 790914484552922
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Mine",
+							"sid": 105810099817005
+						}
+					],
+					"actions": [
+						{
+							"id": "cast-ray",
+							"objectClass": "Mine",
+							"sid": 122418591008787,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "Self.ImagePointX(1)",
+								"from-y": "Self.ImagePointY(1)",
+								"to-x": "Self.ImagePointX(2)",
+								"to-y": "Self.ImagePointY(2)",
+								"use-collision-cells": true
+							}
+						},
+						{
+							"id": "set-range",
+							"objectClass": "Mine",
+							"sid": 448393818038959,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"range": "Self.LineOfSight.HitDistance"
+							}
+						},
+						{
+							"id": "set-position-3d",
+							"objectClass": "MineRay",
+							"sid": 298929146984904,
+							"parameters": {
+								"x": "Mine.X",
+								"y": "Mine.Y",
+								"z": "Mine.Z"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "MineRay",
+							"sid": 658133287527646,
+							"parameters": {
+								"angle": "Mine.Angle"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "MineRay",
+							"sid": 731068556103723,
+							"parameters": {
+								"width": "Mine.LineOfSight.Range"
+							}
+						}
+					],
+					"sid": 872363997237546
+				}
+			],
+			"sid": 712173139363362
 		}
 	],
 	"sid": 171422187705970
