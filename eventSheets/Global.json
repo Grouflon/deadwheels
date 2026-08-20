@@ -3793,7 +3793,7 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 927046055074158
 						}
 					],
@@ -3831,14 +3831,14 @@
 					"conditions": [
 						{
 							"id": "on-any-animation-finished",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 755827004377888
 						}
 					],
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 852635673082041
 						}
 					],
@@ -3849,7 +3849,7 @@
 					"conditions": [
 						{
 							"id": "compare-animation-frame",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 174277287295939,
 							"parameters": {
 								"comparison": 4,
@@ -3860,7 +3860,7 @@
 					"actions": [
 						{
 							"id": "set-collisions-enabled",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 678967800510847,
 							"parameters": {
 								"collisions": "disabled"
@@ -3884,7 +3884,7 @@
 							"objectClass": "Mine",
 							"sid": 113216539452805,
 							"parameters": {
-								"object": "Sprite2",
+								"object": "Explosion",
 								"layer": "\"World\"",
 								"image-point": "0",
 								"create-hierarchy": false,
@@ -3937,7 +3937,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 475258940153200,
 							"parameters": {
 								"object": "Zombies"
@@ -3967,7 +3967,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 411604218447030,
 							"parameters": {
 								"object": "CharacterController"
@@ -3991,7 +3991,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Sprite2",
+							"objectClass": "Explosion",
 							"sid": 809105900691728,
 							"parameters": {
 								"object": "Mine"
