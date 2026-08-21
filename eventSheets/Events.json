@@ -454,6 +454,91 @@
 				},
 				{
 					"eventType": "comment",
+					"text": "Typewriter Text"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Event_TypeWriterText",
+							"sid": 933742566132832,
+							"parameters": {
+								"instance-variable": "Triggered"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 876220071527709,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 212194837208489,
+									"parameters": {
+										"object-to-create": "IntroTextFont",
+										"layer": "\"UI\"",
+										"x": "OriginalViewportWidth/2",
+										"y": "OriginalViewportHeight*0.7",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "IntroTextFont",
+									"sid": 105056313265790,
+									"parameters": {
+										"z": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "IntroTextFont",
+									"sid": 184523678127939,
+									"parameters": {
+										"instance-variable": "SourceText",
+										"value": "Event_TypeWriterText.Text"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Event_TypeWriterText",
+									"sid": 456223197169099
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 929324235776142,
+									"parameters": {
+										"seconds": "5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "IntroTextFont",
+									"sid": 263691455797288
+								}
+							],
+							"sid": 119011861703794,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 839830362059491
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
 					"text": "Fade in something"
 				},
 				{
