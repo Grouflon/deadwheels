@@ -661,6 +661,20 @@
 										"variable": "Side",
 										"value": "sin(Doors.ClosedAngle)*(OpenerX-Doors.X)-cos(Doors.ClosedAngle)*(OpenerY-Doors.Y)"
 									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 918289650661368,
+									"parameters": {
+										"audio-file": {
+											"path": "DoorAOpen"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 332724905356098,
@@ -669,27 +683,27 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 849353218578396,
+											"id": "is-within-angle",
+											"objectClass": "Doors",
+											"sid": 806328526080569,
 											"parameters": {
-												"variable": "Side",
-												"comparison": 4,
-												"value": "0"
-											}
+												"within": "1",
+												"angle": "Self.ClosedAngle"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "tween-one-property",
 											"objectClass": "Doors",
-											"sid": 367859424286167,
+											"sid": 427433080750281,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"\"",
 												"property": "offsetAngle",
-												"end-value": "Self.ClosedAngle+90",
-												"time": "0.1",
+												"end-value": "Self.ClosedAngle",
+												"time": "0.2",
 												"ease": "default",
 												"destroy-on-complete": "no",
 												"loop": "no",
@@ -698,16 +712,21 @@
 											}
 										},
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 969879016080687,
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 963812438241647,
 											"parameters": {
-												"variable": "Side",
-												"value": "0"
+												"audio-file": {
+													"path": "DoorAClose"
+												},
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
-									"sid": 546209473321709
+									"sid": 387767718750362
 								},
 								{
 									"eventType": "block",
@@ -715,38 +734,96 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 328727111319937
+											"sid": 284631180978713
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 482633329861492,
+									"children": [
 										{
-											"id": "tween-one-property",
-											"objectClass": "Doors",
-											"sid": 687750964375570,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetAngle",
-												"end-value": "Self.ClosedAngle-90",
-												"time": "0.1",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 715930386759887,
+													"parameters": {
+														"variable": "Side",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Doors",
+													"sid": 674781182601011,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "offsetAngle",
+														"end-value": "Self.ClosedAngle+90",
+														"time": "0.2",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 314138005413116,
+													"parameters": {
+														"variable": "Side",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 566015489952975
 										},
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 768176574956857,
-											"parameters": {
-												"variable": "Side",
-												"value": "0"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 626535576571820
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Doors",
+													"sid": 782928005898030,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "offsetAngle",
+														"end-value": "Self.ClosedAngle-90",
+														"time": "0.2",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 715558833375194,
+													"parameters": {
+														"variable": "Side",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 930756586753455
 										}
-									],
-									"sid": 915609653541673
+									]
 								}
 							]
 						}
