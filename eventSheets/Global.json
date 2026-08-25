@@ -4123,6 +4123,54 @@
 				}
 			],
 			"sid": 712173139363362
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LEVEL : SURGERY",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Radio",
+							"sid": 845694998737375
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Radio",
+							"sid": 148494974261272,
+							"parameters": {
+								"unique-id": "979375"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 552347677328018,
+							"parameters": {
+								"audio-file": {
+									"path": "Amb/Amb_RespiratorOff"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Radio",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 638963502208012
+				}
+			],
+			"sid": 570502863133640
 		}
 	],
 	"sid": 171422187705970

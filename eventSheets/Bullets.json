@@ -413,6 +413,60 @@
 					"sid": 523688429349013
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 611978655020874,
+					"parameters": {
+						"object": "Furniture"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Furniture",
+					"sid": 856526988876841,
+					"parameters": {
+						"instance-variable": "bulletsCollide"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play-at-object-by-name",
+					"objectClass": "Audio",
+					"sid": 549634425282859,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Bullet/BulletMetal\"&choose(1,2,3,4)",
+						"loop": "not-looping",
+						"volume": "0",
+						"object": "Bullet",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-playback-rate",
+					"objectClass": "Audio",
+					"sid": 319231878392044,
+					"parameters": {
+						"tag": "\"\"",
+						"playback-rate": "random(1,1.2)"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 697907954305646
+				}
+			],
+			"sid": 214151809570045
 		}
 	],
 	"sid": 141441738865416

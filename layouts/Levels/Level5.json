@@ -6693,6 +6693,7 @@
 					"instanceVariables": {
 						"chairCanDestroy": false,
 						"isDoor": true,
+						"bulletsCollide": false,
 						"ClosedAngle": 0,
 						"CanBePushed": false
 					},
@@ -7649,6 +7650,7 @@
 					"instanceVariables": {
 						"chairCanDestroy": false,
 						"isDoor": true,
+						"bulletsCollide": false,
 						"ClosedAngle": 0,
 						"CanBePushed": false
 					},
@@ -11266,6 +11268,7 @@
 					"instanceVariables": {
 						"chairCanDestroy": false,
 						"isDoor": true,
+						"bulletsCollide": false,
 						"ClosedAngle": 0,
 						"CanBePushed": true
 					},
@@ -14389,7 +14392,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14446,7 +14450,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14560,7 +14565,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14617,7 +14623,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14674,7 +14681,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14731,7 +14739,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14788,7 +14797,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -14845,7 +14855,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false
+						"isDoor": false,
+						"bulletsCollide": false
 					},
 					"behaviors": {
 						"Solid": {
@@ -15460,11 +15471,21 @@
 					"sid": 180486222966268,
 					"tags": "",
 					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
 						"Enabled": false,
 						"DoorUID": 708510,
 						"Time": 0
 					},
 					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						},
 						"Timer": {
 							"properties": {}
 						}
@@ -15527,11 +15548,21 @@
 					"sid": 790734121512800,
 					"tags": "",
 					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
 						"Enabled": false,
 						"DoorUID": 708510,
 						"Time": 0
 					},
 					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						},
 						"Timer": {
 							"properties": {}
 						}

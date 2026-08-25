@@ -394,7 +394,7 @@
 				{
 					"id": "play-at-object-by-name",
 					"objectClass": "Audio",
-					"sid": 754396801577402,
+					"sid": 877554925815796,
 					"parameters": {
 						"folder": "sounds",
 						"audio-file-name": "AudioSource.soundName",
@@ -404,11 +404,32 @@
 						"inner-angle": "360",
 						"outer-angle": "360",
 						"outer-gain": "0",
-						"tag-optional": "\"\""
+						"tag-optional": "\"AudioSource\"&AudioSource.UID"
 					}
 				}
 			],
 			"sid": 810222233944750
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "AudioSource",
+					"sid": 287820217287506
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 236529244885817,
+					"parameters": {
+						"tag": "\"AudioSource\"&AudioSource.UID"
+					}
+				}
+			],
+			"sid": 520845804770070
 		},
 		{
 			"eventType": "comment",
