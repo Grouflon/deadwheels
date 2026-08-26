@@ -1090,6 +1090,102 @@
 								}
 							],
 							"sid": 737605728242542
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "ChairController",
+									"sid": 454458231946547,
+									"parameters": {
+										"object": "FloorGoo"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 108529186013264,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 762726826579807,
+											"parameters": {
+												"tag": "\"chairLoopGoo\"&ChairController.UID"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play-at-object-by-name",
+											"objectClass": "Audio",
+											"sid": 141125858801291,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"WheelChairLoopGoo\"",
+												"loop": "looping",
+												"volume": "0",
+												"object": "ChairController",
+												"inner-angle": "360",
+												"outer-angle": "360",
+												"outer-gain": "0",
+												"tag-optional": "\"chairLoopGoo\"&ChairController.UID"
+											}
+										}
+									],
+									"sid": 545355191897837
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 829847137574384,
+											"parameters": {
+												"tag": "\"chairLoopGoo\"&ChairController.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-volume",
+											"objectClass": "Audio",
+											"sid": 692696126761576,
+											"parameters": {
+												"tag": "\"chairLoopGoo\"&ChairController.UID",
+												"db": "clamp(-20+abs(ChairController.velocity/5),-40,0)"
+											}
+										}
+									],
+									"sid": 707486580673923
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 773514379170833
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 780026538095993,
+									"parameters": {
+										"tag": "\"chairLoopGoo\"&ChairController.UID"
+									}
+								}
+							],
+							"sid": 370509589113079
 						}
 					]
 				},
@@ -1109,6 +1205,14 @@
 							"sid": 543607979855383,
 							"parameters": {
 								"tag": "\"chairLoop\"&ChairController.UID"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 579452399274026,
+							"parameters": {
+								"tag": "\"chairLoopGoo\"&ChairController.UID"
 							}
 						}
 					],
