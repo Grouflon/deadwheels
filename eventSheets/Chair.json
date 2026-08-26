@@ -412,18 +412,81 @@
 												"instance-variable": "ram_cooldown",
 												"value": "ram_cooldown_time"
 											}
-										},
-										{
-											"customAction": "OpenDoor",
-											"objectClass": "Doors",
-											"sid": 688090554794683,
-											"parameters": [
-												"ChairController.X",
-												"ChairController.Y"
-											]
 										}
 									],
-									"sid": 552594519821912
+									"sid": 552594519821912,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Doors",
+													"sid": 792220227694113,
+													"parameters": {
+														"instance-variable": "isLocked"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"customAction": "OpenDoor",
+													"objectClass": "Doors",
+													"sid": 570399103806671,
+													"parameters": [
+														"ChairController.X",
+														"ChairController.Y"
+													]
+												}
+											],
+											"sid": 452104438587627
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 574066899811073
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 499942264588370,
+													"parameters": {
+														"audio-file": {
+															"path": "Interactive/DoorLocked"
+														},
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "tween-one-property",
+													"objectClass": "Doors",
+													"sid": 461044946783482,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "offsetX",
+														"end-value": "Doors.X+choose(-2,2)",
+														"time": "0.1",
+														"ease": "easeinoutback",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "yes",
+														"repeat-count": "3"
+													}
+												}
+											],
+											"sid": 386609911548119
+										}
+									]
 								}
 							]
 						}
@@ -538,6 +601,14 @@
 									"sid": 511914024811381,
 									"parameters": {
 										"object": "Zombies"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "ChairController",
+									"sid": 824237920716767,
+									"parameters": {
+										"object": "FloorGoo"
 									}
 								},
 								{
