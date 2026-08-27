@@ -974,6 +974,54 @@
 										{
 											"id": "else",
 											"objectClass": "System",
+											"sid": 898997685305564
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 762034434836626,
+											"parameters": {
+												"first-value": "Pickups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"PowerUp\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 560967288784710,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "PowerUp",
+													"sid": 175217475188309,
+													"parameters": {
+														"animation": "\"sawBlade\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"customAction": "PickObject",
+													"objectClass": "Pickups",
+													"sid": 370934596520175,
+													"parameters": [
+														"Pickups.AnimationName"
+													]
+												}
+											],
+											"sid": 697377593385493
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
 											"sid": 321329636452975
 										}
 									],
@@ -1381,6 +1429,160 @@
 						},
 						{
 							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 781365691583902,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"sawBlade\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 491434183516827,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 349823165607312,
+											"parameters": {
+												"first-value": "SawBlade.Count",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "ChairSprite",
+											"sid": 405267590060584,
+											"parameters": {
+												"object": "SawBlade",
+												"layer": "Self.LayerName",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "SawBlade",
+											"sid": 372562394928070,
+											"parameters": {
+												"z": "0"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "SawBlade",
+											"sid": 802484496600848,
+											"parameters": {
+												"angle": "ChairSprite.Angle"
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "SawBlade",
+											"sid": 511852929724175,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "ChairSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "SawBlade",
+											"sid": 474239979661476,
+											"parameters": {
+												"instance-variable": "chairImagePoint",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 924461546796578
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 106640405161897
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "ChairSprite",
+											"sid": 437067061897744,
+											"parameters": {
+												"object": "SawBlade",
+												"layer": "Self.LayerName",
+												"image-point": "2",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "SawBlade",
+											"sid": 332856351295728,
+											"parameters": {
+												"z": "0"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "SawBlade",
+											"sid": 175234025561533,
+											"parameters": {
+												"angle": "ChairSprite.Angle"
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "SawBlade",
+											"sid": 290970382157931,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "ChairSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "SawBlade",
+											"sid": 562284620524366,
+											"parameters": {
+												"instance-variable": "chairImagePoint",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 129466975243685
+								}
+							]
+						},
+						{
+							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
@@ -1410,6 +1612,12 @@
 								}
 							],
 							"sid": 464534172413126
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 870493190493551
 						}
 					]
 				}
@@ -4193,6 +4401,461 @@
 				}
 			],
 			"sid": 256176678537012
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sawblade",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Sawblade collision"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SawBlade",
+							"sid": 345627117839357,
+							"parameters": {
+								"instance-variable": "isCutting",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 547429605112327,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 406936609174748,
+									"parameters": {
+										"first-value": "SawBlade.Rotate.Speed",
+										"comparison": 4,
+										"second-value": "500"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 972056968307242,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "SawBlade",
+											"sid": 940009632796185,
+											"parameters": {
+												"object": "Zombies"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "SawBlade",
+											"sid": 199523724982092,
+											"parameters": {
+												"instance-variable": "isCutting",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 665141148260232,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 543686990810883,
+													"parameters": {
+														"interval-seconds": "0.05"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 269413104440526,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "\"Impacts/Slash\"&choose(1,2,3)",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-playback-rate",
+													"objectClass": "Audio",
+													"sid": 432997531590756,
+													"parameters": {
+														"tag": "\"\"",
+														"playback-rate": "random(1,1.2)"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "SawBlade",
+													"sid": 949720751096820,
+													"parameters": {
+														"instance-variable": "Durability",
+														"value": "-1"
+													}
+												},
+												{
+													"customAction": "DoDamage",
+													"objectClass": "Zombies",
+													"sid": 373706752528197,
+													"parameters": [
+														"25",
+														"10"
+													]
+												}
+											],
+											"sid": 685395331981299
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "SawBlade",
+											"sid": 548711109032526,
+											"parameters": {
+												"object": "Buildings"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "SawBlade",
+											"sid": 327742681465386,
+											"parameters": {
+												"instance-variable": "isCutting",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 852733604669767,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 852067164406442,
+													"parameters": {
+														"interval-seconds": "0.05"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "SawBlade",
+													"sid": 494880619453130,
+													"parameters": {
+														"instance-variable": "Durability",
+														"value": "-2"
+													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 893951195252249,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "\"Bullet/BulletMetal\"&choose(1,2,3)",
+														"loop": "not-looping",
+														"volume": "-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-playback-rate",
+													"objectClass": "Audio",
+													"sid": 789679839698293,
+													"parameters": {
+														"tag": "\"\"",
+														"playback-rate": "random(1.5,2)"
+													}
+												}
+											],
+											"sid": 134924382588530
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Blade spinning rotation and feedback"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 950161663751117,
+							"parameters": {
+								"first-value": "SawBlade.Count",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 205443135123644,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 607777707999448,
+									"parameters": {
+										"tag": "\"sawBladeSpin\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 142461290693713,
+									"parameters": {
+										"audio-file": {
+											"path": "BladeSpin"
+										},
+										"loop": "looping",
+										"volume": "-20",
+										"stereo-pan": "0",
+										"tag-optional": "\"sawBladeSpin\""
+									}
+								}
+							],
+							"sid": 364915127677849
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "SawBlade",
+									"sid": 283771555995916,
+									"behaviorType": "Rotate",
+									"parameters": {
+										"speed": "clamp(abs(ChairController.velocity*7),0,1000)"
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 443072226102141,
+									"parameters": {
+										"tag": "\"sawBladeSpin\"",
+										"playback-rate": "clamp(0+abs(ChairController.velocity/100),0,2)"
+									}
+								}
+							],
+							"sid": 480736304244113
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Cutting state feedback"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "SawBlade",
+							"sid": 754791622287679,
+							"parameters": {
+								"instance-variable": "isCutting"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 394040811683528,
+							"parameters": {
+								"audio-file": {
+									"path": "SawSolid"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"sawBladeSolid\""
+							}
+						}
+					],
+					"sid": 901049689561178,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 907162371150410,
+									"parameters": {
+										"tag": "\"sawBladeSolid\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 922679836688435
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 920319968715464,
+									"parameters": {
+										"tag": "\"sawBladeSolid\"",
+										"db": "lerp(Audio.Volume(\"sawBladeSolid\"),-20,1)"
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 683147634393634,
+									"parameters": {
+										"tag": "\"sawBladeSolid\"",
+										"playback-rate": "lerp(Audio.PlaybackRate(\"sawBladeSolid\"), 1, 1)"
+									}
+								}
+							],
+							"sid": 898445382939373
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 948816092356201
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 166241328065705,
+							"parameters": {
+								"tag": "\"sawBladeSolid\"",
+								"db": "lerp(Audio.Volume(\"sawBladeSolid\"),-100,0.05)"
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 888305841987209,
+							"parameters": {
+								"tag": "\"sawBladeSolid\"",
+								"playback-rate": "lerp(Audio.PlaybackRate(\"sawBladeSolid\"), 0.8, 0.05)"
+							}
+						}
+					],
+					"sid": 249299915337223
+				},
+				{
+					"eventType": "comment",
+					"text": "Sawblade destruction"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SawBlade",
+							"sid": 969879430944163,
+							"parameters": {
+								"instance-variable": "Durability",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "SawBlade",
+							"sid": 491287100151317
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 184049562523160,
+							"parameters": {
+								"audio-file": {
+									"path": "Bullet/BulletMetal2"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 258238255590847
+				},
+				{
+					"eventType": "comment",
+					"text": "Sawblade durability display"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "SawBlade",
+							"sid": 448691781133559,
+							"parameters": {
+								"frame-number": "min(3, floor(Self.Durability / 25))"
+							}
+						}
+					],
+					"sid": 530105820735681
+				}
+			],
+			"sid": 401998155872407
 		}
 	],
 	"sid": 171422187705970
