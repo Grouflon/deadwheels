@@ -4557,20 +4557,16 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "every-x-seconds",
+											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 976823531277741,
-											"parameters": {
-												"interval-seconds": "0.05"
-											}
+											"sid": 253139597487879
 										}
 									],
 									"actions": [
 										{
 											"id": "play-by-name",
 											"objectClass": "Audio",
-											"sid": 326070602360159,
-											"disabled": true,
+											"sid": 578527529612945,
 											"parameters": {
 												"folder": "sounds",
 												"audio-file-name": "\"Impacts/Slash\"&choose(1,2,3)",
@@ -4583,13 +4579,28 @@
 										{
 											"id": "set-playback-rate",
 											"objectClass": "Audio",
-											"sid": 674536821337072,
-											"disabled": true,
+											"sid": 370179512039600,
 											"parameters": {
 												"tag": "\"\"",
 												"playback-rate": "random(1,1.2)"
 											}
-										},
+										}
+									],
+									"sid": 134109779326473
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 976823531277741,
+											"parameters": {
+												"interval-seconds": "0.05"
+											}
+										}
+									],
+									"actions": [
 										{
 											"id": "add-to-instvar",
 											"objectClass": "SawBlade",
@@ -4622,6 +4633,14 @@
 									"sid": 579892783698049,
 									"parameters": {
 										"object": "Buildings"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "SawBlade",
+									"sid": 419527659327273,
+									"parameters": {
+										"object": "Furniture"
 									}
 								}
 							],
@@ -4684,8 +4703,30 @@
 										}
 									],
 									"sid": 558672858497612
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Furniture",
+											"sid": 627255039953420,
+											"parameters": {
+												"instance-variable": "chairCanDestroy"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Furniture",
+											"sid": 505376800196347
+										}
+									],
+									"sid": 165762961473879
 								}
-							]
+							],
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
