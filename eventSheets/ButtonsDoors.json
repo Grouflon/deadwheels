@@ -547,6 +547,10 @@
 							"sid": 325238255734920
 						},
 						{
+							"eventType": "comment",
+							"text": "Door is elevator"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -604,19 +608,18 @@
 							"sid": 239515095019589
 						},
 						{
+							"eventType": "comment",
+							"text": "Door is a mechanical, sliding door"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 518815946720556
-								},
-								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 707524494641821,
+									"sid": 296221182700515,
 									"parameters": {
-										"first-value": "Door_Button.ObjectTypeName",
+										"first-value": "Doors.ObjectTypeName",
 										"comparison": 0,
 										"second-value": "\"Door_Button\""
 									}
@@ -642,6 +645,10 @@
 								}
 							],
 							"sid": 570649243777126
+						},
+						{
+							"eventType": "comment",
+							"text": "Regular doors"
 						},
 						{
 							"eventType": "block",
@@ -679,6 +686,10 @@
 							],
 							"sid": 332724905356098,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "Door is opened"
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -727,6 +738,10 @@
 										}
 									],
 									"sid": 387767718750362
+								},
+								{
+									"eventType": "comment",
+									"text": "Door is closed"
 								},
 								{
 									"eventType": "block",
