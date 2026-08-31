@@ -16,7 +16,7 @@
 					"objectClass": "System",
 					"sid": 431020734465449,
 					"parameters": {
-						"object-to-create": "Camera",
+						"object-to-create": "Player",
 						"layer": "CharacterController.LayerName",
 						"x": "CharacterController.X",
 						"y": "CharacterController.Y",
@@ -32,7 +32,7 @@
 			"conditions": [
 				{
 					"id": "is-boolean-instance-variable-set",
-					"objectClass": "Camera",
+					"objectClass": "Player",
 					"sid": 383591892626731,
 					"parameters": {
 						"instance-variable": "enabled"
@@ -67,7 +67,7 @@
 					"conditions": [
 						{
 							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Camera",
+							"objectClass": "Player",
 							"sid": 862596172351399,
 							"parameters": {
 								"instance-variable": "follow_target"
@@ -81,7 +81,7 @@
 							"sid": 311679552757275,
 							"parameters": {
 								"variable": "final_target_x",
-								"value": "Camera.target_x"
+								"value": "Player.target_x"
 							}
 						},
 						{
@@ -90,7 +90,7 @@
 							"sid": 185802672860973,
 							"parameters": {
 								"variable": "final_target_y",
-								"value": "Camera.target_y"
+								"value": "Player.target_y"
 							}
 						}
 					],
@@ -133,7 +133,7 @@
 					"actions": [
 						{
 							"id": "set-position",
-							"objectClass": "Camera",
+							"objectClass": "Player",
 							"sid": 788009967025041,
 							"parameters": {
 								"x": "lerp(Self.X,final_target_x,Self.follow_speed)",

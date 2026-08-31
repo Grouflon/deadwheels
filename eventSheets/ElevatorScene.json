@@ -1,0 +1,632 @@
+{
+	"name": "ElevatorScene",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 675804687077867
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "3DCamera",
+					"sid": 324732299388742,
+					"parameters": {
+						"x": "EvScreenPlayer.X",
+						"y": "EvScreenPlayer.Y",
+						"z": "EvScreenPlayer.Z",
+						"which": "camera"
+					}
+				},
+				{
+					"id": "look-parallel-to-layout",
+					"objectClass": "3DCamera",
+					"sid": 257478391391144,
+					"parameters": {
+						"cam-x": "EvScreenPlayer.X",
+						"cam-y": "EvScreenPlayer.Y",
+						"cam-z": "EvScreenPlayer.Z",
+						"look-angle": "EvScreenPlayer.Angle"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 159153196788313,
+					"parameters": {
+						"audio-file": {
+							"path": "Amb/Amb_ElevatorMusic"
+						},
+						"loop": "looping",
+						"volume": "-30",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 887829961633113,
+					"parameters": {
+						"audio-file": {
+							"path": "Amb/Amb_Hall1"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-field-of-view",
+					"objectClass": "3DCamera",
+					"sid": 580106015217528,
+					"parameters": {
+						"fov": "60"
+					}
+				},
+				{
+					"id": "set-cursor-style2",
+					"objectClass": "Mouse",
+					"sid": 807902043813992,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				}
+			],
+			"sid": 126990054739823
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 448984478903361
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "3DCamera",
+					"sid": 336047540882029,
+					"parameters": {
+						"x": "EvScreenPlayer.X",
+						"y": "EvScreenPlayer.Y",
+						"z": "EvScreenPlayer.Z",
+						"which": "camera"
+					}
+				}
+			],
+			"sid": 122082129512544
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-movement",
+					"objectClass": "Mouse",
+					"sid": 884775076835724
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Sprite2",
+					"sid": 317284853259446,
+					"behaviorType": "Tween",
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 417759647651040,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 864726609127339,
+							"parameters": {
+								"first-value": "Mouse.MovementY",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Sprite2",
+							"sid": 888425475005527,
+							"parameters": {
+								"z": "Self.Z-0.5"
+							}
+						}
+					],
+					"sid": 771942164123013
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 231092433256449,
+							"parameters": {
+								"first-value": "Mouse.MovementY",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Sprite2",
+							"sid": 777387561633600,
+							"parameters": {
+								"z": "Self.Z+0.5"
+							}
+						}
+					],
+					"sid": 129493187541722
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 737925822099813,
+							"parameters": {
+								"first-value": "Mouse.MovementX",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Sprite2",
+							"sid": 914785763403048,
+							"parameters": {
+								"x": "Self.X-0.5"
+							}
+						}
+					],
+					"sid": 279694295336070
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 858870746064441,
+							"parameters": {
+								"first-value": "Mouse.MovementX",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Sprite2",
+							"sid": 345352045150975,
+							"parameters": {
+								"x": "Self.X+0.5"
+							}
+						}
+					],
+					"sid": 828404459789890
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Sprite2",
+							"sid": 814009595871458,
+							"parameters": {
+								"x": "clamp(Self.X,EvScreenPanel.X-15,EvScreenPanel.X+10)"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Sprite2",
+							"sid": 966582775065780,
+							"parameters": {
+								"z": "clamp(Self.Z,40,80)"
+							}
+						}
+					],
+					"sid": 619871083113002
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Mouse",
+					"sid": 125970801946824,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Sprite2",
+					"sid": 902740543782374,
+					"behaviorType": "Tween",
+					"isInverted": true
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 127370592892012,
+					"parameters": {
+						"first-value": "Sprite2.Count",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 499717212469797,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "ElevatorTet",
+							"sid": 588938077774363,
+							"parameters": {
+								"which": "nearest",
+								"x": "Sprite2.X",
+								"y": "Sprite2.Y",
+								"z": "Sprite2.Z",
+								"pick-all-tied": false
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "ElevatorTet",
+							"sid": 649276266456823
+						}
+					],
+					"sid": 195437467625042,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Sprite2",
+							"sid": 131740761604695,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Self.Y-2",
+								"time": "0.05",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 651519366904482,
+							"parameters": {
+								"audio-file": {
+									"path": "Roach1"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 938231376006958,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "1.5"
+							}
+						}
+					],
+					"sid": 680964031860235
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 853361606102274,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Sprite2",
+							"sid": 405387363806201,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"goDown\"",
+								"property": "offsetZElevation",
+								"end-value": "Self.Z-100",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 748480279966269
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 657088812752953,
+							"parameters": {
+								"audio-file": {
+									"path": "ElevatorLoop"
+								},
+								"loop": "looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 182811474448906,
+							"parameters": {
+								"audio-file": {
+									"path": "ElevatorStart"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 134461917585925,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 209307068899124,
+							"parameters": {
+								"audio-file": {
+									"path": "ElevatorEvent"
+								},
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"callFunction": "OpenElevatorDoors",
+							"sid": 355909919562445
+						}
+					],
+					"sid": 919806658899568
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Sprite2",
+					"sid": 105601029471943,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"goDown\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Sprite2",
+					"sid": 344335616668639
+				}
+			],
+			"sid": 332428783206073
+		},
+		{
+			"functionName": "OpenElevatorDoors",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 739012682713385,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "EVScreenElevator3D",
+							"sid": 997704518417387,
+							"parameters": {
+								"tags": "\"left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "EVScreenElevator3D",
+							"sid": 273053709425058,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Self.X-60",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 177795865450265
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "EVScreenElevator3D",
+							"sid": 853528664487155,
+							"parameters": {
+								"tags": "\"left\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "EVScreenElevator3D",
+							"sid": 617557490887644,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Self.X+60",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 188099037105165
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 498612686225865,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "EvScreenPlayer",
+							"sid": 829612729577759,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Self.Y-70",
+								"time": "3",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 339422142895152,
+							"parameters": {
+								"object-to-create": "FadeToBlack",
+								"layer": "\"UI\"",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"customAction": "FadeToBlack",
+							"objectClass": "FadeToBlack",
+							"sid": 481172168171392,
+							"parameters": [
+								"2"
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 976809453973537,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 196549257976262
+						}
+					],
+					"sid": 965987124715094
+				}
+			]
+		}
+	],
+	"sid": 870800980782861
+}
