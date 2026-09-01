@@ -98,6 +98,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "shadowlight",
+			"name": "Shadow light",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -197,6 +204,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "shadowcaster",
+			"name": "Shadow caster",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
@@ -213,6 +227,13 @@
 			"type": "effect",
 			"id": "hardlight",
 			"name": "Hard light",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
 			"author": "Scirra",
 			"bundled": false
 		}
@@ -497,7 +518,10 @@
 			{
 				"items": [
 					"LightCone",
-					"LightDust"
+					"LightDust",
+					"ShadowLight",
+					"Mask",
+					"ShadowBase"
 				],
 				"subfolders": [],
 				"name": "Lightning"
@@ -609,7 +633,8 @@
 				"items": [
 					"RemiTests",
 					"ThomasTestLevel",
-					"ThomasRailLevel"
+					"ThomasRailLevel",
+					"ArtTests"
 				],
 				"subfolders": [],
 				"name": "Work Levels"
@@ -2033,7 +2058,7 @@
 		"exportFileStructure": "folders",
 		"scriptsType": "module"
 	},
-	"viewportWidth": 320,
-	"viewportHeight": 180,
+	"viewportWidth": 384,
+	"viewportHeight": 216,
 	"firstLayout": "Menu"
 }
