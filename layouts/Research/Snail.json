@@ -8321,7 +8321,7 @@
 					}
 				},
 				{
-					"type": "Sprite",
+					"type": "Barnacle",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -8333,17 +8333,32 @@
 					"sid": 632053580720505,
 					"tags": "",
 					"instanceVariables": {
-						"isGrabbing": false
+						"isGrabbing": false,
+						"GrabbingObjectUID": 0
 					},
-					"behaviors": {},
+					"behaviors": {
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
 						"x": 724,
 						"y": 296,
-						"width": 32,
-						"height": 32,
-						"originX": 0.03125,
+						"width": 21,
+						"height": 10,
+						"originX": 0,
 						"originY": 0.5,
 						"color": [
 							1,
