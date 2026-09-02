@@ -2031,6 +2031,57 @@
 							"parameters": {
 								"width": "1"
 							}
+						},
+						{
+							"id": "clear-obstacles",
+							"objectClass": "BarnacleBase",
+							"sid": 173138594049891,
+							"behaviorType": "LineOfSight"
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 303311839018037,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "Furniture"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 266976700818629,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "OuterWallStretched"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 354654182906531,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "OuterWall"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 353741155047643,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "InnerWall"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 188401672429516,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "InnerWallStretched"
+							}
 						}
 					],
 					"sid": 136225917674789
@@ -2087,9 +2138,54 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Barnacle",
+							"sid": 684185797261608,
+							"parameters": {
+								"x": "BarnacleTarget.X",
+								"y": "BarnacleTarget.Y"
+							}
 						}
 					],
 					"sid": 816821325164143
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Barnacle",
+							"sid": 165566411954912,
+							"parameters": {
+								"instance-variable": "GrabbingObjectUID",
+								"comparison": 1,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "BarnacleTarget",
+							"sid": 869117744854735,
+							"parameters": {
+								"unique-id": "Barnacle.GrabbingObjectUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Barnacle",
+							"sid": 191016967525075,
+							"disabled": true,
+							"parameters": {
+								"x": "BarnacleTarget.X",
+								"y": "BarnacleTarget.Y"
+							}
+						}
+					],
+					"sid": 674060252593557
 				},
 				{
 					"eventType": "block",
@@ -2408,6 +2504,10 @@
 					"sid": 974158696902522
 				},
 				{
+					"eventType": "comment",
+					"text": "Barnacle eats target"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2476,19 +2576,19 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "ChairController",
-									"sid": 695961135974719,
+									"sid": 507611433227314,
 									"parameters": {
 										"instance-variable": "direction",
-										"value": "BarnacleBase.Angle"
+										"value": "BarnacleBase.Angle+choose(-30,30)"
 									}
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "ChairController",
-									"sid": 850039229899398,
+									"sid": 219378866416949,
 									"parameters": {
 										"instance-variable": "velocity",
-										"value": "50"
+										"value": "150"
 									}
 								}
 							],

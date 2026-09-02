@@ -928,8 +928,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 304,
-						"y": 268,
+						"x": 268,
+						"y": 408,
 						"width": 12,
 						"height": 12,
 						"originX": 0.5,
@@ -2761,70 +2761,6 @@
 						"z": 0,
 						"depth": 32,
 						"angle": 3.141592653589793
-					}
-				},
-				{
-					"type": "OuterWallStretched",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": true,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": true,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": 950623254910529,
-						"object-left": 920243466915879,
-						"object-right": 920243466915879,
-						"object-top": 920243466915879,
-						"object-bottom": -1
-					},
-					"uid": 281815,
-					"sid": 869551749286265,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						},
-						"NoSave": {
-							"properties": {}
-						},
-						"ShadowCaster": {
-							"properties": {
-								"height": 100,
-								"tag": "",
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 296,
-						"y": 520,
-						"width": 168,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 32,
-						"angle": 4.71238898038469
 					}
 				},
 				{
@@ -20031,78 +19967,584 @@
 					}
 				},
 				{
-					"type": "Mike",
+					"type": "Floor_Tiles2",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Idle",
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 992058,
+					"sid": 888248130093794,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 296,
+						"y": 432,
+						"width": 64,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallVent",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 546494,
+					"sid": 867397491834138,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 328,
+						"y": 432,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "OuterWallVent",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 862732,
+					"sid": 212293138185246,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 296,
+						"y": 456,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "VentPlate",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 358373,
+					"sid": 790263157776384,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 292,
+						"y": 436,
+						"width": 11,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 1,
+						"angle": 5.191034675079894
+					}
+				},
+				{
+					"type": "Corpse",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Mike",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 102276,
-					"sid": 873242114487385,
+					"uid": 204186,
+					"sid": 332224405734284,
 					"tags": "",
 					"instanceVariables": {
-						"spottedPlayer": false,
-						"followPlayer": false,
-						"health": 100,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false,
-						"pathfindingCooldown": 0,
-						"pendingValidTargetX": 0,
-						"pendingValidTargetY": 0,
-						"lastValidTargetX": 0,
-						"lastValidTargetY": 0,
-						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0,
-						"onCreatedAngle": 0
+						"revive_cooldown": 0,
+						"spawn_dust": true
 					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 304,
+						"y": 448,
+						"width": 32,
+						"height": 32,
+						"originX": 0.703125,
+						"originY": 0.484375,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 6.182239298260528
+					}
+				},
+				{
+					"type": "OuterWallVent",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 999792,
+					"sid": 790097607137815,
+					"tags": "",
+					"instanceVariables": {},
 					"behaviors": {
-						"AcquireVision": {
+						"Solid": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 120,
-								"cone-of-view": 360,
-								"use-collision-cells": true
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
 							}
 						},
-						"LoseVision": {
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 360,
+						"y": 432,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "OuterWallVent",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 979970,
+					"sid": 503600094022227,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 500,
-								"cone-of-view": 360,
-								"use-collision-cells": true
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
 							}
 						},
-						"Pathfinding": {
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 328,
+						"y": 456,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallVent",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 290864,
+					"sid": 253364497491712,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
 							"properties": {
-								"cell-size": 8,
-								"cell-border": 3,
-								"obstacles": "solids",
-								"max-speed": 20,
-								"acceleration": 20,
-								"deceleration": 600,
-								"rotate-speed": 100,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 360,
+						"y": 460,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 281815,
+					"sid": 869551749286265,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
 								"enabled": true
 							}
-						},
-						"LineOfSight2": {
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 296,
+						"y": 428,
+						"width": 76,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 898469,
+					"sid": 271074366592933,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
 							"properties": {
-								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
-								"use-collision-cells": true
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
 							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 296,
+						"y": 516,
+						"width": 56,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "InsideWallVentFrame",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 206677,
+					"sid": 703766547429699,
+					"tags": "Crawlable",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": "Crawlable"
+							}
+						},
+						"NoSave": {
+							"properties": {}
 						}
 					},
 					"template": {
 						"mode": "replica",
 						"templateName": "",
-						"sourceTemplateName": "Mike",
+						"sourceTemplateName": "VentFrame",
 						"replicaHierarchyInSyncWithTemplate": false,
 						"templatePropagateHierarchyChanges": true,
 						"replicaIgnoreTemplateHierarchyChanges": false,
@@ -20114,19 +20556,71 @@
 										"key": "plugin",
 										"state": [
 											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
 												"initially-visible",
 												true
 											],
 											[
-												"initial-animation",
+												"face-back",
 												true
 											],
 											[
-												"initial-frame",
+												"face-front",
 												true
 											],
 											[
-												"enable-collisions",
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
 												true
 											]
 										]
@@ -20138,64 +20632,7 @@
 								"component": [
 									{
 										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "spottedPlayer",
-												"state": true
-											},
-											{
-												"iv": "followPlayer",
-												"state": true
-											},
-											{
-												"iv": "health",
-												"state": true
-											},
-											{
-												"iv": "moveToX",
-												"state": true
-											},
-											{
-												"iv": "moveToY",
-												"state": true
-											},
-											{
-												"iv": "isAttacking",
-												"state": true
-											},
-											{
-												"iv": "pathfindingCooldown",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "VoiceCoolDown",
-												"state": true
-											},
-											{
-												"iv": "footStepCoolDown",
-												"state": true
-											},
-											{
-												"iv": "onCreatedAngle",
-												"state": true
-											}
-										]
+										"state": []
 									}
 								]
 							},
@@ -20203,136 +20640,31 @@
 								"id": "behavior",
 								"component": [
 									{
-										"key": "AcquireVision",
+										"key": "Solid",
 										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "LoseVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "Pathfinding",
-										"state": [
-											[
-												"cell-size",
-												true
-											],
-											[
-												"cell-border",
-												true
-											],
-											[
-												"obstacles",
-												true
-											],
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"rotate-object",
-												true
-											],
-											[
-												"diagonals",
-												true
-											],
-											[
-												"direct-movement",
-												true
-											],
 											[
 												"enabled",
 												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
 											]
 										]
 									},
 									{
-										"key": "LineOfSight2",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
+										"key": "NoSave",
+										"state": []
 									}
 								]
 							},
 							{
 								"id": "effect",
-								"component": [
-									{
-										"key": "Brightness",
-										"state": [
-											[
-												"brightness",
-												true
-											],
-											[
-												"<<effect-template-enable>>",
-												true
-											]
-										]
-									}
-								]
+								"component": []
 							},
 							{
 								"id": "world-instance",
@@ -20366,7 +20698,7 @@
 											],
 											[
 												"a",
-												true
+												false
 											],
 											[
 												"o",
@@ -20443,23 +20775,15 @@
 						],
 						"replicasUIDs": null
 					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 264,
-						"y": 436,
+						"x": 304,
+						"y": 428,
 						"width": 32,
-						"height": 32,
-						"originX": 0.4375,
-						"originY": 0.5,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -20467,7 +20791,8 @@
 							1
 						],
 						"z": 0,
-						"angle": 0
+						"depth": 32,
+						"angle": 1.5707963267948966
 					}
 				},
 				{
@@ -20772,111 +21097,6 @@
 						],
 						"z": 1,
 						"angle": 5.202588872052313
-					}
-				},
-				{
-					"type": "BarnacleBase",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 831443,
-					"sid": 526745137817490,
-					"tags": "",
-					"instanceVariables": {
-						"spottedPlayer": false,
-						"followPlayer": false,
-						"health": 100,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false,
-						"pathfindingCooldown": 0,
-						"pendingValidTargetX": 0,
-						"pendingValidTargetY": 0,
-						"lastValidTargetX": 0,
-						"lastValidTargetY": 0,
-						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0,
-						"onCreatedAngle": 0,
-						"tryGrabCoolDown": 0
-					},
-					"behaviors": {
-						"AcquireVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 120,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"LoseVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 500,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 8,
-								"cell-border": 3,
-								"obstacles": "solids",
-								"max-speed": 20,
-								"acceleration": 20,
-								"deceleration": 600,
-								"rotate-speed": 100,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
-								"enabled": true
-							}
-						},
-						"LineOfSight2": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
-								"use-collision-cells": true
-							}
-						},
-						"LineOfSight": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 150,
-								"cone-of-view": 10,
-								"use-collision-cells": true
-							}
-						}
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 406.765869140625,
-						"y": 285.7547607421875,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 1,
-						"angle": 1.5718598595596647
 					}
 				},
 				{
@@ -22502,56 +22722,6 @@
 					}
 				},
 				{
-					"type": "Barnacle",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 975029,
-					"sid": 593955533699291,
-					"tags": "",
-					"instanceVariables": {
-						"isGrabbing": false,
-						"GrabbingObjectUID": 0
-					},
-					"behaviors": {
-						"LineOfSight": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 300,
-								"cone-of-view": 10,
-								"use-collision-cells": true
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 192,
-						"y": 332,
-						"width": 8,
-						"height": 10,
-						"originX": 0,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 15,
-						"angle": 0
-					}
-				},
-				{
 					"type": "PileOfCorpse",
 					"properties": {
 						"initially-visible": true,
@@ -22582,6 +22752,52 @@
 						],
 						"z": 15,
 						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "wallHole",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 138991,
+					"sid": 885859995919132,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 359.60194396972656,
+						"y": 445.1979675292969,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 15,
+						"angle": 0,
+						"rotation3d": {
+							"quaternion": [
+								0,
+								0.7071067690849304,
+								0,
+								0.7071067690849304
+							],
+							"euler": [
+								0,
+								1.5707963705062866,
+								0
+							]
+						}
 					}
 				},
 				{
@@ -22624,7 +22840,7 @@
 						},
 						"LoseVision": {
 							"properties": {
-								"obstacles": "solids",
+								"obstacles": "custom",
 								"range": 500,
 								"cone-of-view": 360,
 								"use-collision-cells": true
@@ -22648,16 +22864,16 @@
 						"LineOfSight2": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
+								"range": 200,
+								"cone-of-view": 10,
 								"use-collision-cells": true
 							}
 						},
 						"LineOfSight": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 150,
-								"cone-of-view": 10,
+								"obstacles": "custom",
+								"range": 200,
+								"cone-of-view": 30,
 								"use-collision-cells": true
 							}
 						}
@@ -22692,7 +22908,7 @@
 				{
 					"type": "BarnacleBase",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -22729,7 +22945,7 @@
 						},
 						"LoseVision": {
 							"properties": {
-								"obstacles": "solids",
+								"obstacles": "custom",
 								"range": 500,
 								"cone-of-view": 360,
 								"use-collision-cells": true
@@ -22753,16 +22969,16 @@
 						"LineOfSight2": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
+								"range": 200,
+								"cone-of-view": 10,
 								"use-collision-cells": true
 							}
 						},
 						"LineOfSight": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 150,
-								"cone-of-view": 10,
+								"obstacles": "custom",
+								"range": 200,
+								"cone-of-view": 30,
 								"use-collision-cells": true
 							}
 						}
@@ -22778,8 +22994,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 288,
-						"y": 372,
+						"x": 352,
+						"y": 444,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
