@@ -1998,6 +1998,31 @@
 							"parameters": {
 								"set": "disabled"
 							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Barnacle",
+							"sid": 426306183601482,
+							"parameters": {
+								"angle": "BarnacleBase.Angle"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Barnacle",
+							"sid": 833328761584510,
+							"parameters": {
+								"x": "BarnacleBase.X",
+								"y": "BarnacleBase.Y"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Barnacle",
+							"sid": 384205795797162,
+							"parameters": {
+								"width": "1"
+							}
 						}
 					],
 					"sid": 136225917674789
@@ -2041,13 +2066,13 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Barnacle",
-							"sid": 636886612777251,
+							"sid": 496131440035648,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"tryGrab\"",
 								"property": "offsetWidth",
-								"end-value": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
-								"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/100",
+								"end-value": "8+distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
+								"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/300",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -2163,55 +2188,117 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 372245418674149,
+					"children": [
 						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 525694733539697,
-							"parameters": {
-								"audio-file": {
-									"path": "GoreBig1"
+							"eventType": "variable",
+							"name": "willGrab",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 554546894335231
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 474492600851861,
+									"parameters": {
+										"first-value": "BarnacleTarget.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"CharacterController\""
+									}
 								},
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 274088100940691,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 612195681107828,
+									"parameters": {
+										"variable": "willGrab",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 319815887562944
 						},
 						{
-							"id": "set-playback-rate",
-							"objectClass": "Audio",
-							"sid": 319735781328646,
-							"parameters": {
-								"tag": "\"\"",
-								"playback-rate": "2"
-							}
-						},
-						{
-							"id": "stop-tweens",
-							"objectClass": "Barnacle",
-							"sid": 169395032737708,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"tryGrab\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Barnacle",
-							"sid": 118246180200827,
-							"parameters": {
-								"instance-variable": "GrabbingObjectUID",
-								"value": "BarnacleTarget.UID"
-							}
-						},
-						{
-							"customAction": "bringTargetBack",
-							"objectClass": "Barnacle",
-							"sid": 498344865694004
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 861786118083028,
+									"parameters": {
+										"variable": "willGrab"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 300252634260120,
+									"parameters": {
+										"audio-file": {
+											"path": "GoreBig1"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 584200936966402,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "2"
+									}
+								},
+								{
+									"id": "stop-tweens",
+									"objectClass": "Barnacle",
+									"sid": 812684306643529,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"tryGrab\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Barnacle",
+									"sid": 286681415197685,
+									"parameters": {
+										"instance-variable": "GrabbingObjectUID",
+										"value": "BarnacleTarget.UID"
+									}
+								},
+								{
+									"customAction": "bringTargetBack",
+									"objectClass": "Barnacle",
+									"sid": 560021103979325
+								}
+							],
+							"sid": 394746001369039
 						}
-					],
-					"sid": 372245418674149
+					]
 				},
 				{
 					"aceType": "action",
@@ -2229,13 +2316,13 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Barnacle",
-							"sid": 151030521794073,
+							"sid": 668085177387395,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"bringTargetBack\"",
 								"property": "offsetWidth",
 								"end-value": "1",
-								"time": "Self.Width/10",
+								"time": "Self.Width/20",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -2397,7 +2484,43 @@
 									}
 								}
 							],
-							"sid": 829246793417909
+							"sid": 829246793417909,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 466725606446712,
+											"parameters": {
+												"instance-variable": "is_in_chair"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterController",
+											"sid": 562815075928743,
+											"parameters": {
+												"instance-variable": "chair_uid",
+												"comparison": 0,
+												"value": "ChairController.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "DoDamage",
+											"objectClass": "CharacterController",
+											"sid": 302930902787058,
+											"parameters": [
+												"100"
+											]
+										}
+									],
+									"sid": 236154723200599
+								}
+							]
 						},
 						{
 							"eventType": "block",
