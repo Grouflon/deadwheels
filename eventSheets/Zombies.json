@@ -1998,6 +1998,90 @@
 							"parameters": {
 								"set": "disabled"
 							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Barnacle",
+							"sid": 426306183601482,
+							"parameters": {
+								"angle": "BarnacleBase.Angle"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Barnacle",
+							"sid": 669307824153162,
+							"parameters": {
+								"object": "BarnacleBase",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "set-z-elevation",
+							"objectClass": "Barnacle",
+							"sid": 247745067241836,
+							"parameters": {
+								"z": "BarnacleBase.Z-1"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Barnacle",
+							"sid": 384205795797162,
+							"parameters": {
+								"width": "1"
+							}
+						},
+						{
+							"id": "clear-obstacles",
+							"objectClass": "BarnacleBase",
+							"sid": 173138594049891,
+							"behaviorType": "LineOfSight"
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 303311839018037,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "Furniture"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 266976700818629,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "OuterWallStretched"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 354654182906531,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "OuterWall"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 353741155047643,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "InnerWall"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 188401672429516,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "InnerWallStretched"
+							}
 						}
 					],
 					"sid": 136225917674789
@@ -2041,22 +2125,67 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Barnacle",
-							"sid": 636886612777251,
+							"sid": 496131440035648,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"tryGrab\"",
 								"property": "offsetWidth",
-								"end-value": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
-								"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/100",
+								"end-value": "8+distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
+								"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/300",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Barnacle",
+							"sid": 684185797261608,
+							"parameters": {
+								"x": "BarnacleTarget.X",
+								"y": "BarnacleTarget.Y"
+							}
 						}
 					],
 					"sid": 816821325164143
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Barnacle",
+							"sid": 165566411954912,
+							"parameters": {
+								"instance-variable": "GrabbingObjectUID",
+								"comparison": 1,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "BarnacleTarget",
+							"sid": 869117744854735,
+							"parameters": {
+								"unique-id": "Barnacle.GrabbingObjectUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Barnacle",
+							"sid": 191016967525075,
+							"disabled": true,
+							"parameters": {
+								"x": "BarnacleTarget.X",
+								"y": "BarnacleTarget.Y"
+							}
+						}
+					],
+					"sid": 674060252593557
 				},
 				{
 					"eventType": "block",
@@ -2163,55 +2292,117 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 372245418674149,
+					"children": [
 						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 525694733539697,
-							"parameters": {
-								"audio-file": {
-									"path": "GoreBig1"
+							"eventType": "variable",
+							"name": "willGrab",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 554546894335231
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 474492600851861,
+									"parameters": {
+										"first-value": "BarnacleTarget.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"CharacterController\""
+									}
 								},
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 274088100940691,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 612195681107828,
+									"parameters": {
+										"variable": "willGrab",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 319815887562944
 						},
 						{
-							"id": "set-playback-rate",
-							"objectClass": "Audio",
-							"sid": 319735781328646,
-							"parameters": {
-								"tag": "\"\"",
-								"playback-rate": "2"
-							}
-						},
-						{
-							"id": "stop-tweens",
-							"objectClass": "Barnacle",
-							"sid": 169395032737708,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"tryGrab\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Barnacle",
-							"sid": 118246180200827,
-							"parameters": {
-								"instance-variable": "GrabbingObjectUID",
-								"value": "BarnacleTarget.UID"
-							}
-						},
-						{
-							"customAction": "bringTargetBack",
-							"objectClass": "Barnacle",
-							"sid": 498344865694004
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 861786118083028,
+									"parameters": {
+										"variable": "willGrab"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 300252634260120,
+									"parameters": {
+										"audio-file": {
+											"path": "GoreBig1"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 584200936966402,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "2"
+									}
+								},
+								{
+									"id": "stop-tweens",
+									"objectClass": "Barnacle",
+									"sid": 812684306643529,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"tryGrab\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Barnacle",
+									"sid": 286681415197685,
+									"parameters": {
+										"instance-variable": "GrabbingObjectUID",
+										"value": "BarnacleTarget.UID"
+									}
+								},
+								{
+									"customAction": "bringTargetBack",
+									"objectClass": "Barnacle",
+									"sid": 560021103979325
+								}
+							],
+							"sid": 394746001369039
 						}
-					],
-					"sid": 372245418674149
+					]
 				},
 				{
 					"aceType": "action",
@@ -2229,13 +2420,13 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Barnacle",
-							"sid": 151030521794073,
+							"sid": 668085177387395,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"bringTargetBack\"",
 								"property": "offsetWidth",
 								"end-value": "1",
-								"time": "Self.Width/10",
+								"time": "Self.Width/20",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -2313,6 +2504,10 @@
 					"sid": 974158696902522
 				},
 				{
+					"eventType": "comment",
+					"text": "Barnacle eats target"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2381,23 +2576,59 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "ChairController",
-									"sid": 695961135974719,
+									"sid": 507611433227314,
 									"parameters": {
 										"instance-variable": "direction",
-										"value": "BarnacleBase.Angle"
+										"value": "BarnacleBase.Angle+choose(-30,30)"
 									}
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "ChairController",
-									"sid": 850039229899398,
+									"sid": 219378866416949,
 									"parameters": {
 										"instance-variable": "velocity",
-										"value": "50"
+										"value": "150"
 									}
 								}
 							],
-							"sid": 829246793417909
+							"sid": 829246793417909,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 466725606446712,
+											"parameters": {
+												"instance-variable": "is_in_chair"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterController",
+											"sid": 562815075928743,
+											"parameters": {
+												"instance-variable": "chair_uid",
+												"comparison": 0,
+												"value": "ChairController.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "DoDamage",
+											"objectClass": "CharacterController",
+											"sid": 302930902787058,
+											"parameters": [
+												"100"
+											]
+										}
+									],
+									"sid": 236154723200599
+								}
+							]
 						},
 						{
 							"eventType": "block",

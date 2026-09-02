@@ -1700,7 +1700,8 @@
 						"recoil": 0,
 						"angular_recoil": 0,
 						"interact_timer": 0,
-						"shoot_cooldown": 0
+						"shoot_cooldown": 0,
+						"chair_uid": 0
 					},
 					"behaviors": {
 						"Custom": {
@@ -1928,6 +1929,10 @@
 											},
 											{
 												"iv": "shoot_cooldown",
+												"state": true
+											},
+											{
+												"iv": "chair_uid",
 												"state": true
 											}
 										]
@@ -8958,56 +8963,6 @@
 						"z": 0,
 						"depth": 8,
 						"angle": 1.5707963267948966
-					}
-				},
-				{
-					"type": "Barnacle",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 244095,
-					"sid": 632053580720505,
-					"tags": "",
-					"instanceVariables": {
-						"isGrabbing": false,
-						"GrabbingObjectUID": 0
-					},
-					"behaviors": {
-						"LineOfSight": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 724,
-						"y": 296,
-						"width": 21,
-						"height": 10,
-						"originX": 0,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
 					}
 				}
 			],

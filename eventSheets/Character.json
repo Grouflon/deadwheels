@@ -995,7 +995,7 @@
 														},
 														{
 															"id": "shake",
-															"objectClass": "Player",
+															"objectClass": "Camera",
 															"sid": 799575940289729,
 															"behaviorType": "ScrollTo",
 															"parameters": {
@@ -1130,7 +1130,7 @@
 													"actions": [
 														{
 															"id": "shake",
-															"objectClass": "Player",
+															"objectClass": "Camera",
 															"sid": 236817544928345,
 															"behaviorType": "ScrollTo",
 															"parameters": {
@@ -1387,7 +1387,7 @@
 														},
 														{
 															"id": "shake",
-															"objectClass": "Player",
+															"objectClass": "Camera",
 															"sid": 279242157720782,
 															"behaviorType": "ScrollTo",
 															"parameters": {
@@ -1574,7 +1574,7 @@
 														},
 														{
 															"id": "shake",
-															"objectClass": "Player",
+															"objectClass": "Camera",
 															"sid": 647668803773264,
 															"behaviorType": "ScrollTo",
 															"parameters": {
@@ -3811,6 +3811,15 @@
 								"instance-variable": "velocity",
 								"value": "-20"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 273183665513195,
+							"parameters": {
+								"instance-variable": "chair_uid",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 257393772718232
@@ -3996,6 +4005,15 @@
 							"parameters": {
 								"instance-variable": "read_input",
 								"value": "true"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CharacterController",
+							"sid": 579067940539814,
+							"parameters": {
+								"instance-variable": "chair_uid",
+								"value": "ChairController.UID"
 							}
 						}
 					],
