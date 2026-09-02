@@ -334,9 +334,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 348,
+						"x": 344,
 						"y": 256,
-						"width": 336,
+						"width": 340,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -463,7 +463,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 188,
+						"x": 184,
 						"y": 256,
 						"width": 160,
 						"height": 96,
@@ -20775,6 +20775,111 @@
 					}
 				},
 				{
+					"type": "BarnacleBase",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 831443,
+					"sid": 526745137817490,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": false,
+						"followPlayer": false,
+						"health": 100,
+						"moveToX": 0,
+						"moveToY": 0,
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0,
+						"VoiceCoolDown": 0,
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0,
+						"tryGrabCoolDown": 0
+					},
+					"behaviors": {
+						"AcquireVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 8,
+								"cell-border": 3,
+								"obstacles": "solids",
+								"max-speed": 20,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 100,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						},
+						"LineOfSight2": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 25,
+								"cone-of-view": 45,
+								"use-collision-cells": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 150,
+								"cone-of-view": 10,
+								"use-collision-cells": true
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 406.765869140625,
+						"y": 285.7547607421875,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 1,
+						"angle": 1.5718598595596647
+					}
+				},
+				{
 					"type": "Mine",
 					"properties": {
 						"initially-visible": true,
@@ -21999,8 +22104,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 404,
-						"y": 276,
+						"x": 408,
+						"y": 268,
 						"width": 20,
 						"height": 33,
 						"originX": 0.5,
@@ -22014,7 +22119,7 @@
 						"z": 8,
 						"depth": 10,
 						"originZ": 0.5,
-						"angle": 1.9029338710431967
+						"angle": 1.5868638257955898
 					}
 				},
 				{
@@ -22351,6 +22456,52 @@
 					}
 				},
 				{
+					"type": "wallHole",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 704321,
+					"sid": 394852291497545,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 192.27684020996094,
+						"y": 333.7994384765625,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 15,
+						"angle": 0,
+						"rotation3d": {
+							"quaternion": [
+								0,
+								0.7071067690849304,
+								0,
+								0.7071067690849304
+							],
+							"euler": [
+								0,
+								1.5707963705062866,
+								0
+							]
+						}
+					}
+				},
+				{
 					"type": "Barnacle",
 					"properties": {
 						"initially-visible": true,
@@ -22385,10 +22536,10 @@
 					"locked": false,
 					"world": {
 						"x": 192,
-						"y": 328,
+						"y": 332,
 						"width": 8,
 						"height": 10,
-						"originX": 0.125,
+						"originX": 0,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -22436,7 +22587,7 @@
 				{
 					"type": "BarnacleBase",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -22523,7 +22674,7 @@
 					"locked": false,
 					"world": {
 						"x": 200,
-						"y": 328,
+						"y": 332,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
