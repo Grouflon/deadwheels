@@ -248,6 +248,45 @@
 								"where": "behind",
 								"object": "Arm"
 							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "CharacterController",
+							"sid": 531644270826169,
+							"parameters": {
+								"object": "DynamicLight",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"gunshot\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "CharacterController",
+							"sid": 266987484432600,
+							"parameters": {
+								"child": "DynamicLight",
+								"transform-x": false,
+								"transform-y": false,
+								"transform-z-elevation": false,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-d": false,
+								"transform-a": false,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "DynamicLight",
+							"sid": 134650835787594,
+							"parameters": {
+								"instance-variable": "intensity",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 225655601611057,
@@ -4548,6 +4587,82 @@
 				}
 			],
 			"sid": 805413802672535
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GUN LIGHT",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "FireGFX",
+							"sid": 868302737456341
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterController",
+							"sid": 481924863364197,
+							"parameters": {
+								"child": "DynamicLight",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "DynamicLight",
+							"sid": 360558259746139,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"intensity\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "DynamicLight",
+							"sid": 104255240251512,
+							"parameters": {
+								"instance-variable": "intensity",
+								"value": "100"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "DynamicLight",
+							"sid": 261344298927640,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"intensity\"",
+								"start-value": "100",
+								"end-value": "0",
+								"time": "0.15",
+								"ease": "easeincubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "DynamicLight",
+							"sid": 522265875264230,
+							"parameters": {
+								"x": "FireGFX.X",
+								"y": "FireGFX.Y"
+							}
+						}
+					],
+					"sid": 557032796250357
+				}
+			],
+			"sid": 763532174630149
 		}
 	],
 	"sid": 595366528436603

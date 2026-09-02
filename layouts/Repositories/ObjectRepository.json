@@ -699,7 +699,7 @@
 							"properties": {
 								"height": 100,
 								"tag": "",
-								"enabled": true
+								"enabled": false
 							}
 						}
 					},
@@ -1541,6 +1541,13 @@
 								"cone-of-view": 45,
 								"use-collision-cells": true
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": false
+							}
 						}
 					},
 					"template": {
@@ -1754,6 +1761,23 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -5212,9 +5236,9 @@
 						},
 						"ShadowCaster": {
 							"properties": {
-								"height": 100,
+								"height": 10,
 								"tag": "",
-								"enabled": true
+								"enabled": false
 							}
 						}
 					},
