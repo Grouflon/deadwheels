@@ -1400,7 +1400,34 @@
 							}
 						}
 					],
-					"sid": 979833528863973
+					"sid": 979833528863973,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 122846620690870
+								}
+							],
+							"actions": [
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 320207990750237,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "IronShutter.X - 32",
+										"start-y": "IronShutter.Y - 32",
+										"end-x": "IronShutter.X + 32",
+										"end-y": "IronShutter.Y + 32"
+									}
+								}
+							],
+							"sid": 196823889920367
+						}
+					]
 				},
 				{
 					"eventType": "block",
