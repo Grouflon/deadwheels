@@ -686,7 +686,8 @@
 						"angular_recoil": 0,
 						"interact_timer": 0,
 						"shoot_cooldown": 0,
-						"chair_uid": 0
+						"chair_uid": 0,
+						"can_enter_chair": true
 					},
 					"behaviors": {
 						"Custom": {
@@ -918,6 +919,10 @@
 											},
 											{
 												"iv": "chair_uid",
+												"state": true
+											},
+											{
+												"iv": "can_enter_chair",
 												"state": true
 											}
 										]
@@ -1505,7 +1510,8 @@
 						"lastValidTargetY": 0,
 						"VoiceCoolDown": 0,
 						"footStepCoolDown": 0,
-						"onCreatedAngle": 0
+						"onCreatedAngle": 0,
+						"canBeRammed": true
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -1649,6 +1655,10 @@
 											},
 											{
 												"iv": "onCreatedAngle",
+												"state": true
+											},
+											{
+												"iv": "canBeRammed",
 												"state": true
 											}
 										]
@@ -2148,7 +2158,8 @@
 						"lastValidTargetY": 0,
 						"VoiceCoolDown": 0,
 						"footStepCoolDown": 0,
-						"onCreatedAngle": 0
+						"onCreatedAngle": 0,
+						"canBeRammed": true
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -2285,6 +2296,10 @@
 											},
 											{
 												"iv": "onCreatedAngle",
+												"state": true
+											},
+											{
+												"iv": "canBeRammed",
 												"state": true
 											}
 										]
@@ -3845,48 +3860,6 @@
 					}
 				},
 				{
-					"type": "Barnacle",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 786358,
-					"sid": 126775312816471,
-					"tags": "",
-					"instanceVariables": {
-						"isGrabbing": false,
-						"GrabbingObjectUID": 0
-					},
-					"behaviors": {
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 165.23666381835938,
-						"y": 185.31829833984375,
-						"width": 64,
-						"height": 10,
-						"originX": 0,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "SawBlade",
 					"properties": {
 						"initially-visible": true,
@@ -4510,6 +4483,63 @@
 					}
 				},
 				{
+					"type": "Barnacle",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 503036,
+					"sid": 501592662269038,
+					"tags": "",
+					"instanceVariables": {
+						"isGrabbing": false,
+						"GrabbingObjectUID": 0,
+						"warpXamplitude": 1,
+						"warpXamplitudeTarget": 1
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"WarpObject": {
+							"isEnabled": true,
+							"parameters": {
+								"x-frequency": 2,
+								"y-frequency": 0,
+								"x-amplitude": 4,
+								"y-amplitude": 0,
+								"x-speed": 5,
+								"y-speed": 0
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 180.1264190673828,
+						"y": 175.8883514404297,
+						"width": 64,
+						"height": 10,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 5,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Chimio",
 					"properties": {
 						"initially-visible": true,
@@ -4535,7 +4565,8 @@
 						"lastValidTargetY": 0,
 						"VoiceCoolDown": 0,
 						"footStepCoolDown": 0,
-						"onCreatedAngle": 0
+						"onCreatedAngle": 0,
+						"canBeRammed": true
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -4685,6 +4716,10 @@
 											},
 											{
 												"iv": "onCreatedAngle",
+												"state": true
+											},
+											{
+												"iv": "canBeRammed",
 												"state": true
 											}
 										]
