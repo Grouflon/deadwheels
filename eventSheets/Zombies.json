@@ -2041,15 +2041,6 @@
 						{
 							"id": "add-obstacle",
 							"objectClass": "BarnacleBase",
-							"sid": 303311839018037,
-							"behaviorType": "LineOfSight",
-							"parameters": {
-								"obstacle": "Furniture"
-							}
-						},
-						{
-							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
 							"sid": 266976700818629,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2081,6 +2072,15 @@
 							"behaviorType": "LineOfSight",
 							"parameters": {
 								"obstacle": "InnerWallStretched"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 135085467073612,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "Doors"
 							}
 						}
 					],
@@ -2440,6 +2440,35 @@
 					],
 					"sid": 459339869862313,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Barnacle",
+							"sid": 615769316250312,
+							"parameters": {
+								"object": "Furniture"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Furniture",
+							"sid": 647934128539776,
+							"parameters": {
+								"instance-variable": "chairCanDestroy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Furniture",
+							"sid": 393233348678893
+						}
+					],
+					"sid": 100667689588089
 				},
 				{
 					"eventType": "comment",
