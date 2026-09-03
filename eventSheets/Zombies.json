@@ -1798,6 +1798,21 @@
 							"parameters": {
 								"angle": "Chimio.Angle"
 							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "ChimioLegs",
+							"sid": 540614138004883,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Chimio",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
 						}
 					],
 					"sid": 125548132483487
@@ -1907,6 +1922,42 @@
 						}
 					],
 					"sid": 671110412836502
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Chimio",
+							"sid": 738775817130264
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Chimio",
+							"sid": 225416558289692,
+							"parameters": {
+								"object": "ChairController"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Chimio",
+							"sid": 202314521318024,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ChairController",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 760289831594671
 				}
 			],
 			"sid": 218360608730011
@@ -2782,6 +2833,14 @@
 										"first-value": "BarnacleTarget.ObjectTypeName",
 										"comparison": 0,
 										"second-value": "\"ChairController\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ChairController",
+									"sid": 486018641193263,
+									"parameters": {
+										"unique-id": "Barnacle.GrabbingObjectUID"
 									}
 								}
 							],
