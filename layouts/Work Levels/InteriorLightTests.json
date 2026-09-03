@@ -194,7 +194,8 @@
 								"recoil": 0,
 								"angular_recoil": 0,
 								"interact_timer": 0,
-								"shoot_cooldown": 0
+								"shoot_cooldown": 0,
+								"chair_uid": 0
 							},
 							"behaviors": {
 								"Custom": {
@@ -422,6 +423,10 @@
 													},
 													{
 														"iv": "shoot_cooldown",
+														"state": true
+													},
+													{
+														"iv": "chair_uid",
 														"state": true
 													}
 												]
@@ -767,6 +772,13 @@
 										"enabled": true,
 										"use-instance-tags": true,
 										"tags": ""
+									}
+								},
+								"ShadowCaster": {
+									"properties": {
+										"height": 100,
+										"tag": "",
+										"enabled": true
 									}
 								}
 							},
@@ -1758,6 +1770,13 @@
 										"enabled": true,
 										"use-instance-tags": true,
 										"tags": ""
+									}
+								},
+								"ShadowCaster": {
+									"properties": {
+										"height": 100,
+										"tag": "",
+										"enabled": true
 									}
 								}
 							},
@@ -3669,7 +3688,6 @@
 							"sid": 982189285707407,
 							"tags": "",
 							"instanceVariables": {
-								"light_index": 0,
 								"size": 300,
 								"intensity": 100
 							},
@@ -3712,7 +3730,6 @@
 							"sid": 343752010538569,
 							"tags": "",
 							"instanceVariables": {
-								"light_index": 0,
 								"size": 600,
 								"intensity": 100
 							},
@@ -3755,7 +3772,6 @@
 							"sid": 405432139035078,
 							"tags": "",
 							"instanceVariables": {
-								"light_index": 0,
 								"size": 600,
 								"intensity": 100
 							},
@@ -3797,9 +3813,7 @@
 							"uid": 962799,
 							"sid": 648013670205576,
 							"tags": "",
-							"instanceVariables": {
-								"intensity": 10
-							},
+							"instanceVariables": {},
 							"behaviors": {},
 							"showing": true,
 							"locked": false,

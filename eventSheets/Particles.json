@@ -1,0 +1,499 @@
+{
+	"name": "Particles",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Dust Particles",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "dust_angle",
+					"type": "number",
+					"initialValue": "-37",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 931249002000373
+				},
+				{
+					"eventType": "variable",
+					"name": "dust_lifetime",
+					"type": "number",
+					"initialValue": "3",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 266903155238453
+				},
+				{
+					"eventType": "variable",
+					"name": "dust_speed",
+					"type": "number",
+					"initialValue": "4",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 973809075745691
+				},
+				{
+					"eventType": "variable",
+					"name": "viewport_left",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 189996970495162
+				},
+				{
+					"eventType": "variable",
+					"name": "viewport_right",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 239770171862696
+				},
+				{
+					"eventType": "variable",
+					"name": "viewport_top",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 126303251140823
+				},
+				{
+					"eventType": "variable",
+					"name": "viewport_bottom",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 527596019436023
+				},
+				{
+					"eventType": "variable",
+					"name": "spawn_margin",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 580348612715439
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "LightCone",
+							"sid": 963724615381492
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-layer",
+							"objectClass": "LightCone",
+							"sid": 464044571854955,
+							"parameters": {
+								"layer": "\"Light\""
+							}
+						}
+					],
+					"sid": 352192581860058,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 627677378532044,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 604038477559517,
+							"parameters": {
+								"variable": "viewport_left",
+								"value": "ViewportLeft(\"World\") - spawn_margin"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 693436080354125,
+							"parameters": {
+								"variable": "viewport_right",
+								"value": "ViewportRight(\"World\") + spawn_margin"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 149329125432312,
+							"parameters": {
+								"variable": "viewport_top",
+								"value": "ViewportTop(\"World\") - spawn_margin"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 566951825686966,
+							"parameters": {
+								"variable": "viewport_bottom",
+								"value": "ViewportBottom(\"World\") + spawn_margin"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 740521589721304,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"\" & viewport_left & \" \" & viewport_right & \" \" & viewport_top & \" \" & viewport_bottom"
+							}
+						}
+					],
+					"sid": 787338540337654,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 756694891703755,
+									"parameters": {
+										"count": "16"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 818524427334966,
+									"parameters": {
+										"object-to-create": "LightDust",
+										"layer": "0",
+										"x": "random(viewport_left, viewport_right)",
+										"y": "random(viewport_top, viewport_bottom)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "LightDust",
+									"sid": 791586006170192,
+									"parameters": {
+										"z": "random(3,32)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "LightDust",
+									"sid": 413789046744462,
+									"parameters": {
+										"instance-variable": "t",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "LightDust",
+									"sid": 365192862693442,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "LightDust",
+									"sid": 265020881255229,
+									"parameters": {
+										"instance-variable": "float_angle",
+										"value": "dust_angle + random(-5,5)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "LightDust",
+									"sid": 754917042671332,
+									"parameters": {
+										"instance-variable": "float_speed",
+										"value": "dust_speed+ random(-2,2)"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "LightDust",
+									"sid": 583781335125005,
+									"parameters": {
+										"width": "LightDust.Width * random(0.3, 0.8)"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "LightDust",
+									"sid": 669193065892436,
+									"parameters": {
+										"height": "LightDust.Width"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 356424941165145,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"dust\" & LightDust.X & \" \" & LightDust.Y"
+									}
+								}
+							],
+							"sid": 541572616882771,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "LightDust",
+											"sid": 215213062861466,
+											"parameters": {
+												"object": "LightCone"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "LightDust",
+											"sid": 687467757421695
+										}
+									],
+									"sid": 657031717055214
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 612345640670081,
+									"parameters": {
+										"object": "LightCone"
+									}
+								},
+								{
+									"id": "is-on-screen",
+									"objectClass": "LightCone",
+									"sid": 848478741781448
+								}
+							],
+							"actions": [],
+							"sid": 548168285532056
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 773021190910412,
+							"parameters": {
+								"object": "LightDust"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "LightDust",
+							"sid": 773886086624959,
+							"parameters": {
+								"instance-variable": "t",
+								"value": "dt / dust_lifetime"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 457401012818372,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"dust\" & LightDust.t"
+							}
+						}
+					],
+					"sid": 742262924331202,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "LightDust",
+									"sid": 252005696965093,
+									"parameters": {
+										"instance-variable": "t",
+										"comparison": 5,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "LightDust",
+									"sid": 866213438368229,
+									"disabled": true,
+									"parameters": {
+										"object": "LightCone"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "LightDust",
+									"sid": 905023448998848
+								}
+							],
+							"sid": 943117014289490
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "LightDust",
+									"sid": 692349613382876,
+									"parameters": {
+										"opacity": "sin(LightDust.t * 180) * 13"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "LightDust",
+									"sid": 122952546587275,
+									"parameters": {
+										"x": "LightDust.X + cos(LightDust.float_angle) * LightDust.float_speed * dt",
+										"y": "LightDust.Y + sin(LightDust.float_angle) * LightDust.float_speed * dt"
+									}
+								},
+								{
+									"id": "set-z-elevation",
+									"objectClass": "LightDust",
+									"sid": 123170986013002,
+									"parameters": {
+										"z": "LightDust.Z + sin(LightDust.Angle) * dust_speed * dt"
+									}
+								}
+							],
+							"sid": 998247725615810
+						}
+					]
+				}
+			],
+			"sid": 835211306959490
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 994696944124999
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 507887100981273,
+					"parameters": {
+						"object-to-create": "DustParticles",
+						"layer": "0",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-z-elevation",
+					"objectClass": "DustParticles",
+					"sid": 720117308466612,
+					"parameters": {
+						"z": "8"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 145410168399947,
+					"parameters": {
+						"object-to-create": "DustParticles",
+						"layer": "0",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-z-elevation",
+					"objectClass": "DustParticles",
+					"sid": 221516814364007,
+					"parameters": {
+						"z": "28"
+					}
+				}
+			],
+			"sid": 612034747535049
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "DustParticles",
+					"sid": 153892943651698,
+					"parameters": {
+						"x": "ViewportMidX(0)",
+						"y": "ViewportMidY(0)"
+					}
+				}
+			],
+			"sid": 424558948642382
+		}
+	],
+	"sid": 942986642932825
+}
