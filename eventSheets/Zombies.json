@@ -1798,6 +1798,21 @@
 							"parameters": {
 								"angle": "Chimio.Angle"
 							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "ChimioLegs",
+							"sid": 540614138004883,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Chimio",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
 						}
 					],
 					"sid": 125548132483487
@@ -1907,6 +1922,42 @@
 						}
 					],
 					"sid": 671110412836502
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Chimio",
+							"sid": 738775817130264
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Chimio",
+							"sid": 225416558289692,
+							"parameters": {
+								"object": "ChairController"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Chimio",
+							"sid": 202314521318024,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ChairController",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 760289831594671
 				}
 			],
 			"sid": 218360608730011
@@ -2041,15 +2092,6 @@
 						{
 							"id": "add-obstacle",
 							"objectClass": "BarnacleBase",
-							"sid": 303311839018037,
-							"behaviorType": "LineOfSight",
-							"parameters": {
-								"obstacle": "Furniture"
-							}
-						},
-						{
-							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
 							"sid": 266976700818629,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2081,6 +2123,15 @@
 							"behaviorType": "LineOfSight",
 							"parameters": {
 								"obstacle": "InnerWallStretched"
+							}
+						},
+						{
+							"id": "add-obstacle",
+							"objectClass": "BarnacleBase",
+							"sid": 135085467073612,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"obstacle": "Doors"
 							}
 						}
 					],
@@ -2442,6 +2493,35 @@
 					"isOrBlock": true
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Barnacle",
+							"sid": 615769316250312,
+							"parameters": {
+								"object": "Furniture"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Furniture",
+							"sid": 647934128539776,
+							"parameters": {
+								"instance-variable": "chairCanDestroy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Furniture",
+							"sid": 393233348678893
+						}
+					],
+					"sid": 100667689588089
+				},
+				{
 					"eventType": "comment",
 					"text": "Tentacle hits target"
 				},
@@ -2753,6 +2833,14 @@
 										"first-value": "BarnacleTarget.ObjectTypeName",
 										"comparison": 0,
 										"second-value": "\"ChairController\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ChairController",
+									"sid": 486018641193263,
+									"parameters": {
+										"unique-id": "Barnacle.GrabbingObjectUID"
 									}
 								}
 							],
