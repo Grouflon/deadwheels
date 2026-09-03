@@ -2019,9 +2019,9 @@
 						{
 							"id": "set-z-elevation",
 							"objectClass": "Barnacle",
-							"sid": 247745067241836,
+							"sid": 775628488657617,
 							"parameters": {
-								"z": "BarnacleBase.Z-1"
+								"z": "6"
 							}
 						},
 						{
@@ -2325,6 +2325,85 @@
 						}
 					],
 					"sid": 582174788631363
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Barnacle",
+							"sid": 119857426105925,
+							"parameters": {
+								"instance-variable": "warpXamplitude",
+								"value": "lerp(Self.warpXamplitude,Self.warpXamplitudeTarget,0.1)"
+							}
+						},
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Barnacle",
+							"sid": 292951208825641,
+							"parameters": {
+								"effect": "\"WarpObject\"",
+								"parameter-index": "2",
+								"value": "Self.warpXamplitude"
+							}
+						}
+					],
+					"sid": 874554196641666
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Barnacle",
+							"sid": 194984526407346,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"tryGrab\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Barnacle",
+							"sid": 384489661935338,
+							"parameters": {
+								"instance-variable": "warpXamplitudeTarget",
+								"value": "4"
+							}
+						}
+					],
+					"sid": 690995983319987
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Barnacle",
+							"sid": 447912849216087,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"tryGrab\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Barnacle",
+							"sid": 634125645067474,
+							"parameters": {
+								"instance-variable": "warpXamplitudeTarget",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 575123531007264
 				},
 				{
 					"eventType": "block",
