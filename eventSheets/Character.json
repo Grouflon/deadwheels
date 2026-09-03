@@ -3409,6 +3409,71 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "CAN ENTER CHAIR OR NOT",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CharacterController",
+							"sid": 893240359367138,
+							"parameters": {
+								"instance-variable": "can_enter_chair",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 943269847926644,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Barnacle",
+									"sid": 444682414906934,
+									"parameters": {
+										"instance-variable": "GrabbingObjectUID",
+										"comparison": 0,
+										"value": "CharacterController.UID"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 632080293167269,
+									"parameters": {
+										"first-value": "Barnacle.PickedCount",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 367429389920308,
+									"parameters": {
+										"instance-variable": "can_enter_chair",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 320257968688526
+						}
+					]
+				}
+			],
+			"sid": 718476149055616
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "ENTER/EXIT CHAIR",
 			"description": "",
 			"isActiveOnStart": true,
@@ -3465,6 +3530,14 @@
 								"first-value": "distance(CharacterController.X, CharacterController.Y, ChairController.X, ChairController.Y)",
 								"comparison": 3,
 								"second-value": "chair_enter_distance"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 936076505878918,
+							"parameters": {
+								"instance-variable": "can_enter_chair"
 							}
 						}
 					],
