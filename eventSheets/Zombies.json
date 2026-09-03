@@ -2121,35 +2121,140 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 816821325164143,
+					"children": [
 						{
-							"id": "tween-one-property",
-							"objectClass": "Barnacle",
-							"sid": 496131440035648,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"tryGrab\"",
-								"property": "offsetWidth",
-								"end-value": "8+distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
-								"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/300",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
+							"eventType": "variable",
+							"name": "tryThrowTentacle",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 185034589345614
 						},
 						{
-							"id": "set-angle-toward-position",
-							"objectClass": "Barnacle",
-							"sid": 684185797261608,
-							"parameters": {
-								"x": "BarnacleTarget.X",
-								"y": "BarnacleTarget.Y"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 156750649228497,
+									"parameters": {
+										"first-value": "BarnacleTarget.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"ChairController\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "BarnacleBase",
+									"sid": 928679010992713,
+									"parameters": {
+										"instance-variable": "ignoreChair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 885753730058950,
+									"parameters": {
+										"variable": "tryThrowTentacle",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 885050207206673
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 845115960828502,
+									"parameters": {
+										"first-value": "BarnacleTarget.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"CharacterController\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 537842017026895,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "BarnacleBase",
+									"sid": 248529802915340,
+									"parameters": {
+										"instance-variable": "ignoreChair"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 945631199267205,
+									"parameters": {
+										"variable": "tryThrowTentacle",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 149285252553557
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 661601150615123,
+									"parameters": {
+										"variable": "tryThrowTentacle"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Barnacle",
+									"sid": 845489508218006,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"tryGrab\"",
+										"property": "offsetWidth",
+										"end-value": "8+distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
+										"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/300",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "Barnacle",
+									"sid": 478975129735092,
+									"parameters": {
+										"x": "BarnacleTarget.X",
+										"y": "BarnacleTarget.Y"
+									}
+								}
+							],
+							"sid": 891401061823494
 						}
-					],
-					"sid": 816821325164143
+					]
 				},
 				{
 					"eventType": "block",
