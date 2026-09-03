@@ -1031,7 +1031,8 @@
 						"angular_recoil": 0,
 						"interact_timer": 0,
 						"shoot_cooldown": 0,
-						"chair_uid": 0
+						"chair_uid": 0,
+						"can_enter_chair": true
 					},
 					"behaviors": {
 						"Custom": {
@@ -1263,6 +1264,10 @@
 											},
 											{
 												"iv": "chair_uid",
+												"state": true
+											},
+											{
+												"iv": "can_enter_chair",
 												"state": true
 											}
 										]
@@ -3461,6 +3466,13 @@
 						},
 						"NoSave": {
 							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"template": {
@@ -3581,6 +3593,23 @@
 									{
 										"key": "NoSave",
 										"state": []
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
 									}
 								]
 							},

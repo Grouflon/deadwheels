@@ -1,0 +1,107 @@
+{
+	"name": "PostProcess",
+	"layers": [
+		{
+			"name": "PostProcess",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 551476670664201,
+			"effectTypes": [
+				{
+					"effectId": "vignette",
+					"name": "Vignette",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"start-radius": 0.3,
+							"end-radius": 0.75
+						}
+					}
+				},
+				{
+					"effectId": "bulge",
+					"name": "Bulge",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"radius": 1,
+							"scale": 0.005
+						}
+					}
+				},
+				{
+					"effectId": "Disketaa_Bloom",
+					"name": "Bloom",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"intensity": 0.2,
+							"brightness": 0.45,
+							"falloff": 0.9,
+							"threshold": 0,
+							"samples": 24
+						}
+					}
+				},
+				{
+					"effectId": "separatechannel_3",
+					"name": "RGBAChannelSeparation",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"redx": 2,
+							"greenx": -2,
+							"bluex": 0,
+							"alphax": 0,
+							"redy": 0,
+							"greeny": 0,
+							"bluey": -2,
+							"alphay": 2,
+							"intensity": 0.7,
+							"innerDecrease": 0.7
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": true
+		}
+	],
+	"sid": 771233550042922,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 768,
+	"height": 432,
+	"unboundedScrolling": false,
+	"sampling": "auto",
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": null
+}

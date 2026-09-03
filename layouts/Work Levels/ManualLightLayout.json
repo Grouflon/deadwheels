@@ -195,7 +195,8 @@
 								"angular_recoil": 0,
 								"interact_timer": 0,
 								"shoot_cooldown": 0,
-								"chair_uid": 0
+								"chair_uid": 0,
+								"can_enter_chair": true
 							},
 							"behaviors": {
 								"Custom": {
@@ -427,6 +428,10 @@
 													},
 													{
 														"iv": "chair_uid",
+														"state": true
+													},
+													{
+														"iv": "can_enter_chair",
 														"state": true
 													}
 												]
@@ -679,6 +684,13 @@
 									"properties": {
 										"enabled": true
 									}
+								},
+								"ShadowCaster": {
+									"properties": {
+										"height": 100,
+										"tag": "",
+										"enabled": true
+									}
 								}
 							},
 							"showing": true,
@@ -773,13 +785,6 @@
 										"use-instance-tags": true,
 										"tags": ""
 									}
-								},
-								"ShadowCaster": {
-									"properties": {
-										"height": 100,
-										"tag": "",
-										"enabled": true
-									}
 								}
 							},
 							"showing": true,
@@ -843,7 +848,7 @@
 								"mode": "replica",
 								"templateName": "",
 								"sourceTemplateName": "TopWindow",
-								"replicaHierarchyInSyncWithTemplate": false,
+								"replicaHierarchyInSyncWithTemplate": true,
 								"templatePropagateHierarchyChanges": true,
 								"replicaIgnoreTemplateHierarchyChanges": false,
 								"components": [
@@ -1072,6 +1077,68 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 424974,
+								"children": [
+									{
+										"uid": 756024,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"d": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 295329,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"d": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformD": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformSZ": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
 							},
 							"showing": true,
 							"locked": false,
@@ -1771,13 +1838,6 @@
 										"use-instance-tags": true,
 										"tags": ""
 									}
-								},
-								"ShadowCaster": {
-									"properties": {
-										"height": 100,
-										"tag": "",
-										"enabled": true
-									}
 								}
 							},
 							"showing": true,
@@ -1926,6 +1986,148 @@
 								"z": 0,
 								"depth": 32,
 								"angle": 1.5707963267948966
+							}
+						},
+						{
+							"type": "LightBlocker",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 756024,
+							"sid": 186692972754019,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"ShadowCaster": {
+									"properties": {
+										"height": 100,
+										"tag": "",
+										"enabled": true
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 424974,
+								"uid": 756024,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformD": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformSZ": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 281.71375221464507,
+								"y": 256,
+								"width": 8,
+								"height": 8.28624778535498,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 32,
+								"angle": 4.71238898038469
+							}
+						},
+						{
+							"type": "LightBlocker",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 295329,
+							"sid": 806638449449578,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"ShadowCaster": {
+									"properties": {
+										"height": 100,
+										"tag": "",
+										"enabled": true
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 424974,
+								"uid": 295329,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformD": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformSZ": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 318.4562987748531,
+								"y": 256,
+								"width": 8.456298774853138,
+								"height": 8,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 32,
+								"angle": 3.141592653589793
 							}
 						}
 					],

@@ -22,6 +22,29 @@
 			"sid": 731267431111313
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 790391369935798
+				}
+			],
+			"actions": [
+				{
+					"id": "move-layer",
+					"objectClass": "System",
+					"sid": 589413617773873,
+					"parameters": {
+						"layer": "\"World\"",
+						"insert-by": "\"PostProcess\"",
+						"where": "top-sublayer"
+					}
+				}
+			],
+			"sid": 302321250223861
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "LIGHTS SETUP",
