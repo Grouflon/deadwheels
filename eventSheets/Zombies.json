@@ -2170,6 +2170,11 @@
 								"comparison": 3,
 								"value": "0"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 923481260410641
 						}
 					],
 					"actions": [],
@@ -2277,6 +2282,56 @@
 							],
 							"actions": [
 								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 640791459139702,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "random(0.7,0.8)"
+									}
+								},
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 572313259865288,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"Voice/BarnacleScream\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "BarnacleBase",
+										"inner-angle": "360",
+										"outer-angle": "0",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 537594721407474,
+									"parameters": {
+										"seconds": "0.4",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 925272557638521,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"Movement/BarnacleWhip\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "BarnacleBase",
+										"inner-angle": "360",
+										"outer-angle": "0",
+										"outer-gain": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "tween-one-property",
 									"objectClass": "Barnacle",
 									"sid": 441128745670806,
@@ -2306,42 +2361,6 @@
 							"sid": 891401061823494
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Barnacle",
-							"sid": 165566411954912,
-							"parameters": {
-								"instance-variable": "GrabbingObjectUID",
-								"comparison": 1,
-								"value": "0"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "BarnacleTarget",
-							"sid": 869117744854735,
-							"parameters": {
-								"unique-id": "Barnacle.GrabbingObjectUID"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-angle-toward-position",
-							"objectClass": "Barnacle",
-							"sid": 191016967525075,
-							"disabled": true,
-							"parameters": {
-								"x": "BarnacleTarget.X",
-								"y": "BarnacleTarget.Y"
-							}
-						}
-					],
-					"sid": 674060252593557
 				},
 				{
 					"eventType": "block",
@@ -2487,6 +2506,17 @@
 								"instance-variable": "tryGrabCoolDown",
 								"value": "4"
 							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 526985766608200,
+							"parameters": {
+								"tag": "\"tentacleLoop\"&Barnacle.UID",
+								"db": "-100",
+								"duration": "0.5",
+								"ending": "stop"
+							}
 						}
 					],
 					"sid": 459339869862313,
@@ -2618,26 +2648,20 @@
 							],
 							"actions": [
 								{
-									"id": "play",
+									"id": "play-at-object",
 									"objectClass": "Audio",
-									"sid": 300252634260120,
+									"sid": 370241630505756,
 									"parameters": {
 										"audio-file": {
-											"path": "GoreBig1"
+											"path": "Movement/TentacleGrab"
 										},
 										"loop": "not-looping",
 										"volume": "0",
-										"stereo-pan": "0",
+										"object": "Barnacle",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
 										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "set-playback-rate",
-									"objectClass": "Audio",
-									"sid": 584200936966402,
-									"parameters": {
-										"tag": "\"\"",
-										"playback-rate": "2"
 									}
 								},
 								{
@@ -2696,6 +2720,23 @@
 								"loop": "no",
 								"ping-pong": "no",
 								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 908647853314570,
+							"parameters": {
+								"audio-file": {
+									"path": "Movement/TentacleLoop"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"object": "BarnacleTarget",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"tentacleLoop\"&Barnacle.UID"
 							}
 						}
 					],
@@ -2793,7 +2834,24 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 825034711029349,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Voice/BarnacleAggro\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "BarnacleBase",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
 					"sid": 369672323236144,
 					"children": [
 						{
@@ -2972,8 +3030,78 @@
 								}
 							],
 							"sid": 951249966008844
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 967931695492426
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Barnacle death"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Barnacle",
+							"sid": 772494436812295
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 158321230030318,
+							"parameters": {
+								"tag": "\"tentacleLoop\"&Barnacle.UID"
+							}
+						}
+					],
+					"sid": 781684333918281
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "BarnacleBase",
+							"sid": 803622224593133
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BarnacleBase",
+							"sid": 281033155696571,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 405055536030115,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Voice/BarnacleDeath\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "BarnacleBase",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 597470172082107
 				}
 			],
 			"sid": 345073671218522
