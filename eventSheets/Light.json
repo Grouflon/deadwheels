@@ -619,7 +619,38 @@
 													}
 												}
 											],
-											"sid": 777021453243871
+											"sid": 777021453243871,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-screen",
+															"objectClass": "DynamicLight",
+															"sid": 192858019004031
+														}
+													],
+													"actions": [
+														{
+															"id": "play-at-object-by-name",
+															"objectClass": "Audio",
+															"sid": 238400425886026,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "\"Amb/LightFlicker\"&choose(1,2,3)",
+																"loop": "not-looping",
+																"volume": "0",
+																"object": "DynamicLight",
+																"inner-angle": "360",
+																"outer-angle": "360",
+																"outer-gain": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 257790514296070
+												}
+											]
 										},
 										{
 											"eventType": "block",
