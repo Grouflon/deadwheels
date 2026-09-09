@@ -1,0 +1,43 @@
+{
+	"name": "Level2Events",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Trigger",
+					"sid": 114729635183640,
+					"parameters": {
+						"unique-id": "788093"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 161716934644710,
+					"parameters": {
+						"variable": "gun_unlocked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Trigger",
+					"sid": 143568678639451,
+					"parameters": {
+						"instance-variable": "enabled",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 672851702677660
+		}
+	],
+	"sid": 312306596236726
+}

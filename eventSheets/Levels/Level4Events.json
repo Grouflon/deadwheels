@@ -1,0 +1,216 @@
+{
+	"name": "Level4Events",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Trigger",
+					"sid": 767379587492639,
+					"parameters": {
+						"unique-id": "768703"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 376085457691881,
+					"parameters": {
+						"variable": "shotgun_unlocked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Trigger",
+					"sid": 743888996049932,
+					"parameters": {
+						"instance-variable": "enabled",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 977755380588888
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Door_Elevator",
+					"sid": 752672567552040,
+					"parameters": {
+						"unique-id": "992220"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Elevator",
+					"sid": 995986918356561,
+					"parameters": {
+						"instance-variable": "enabled"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 985257228438855,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 850191509014227,
+							"parameters": {
+								"unique-id": "683350"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 520699653081772,
+							"parameters": {
+								"instance-variable": "Triggered",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 802088375530630
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 460523237308122,
+							"parameters": {
+								"unique-id": "101912"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 310045725032669,
+							"parameters": {
+								"instance-variable": "Triggered",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 470274726884334
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 472568634412211,
+							"parameters": {
+								"unique-id": "177914"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 481451211122065,
+							"parameters": {
+								"instance-variable": "Triggered",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 702877917486272
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Door_Elevator",
+							"sid": 225287159545804,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 453758560016307,
+							"disabled": true,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						}
+					],
+					"sid": 347299471088862
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 208601718030423,
+							"parameters": {
+								"object": "Zombies"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 416107143947219,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 731335950518701,
+									"parameters": {
+										"first-value": "distance(Zombies.X, Zombies.Y, Elevator.X, Elevator.Y)",
+										"comparison": 2,
+										"second-value": "50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 940430053856729,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "Elevator.X - 32",
+										"start-y": "Elevator.Y - 32",
+										"end-x": "Elevator.X + 32",
+										"end-y": "Elevator.Y + 32"
+									}
+								}
+							],
+							"sid": 663110890128687
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 388929963450072
+}
