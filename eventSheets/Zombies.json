@@ -2080,9 +2080,9 @@
 						{
 							"id": "set-width",
 							"objectClass": "Tentacle",
-							"sid": 384205795797162,
+							"sid": 327524698263412,
 							"parameters": {
-								"width": "1"
+								"width": "0"
 							}
 						},
 						{
@@ -3042,9 +3042,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
+							"id": "is-overlapping-another-object",
 							"objectClass": "Barnacle",
-							"sid": 635960721375629,
+							"sid": 639960161840704,
 							"parameters": {
 								"object": "BarnacleTarget"
 							}
@@ -3192,56 +3192,26 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 162038957401909,
+									"id": "pick-by-unique-id",
+									"objectClass": "Zombies",
+									"sid": 447840584456140,
 									"parameters": {
-										"first-value": "BarnacleTarget.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"Mike\""
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 625358418745971,
-									"parameters": {
-										"first-value": "BarnacleTarget.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"Andrea\""
+										"unique-id": "BarnacleTarget.UID"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 954591452669005,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Zombies",
-											"sid": 788719506663034,
-											"parameters": {
-												"unique-id": "BarnacleTarget.UID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "DoDamage",
-											"objectClass": "Zombies",
-											"sid": 325915375084430,
-											"parameters": [
-												"100",
-												"0"
-											]
-										}
-									],
-									"sid": 250386007701745
+									"customAction": "DoDamage",
+									"objectClass": "Zombies",
+									"sid": 122633133684136,
+									"parameters": [
+										"100",
+										"0"
+									]
 								}
 							],
-							"isOrBlock": true
+							"sid": 954591452669005
 						},
 						{
 							"eventType": "comment",
@@ -3263,7 +3233,7 @@
 								{
 									"id": "set-width",
 									"objectClass": "Tentacle",
-									"sid": 347577575945211,
+									"sid": 397069079607557,
 									"parameters": {
 										"width": "0"
 									}
