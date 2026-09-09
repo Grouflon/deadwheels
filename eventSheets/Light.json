@@ -3,16 +3,6 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "shadows_color_layer",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 755889068646199
-		},
-		{
-			"eventType": "variable",
 			"name": "max_light_count",
 			"type": "number",
 			"initialValue": "8",
@@ -22,29 +12,6 @@
 			"sid": 731267431111313
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 790391369935798
-				}
-			],
-			"actions": [
-				{
-					"id": "move-layer",
-					"objectClass": "System",
-					"sid": 589413617773873,
-					"parameters": {
-						"layer": "\"World\"",
-						"insert-by": "\"PostProcess\"",
-						"where": "top-sublayer"
-					}
-				}
-			],
-			"sid": 302321250223861
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "LIGHTS SETUP",
@@ -52,19 +19,20 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 994755421351682
-						}
-					],
+					"functionName": "SetupLightLayers",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
 							"id": "set-size",
 							"objectClass": "SystemLights",
-							"sid": 835367007413292,
+							"sid": 890754656260592,
 							"parameters": {
 								"width": "max_light_count",
 								"height": "1",
@@ -74,7 +42,7 @@
 						{
 							"id": "add-layer",
 							"objectClass": "System",
-							"sid": 956371882507232,
+							"sid": 640268722681185,
 							"parameters": {
 								"name": "\"Lighting\"",
 								"insert-by": "\"World\"",
@@ -84,7 +52,7 @@
 						{
 							"id": "set-layer-blend-mode",
 							"objectClass": "System",
-							"sid": 993905900402987,
+							"sid": 148104008831444,
 							"parameters": {
 								"layer": "\"Lighting\"",
 								"blend-mode": "multiply"
@@ -93,7 +61,7 @@
 						{
 							"id": "add-layer",
 							"objectClass": "System",
-							"sid": 825545812113014,
+							"sid": 639103635680242,
 							"parameters": {
 								"name": "\"Shadows\"",
 								"insert-by": "\"Lighting\"",
@@ -103,7 +71,7 @@
 						{
 							"id": "set-layer-blend-mode",
 							"objectClass": "System",
-							"sid": 814339644616127,
+							"sid": 826605773203317,
 							"parameters": {
 								"layer": "\"Shadows\"",
 								"blend-mode": "additive"
@@ -112,7 +80,7 @@
 						{
 							"id": "add-layer",
 							"objectClass": "System",
-							"sid": 107999948527066,
+							"sid": 670044649485742,
 							"parameters": {
 								"name": "\"ShadowsColor\"",
 								"insert-by": "\"Lighting\"",
@@ -122,7 +90,7 @@
 						{
 							"id": "set-layer-transparent",
 							"objectClass": "System",
-							"sid": 179716046480583,
+							"sid": 369830432879460,
 							"parameters": {
 								"layer": "\"ShadowsColor\"",
 								"mode": "opaque"
@@ -131,23 +99,14 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 294303723636453,
+							"sid": 835940880789459,
 							"parameters": {
 								"layer": "\"ShadowsColor\"",
 								"color": "rgbEx(10, 10, 10)"
 							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 328295931196277,
-							"parameters": {
-								"variable": "shadows_color_layer",
-								"value": "LayerIndex(\"ShadowsColor\")"
-							}
 						}
 					],
-					"sid": 802799182853786,
+					"sid": 660462480708718,
 					"children": [
 						{
 							"eventType": "block",
@@ -155,7 +114,7 @@
 								{
 									"id": "for-each-element",
 									"objectClass": "SystemLights",
-									"sid": 647158439528072,
+									"sid": 187807801631198,
 									"parameters": {
 										"axes": "x"
 									}
@@ -165,7 +124,7 @@
 								{
 									"id": "add-layer",
 									"objectClass": "System",
-									"sid": 917917912133753,
+									"sid": 905837929837429,
 									"parameters": {
 										"name": "\"Shadow\" & SystemLights.CurX",
 										"insert-by": "\"Shadows\"",
@@ -175,7 +134,7 @@
 								{
 									"id": "set-layer-blend-mode",
 									"objectClass": "System",
-									"sid": 571837129091732,
+									"sid": 508100821905063,
 									"parameters": {
 										"layer": "\"Shadow\" & SystemLights.CurX",
 										"blend-mode": "screen"
@@ -184,7 +143,7 @@
 								{
 									"id": "add-layer",
 									"objectClass": "System",
-									"sid": 454488596246720,
+									"sid": 305022238225088,
 									"parameters": {
 										"name": "\"Light\" & SystemLights.CurX",
 										"insert-by": "\"Shadow\" & SystemLights.CurX",
@@ -194,7 +153,7 @@
 								{
 									"id": "set-layer-blend-mode",
 									"objectClass": "System",
-									"sid": 543618601911998,
+									"sid": 406671725060479,
 									"parameters": {
 										"layer": "\"Light\" & SystemLights.CurX",
 										"blend-mode": "multiply"
@@ -203,7 +162,7 @@
 								{
 									"id": "add-layer",
 									"objectClass": "System",
-									"sid": 691186801898097,
+									"sid": 297451036833040,
 									"parameters": {
 										"name": "\"LightMask\" & SystemLights.CurX",
 										"insert-by": "\"Shadow\" & SystemLights.CurX",
@@ -213,7 +172,7 @@
 								{
 									"id": "set-layer-background-color",
 									"objectClass": "System",
-									"sid": 203819983130820,
+									"sid": 693283031517024,
 									"disabled": true,
 									"parameters": {
 										"layer": "\"LightMask\" & SystemLights.CurX",
@@ -223,7 +182,7 @@
 								{
 									"id": "set-layer-background-color",
 									"objectClass": "System",
-									"sid": 232477603999199,
+									"sid": 216254787120721,
 									"parameters": {
 										"layer": "\"LightMask\" & SystemLights.CurX",
 										"color": "rgbEx(0, 0, 0)"
@@ -232,7 +191,7 @@
 								{
 									"id": "set-layer-transparent",
 									"objectClass": "System",
-									"sid": 788051498049365,
+									"sid": 253443062947213,
 									"parameters": {
 										"layer": "\"LightMask\" & SystemLights.CurX",
 										"mode": "opaque"
@@ -241,7 +200,7 @@
 								{
 									"id": "set-layer-blend-mode",
 									"objectClass": "System",
-									"sid": 309161460924232,
+									"sid": 759744559207532,
 									"parameters": {
 										"layer": "\"LightMask\" & SystemLights.CurX",
 										"blend-mode": "multiply"
@@ -250,7 +209,7 @@
 								{
 									"id": "add-layer",
 									"objectClass": "System",
-									"sid": 558747770655446,
+									"sid": 995888081729155,
 									"parameters": {
 										"name": "\"LightColor\" & SystemLights.CurX",
 										"insert-by": "\"Shadow\" & SystemLights.CurX",
@@ -260,7 +219,7 @@
 								{
 									"id": "set-layer-transparent",
 									"objectClass": "System",
-									"sid": 791876234412770,
+									"sid": 875407702073435,
 									"parameters": {
 										"layer": "\"LightColor\" & SystemLights.CurX",
 										"mode": "opaque"
@@ -269,7 +228,7 @@
 								{
 									"id": "set-layer-background-color",
 									"objectClass": "System",
-									"sid": 434376979208845,
+									"sid": 476791728863310,
 									"disabled": true,
 									"parameters": {
 										"layer": "\"LightColor\" & SystemLights.CurX",
@@ -279,7 +238,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 483414254264135,
+									"sid": 549572815838728,
 									"parameters": {
 										"object-to-create": "ShadowLight",
 										"layer": "\"Light\" & SystemLights.CurX",
@@ -292,7 +251,7 @@
 								{
 									"id": "set-z-elevation",
 									"objectClass": "ShadowLight",
-									"sid": 175952357558913,
+									"sid": 130888990418154,
 									"parameters": {
 										"z": "32"
 									}
@@ -300,7 +259,7 @@
 								{
 									"id": "set-at-x",
 									"objectClass": "SystemLights",
-									"sid": 184048391886963,
+									"sid": 166125491510982,
 									"parameters": {
 										"x": "SystemLights.CurX",
 										"value": "ShadowLight.UID"
@@ -309,7 +268,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 886536851067983,
+									"sid": 788519309492022,
 									"parameters": {
 										"object-to-create": "Mask",
 										"layer": "\"LightMask\" & SystemLights.CurX",
@@ -322,7 +281,7 @@
 								{
 									"id": "add-child",
 									"objectClass": "ShadowLight",
-									"sid": 479595531462035,
+									"sid": 991193169356034,
 									"parameters": {
 										"child": "Mask",
 										"transform-x": false,
@@ -340,7 +299,7 @@
 								{
 									"id": "set-visible",
 									"objectClass": "ShadowLight",
-									"sid": 294422370837200,
+									"sid": 864741313035201,
 									"disabled": true,
 									"parameters": {
 										"visibility": "invisible"
@@ -349,14 +308,14 @@
 								{
 									"id": "set-size",
 									"objectClass": "Mask",
-									"sid": 878896472518861,
+									"sid": 605515085765306,
 									"parameters": {
 										"width": "100",
 										"height": "100"
 									}
 								}
 							],
-							"sid": 854726126002711
+							"sid": 974421455155428
 						},
 						{
 							"eventType": "block",
@@ -365,7 +324,7 @@
 								{
 									"id": "set-layer-blend-mode",
 									"objectClass": "System",
-									"sid": 890069831939779,
+									"sid": 318438399832660,
 									"parameters": {
 										"layer": "\"Shadow\" & SystemLights.Width-1",
 										"blend-mode": "normal"
@@ -374,7 +333,7 @@
 								{
 									"id": "set-layer-blend-mode",
 									"objectClass": "System",
-									"sid": 101274103766980,
+									"sid": 119920267900019,
 									"disabled": true,
 									"parameters": {
 										"layer": "\"Shadow0\"",
@@ -384,7 +343,7 @@
 								{
 									"id": "move-layer",
 									"objectClass": "System",
-									"sid": 166300023609639,
+									"sid": 400889813080284,
 									"disabled": true,
 									"parameters": {
 										"layer": "\"Lighting\"",
@@ -393,7 +352,7 @@
 									}
 								}
 							],
-							"sid": 739026778353221
+							"sid": 483854018084355
 						},
 						{
 							"eventType": "block",
@@ -401,7 +360,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 734594156449352,
+									"sid": 661955186180864,
 									"parameters": {
 										"first-value": "ShadowSettings.Count",
 										"comparison": 3,
@@ -413,7 +372,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 194703502606936,
+									"sid": 563919699873798,
 									"parameters": {
 										"object-to-create": "ShadowSettings",
 										"layer": "0",
@@ -424,7 +383,7 @@
 									}
 								}
 							],
-							"sid": 759437808031567
+							"sid": 764615452876091
 						}
 					]
 				},
@@ -1132,9 +1091,9 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 861188164341705,
+							"sid": 695723502523734,
 							"parameters": {
-								"layer": "shadows_color_layer",
+								"layer": "\"ShadowsColor\"",
 								"color": "ShadowSettings.ColorValue"
 							}
 						}

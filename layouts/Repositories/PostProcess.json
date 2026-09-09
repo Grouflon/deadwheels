@@ -2,7 +2,7 @@
 	"name": "PostProcess",
 	"layers": [
 		{
-			"name": "PostProcess",
+			"name": "WorldPostProcess",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
@@ -20,17 +20,6 @@
 					}
 				},
 				{
-					"effectId": "bulge",
-					"name": "Bulge",
-					"instance": {
-						"isEnabled": true,
-						"parameters": {
-							"radius": 1,
-							"scale": 0.005
-						}
-					}
-				},
-				{
 					"effectId": "Disketaa_Bloom",
 					"name": "Bloom",
 					"instance": {
@@ -41,6 +30,53 @@
 							"falloff": 0.9,
 							"threshold": 0,
 							"samples": 24
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": true
+		},
+		{
+			"name": "ScreenPostProcess",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 725603324898739,
+			"effectTypes": [
+				{
+					"effectId": "bulge",
+					"name": "Bulge",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"radius": 1,
+							"scale": 0.005
 						}
 					}
 				},
@@ -79,7 +115,7 @@
 				0.3686274509803922,
 				1
 			],
-			"isTransparent": false,
+			"isTransparent": true,
 			"sampling": "auto",
 			"parallaxX": 1,
 			"parallaxY": 1,

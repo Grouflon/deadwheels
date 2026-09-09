@@ -73,6 +73,91 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Setup Layers",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 704788017366600
+								}
+							],
+							"actions": [
+								{
+									"id": "move-layer",
+									"objectClass": "System",
+									"sid": 687636545158645,
+									"parameters": {
+										"layer": "\"WorldPostProcess\"",
+										"insert-by": "\"World\"",
+										"where": "above"
+									}
+								},
+								{
+									"id": "move-layer",
+									"objectClass": "System",
+									"sid": 119045271462524,
+									"parameters": {
+										"layer": "\"WorldPostProcess\"",
+										"insert-by": "\"ScreenPostProcess\"",
+										"where": "top-sublayer"
+									}
+								},
+								{
+									"id": "move-layer",
+									"objectClass": "System",
+									"sid": 128108173142945,
+									"parameters": {
+										"layer": "\"World\"",
+										"insert-by": "\"WorldPostProcess\"",
+										"where": "top-sublayer"
+									}
+								},
+								{
+									"callFunction": "SetupLightLayers",
+									"sid": 525650119371542
+								},
+								{
+									"callFunction": "SetupUILayers",
+									"sid": 325929364005965
+								},
+								{
+									"id": "move-layer",
+									"objectClass": "System",
+									"sid": 695241128035174,
+									"parameters": {
+										"layer": "\"ScreenUI\"",
+										"insert-by": "\"ScreenPostProcess\"",
+										"where": "top-sublayer"
+									}
+								},
+								{
+									"id": "move-layer",
+									"objectClass": "System",
+									"sid": 447443133115365,
+									"parameters": {
+										"layer": "\"WorldUI\"",
+										"insert-by": "\"World\"",
+										"where": "above"
+									}
+								},
+								{
+									"callFunction": "SetupFadeToBlack",
+									"sid": 809861829617818
+								}
+							],
+							"sid": 356106042085743
+						}
+					],
+					"sid": 710760192397104
+				},
+				{
 					"eventType": "comment",
 					"text": "Setup the entire level by updating the Z height and Z elevation of most environment objects. They're basically flat in the editor to make them easier to see and work with while doing level design."
 				},
@@ -2930,18 +3015,9 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 174154289196631,
+							"sid": 588778446955511,
 							"parameters": {
-								"layer": "\"Tutorials\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 977401850699296,
-							"parameters": {
-								"layer": "\"UI\"",
+								"layer": "\"ScreenUI\"",
 								"visibility": "invisible"
 							}
 						},
@@ -3017,10 +3093,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 257720527113337,
+									"sid": 833016508152025,
 									"parameters": {
 										"object-to-create": "IntroTextFont",
-										"layer": "\"World\"",
+										"layer": "\"WorldUI\"",
 										"x": "scrollx",
 										"y": "scrolly+50",
 										"create-hierarchy": false,
@@ -3094,10 +3170,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 621110897733005,
+											"sid": 813798243223778,
 											"parameters": {
 												"object-to-create": "IntroTextFont",
-												"layer": "\"World\"",
+												"layer": "\"WorldUI\"",
 												"x": "scrollx",
 												"y": "scrolly+50",
 												"create-hierarchy": false,
@@ -3171,10 +3247,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 272166834167108,
+													"sid": 118662008324012,
 													"parameters": {
 														"object-to-create": "IntroTextFont",
-														"layer": "\"World\"",
+														"layer": "\"WorldUI\"",
 														"x": "scrollx",
 														"y": "scrolly+50",
 														"create-hierarchy": false,
@@ -3225,10 +3301,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 741824266468960,
+															"sid": 849834025007823,
 															"parameters": {
 																"object-to-create": "IntroTextFont",
-																"layer": "\"World\"",
+																"layer": "\"WorldUI\"",
 																"x": "scrollx",
 																"y": "scrolly+50",
 																"create-hierarchy": false,
@@ -3302,15 +3378,6 @@
 																	"id": "destroy",
 																	"objectClass": "IntroTextFont",
 																	"sid": 359789326204208
-																},
-																{
-																	"id": "set-layer-visible",
-																	"objectClass": "System",
-																	"sid": 649100052011257,
-																	"parameters": {
-																		"layer": "\"Tutorials\"",
-																		"visibility": "visible"
-																	}
 																}
 															],
 															"sid": 428440894730483,
@@ -3600,18 +3667,9 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 719695002008437,
+							"sid": 904135863089735,
 							"parameters": {
-								"layer": "\"Tutorials\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 151185007685202,
-							"parameters": {
-								"layer": "\"UI\"",
+								"layer": "\"ScreenUI\"",
 								"visibility": "visible"
 							}
 						},

@@ -42,21 +42,32 @@
 			"sid": 112473832422911
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 570119485777790
-				}
-			],
+			"functionName": "SetupUILayers",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [
+				{
+					"id": "add-layer",
+					"objectClass": "System",
+					"sid": 186650939894906,
+					"parameters": {
+						"name": "\"ScreenUI\"",
+						"insert-by": "\"World\"",
+						"where": "above"
+					}
+				},
 				{
 					"id": "set-layer-parallax",
 					"objectClass": "System",
-					"sid": 704771330821594,
+					"sid": 589124362626619,
 					"parameters": {
-						"layer": "\"UI\"",
+						"layer": "\"ScreenUI\"",
 						"parallax-x": "0",
 						"parallax-y": "0"
 					}
@@ -64,72 +75,135 @@
 				{
 					"id": "set-layer-scale-rate",
 					"objectClass": "System",
-					"sid": 871835619355592,
+					"sid": 363282863093080,
 					"parameters": {
-						"layer": "\"UI\"",
+						"layer": "\"ScreenUI\"",
 						"scale-rate": "0"
 					}
 				},
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 935557014333306,
+					"sid": 198895864973019,
 					"parameters": {
 						"object-to-create": "HealthBarBackground",
-						"layer": "\"UI\"",
+						"layer": "\"ScreenUI\"",
 						"x": "5",
 						"y": "10",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 565118512923401,
+					"parameters": {
+						"variable": "pistol_ui_uid",
+						"value": "Functions.CreateWeaponUI(0, \"Pistol\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 985121176225280,
+					"parameters": {
+						"variable": "shotgun_ui_uid",
+						"value": "Functions.CreateWeaponUI(1, \"Shotgun\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 376762753609468,
+					"parameters": {
+						"variable": "smg_ui_uid",
+						"value": "Functions.CreateWeaponUI(2, \"Smg\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 307183074024400,
+					"parameters": {
+						"variable": "gatling_ui_uid",
+						"value": "Functions.CreateWeaponUI(3, \"Gatling\")"
+					}
 				}
 			],
-			"sid": 886742783844172,
-			"children": [
+			"sid": 669981289601899
+		},
+		{
+			"functionName": "SetupFadeToBlack",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
 				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 322388493338866,
-							"parameters": {
-								"variable": "pistol_ui_uid",
-								"value": "Functions.CreateWeaponUI(0, \"Pistol\")"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 238249577356267,
-							"parameters": {
-								"variable": "shotgun_ui_uid",
-								"value": "Functions.CreateWeaponUI(1, \"Shotgun\")"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 139412088150304,
-							"parameters": {
-								"variable": "smg_ui_uid",
-								"value": "Functions.CreateWeaponUI(2, \"Smg\")"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 149601675297831,
-							"parameters": {
-								"variable": "gatling_ui_uid",
-								"value": "Functions.CreateWeaponUI(3, \"Gatling\")"
-							}
-						}
-					],
-					"sid": 786262797671779
+					"id": "add-layer",
+					"objectClass": "System",
+					"sid": 522454723420000,
+					"parameters": {
+						"name": "\"Fade\"",
+						"insert-by": "\"ScreenUI\"",
+						"where": "above"
+					}
+				},
+				{
+					"id": "set-layer-parallax",
+					"objectClass": "System",
+					"sid": 869012038342873,
+					"parameters": {
+						"layer": "\"Fade\"",
+						"parallax-x": "0",
+						"parallax-y": "0"
+					}
+				},
+				{
+					"id": "set-layer-scale-rate",
+					"objectClass": "System",
+					"sid": 979912660198979,
+					"parameters": {
+						"layer": "\"Fade\"",
+						"scale-rate": "0"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 830627078314556,
+					"parameters": {
+						"object-to-create": "FadeToBlack",
+						"layer": "\"Fade\"",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "FadeToBlack",
+					"sid": 305879685342621,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"customAction": "FadeFromBlack",
+					"objectClass": "FadeToBlack",
+					"sid": 478637199205204,
+					"parameters": [
+						"1"
+					]
 				}
-			]
+			],
+			"sid": 539864747641143
 		},
 		{
 			"eventType": "block",
@@ -344,10 +418,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 436824422964013,
+					"sid": 247931908701566,
 					"parameters": {
 						"object-to-create": "UIWeapon",
-						"layer": "\"UI\"",
+						"layer": "\"ScreenUI\"",
 						"x": "100 + index * 20",
 						"y": "15",
 						"create-hierarchy": true,
@@ -670,79 +744,7 @@
 			"title": "FADE",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 332266691197086
-						}
-					],
-					"actions": [
-						{
-							"id": "add-layer",
-							"objectClass": "System",
-							"sid": 235194370402127,
-							"parameters": {
-								"name": "\"Fade\"",
-								"insert-by": "\"UI\"",
-								"where": "above"
-							}
-						},
-						{
-							"id": "set-layer-parallax",
-							"objectClass": "System",
-							"sid": 642708830083056,
-							"parameters": {
-								"layer": "\"Fade\"",
-								"parallax-x": "0",
-								"parallax-y": "0"
-							}
-						},
-						{
-							"id": "set-layer-scale-rate",
-							"objectClass": "System",
-							"sid": 699947343415240,
-							"parameters": {
-								"layer": "\"Fade\"",
-								"scale-rate": "0"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 772490793954088,
-							"parameters": {
-								"object-to-create": "FadeToBlack",
-								"layer": "\"Fade\"",
-								"x": "0",
-								"y": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-opacity",
-							"objectClass": "FadeToBlack",
-							"sid": 983037585128409,
-							"parameters": {
-								"opacity": "100"
-							}
-						},
-						{
-							"customAction": "FadeFromBlack",
-							"objectClass": "FadeToBlack",
-							"sid": 223223350230143,
-							"parameters": [
-								"1"
-							]
-						}
-					],
-					"sid": 849172682403990
-				}
-			],
+			"children": [],
 			"sid": 261627662999613
 		},
 		{
