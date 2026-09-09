@@ -3172,6 +3172,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 400927124587880
+				},
+				{
+					"name": "hideSpriteOnDeath",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 975511842831105
 				}
 			],
 			"eventType": "custom-ace-block",
@@ -3288,7 +3295,41 @@
 							"sid": 964004505040211
 						}
 					],
-					"sid": 342855689686180
+					"sid": 342855689686180,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 151321811323331,
+									"parameters": {
+										"variable": "hideSpriteOnDeath"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "CharacterSprite",
+									"sid": 438265150321016,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "CrawlingSprite",
+									"sid": 880691149262205,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 721588907476682
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -3397,12 +3438,6 @@
 						}
 					],
 					"sid": 668977205493188
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 501359996513371
 				}
 			]
 		},
@@ -3434,7 +3469,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 444682414906934,
 									"parameters": {
 										"instance-variable": "GrabbingObjectUID",
@@ -3447,7 +3482,7 @@
 									"objectClass": "System",
 									"sid": 632080293167269,
 									"parameters": {
-										"first-value": "Barnacle.PickedCount",
+										"first-value": "Tentacle.PickedCount",
 										"comparison": 4,
 										"second-value": "0"
 									}

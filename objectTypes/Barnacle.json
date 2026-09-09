@@ -1,85 +1,78 @@
 {
 	"name": "Barnacle",
 	"plugin-id": "Sprite",
-	"sid": 946127472304898,
+	"sid": 941683202862244,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
 		{
-			"name": "isGrabbing",
+			"name": "tryGrabCoolDown",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 853543939837617
+		},
+		{
+			"name": "ignoreChair",
 			"type": "boolean",
 			"desc": "",
 			"show": true,
-			"sid": 153171488482851
-		},
-		{
-			"name": "GrabbingObjectUID",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 650966808422216
-		},
-		{
-			"name": "warpXamplitude",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 137447476246497
-		},
-		{
-			"name": "warpXamplitudeTarget",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 387024964857253
+			"sid": 517573780395340
 		}
 	],
 	"behaviorTypes": [
 		{
-			"behaviorId": "Tween",
-			"name": "Tween",
-			"sid": 637388970196272
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 281307712087104
 		}
 	],
-	"effectTypes": [
-		{
-			"effectId": "warpobject",
-			"name": "WarpObject"
-		}
-	],
+	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 64,
-						"height": 10,
-						"originX": 0,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3662946,
+						"imageSpriteId": 4746403,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.375,
+								0,
+								0.375,
+								1,
+								0,
+								1
+							]
+						},
 						"useCollisionPoly": true,
 						"imagePoints": [
 							{
 								"name": "Image Point 1",
-								"x": 0.953125,
-								"y": 0.6
+								"x": -0.125,
+								"y": 0.4375
 							}
 						],
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 415446716458582,
+				"sid": 162366199946018,
 				"name": "Animation 1",
-				"isLooping": true,
+				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 7
+				"speed": 5
 			}
 		],
 		"subfolders": []

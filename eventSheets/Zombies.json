@@ -1426,7 +1426,8 @@
 							"objectClass": "CharacterController",
 							"sid": 430297642369827,
 							"parameters": [
-								"zombie_damage"
+								"zombie_damage",
+								false
 							]
 						}
 					],
@@ -1464,7 +1465,8 @@
 							"objectClass": "CharacterController",
 							"sid": 368780752318449,
 							"parameters": [
-								"zombie_damage"
+								"zombie_damage",
+								false
 							]
 						}
 					],
@@ -2021,7 +2023,7 @@
 					"actions": [
 						{
 							"id": "add-to-instvar",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 628300219718778,
 							"parameters": {
 								"instance-variable": "tryGrabCoolDown",
@@ -2036,14 +2038,14 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 378798420075833
 						}
 					],
 					"actions": [
 						{
 							"id": "set-enabled",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 896282907333660,
 							"behaviorType": "Pathfinding",
 							"parameters": {
@@ -2052,24 +2054,24 @@
 						},
 						{
 							"id": "set-angle",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 426306183601482,
 							"parameters": {
-								"angle": "BarnacleBase.Angle"
+								"angle": "Barnacle.Angle"
 							}
 						},
 						{
 							"id": "set-position-to-another-object",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 669307824153162,
 							"parameters": {
-								"object": "BarnacleBase",
+								"object": "Barnacle",
 								"image-point-optional": "1"
 							}
 						},
 						{
 							"id": "set-z-elevation",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 775628488657617,
 							"parameters": {
 								"z": "6"
@@ -2077,7 +2079,7 @@
 						},
 						{
 							"id": "set-width",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 384205795797162,
 							"parameters": {
 								"width": "1"
@@ -2085,13 +2087,13 @@
 						},
 						{
 							"id": "clear-obstacles",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 173138594049891,
 							"behaviorType": "LineOfSight"
 						},
 						{
 							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 266976700818629,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2100,7 +2102,7 @@
 						},
 						{
 							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 354654182906531,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2109,7 +2111,7 @@
 						},
 						{
 							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 353741155047643,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2118,7 +2120,7 @@
 						},
 						{
 							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 188401672429516,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2127,7 +2129,7 @@
 						},
 						{
 							"id": "add-obstacle",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 135085467073612,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2146,7 +2148,7 @@
 					"conditions": [
 						{
 							"id": "has-los-to-object",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 583312848856360,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -2156,14 +2158,14 @@
 						},
 						{
 							"id": "is-any-playing",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 351526851666876,
 							"behaviorType": "Tween",
 							"isInverted": true
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 308237322304829,
 							"parameters": {
 								"instance-variable": "tryGrabCoolDown",
@@ -2205,7 +2207,7 @@
 								},
 								{
 									"id": "is-boolean-instance-variable-set",
-									"objectClass": "BarnacleBase",
+									"objectClass": "Barnacle",
 									"sid": 928679010992713,
 									"parameters": {
 										"instance-variable": "ignoreChair"
@@ -2248,7 +2250,7 @@
 								},
 								{
 									"id": "is-boolean-instance-variable-set",
-									"objectClass": "BarnacleBase",
+									"objectClass": "Barnacle",
 									"sid": 248529802915340,
 									"parameters": {
 										"instance-variable": "ignoreChair"
@@ -2299,7 +2301,7 @@
 										"audio-file-name": "\"Voice/BarnacleScream\"&choose(1,2)",
 										"loop": "not-looping",
 										"volume": "0",
-										"object": "BarnacleBase",
+										"object": "Barnacle",
 										"inner-angle": "360",
 										"outer-angle": "0",
 										"outer-gain": "0",
@@ -2309,9 +2311,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 537594721407474,
+									"sid": 921377530612381,
 									"parameters": {
-										"seconds": "0.4",
+										"seconds": "0.3",
 										"use-timescale": true
 									}
 								},
@@ -2324,7 +2326,7 @@
 										"audio-file-name": "\"Movement/BarnacleWhip\"&choose(1,2)",
 										"loop": "not-looping",
 										"volume": "0",
-										"object": "BarnacleBase",
+										"object": "Barnacle",
 										"inner-angle": "360",
 										"outer-angle": "0",
 										"outer-gain": "0",
@@ -2333,7 +2335,7 @@
 								},
 								{
 									"id": "tween-one-property",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 441128745670806,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -2350,7 +2352,7 @@
 								},
 								{
 									"id": "set-angle-toward-position",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 478975129735092,
 									"parameters": {
 										"x": "BarnacleTarget.X",
@@ -2367,7 +2369,7 @@
 					"conditions": [
 						{
 							"id": "on-tweens-finished",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 261545362930591,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2378,7 +2380,7 @@
 					"actions": [
 						{
 							"id": "tween-one-property",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 235626681798427,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2402,7 +2404,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 119857426105925,
 							"parameters": {
 								"instance-variable": "warpXamplitude",
@@ -2411,7 +2413,7 @@
 						},
 						{
 							"id": "set-effect-parameter",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 292951208825641,
 							"parameters": {
 								"effect": "\"WarpObject\"",
@@ -2427,7 +2429,7 @@
 					"conditions": [
 						{
 							"id": "is-playing",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 194984526407346,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2438,7 +2440,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 384489661935338,
 							"parameters": {
 								"instance-variable": "warpXamplitudeTarget",
@@ -2453,7 +2455,7 @@
 					"conditions": [
 						{
 							"id": "is-playing",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 447912849216087,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2465,7 +2467,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 634125645067474,
 							"parameters": {
 								"instance-variable": "warpXamplitudeTarget",
@@ -2480,7 +2482,7 @@
 					"conditions": [
 						{
 							"id": "on-tweens-finished",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 982492785488001,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2489,7 +2491,7 @@
 						},
 						{
 							"id": "on-tweens-finished",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 556021567282471,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2500,7 +2502,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 330399293270817,
 							"parameters": {
 								"instance-variable": "tryGrabCoolDown",
@@ -2512,7 +2514,7 @@
 							"objectClass": "Audio",
 							"sid": 526985766608200,
 							"parameters": {
-								"tag": "\"tentacleLoop\"&Barnacle.UID",
+								"tag": "\"tentacleLoop\"&Tentacle.UID",
 								"db": "-100",
 								"duration": "0.5",
 								"ending": "stop"
@@ -2527,7 +2529,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 615769316250312,
 							"parameters": {
 								"object": "Furniture"
@@ -2560,7 +2562,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 278405130850886,
 							"parameters": {
 								"object": "BarnacleTarget"
@@ -2568,7 +2570,7 @@
 						},
 						{
 							"id": "is-playing",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 710038344000361,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2577,7 +2579,7 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 873808760952567,
 							"parameters": {
 								"instance-variable": "GrabbingObjectUID",
@@ -2657,7 +2659,7 @@
 										},
 										"loop": "not-looping",
 										"volume": "0",
-										"object": "Barnacle",
+										"object": "Tentacle",
 										"inner-angle": "360",
 										"outer-angle": "360",
 										"outer-gain": "0",
@@ -2666,7 +2668,7 @@
 								},
 								{
 									"id": "stop-tweens",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 812684306643529,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -2675,7 +2677,7 @@
 								},
 								{
 									"id": "set-instvar-value",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 286681415197685,
 									"parameters": {
 										"instance-variable": "GrabbingObjectUID",
@@ -2684,7 +2686,7 @@
 								},
 								{
 									"customAction": "bringTargetBack",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 560021103979325
 								}
 							],
@@ -2695,7 +2697,7 @@
 				{
 					"aceType": "action",
 					"aceName": "bringTargetBack",
-					"objectClass": "Barnacle",
+					"objectClass": "Tentacle",
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
@@ -2707,7 +2709,7 @@
 					"actions": [
 						{
 							"id": "tween-one-property",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 668085177387395,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2736,7 +2738,7 @@
 								"inner-angle": "360",
 								"outer-angle": "360",
 								"outer-gain": "0",
-								"tag-optional": "\"tentacleLoop\"&Barnacle.UID"
+								"tag-optional": "\"tentacleLoop\"&Tentacle.UID"
 							}
 						}
 					],
@@ -2747,7 +2749,7 @@
 					"conditions": [
 						{
 							"id": "is-playing",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 144090880927273,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -2766,7 +2768,7 @@
 									"objectClass": "BarnacleTarget",
 									"sid": 383856815162856,
 									"parameters": {
-										"unique-id": "Barnacle.GrabbingObjectUID"
+										"unique-id": "Tentacle.GrabbingObjectUID"
 									}
 								}
 							],
@@ -2776,7 +2778,7 @@
 									"objectClass": "BarnacleTarget",
 									"sid": 325366934519170,
 									"parameters": {
-										"object": "Barnacle",
+										"object": "Tentacle",
 										"image-point-optional": "1"
 									}
 								}
@@ -2790,7 +2792,7 @@
 					"conditions": [
 						{
 							"id": "on-any-tweens-finished",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 683537464737424,
 							"behaviorType": "Tween"
 						}
@@ -2798,7 +2800,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 317287485893612,
 							"parameters": {
 								"instance-variable": "GrabbingObjectUID",
@@ -2817,7 +2819,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 635960721375629,
 							"parameters": {
 								"object": "BarnacleTarget"
@@ -2830,7 +2832,7 @@
 							"parameters": {
 								"first-value": "BarnacleTarget.UID",
 								"comparison": 0,
-								"second-value": "Barnacle.GrabbingObjectUID"
+								"second-value": "Tentacle.GrabbingObjectUID"
 							}
 						}
 					],
@@ -2844,7 +2846,7 @@
 								"audio-file-name": "\"Voice/BarnacleAggro\"&choose(1,2)",
 								"loop": "not-looping",
 								"volume": "0",
-								"object": "BarnacleBase",
+								"object": "Barnacle",
 								"inner-angle": "360",
 								"outer-angle": "0",
 								"outer-gain": "0",
@@ -2874,7 +2876,8 @@
 									"objectClass": "CharacterController",
 									"sid": 144510556238145,
 									"parameters": [
-										"100"
+										"100",
+										false
 									]
 								}
 							],
@@ -2898,7 +2901,7 @@
 									"objectClass": "ChairController",
 									"sid": 486018641193263,
 									"parameters": {
-										"unique-id": "Barnacle.GrabbingObjectUID"
+										"unique-id": "Tentacle.GrabbingObjectUID"
 									}
 								}
 							],
@@ -2909,7 +2912,7 @@
 									"sid": 507611433227314,
 									"parameters": {
 										"instance-variable": "direction",
-										"value": "BarnacleBase.Angle+choose(-30,30)"
+										"value": "Barnacle.Angle+choose(-30,30)"
 									}
 								},
 								{
@@ -2950,9 +2953,10 @@
 										{
 											"customAction": "DoDamage",
 											"objectClass": "CharacterController",
-											"sid": 302930902787058,
+											"sid": 115442262979856,
 											"parameters": [
-												"100"
+												"100",
+												true
 											]
 										}
 									],
@@ -3021,7 +3025,7 @@
 							"actions": [
 								{
 									"id": "set-instvar-value",
-									"objectClass": "Barnacle",
+									"objectClass": "Tentacle",
 									"sid": 807370735486531,
 									"parameters": {
 										"instance-variable": "GrabbingObjectUID",
@@ -3048,7 +3052,7 @@
 					"conditions": [
 						{
 							"id": "on-destroyed",
-							"objectClass": "Barnacle",
+							"objectClass": "Tentacle",
 							"sid": 772494436812295
 						}
 					],
@@ -3058,7 +3062,7 @@
 							"objectClass": "Audio",
 							"sid": 158321230030318,
 							"parameters": {
-								"tag": "\"tentacleLoop\"&Barnacle.UID"
+								"tag": "\"tentacleLoop\"&Tentacle.UID"
 							}
 						}
 					],
@@ -3069,12 +3073,12 @@
 					"conditions": [
 						{
 							"id": "on-destroyed",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 803622224593133
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "BarnacleBase",
+							"objectClass": "Barnacle",
 							"sid": 281033155696571,
 							"parameters": {
 								"instance-variable": "health",
@@ -3093,7 +3097,7 @@
 								"audio-file-name": "\"Voice/BarnacleDeath\"&choose(1,2)",
 								"loop": "not-looping",
 								"volume": "0",
-								"object": "BarnacleBase",
+								"object": "Barnacle",
 								"inner-angle": "360",
 								"outer-angle": "360",
 								"outer-gain": "0",

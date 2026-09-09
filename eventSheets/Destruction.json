@@ -1214,6 +1214,110 @@
 				}
 			],
 			"sid": 894541841934281
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Breakable Walls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Tentacle",
+							"sid": 686211017626992,
+							"parameters": {
+								"object": "BreakableWallStretched"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "BreakableWallStretched",
+							"sid": 342863335450525
+						}
+					],
+					"sid": 650244194486341
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "BreakableWallStretched",
+							"sid": 647636054086248
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 377978391124227,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Destruction/DestroyWall\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "BreakableWallStretched",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 280418970267604,
+							"parameters": {
+								"object-to-create": "DustParticle",
+								"layer": "BreakableWallStretched.LayerName",
+								"x": "BreakableWallStretched.X+BreakableWallStretched.Width/2",
+								"y": "BreakableWallStretched.Y+BreakableWallStretched.Height/2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 878913951294394,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 569912086104972,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 567032079825909,
+									"parameters": {
+										"object-to-create": "Wall_Debris",
+										"layer": "BreakableWallStretched.LayerName",
+										"x": "BreakableWallStretched.X+BreakableWallStretched.Width/2",
+										"y": "BreakableWallStretched.Y+BreakableWallStretched.Height/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 663775860697723
+						}
+					]
+				}
+			],
+			"sid": 186989640443371
 		}
 	],
 	"sid": 535961549360984
