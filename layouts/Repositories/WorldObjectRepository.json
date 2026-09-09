@@ -67,6 +67,7 @@
 					"instanceVariables": {
 						"size": 300,
 						"intensity": 100,
+						"mask": "Default",
 						"blink": false,
 						"blink_start_offset": 0,
 						"on_duration": 1,
@@ -120,6 +121,7 @@
 					"instanceVariables": {
 						"size": 300,
 						"intensity": 100,
+						"mask": "Default",
 						"blink": false,
 						"blink_start_offset": 0,
 						"on_duration": 1,
@@ -185,6 +187,10 @@
 											},
 											{
 												"iv": "intensity",
+												"state": true
+											},
+											{
+												"iv": "mask",
 												"state": true
 											},
 											{
@@ -408,6 +414,287 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "DynamicLight",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 609733,
+					"sid": 826477727135356,
+					"tags": "",
+					"instanceVariables": {
+						"size": 220,
+						"intensity": 80,
+						"mask": "Spot",
+						"blink": true,
+						"blink_start_offset": 0,
+						"on_duration": 12,
+						"on_duration_bias": 3,
+						"off_duration": 0.8,
+						"off_duration_bias": 0,
+						"timer": 0,
+						"on": false,
+						"internal_intensity": 0,
+						"on_flicker": false,
+						"off_flicker": true
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "template",
+						"templateName": "PlayerLight",
+						"sourceTemplateName": "",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "size",
+												"state": true
+											},
+											{
+												"iv": "intensity",
+												"state": true
+											},
+											{
+												"iv": "mask",
+												"state": true
+											},
+											{
+												"iv": "blink",
+												"state": true
+											},
+											{
+												"iv": "blink_start_offset",
+												"state": true
+											},
+											{
+												"iv": "on_duration",
+												"state": true
+											},
+											{
+												"iv": "on_duration_bias",
+												"state": true
+											},
+											{
+												"iv": "off_duration",
+												"state": true
+											},
+											{
+												"iv": "off_duration_bias",
+												"state": true
+											},
+											{
+												"iv": "timer",
+												"state": true
+											},
+											{
+												"iv": "on",
+												"state": true
+											},
+											{
+												"iv": "internal_intensity",
+												"state": true
+											},
+											{
+												"iv": "on_flicker",
+												"state": true
+											},
+											{
+												"iv": "off_flicker",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Tween",
+										"state": [
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 50.44881057739258,
+						"y": 70.07174682617188,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.7372549019607844,
+							0.788235294117647,
+							0.9411764705882353,
 							1
 						],
 						"z": 0,

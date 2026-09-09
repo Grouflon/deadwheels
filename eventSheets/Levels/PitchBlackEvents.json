@@ -1,0 +1,167 @@
+{
+	"name": "PitchBlackEvents",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "player_light_uid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 139657856831551
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 340453309777895
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 585286286602090,
+					"parameters": {
+						"object-to-create": "DynamicLight",
+						"layer": "0",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"PlayerLight\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 933643229569067,
+					"parameters": {
+						"variable": "player_light_uid",
+						"value": "DynamicLight.UID"
+					}
+				}
+			],
+			"sid": 253449374864083
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "DynamicLight",
+					"sid": 316332209263104,
+					"parameters": {
+						"unique-id": "player_light_uid"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "DynamicLight",
+					"sid": 136097482434211,
+					"parameters": {
+						"x": "CharacterController.X",
+						"y": "CharacterController.Y"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "DynamicLight",
+					"sid": 165514717084966,
+					"parameters": {
+						"angle": "CharacterController.direction"
+					}
+				}
+			],
+			"sid": 409894254418051,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 263245893025371,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ChairController",
+							"sid": 272513993407836,
+							"parameters": {
+								"unique-id": "CharacterController.chair_uid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "DynamicLight",
+							"sid": 520858323244182,
+							"parameters": {
+								"angle": "ChairController.direction"
+							}
+						}
+					],
+					"sid": 538571157709780
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 751362159977666
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "DynamicLight",
+							"sid": 557069493403549,
+							"parameters": {
+								"angle": "CharacterController.direction"
+							}
+						}
+					],
+					"sid": 736744903176537
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "DynamicLight",
+					"sid": 567154641884267,
+					"parameters": {
+						"unique-id": "217987"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "DynamicLight",
+					"sid": 991049022463765,
+					"parameters": {
+						"angle": "DynamicLight.Angle + dt * 400"
+					}
+				}
+			],
+			"sid": 589186161474626
+		}
+	],
+	"sid": 253229832371815
+}

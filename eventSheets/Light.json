@@ -1082,9 +1082,45 @@
 										"layer": "\"LightColor\" & loopindex",
 										"color": "DynamicLight.ColorValue"
 									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Mask",
+									"sid": 116627190472899,
+									"parameters": {
+										"angle": "DynamicLight.Angle"
+									}
 								}
 							],
-							"sid": 710740201824906
+							"sid": 710740201824906,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Mask",
+											"sid": 550653264040887,
+											"parameters": {
+												"animation": "DynamicLight.mask"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Mask",
+											"sid": 447023290824149,
+											"parameters": {
+												"animation": "DynamicLight.mask",
+												"from": "current-frame"
+											}
+										}
+									],
+									"sid": 599647441276936
+								}
+							]
 						},
 						{
 							"eventType": "block",
