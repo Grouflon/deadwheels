@@ -2141,7 +2141,7 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "Throw tentacle"
+					"text": "Target detection and throw tentacle"
 				},
 				{
 					"eventType": "block",
@@ -2601,6 +2601,25 @@
 					"isOrBlock": true
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-tweens-finished",
+							"objectClass": "Tentacle",
+							"sid": 186078072987719,
+							"behaviorType": "Tween"
+						}
+					],
+					"actions": [
+						{
+							"customAction": "StopGrabbingTarget",
+							"objectClass": "Tentacle",
+							"sid": 678820982805890
+						}
+					],
+					"sid": 432952152750751
+				},
+				{
 					"eventType": "comment",
 					"text": "Tentacle grabs target"
 				},
@@ -2986,31 +3005,8 @@
 					]
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-any-tweens-finished",
-							"objectClass": "Tentacle",
-							"sid": 683537464737424,
-							"behaviorType": "Tween"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Tentacle",
-							"sid": 317287485893612,
-							"parameters": {
-								"instance-variable": "GrabbingObjectUID",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 974158696902522
-				},
-				{
 					"eventType": "comment",
-					"text": "Tentacle effects"
+					"text": "Tentacle visual effects"
 				},
 				{
 					"eventType": "block",
@@ -3307,50 +3303,14 @@
 							"parameters": {
 								"tag": "\"tentacleLoop\"&Tentacle.UID"
 							}
-						}
-					],
-					"sid": 781684333918281,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Upon Barnacle destruction, Barnacle target is not grabbed anymore"
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "BarnacleTarget",
-									"sid": 241670567724609,
-									"parameters": {
-										"instance-variable": "isBeingGrabbed"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Tentacle",
-									"sid": 835356814881132,
-									"parameters": {
-										"instance-variable": "GrabbingObjectUID",
-										"comparison": 0,
-										"value": "BarnacleTarget.UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "BarnacleTarget",
-									"sid": 270696103617729,
-									"parameters": {
-										"instance-variable": "isBeingGrabbed",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 907741069146087
+							"customAction": "StopGrabbingTarget",
+							"objectClass": "Tentacle",
+							"sid": 516736296736511
 						}
-					]
+					],
+					"sid": 781684333918281
 				},
 				{
 					"eventType": "block",
@@ -3389,13 +3349,87 @@
 							}
 						}
 					],
-					"sid": 597470172082107
+					"sid": 597470172082107,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Tentacle",
+									"sid": 456967795609667,
+									"parameters": {
+										"instance-variable": "GrabbingObjectUID",
+										"comparison": 0,
+										"value": "BarnacleTarget.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "BarnacleTarget",
+									"sid": 162109465088741,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 869583346746732
+						}
+					]
 				},
 				{
-					"eventType": "block",
+					"aceType": "action",
+					"aceName": "StopGrabbingTarget",
+					"objectClass": "Tentacle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 866993692889563
+					"sid": 407948340327309,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "BarnacleTarget",
+									"sid": 997110725855292,
+									"parameters": {
+										"unique-id": "Tentacle.GrabbingObjectUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "BarnacleTarget",
+									"sid": 442420045224117,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "false"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 236399966855919,
+									"parameters": {
+										"type": "log",
+										"message": "\"Target \"&BarnacleTarget.UID&\" not grabbed anymore\""
+									}
+								}
+							],
+							"sid": 342424651094868
+						}
+					]
 				}
 			],
 			"sid": 345073671218522
