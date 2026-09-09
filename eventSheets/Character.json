@@ -3278,15 +3278,6 @@
 							}
 						},
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "CharacterController",
-							"sid": 365341537675562,
-							"parameters": {
-								"instance-variable": "can_enter_chair",
-								"value": "false"
-							}
-						},
-						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
 							"sid": 747971666062095,
@@ -3509,6 +3500,31 @@
 								}
 							],
 							"sid": 320257968688526
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 796360852690049,
+									"parameters": {
+										"instance-variable": "is_dead"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 365341537675562,
+									"parameters": {
+										"instance-variable": "can_enter_chair",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 956117378340763
 						}
 					]
 				}
