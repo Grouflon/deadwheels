@@ -999,6 +999,16 @@
 									"sid": 560967288784710,
 									"children": [
 										{
+											"eventType": "variable",
+											"name": "CountSawBlades",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 866057525482424
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -1018,15 +1028,11 @@
 													}
 												},
 												{
-													"id": "pick-nearestfurthest",
+													"id": "pick-by-unique-id",
 													"objectClass": "ChairController",
-													"sid": 720093282367777,
+													"sid": 382347151739632,
 													"parameters": {
-														"which": "nearest",
-														"x": "CharacterController.X",
-														"y": "CharacterController.Y",
-														"z": "0",
-														"pick-all-tied": false
+														"unique-id": "CharacterController.chair_uid"
 													}
 												}
 											],
@@ -1037,34 +1043,33 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "compare-two-values",
+															"id": "for-each",
 															"objectClass": "System",
-															"sid": 467107278741541,
+															"sid": 687994278374873,
 															"parameters": {
-																"first-value": "SawBlade.Pin.PinnedUID",
-																"comparison": 0,
-																"second-value": "ChairController.UID"
+																"object": "SawBlade"
 															}
 														},
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 708494234024197,
+															"sid": 361326278397698,
 															"parameters": {
-																"first-value": "SawBlade.PickedCount",
-																"comparison": 2,
-																"second-value": "2"
+																"first-value": "SawBlade.Pin.PinnedUID",
+																"comparison": 0,
+																"second-value": "ChairSprite.UID"
 															}
 														}
 													],
 													"actions": [
 														{
-															"customAction": "PickObject",
-															"objectClass": "Pickups",
-															"sid": 368176673344330,
-															"parameters": [
-																"Pickups.AnimationName"
-															]
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 138270279108362,
+															"parameters": {
+																"variable": "CountSawBlades",
+																"value": "1"
+															}
 														}
 													],
 													"sid": 599655451731317
@@ -1073,22 +1078,36 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "else",
+															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 252392438472761
+															"sid": 984945521743672,
+															"parameters": {
+																"variable": "CountSawBlades",
+																"comparison": 2,
+																"value": "2"
+															}
 														}
 													],
 													"actions": [
 														{
 															"customAction": "PickObject",
 															"objectClass": "Pickups",
-															"sid": 602376144132468,
+															"sid": 161596740776002,
 															"parameters": [
 																"Pickups.AnimationName"
 															]
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 379139160289323,
+															"parameters": {
+																"type": "log",
+																"message": "\"Saw blades attached \" &CountSawBlades"
+															}
 														}
 													],
-													"sid": 749977520251052
+													"sid": 962925930980928
 												}
 											]
 										}
