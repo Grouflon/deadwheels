@@ -2175,6 +2175,18 @@
 							}
 						},
 						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "BarnacleTarget",
+							"sid": 411070484743936,
+							"parameters": {
+								"which": "nearest",
+								"x": "Barnacle.X",
+								"y": "Barnacle.Y",
+								"z": "0",
+								"pick-all-tied": false
+							}
+						},
+						{
 							"id": "is-any-playing",
 							"objectClass": "Tentacle",
 							"sid": 504164672621599,
@@ -3281,6 +3293,43 @@
 						}
 					],
 					"sid": 781684333918281
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "BarnacleTarget",
+							"sid": 514896903089473
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "BarnacleTarget",
+							"sid": 290246414884655,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "isBeingGrabbed"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tentacle",
+							"sid": 850271869719816,
+							"parameters": {
+								"instance-variable": "GrabbingObjectUID",
+								"comparison": 0,
+								"value": "BarnacleTarget.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "StopGrabbingTarget",
+							"objectClass": "Tentacle",
+							"sid": 765565252882039
+						}
+					],
+					"sid": 367497333942677
 				},
 				{
 					"eventType": "block",
