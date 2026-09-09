@@ -16141,11 +16141,11 @@
 			"global": false
 		},
 		{
-			"name": "Light",
-			"overriden": 0,
+			"name": "WorldPostProcess",
+			"overriden": 1,
 			"subLayers": [],
 			"instances": [],
-			"sid": 737587289723272,
+			"sid": 518652465884852,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -16176,199 +16176,11 @@
 			"global": false
 		},
 		{
-			"name": "Lightning",
-			"overriden": 0,
-			"subLayers": [],
-			"instances": [
-				{
-					"type": "InsideWallDoorFrame",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 798819,
-					"sid": 945563687605895,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 288,
-						"y": 384,
-						"width": 32,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 32,
-						"angle": 0
-					}
-				},
-				{
-					"type": "LightCone",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 557090,
-					"sid": 661476468184524,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"effects": {
-						"HardLight": {
-							"isEnabled": true,
-							"parameters": {}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 245.58953857421875,
-						"y": 115.08747863769531,
-						"width": 103.55050599910405,
-						"height": 130.9980576176396,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							0.9058823529411765,
-							0.2784313725490196,
-							0.3
-						],
-						"z": 14.132781982421875,
-						"angle": 0,
-						"rotation3d": {
-							"quaternion": [
-								0.12854309380054474,
-								0.022665616124868393,
-								-0.17216259241104126,
-								-0.9763826131820679
-							],
-							"euler": [
-								6.02138614654541,
-								0,
-								0.3490658402442932
-							]
-						},
-						"blendMode": "additive"
-					}
-				},
-				{
-					"type": "LightCone",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 145672,
-					"sid": 824466405512905,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"effects": {
-						"HardLight": {
-							"isEnabled": true,
-							"parameters": {}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 204.65496826171875,
-						"y": 115.30586242675781,
-						"width": 103.55050599910405,
-						"height": 130.9980576176396,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							0.9058823529411765,
-							0.2784313725490196,
-							0.3
-						],
-						"z": 14.132781982421875,
-						"angle": 0,
-						"rotation3d": {
-							"quaternion": [
-								0.12854309380054474,
-								0.022665616124868393,
-								-0.17216259241104126,
-								-0.9763826131820679
-							],
-							"euler": [
-								6.02138614654541,
-								0,
-								0.3490658402442932
-							]
-						},
-						"blendMode": "additive"
-					}
-				}
-			],
-			"sid": 378327544321442,
-			"effectTypes": [],
-			"isInitiallyVisible": false,
-			"isInitiallyInteractive": true,
-			"isHTMLElementsLayer": false,
-			"color": [
-				1,
-				1,
-				1,
-				0.1
-			],
-			"backgroundColor": [
-				0,
-				0,
-				0,
-				1
-			],
-			"isTransparent": true,
-			"sampling": "auto",
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": true,
-			"renderingMode": "2d",
-			"drawOrder": "z-order",
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"zElevation": 0,
-			"global": false
-		},
-		{
-			"name": "UI",
-			"overriden": 0,
+			"name": "ScreenPostProcess",
+			"overriden": 1,
 			"subLayers": [],
 			"instances": [],
-			"sid": 221988273764840,
+			"sid": 885201601487188,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -16387,11 +16199,11 @@
 			],
 			"isTransparent": true,
 			"sampling": "auto",
-			"parallaxX": 0,
-			"parallaxY": 0,
-			"scaleRate": 0,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
 			"forceOwnTexture": false,
-			"renderingMode": "2d",
+			"renderingMode": "3d",
 			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",

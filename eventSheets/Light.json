@@ -50,15 +50,6 @@
 							}
 						},
 						{
-							"id": "set-layer-blend-mode",
-							"objectClass": "System",
-							"sid": 148104008831444,
-							"parameters": {
-								"layer": "\"Lighting\"",
-								"blend-mode": "multiply"
-							}
-						},
-						{
 							"id": "add-layer",
 							"objectClass": "System",
 							"sid": 639103635680242,
@@ -66,15 +57,6 @@
 								"name": "\"Shadows\"",
 								"insert-by": "\"Lighting\"",
 								"where": "add-bottom-sublayer"
-							}
-						},
-						{
-							"id": "set-layer-blend-mode",
-							"objectClass": "System",
-							"sid": 826605773203317,
-							"parameters": {
-								"layer": "\"Shadows\"",
-								"blend-mode": "additive"
 							}
 						},
 						{
@@ -132,15 +114,6 @@
 									}
 								},
 								{
-									"id": "set-layer-blend-mode",
-									"objectClass": "System",
-									"sid": 508100821905063,
-									"parameters": {
-										"layer": "\"Shadow\" & SystemLights.CurX",
-										"blend-mode": "screen"
-									}
-								},
-								{
 									"id": "add-layer",
 									"objectClass": "System",
 									"sid": 305022238225088,
@@ -148,15 +121,6 @@
 										"name": "\"Light\" & SystemLights.CurX",
 										"insert-by": "\"Shadow\" & SystemLights.CurX",
 										"where": "add-bottom-sublayer"
-									}
-								},
-								{
-									"id": "set-layer-blend-mode",
-									"objectClass": "System",
-									"sid": 406671725060479,
-									"parameters": {
-										"layer": "\"Light\" & SystemLights.CurX",
-										"blend-mode": "multiply"
 									}
 								},
 								{
@@ -195,15 +159,6 @@
 									"parameters": {
 										"layer": "\"LightMask\" & SystemLights.CurX",
 										"mode": "opaque"
-									}
-								},
-								{
-									"id": "set-layer-blend-mode",
-									"objectClass": "System",
-									"sid": 759744559207532,
-									"parameters": {
-										"layer": "\"LightMask\" & SystemLights.CurX",
-										"blend-mode": "multiply"
 									}
 								},
 								{
@@ -319,43 +274,6 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-layer-blend-mode",
-									"objectClass": "System",
-									"sid": 318438399832660,
-									"parameters": {
-										"layer": "\"Shadow\" & SystemLights.Width-1",
-										"blend-mode": "normal"
-									}
-								},
-								{
-									"id": "set-layer-blend-mode",
-									"objectClass": "System",
-									"sid": 119920267900019,
-									"disabled": true,
-									"parameters": {
-										"layer": "\"Shadow0\"",
-										"blend-mode": "normal"
-									}
-								},
-								{
-									"id": "move-layer",
-									"objectClass": "System",
-									"sid": 400889813080284,
-									"disabled": true,
-									"parameters": {
-										"layer": "\"Lighting\"",
-										"insert-by": "\"World\"",
-										"where": "above"
-									}
-								}
-							],
-							"sid": 483854018084355
-						},
-						{
-							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-two-values",
@@ -384,6 +302,114 @@
 								}
 							],
 							"sid": 764615452876091
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "FixLightLayersBlendModes",
+									"sid": 978506524173319
+								}
+							],
+							"sid": 294399724888490
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Apparrently, blend modes are not part of the game save, so we need to reset them after load"
+				},
+				{
+					"functionName": "FixLightLayersBlendModes",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-blend-mode",
+							"objectClass": "System",
+							"sid": 148104008831444,
+							"parameters": {
+								"layer": "\"Lighting\"",
+								"blend-mode": "multiply"
+							}
+						},
+						{
+							"id": "set-layer-blend-mode",
+							"objectClass": "System",
+							"sid": 826605773203317,
+							"parameters": {
+								"layer": "\"Shadows\"",
+								"blend-mode": "additive"
+							}
+						}
+					],
+					"sid": 295585665084708,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "SystemLights",
+									"sid": 439444092415604,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-blend-mode",
+									"objectClass": "System",
+									"sid": 508100821905063,
+									"parameters": {
+										"layer": "\"Shadow\" & SystemLights.CurX",
+										"blend-mode": "screen"
+									}
+								},
+								{
+									"id": "set-layer-blend-mode",
+									"objectClass": "System",
+									"sid": 406671725060479,
+									"parameters": {
+										"layer": "\"Light\" & SystemLights.CurX",
+										"blend-mode": "multiply"
+									}
+								},
+								{
+									"id": "set-layer-blend-mode",
+									"objectClass": "System",
+									"sid": 759744559207532,
+									"parameters": {
+										"layer": "\"LightMask\" & SystemLights.CurX",
+										"blend-mode": "multiply"
+									}
+								}
+							],
+							"sid": 435593294679673
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-layer-blend-mode",
+									"objectClass": "System",
+									"sid": 318438399832660,
+									"parameters": {
+										"layer": "\"Shadow\" & SystemLights.Width-1",
+										"blend-mode": "normal"
+									}
+								}
+							],
+							"sid": 483854018084355
 						}
 					]
 				},
