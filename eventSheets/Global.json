@@ -3015,6 +3015,91 @@
 				}
 			],
 			"sid": 401998155872407
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Typewriter text",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 534674919582979,
+							"parameters": {
+								"interval-seconds": "0.05"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 560371253202010,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "IntroTextFont",
+									"sid": 173833972620896,
+									"parameters": {
+										"instance-variable": "TypeIndex",
+										"comparison": 2,
+										"value": "len(Self.SourceText)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "IntroTextFont",
+									"sid": 945970295533271,
+									"parameters": {
+										"instance-variable": "TypeIndex",
+										"value": "min(Self.TypeIndex+ 1, len(Self.SourceText))"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 321916408563067,
+									"parameters": {
+										"audio-file": {
+											"path": "Aim1"
+										},
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 983006496298743,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "1.5"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "IntroTextFont",
+									"sid": 391517367249623,
+									"parameters": {
+										"text": "left(Self.SourceText, Self.TypeIndex)"
+									}
+								}
+							],
+							"sid": 738726276804682
+						}
+					]
+				}
+			],
+			"sid": 722833334694531
 		}
 	],
 	"sid": 171422187705970
