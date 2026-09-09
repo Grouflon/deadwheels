@@ -2147,6 +2147,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 395766914000451,
+							"parameters": {
+								"object": "Barnacle"
+							}
+						},
+						{
 							"id": "has-los-to-object",
 							"objectClass": "Barnacle",
 							"sid": 583312848856360,
@@ -2157,16 +2165,9 @@
 							}
 						},
 						{
-							"id": "is-any-playing",
-							"objectClass": "Tentacle",
-							"sid": 351526851666876,
-							"behaviorType": "Tween",
-							"isInverted": true
-						},
-						{
 							"id": "compare-instance-variable",
 							"objectClass": "Barnacle",
-							"sid": 308237322304829,
+							"sid": 832026695538672,
 							"parameters": {
 								"instance-variable": "tryGrabCoolDown",
 								"comparison": 3,
@@ -2174,9 +2175,11 @@
 							}
 						},
 						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 923481260410641
+							"id": "is-any-playing",
+							"objectClass": "Tentacle",
+							"sid": 504164672621599,
+							"behaviorType": "Tween",
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -2184,13 +2187,17 @@
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "tryThrowTentacle",
+							"name": "ThrowTentacle",
 							"type": "boolean",
 							"initialValue": "true",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
 							"sid": 185034589345614
+						},
+						{
+							"eventType": "comment",
+							"text": "some barnacles ignore chairs"
 						},
 						{
 							"eventType": "block",
@@ -2220,12 +2227,16 @@
 									"objectClass": "System",
 									"sid": 885753730058950,
 									"parameters": {
-										"variable": "tryThrowTentacle",
+										"variable": "ThrowTentacle",
 										"value": "false"
 									}
 								}
 							],
 							"sid": 885050207206673
+						},
+						{
+							"eventType": "comment",
+							"text": "if barnacle is ignore chair type they also ignore characters that are in chair"
 						},
 						{
 							"eventType": "block",
@@ -2263,7 +2274,7 @@
 									"objectClass": "System",
 									"sid": 945631199267205,
 									"parameters": {
-										"variable": "tryThrowTentacle",
+										"variable": "ThrowTentacle",
 										"value": "false"
 									}
 								}
@@ -2278,18 +2289,18 @@
 									"objectClass": "System",
 									"sid": 661601150615123,
 									"parameters": {
-										"variable": "tryThrowTentacle"
+										"variable": "ThrowTentacle"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-playback-rate",
-									"objectClass": "Audio",
-									"sid": 640791459139702,
+									"id": "set-instvar-value",
+									"objectClass": "Barnacle",
+									"sid": 650921043364034,
 									"parameters": {
-										"tag": "\"\"",
-										"playback-rate": "random(0.7,0.8)"
+										"instance-variable": "tryGrabCoolDown",
+										"value": "2"
 									}
 								},
 								{
@@ -2306,6 +2317,15 @@
 										"outer-angle": "0",
 										"outer-gain": "0",
 										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-playback-rate",
+									"objectClass": "Audio",
+									"sid": 548925409596846,
+									"parameters": {
+										"tag": "\"\"",
+										"playback-rate": "random(0.7,0.8)"
 									}
 								},
 								{
@@ -2360,9 +2380,91 @@
 									}
 								}
 							],
-							"sid": 891401061823494
+							"sid": 891401061823494,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Barnacle",
+											"sid": 681976242581841,
+											"parameters": {
+												"instance-variable": "spawnHole"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Barnacle",
+											"sid": 451116290691124,
+											"parameters": {
+												"instance-variable": "spawnHole",
+												"value": "false"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Barnacle",
+											"sid": 977510290409335,
+											"parameters": {
+												"object": "wallHole",
+												"layer": "Self.LayerName",
+												"image-point": "2",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "wallHole",
+											"sid": 187547149375160,
+											"parameters": {
+												"angle": "Barnacle.Angle"
+											}
+										}
+									],
+									"sid": 701981236640041,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 813425430531310,
+													"parameters": {
+														"count": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 461480493748888,
+													"parameters": {
+														"object-to-create": "Wall_Debris",
+														"layer": "Barnacle.LayerName",
+														"x": "Barnacle.X",
+														"y": "Barnacle.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 770419488255290
+										}
+									]
+								}
+							]
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Tentacle movements"
 				},
 				{
 					"eventType": "block",
@@ -2397,32 +2499,6 @@
 						}
 					],
 					"sid": 582174788631363
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Tentacle",
-							"sid": 119857426105925,
-							"parameters": {
-								"instance-variable": "warpXamplitude",
-								"value": "lerp(Self.warpXamplitude,Self.warpXamplitudeTarget,0.1)"
-							}
-						},
-						{
-							"id": "set-effect-parameter",
-							"objectClass": "Tentacle",
-							"sid": 292951208825641,
-							"parameters": {
-								"effect": "\"WarpObject\"",
-								"parameter-index": "2",
-								"value": "Self.warpXamplitude"
-							}
-						}
-					],
-					"sid": 874554196641666
 				},
 				{
 					"eventType": "block",
@@ -2525,37 +2601,8 @@
 					"isOrBlock": true
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Tentacle",
-							"sid": 615769316250312,
-							"parameters": {
-								"object": "Furniture"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Furniture",
-							"sid": 647934128539776,
-							"parameters": {
-								"instance-variable": "chairCanDestroy"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Furniture",
-							"sid": 393233348678893
-						}
-					],
-					"sid": 100667689588089
-				},
-				{
 					"eventType": "comment",
-					"text": "Tentacle hits target"
+					"text": "Tentacle grabs target"
 				},
 				{
 					"eventType": "block",
@@ -2563,7 +2610,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Tentacle",
-							"sid": 278405130850886,
+							"sid": 206034958043215,
 							"parameters": {
 								"object": "BarnacleTarget"
 							}
@@ -2571,11 +2618,20 @@
 						{
 							"id": "is-playing",
 							"objectClass": "Tentacle",
-							"sid": 710038344000361,
+							"sid": 258157849296038,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"tryGrab\""
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "BarnacleTarget",
+							"sid": 825139918907168,
+							"parameters": {
+								"instance-variable": "isBeingGrabbed"
+							},
+							"isInverted": true
 						},
 						{
 							"id": "compare-instance-variable",
@@ -2602,12 +2658,16 @@
 							"sid": 554546894335231
 						},
 						{
+							"eventType": "comment",
+							"text": "Ignore character if they're in a chair, we want the chair to be grabbed."
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 474492600851861,
+									"sid": 689594007954018,
 									"parameters": {
 										"first-value": "BarnacleTarget.ObjectTypeName",
 										"comparison": 0,
@@ -2617,7 +2677,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "CharacterController",
-									"sid": 274088100940691,
+									"sid": 462885861251931,
 									"parameters": {
 										"instance-variable": "is_in_chair"
 									}
@@ -2627,14 +2687,14 @@
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 612195681107828,
+									"sid": 262911874346816,
 									"parameters": {
 										"variable": "willGrab",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 319815887562944
+							"sid": 938139109088260
 						},
 						{
 							"eventType": "block",
@@ -2642,7 +2702,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 861786118083028,
+									"sid": 716550898224423,
 									"parameters": {
 										"variable": "willGrab"
 									}
@@ -2652,7 +2712,7 @@
 								{
 									"id": "play-at-object",
 									"objectClass": "Audio",
-									"sid": 370241630505756,
+									"sid": 372897031328686,
 									"parameters": {
 										"audio-file": {
 											"path": "Movement/TentacleGrab"
@@ -2667,9 +2727,18 @@
 									}
 								},
 								{
+									"id": "set-boolean-instvar",
+									"objectClass": "BarnacleTarget",
+									"sid": 987163492395402,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "true"
+									}
+								},
+								{
 									"id": "stop-tweens",
 									"objectClass": "Tentacle",
-									"sid": 812684306643529,
+									"sid": 873432967907186,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"tryGrab\""
@@ -2678,7 +2747,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Tentacle",
-									"sid": 286681415197685,
+									"sid": 825976111527925,
 									"parameters": {
 										"instance-variable": "GrabbingObjectUID",
 										"value": "BarnacleTarget.UID"
@@ -2687,12 +2756,120 @@
 								{
 									"customAction": "bringTargetBack",
 									"objectClass": "Tentacle",
-									"sid": 560021103979325
+									"sid": 386164149516590
 								}
 							],
-							"sid": 394746001369039
+							"sid": 504677550535217
+						},
+						{
+							"eventType": "comment",
+							"text": "if tentacle has grabbed the character but the latter is in a chair, grab the chair instead (hack shit)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 474492600851861,
+									"parameters": {
+										"first-value": "BarnacleTarget.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"CharacterController\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ChairController",
+									"sid": 143455200396260,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 274088100940691,
+									"parameters": {
+										"instance-variable": "is_in_chair"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ChairController",
+									"sid": 799233362064364,
+									"parameters": {
+										"unique-id": "CharacterController.chair_uid"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 586791154444140,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ChairController",
+									"sid": 796628266568255,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Tentacle",
+									"sid": 226572804477035,
+									"parameters": {
+										"instance-variable": "GrabbingObjectUID",
+										"value": "ChairController.UID"
+									}
+								}
+							],
+							"sid": 319815887562944,
+							"disabled": true
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Tentacle destroys furniture"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Tentacle",
+							"sid": 365432440634245,
+							"parameters": {
+								"object": "Furniture"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Furniture",
+							"sid": 131370245227030,
+							"parameters": {
+								"instance-variable": "chairCanDestroy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Furniture",
+							"sid": 485693352134140
+						}
+					],
+					"sid": 457479721483532
 				},
 				{
 					"aceType": "action",
@@ -2754,8 +2931,20 @@
 					"sid": 799221249306625
 				},
 				{
+					"eventType": "comment",
+					"text": "Barnacle target's position is set to the tentacles' tip"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 832736862981123,
+							"parameters": {
+								"object": "Tentacle"
+							}
+						},
 						{
 							"id": "is-playing",
 							"objectClass": "Tentacle",
@@ -2818,6 +3007,36 @@
 						}
 					],
 					"sid": 974158696902522
+				},
+				{
+					"eventType": "comment",
+					"text": "Tentacle effects"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tentacle",
+							"sid": 104724597338463,
+							"parameters": {
+								"instance-variable": "warpXamplitude",
+								"value": "lerp(Self.warpXamplitude,Self.warpXamplitudeTarget,0.1)"
+							}
+						},
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Tentacle",
+							"sid": 790806205210674,
+							"parameters": {
+								"effect": "\"WarpObject\"",
+								"parameter-index": "2",
+								"value": "Self.warpXamplitude"
+							}
+						}
+					],
+					"sid": 710119044409810
 				},
 				{
 					"eventType": "comment",
@@ -3029,9 +3248,30 @@
 							"isOrBlock": true
 						},
 						{
+							"eventType": "comment",
+							"text": "After barnacle has eaten or collided with target, it is not being grabbed anymore"
+						},
+						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "BarnacleTarget",
+									"sid": 653317162801622,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Tentacle",
+									"sid": 347577575945211,
+									"parameters": {
+										"width": "0"
+									}
+								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Tentacle",
@@ -3043,12 +3283,6 @@
 								}
 							],
 							"sid": 951249966008844
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 967931695492426
 						}
 					]
 				},
@@ -3075,7 +3309,48 @@
 							}
 						}
 					],
-					"sid": 781684333918281
+					"sid": 781684333918281,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Upon Barnacle destruction, Barnacle target is not grabbed anymore"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "BarnacleTarget",
+									"sid": 241670567724609,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Tentacle",
+									"sid": 835356814881132,
+									"parameters": {
+										"instance-variable": "GrabbingObjectUID",
+										"comparison": 0,
+										"value": "BarnacleTarget.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "BarnacleTarget",
+									"sid": 270696103617729,
+									"parameters": {
+										"instance-variable": "isBeingGrabbed",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 907741069146087
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -3115,6 +3390,12 @@
 						}
 					],
 					"sid": 597470172082107
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 866993692889563
 				}
 			],
 			"sid": 345073671218522
