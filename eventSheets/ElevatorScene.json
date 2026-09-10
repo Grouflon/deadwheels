@@ -114,7 +114,7 @@
 				},
 				{
 					"id": "is-any-playing",
-					"objectClass": "Sprite2",
+					"objectClass": "EVHand",
 					"sid": 317284853259446,
 					"behaviorType": "Tween",
 					"isInverted": true
@@ -140,7 +140,7 @@
 					"actions": [
 						{
 							"id": "set-z-elevation",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 888425475005527,
 							"parameters": {
 								"z": "Self.Z-0.5"
@@ -166,7 +166,7 @@
 					"actions": [
 						{
 							"id": "set-z-elevation",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 777387561633600,
 							"parameters": {
 								"z": "Self.Z+0.5"
@@ -192,7 +192,7 @@
 					"actions": [
 						{
 							"id": "set-x",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 914785763403048,
 							"parameters": {
 								"x": "Self.X-0.5"
@@ -218,7 +218,7 @@
 					"actions": [
 						{
 							"id": "set-x",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 345352045150975,
 							"parameters": {
 								"x": "Self.X+0.5"
@@ -233,7 +233,7 @@
 					"actions": [
 						{
 							"id": "set-x",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 814009595871458,
 							"parameters": {
 								"x": "clamp(Self.X,EvScreenPanel.X-15,EvScreenPanel.X+10)"
@@ -241,7 +241,7 @@
 						},
 						{
 							"id": "set-z-elevation",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 966582775065780,
 							"parameters": {
 								"z": "clamp(Self.Z,40,80)"
@@ -266,7 +266,7 @@
 				},
 				{
 					"id": "is-any-playing",
-					"objectClass": "Sprite2",
+					"objectClass": "EVHand",
 					"sid": 902740543782374,
 					"behaviorType": "Tween",
 					"isInverted": true
@@ -276,7 +276,7 @@
 					"objectClass": "System",
 					"sid": 127370592892012,
 					"parameters": {
-						"first-value": "Sprite2.Count",
+						"first-value": "EVHand.Count",
 						"comparison": 4,
 						"second-value": "0"
 					}
@@ -294,9 +294,9 @@
 							"sid": 588938077774363,
 							"parameters": {
 								"which": "nearest",
-								"x": "Sprite2.X",
-								"y": "Sprite2.Y",
-								"z": "Sprite2.Z",
+								"x": "EVHand.X",
+								"y": "EVHand.Y",
+								"z": "EVHand.Z",
 								"pick-all-tied": false
 							}
 						}
@@ -317,7 +317,7 @@
 					"actions": [
 						{
 							"id": "tween-one-property",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 131740761604695,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -373,7 +373,7 @@
 						},
 						{
 							"id": "tween-one-property",
-							"objectClass": "Sprite2",
+							"objectClass": "EVHand",
 							"sid": 405387363806201,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -460,7 +460,7 @@
 			"conditions": [
 				{
 					"id": "on-tweens-finished",
-					"objectClass": "Sprite2",
+					"objectClass": "EVHand",
 					"sid": 105601029471943,
 					"behaviorType": "Tween",
 					"parameters": {
@@ -471,7 +471,7 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "Sprite2",
+					"objectClass": "EVHand",
 					"sid": 344335616668639
 				}
 			],
