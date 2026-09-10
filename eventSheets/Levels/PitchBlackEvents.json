@@ -3,6 +3,16 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "aiming_light_transition_time",
+			"type": "number",
+			"initialValue": "0.1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 142296558610203
+		},
+		{
+			"eventType": "variable",
 			"name": "player_light_uid",
 			"type": "number",
 			"initialValue": "0",
@@ -12,8 +22,87 @@
 			"sid": 139657856831551
 		},
 		{
+			"eventType": "variable",
+			"name": "aiming_light_angle",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 444924964090832
+		},
+		{
+			"eventType": "variable",
+			"name": "idle_light_angle",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 812182954107512
+		},
+		{
+			"eventType": "variable",
+			"name": "light_transition_t",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 704453836876118
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Global"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "STARTING STATE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 660955967410386
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 535572925372655,
+							"parameters": {
+								"variable": "gun_unlocked",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 526387467234075,
+							"parameters": {
+								"variable": "gun_ammo",
+								"value": "10"
+							}
+						},
+						{
+							"customAction": "SwitchWeapon",
+							"objectClass": "CharacterController",
+							"sid": 899852286472087,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 549602672194029
+				}
+			],
+			"sid": 168048252919460
 		},
 		{
 			"eventType": "block",
@@ -71,14 +160,6 @@
 						"x": "CharacterController.X",
 						"y": "CharacterController.Y"
 					}
-				},
-				{
-					"id": "set-angle",
-					"objectClass": "DynamicLight",
-					"sid": 165514717084966,
-					"parameters": {
-						"angle": "CharacterController.direction"
-					}
 				}
 			],
 			"sid": 409894254418051,
@@ -108,8 +189,18 @@
 							"id": "set-angle",
 							"objectClass": "DynamicLight",
 							"sid": 520858323244182,
+							"disabled": true,
 							"parameters": {
 								"angle": "ChairController.direction"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 874620443798897,
+							"parameters": {
+								"variable": "idle_light_angle",
+								"value": "ChairController.direction"
 							}
 						}
 					],
@@ -129,12 +220,147 @@
 							"id": "set-angle",
 							"objectClass": "DynamicLight",
 							"sid": 557069493403549,
+							"disabled": true,
 							"parameters": {
 								"angle": "CharacterController.direction"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 524516810708983,
+							"parameters": {
+								"variable": "idle_light_angle",
+								"value": "CharacterController.direction"
 							}
 						}
 					],
 					"sid": 736744903176537
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 884436164287757,
+							"parameters": {
+								"variable": "aiming_light_angle",
+								"value": "Functions.SignedAngleBetween(idle_light_angle, angle(CharacterController.X, CharacterController.Y, Mouse.X, Mouse.Y))"
+							}
+						}
+					],
+					"sid": 714618059720220
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 658235363146523,
+							"parameters": {
+								"instance-variable": "is_in_chair"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 257256978931885,
+							"parameters": {
+								"variable": "aiming_light_angle",
+								"value": "clamp(aiming_light_angle, -aim_angle_max, aim_angle_max)"
+							}
+						}
+					],
+					"sid": 836575576691578
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 336232708525277,
+							"parameters": {
+								"instance-variable": "is_aiming"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 819232804375417,
+							"parameters": {
+								"variable": "light_transition_t",
+								"value": "Functions.TimeIndependentLerp(light_transition_t, 1, aiming_light_transition_time, dt)"
+							}
+						}
+					],
+					"sid": 418433180990436
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 641200480359636
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 295517742848264,
+							"parameters": {
+								"variable": "light_transition_t",
+								"value": "Functions.TimeIndependentLerp(light_transition_t, 0, aiming_light_transition_time, dt)"
+							}
+						}
+					],
+					"sid": 958204495487884
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 970325765223149
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "DynamicLight",
+							"sid": 962594895475729,
+							"parameters": {
+								"angle": "idle_light_angle"
+							}
+						}
+					],
+					"sid": 804210299737158,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "DynamicLight",
+							"sid": 331249718852035,
+							"parameters": {
+								"angle": "idle_light_angle + lerp(0, aiming_light_angle, light_transition_t)"
+							}
+						}
+					],
+					"sid": 583639280425764
 				}
 			]
 		},

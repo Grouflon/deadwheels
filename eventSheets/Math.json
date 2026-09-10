@@ -186,6 +186,57 @@
 					"sid": 181142347132413
 				}
 			]
+		},
+		{
+			"functionName": "TimeIndependentLerp",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "base",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 646883829592966
+				},
+				{
+					"name": "target",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 921457905580615
+				},
+				{
+					"name": "time_to_90",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 213171860547556
+				},
+				{
+					"name": "deltatime",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 495209889705883
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 727342862429423,
+					"parameters": {
+						"value": "lerp(base, target, 1.0 - exp(log10(0.1) * dt / time_to_90))"
+					}
+				}
+			],
+			"sid": 611054475771340
 		}
 	],
 	"sid": 150942305447680
