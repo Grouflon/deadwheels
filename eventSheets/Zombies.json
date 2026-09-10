@@ -2175,6 +2175,15 @@
 							}
 						},
 						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "BarnacleTarget",
+							"sid": 847245427633952,
+							"parameters": {
+								"instance-variable": "isBeingGrabbed"
+							},
+							"isInverted": true
+						},
+						{
 							"id": "pick-nearestfurthest",
 							"objectClass": "BarnacleTarget",
 							"sid": 411070484743936,
@@ -3295,21 +3304,16 @@
 					"sid": 781684333918281
 				},
 				{
+					"eventType": "comment",
+					"text": "Barnacle target gets destroyed"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-destroyed",
 							"objectClass": "BarnacleTarget",
 							"sid": 514896903089473
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "BarnacleTarget",
-							"sid": 290246414884655,
-							"disabled": true,
-							"parameters": {
-								"instance-variable": "isBeingGrabbed"
-							}
 						},
 						{
 							"id": "compare-instance-variable",
@@ -3447,6 +3451,38 @@
 								}
 							],
 							"sid": 342424651094868
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-any-playing",
+									"objectClass": "Tentacle",
+									"sid": 697398426700783,
+									"behaviorType": "Tween"
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Tentacle",
+									"sid": 774926696895763,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"comeBack\"",
+										"property": "offsetWidth",
+										"end-value": "0",
+										"time": "Self.Width/200",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 909306244601770,
+							"disabled": true
 						}
 					]
 				}
