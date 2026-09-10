@@ -43,6 +43,26 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "barnacle_tryGrabCooldown",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 115427426241274
+		},
+		{
+			"eventType": "variable",
+			"name": "barnacle_digestionTime",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 499956709528739
+		},
+		{
+			"eventType": "variable",
 			"name": "zombie_elevator_detection_distance",
 			"type": "number",
 			"initialValue": "1000",
@@ -2318,10 +2338,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Barnacle",
-									"sid": 650921043364034,
+									"sid": 563079147147880,
 									"parameters": {
 										"instance-variable": "tryGrabCoolDown",
-										"value": "2"
+										"value": "3"
 									}
 								},
 								{
@@ -2600,10 +2620,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Barnacle",
-							"sid": 330399293270817,
+							"sid": 440250956023698,
 							"parameters": {
 								"instance-variable": "tryGrabCoolDown",
-								"value": "4"
+								"value": "barnacle_tryGrabCooldown"
 							}
 						},
 						{
@@ -2904,6 +2924,23 @@
 					],
 					"actions": [
 						{
+							"id": "tween-one-property",
+							"objectClass": "Tentacle",
+							"sid": 897104213045103,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"comeBack\"",
+								"property": "offsetWidth",
+								"end-value": "1",
+								"time": "Self.Width/100",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
 							"id": "destroy",
 							"objectClass": "Furniture",
 							"sid": 485693352134140
@@ -3124,6 +3161,15 @@
 										"100",
 										false
 									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Barnacle",
+									"sid": 881395828747612,
+									"parameters": {
+										"instance-variable": "tryGrabCoolDown",
+										"value": "barnacle_digestionTime"
+									}
 								}
 							],
 							"sid": 462867475409647
@@ -3230,6 +3276,15 @@
 										"100",
 										"0"
 									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Barnacle",
+									"sid": 811875849495993,
+									"parameters": {
+										"instance-variable": "tryGrabCoolDown",
+										"value": "barnacle_digestionTime"
+									}
 								}
 							],
 							"sid": 954591452669005
