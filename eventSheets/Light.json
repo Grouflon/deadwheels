@@ -86,6 +86,16 @@
 								"layer": "\"ShadowsColor\"",
 								"color": "rgbEx(10, 10, 10)"
 							}
+						},
+						{
+							"id": "move-layer",
+							"objectClass": "System",
+							"sid": 691884669647860,
+							"parameters": {
+								"layer": "\"StaticLight\"",
+								"insert-by": "\"Shadows\"",
+								"where": "above"
+							}
 						}
 					],
 					"sid": 660462480708718,
@@ -348,6 +358,15 @@
 								"layer": "\"Shadows\"",
 								"blend-mode": "additive"
 							}
+						},
+						{
+							"id": "set-layer-blend-mode",
+							"objectClass": "System",
+							"sid": 511794840026742,
+							"parameters": {
+								"layer": "\"StaticLight\"",
+								"blend-mode": "additive"
+							}
 						}
 					],
 					"sid": 295585665084708,
@@ -604,38 +623,7 @@
 													}
 												}
 											],
-											"sid": 777021453243871,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-on-screen",
-															"objectClass": "DynamicLight",
-															"sid": 192858019004031
-														}
-													],
-													"actions": [
-														{
-															"id": "play-at-object-by-name",
-															"objectClass": "Audio",
-															"sid": 238400425886026,
-															"parameters": {
-																"folder": "sounds",
-																"audio-file-name": "\"Amb/LightFlicker\"&choose(1,2,3)",
-																"loop": "not-looping",
-																"volume": "0",
-																"object": "DynamicLight",
-																"inner-angle": "360",
-																"outer-angle": "360",
-																"outer-gain": "0",
-																"tag-optional": "\"\""
-															}
-														}
-													],
-													"sid": 257790514296070
-												}
-											]
+											"sid": 777021453243871
 										},
 										{
 											"eventType": "block",
@@ -667,6 +655,134 @@
 												}
 											],
 											"sid": 297007426426826
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-on-screen",
+													"objectClass": "DynamicLight",
+													"sid": 452778547838957
+												}
+											],
+											"actions": [],
+											"sid": 863736572734299,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "play_flickr",
+													"type": "boolean",
+													"initialValue": "false",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 226415717923071
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "DynamicLight",
+															"sid": 743387176690924,
+															"parameters": {
+																"instance-variable": "on"
+															}
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "DynamicLight",
+															"sid": 906827508601775,
+															"parameters": {
+																"instance-variable": "on_flicker"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 421036756761339,
+															"parameters": {
+																"variable": "play_flickr",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 388982610574496
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 807378063778978
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "DynamicLight",
+															"sid": 845615442777595,
+															"parameters": {
+																"instance-variable": "on"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "DynamicLight",
+															"sid": 834558251425021,
+															"parameters": {
+																"instance-variable": "off_flicker"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 781782364340759,
+															"parameters": {
+																"variable": "play_flickr",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 161479005621010
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 112983762510529,
+															"parameters": {
+																"variable": "play_flickr"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "play-at-object-by-name",
+															"objectClass": "Audio",
+															"sid": 689281485090339,
+															"parameters": {
+																"folder": "sounds",
+																"audio-file-name": "\"Amb/LightFlicker\"&choose(1,2,3)",
+																"loop": "not-looping",
+																"volume": "0",
+																"object": "DynamicLight",
+																"inner-angle": "360",
+																"outer-angle": "360",
+																"outer-gain": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 498614096429077
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -801,10 +917,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "DynamicLight",
-											"sid": 114526623139161,
+											"sid": 436102495672278,
 											"parameters": {
 												"instance-variable": "internal_intensity",
-												"value": "0"
+												"value": "DynamicLight.off_intensity"
 											}
 										}
 									],
@@ -1068,10 +1184,20 @@
 								{
 									"id": "set-light-position",
 									"objectClass": "ShadowLight",
-									"sid": 406219975469986,
+									"sid": 551761132119978,
 									"parameters": {
 										"x": "DynamicLight.X",
 										"y": "DynamicLight.Y"
+									}
+								},
+								{
+									"id": "set-light-position",
+									"objectClass": "ShadowLight",
+									"sid": 535236994452694,
+									"disabled": true,
+									"parameters": {
+										"x": "DynamicLight.X + DynamicLight.Width * 0.5",
+										"y": "DynamicLight.Y + DynamicLight.Height * 0.5"
 									}
 								},
 								{

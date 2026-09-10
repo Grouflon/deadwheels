@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "aiming_light_transition_time",
 			"type": "number",
-			"initialValue": "0.1",
+			"initialValue": "0.07",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -20,6 +20,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 139657856831551
+		},
+		{
+			"eventType": "variable",
+			"name": "player_light_intensity",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 248294225904202
 		},
 		{
 			"eventType": "variable",
@@ -135,9 +145,124 @@
 						"variable": "player_light_uid",
 						"value": "DynamicLight.UID"
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 874879489078008,
+					"parameters": {
+						"variable": "player_light_intensity",
+						"value": "DynamicLight.intensity"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "DynamicLight",
+					"sid": 588261116572219,
+					"parameters": {
+						"instance-variable": "intensity",
+						"value": "0"
+					}
 				}
 			],
 			"sid": 253449374864083
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "FlashLight",
+					"sid": 371411203653402,
+					"parameters": {
+						"object": "CharacterController"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 259002924968043,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "DynamicLight",
+							"sid": 947969808306097,
+							"parameters": {
+								"unique-id": "player_light_uid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "DynamicLight",
+							"sid": 274893766598872,
+							"parameters": {
+								"instance-variable": "intensity",
+								"value": "player_light_intensity"
+							}
+						},
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 493893249902241,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Amb/LightFlicker\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "DynamicLight",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 887932405179668
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "DynamicLight",
+							"sid": 212051182915874,
+							"parameters": {
+								"unique-id": "694280"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Mask",
+							"sid": 744697211856532,
+							"parameters": {
+								"unique-id": "427017"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "FlashLight",
+							"sid": 303258026517353
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Mask",
+							"sid": 487773313913319
+						},
+						{
+							"id": "destroy",
+							"objectClass": "DynamicLight",
+							"sid": 645202657957744
+						}
+					],
+					"sid": 485096985366394
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -186,15 +311,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-angle",
-							"objectClass": "DynamicLight",
-							"sid": 520858323244182,
-							"disabled": true,
-							"parameters": {
-								"angle": "ChairController.direction"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 874620443798897,
@@ -216,15 +332,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "set-angle",
-							"objectClass": "DynamicLight",
-							"sid": 557069493403549,
-							"disabled": true,
-							"parameters": {
-								"angle": "CharacterController.direction"
-							}
-						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -324,28 +431,6 @@
 						}
 					],
 					"sid": 958204495487884
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 970325765223149
-						}
-					],
-					"actions": [
-						{
-							"id": "set-angle",
-							"objectClass": "DynamicLight",
-							"sid": 962594895475729,
-							"parameters": {
-								"angle": "idle_light_angle"
-							}
-						}
-					],
-					"sid": 804210299737158,
-					"disabled": true
 				},
 				{
 					"eventType": "block",

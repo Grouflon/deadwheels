@@ -7,6 +7,123 @@
 			"subLayers": [],
 			"instances": [
 				{
+					"type": "Door_Windowed",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 492594,
+					"sid": 996395578912152,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": true,
+						"bulletsCollide": false,
+						"sawCanDestroy": false,
+						"ClosedAngle": 0,
+						"CanBePushed": true,
+						"isLocked": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 512.0013427734375,
+						"y": 771.8743286132812,
+						"width": 28,
+						"height": 4,
+						"originX": -0.0625,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -0.1,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "Floor_Tiles1",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 850472,
+					"sid": 305625077180821,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 504,
+						"y": 776,
+						"width": 48,
+						"height": 184,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Floor_Tiles1",
 					"properties": {
 						"initially-visible": true,
@@ -125,481 +242,6 @@
 						"height": 120,
 						"originX": 0,
 						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "CharacterController",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 204752,
-					"sid": 129799946845249,
-					"tags": "",
-					"instanceVariables": {
-						"acceleration": 5,
-						"brake": 5,
-						"deceleration": 70,
-						"max_velocity": 30,
-						"collision_velocity_multiplier": -0.2,
-						"angular_acceleration": 100,
-						"angular_deceleration": 900,
-						"angular_input_delay": 0.05,
-						"angular_buffer_time": 0.2,
-						"max_angular_velocity": 400,
-						"direction": 90,
-						"excluded_collisions": "Crawlable",
-						"velocity": 0,
-						"angular_velocity": 0,
-						"wheel_ticks": 0,
-						"previous_wheel_ticks": 0,
-						"rotate_ticks": 0,
-						"previous_rotate_ticks": 0,
-						"collision_cooldown": 0,
-						"turn_left_cooldown": 0,
-						"turn_right_cooldown": 0,
-						"max_velocity_multiplier": 1,
-						"read_input": true,
-						"disabled": false,
-						"just_pushed": 0,
-						"just_rotated": 0,
-						"left_angular_input_timer": 0,
-						"right_angular_input_timer": 0,
-						"consecutive_wheel_ticks": 0,
-						"isBeingGrabbed": false,
-						"invulnerability_timer": 0,
-						"old_velocity": 0,
-						"old_angular_velocity": 0,
-						"old_wheel_ticks": 0,
-						"old_previous_wheel_ticks": 0,
-						"old_rotate_ticks": 0,
-						"old_previous_rotate_ticks": 0,
-						"is_aiming": false,
-						"is_dead": false,
-						"is_in_chair": true,
-						"recoil": 0,
-						"angular_recoil": 0,
-						"interact_timer": 0,
-						"shoot_cooldown": 0,
-						"chair_uid": 0,
-						"can_enter_chair": true
-					},
-					"behaviors": {
-						"Custom": {
-							"properties": {
-								"stepping-mode": "linear",
-								"pixels-per-step": 5,
-								"enabled": true
-							}
-						},
-						"ShadowCaster": {
-							"properties": {
-								"height": 100,
-								"tag": "",
-								"enabled": true
-							}
-						}
-					},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "character",
-						"replicaHierarchyInSyncWithTemplate": false,
-						"templatePropagateHierarchyChanges": true,
-						"replicaIgnoreTemplateHierarchyChanges": false,
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"initial-animation",
-												true
-											],
-											[
-												"initial-frame",
-												true
-											],
-											[
-												"enable-collisions",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "acceleration",
-												"state": true
-											},
-											{
-												"iv": "brake",
-												"state": true
-											},
-											{
-												"iv": "deceleration",
-												"state": true
-											},
-											{
-												"iv": "max_velocity",
-												"state": true
-											},
-											{
-												"iv": "collision_velocity_multiplier",
-												"state": true
-											},
-											{
-												"iv": "angular_acceleration",
-												"state": true
-											},
-											{
-												"iv": "angular_deceleration",
-												"state": true
-											},
-											{
-												"iv": "angular_input_delay",
-												"state": true
-											},
-											{
-												"iv": "angular_buffer_time",
-												"state": true
-											},
-											{
-												"iv": "max_angular_velocity",
-												"state": true
-											},
-											{
-												"iv": "direction",
-												"state": false
-											},
-											{
-												"iv": "excluded_collisions",
-												"state": true
-											},
-											{
-												"iv": "velocity",
-												"state": true
-											},
-											{
-												"iv": "angular_velocity",
-												"state": true
-											},
-											{
-												"iv": "wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "collision_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_left_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_right_cooldown",
-												"state": true
-											},
-											{
-												"iv": "max_velocity_multiplier",
-												"state": true
-											},
-											{
-												"iv": "read_input",
-												"state": true
-											},
-											{
-												"iv": "disabled",
-												"state": true
-											},
-											{
-												"iv": "just_pushed",
-												"state": true
-											},
-											{
-												"iv": "just_rotated",
-												"state": true
-											},
-											{
-												"iv": "left_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "right_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "consecutive_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "isBeingGrabbed",
-												"state": true
-											},
-											{
-												"iv": "invulnerability_timer",
-												"state": true
-											},
-											{
-												"iv": "old_velocity",
-												"state": true
-											},
-											{
-												"iv": "old_angular_velocity",
-												"state": true
-											},
-											{
-												"iv": "old_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "old_previous_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "old_rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "old_previous_rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "is_aiming",
-												"state": true
-											},
-											{
-												"iv": "is_dead",
-												"state": true
-											},
-											{
-												"iv": "is_in_chair",
-												"state": false
-											},
-											{
-												"iv": "recoil",
-												"state": true
-											},
-											{
-												"iv": "angular_recoil",
-												"state": true
-											},
-											{
-												"iv": "interact_timer",
-												"state": true
-											},
-											{
-												"iv": "shoot_cooldown",
-												"state": true
-											},
-											{
-												"iv": "chair_uid",
-												"state": true
-											},
-											{
-												"iv": "can_enter_chair",
-												"state": true
-											}
-										]
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": [
-									{
-										"key": "Custom",
-										"state": [
-											[
-												"stepping-mode",
-												true
-											],
-											[
-												"pixels-per-step",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "ShadowCaster",
-										"state": [
-											[
-												"height",
-												true
-											],
-											[
-												"tag",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "effect",
-								"component": []
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												true
-											],
-											[
-												"w",
-												true
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"d",
-												true
-											],
-											[
-												"a",
-												true
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												true
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"sz",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"sam",
-												true
-											],
-											[
-												"tgs",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpd",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 116,
-						"y": 160,
-						"width": 12,
-						"height": 12,
-						"originX": 0.5,
-						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -895,8 +537,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 104,
-						"y": 128,
+						"x": 544,
+						"y": 960,
 						"width": 28,
 						"height": 4,
 						"originX": -0.0625,
@@ -909,7 +551,7 @@
 						],
 						"z": 0,
 						"depth": 32,
-						"angle": 0
+						"angle": 3.141592653589793
 					}
 				},
 				{
@@ -2126,7 +1768,7 @@
 						"initial-animation": "Idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
-						"live-preview": false
+						"live-preview": true
 					},
 					"uid": 757674,
 					"sid": 955194223100328,
@@ -3037,6 +2679,7 @@
 						"on_duration_bias": 0,
 						"off_duration": 1,
 						"off_duration_bias": 0,
+						"off_intensity": 0,
 						"timer": 0,
 						"on": false,
 						"internal_intensity": 0,
@@ -3068,6 +2711,1803 @@
 						"z": 0,
 						"angle": 0
 					}
+				},
+				{
+					"type": "CharacterController",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 204752,
+					"sid": 129799946845249,
+					"tags": "",
+					"instanceVariables": {
+						"acceleration": 5,
+						"brake": 5,
+						"deceleration": 70,
+						"max_velocity": 30,
+						"collision_velocity_multiplier": -0.2,
+						"angular_acceleration": 100,
+						"angular_deceleration": 900,
+						"angular_input_delay": 0.05,
+						"angular_buffer_time": 0.2,
+						"max_angular_velocity": 400,
+						"direction": -112,
+						"excluded_collisions": "Crawlable",
+						"velocity": 0,
+						"angular_velocity": 0,
+						"wheel_ticks": 0,
+						"previous_wheel_ticks": 0,
+						"rotate_ticks": 0,
+						"previous_rotate_ticks": 0,
+						"collision_cooldown": 0,
+						"turn_left_cooldown": 0,
+						"turn_right_cooldown": 0,
+						"max_velocity_multiplier": 1,
+						"read_input": true,
+						"disabled": false,
+						"just_pushed": 0,
+						"just_rotated": 0,
+						"left_angular_input_timer": 0,
+						"right_angular_input_timer": 0,
+						"consecutive_wheel_ticks": 0,
+						"isBeingGrabbed": false,
+						"invulnerability_timer": 0,
+						"old_velocity": 0,
+						"old_angular_velocity": 0,
+						"old_wheel_ticks": 0,
+						"old_previous_wheel_ticks": 0,
+						"old_rotate_ticks": 0,
+						"old_previous_rotate_ticks": 0,
+						"is_aiming": false,
+						"is_dead": false,
+						"is_in_chair": true,
+						"recoil": 0,
+						"angular_recoil": 0,
+						"interact_timer": 0,
+						"shoot_cooldown": 0,
+						"chair_uid": 0,
+						"can_enter_chair": true
+					},
+					"behaviors": {
+						"Custom": {
+							"properties": {
+								"stepping-mode": "linear",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "character",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "acceleration",
+												"state": true
+											},
+											{
+												"iv": "brake",
+												"state": true
+											},
+											{
+												"iv": "deceleration",
+												"state": true
+											},
+											{
+												"iv": "max_velocity",
+												"state": true
+											},
+											{
+												"iv": "collision_velocity_multiplier",
+												"state": true
+											},
+											{
+												"iv": "angular_acceleration",
+												"state": true
+											},
+											{
+												"iv": "angular_deceleration",
+												"state": true
+											},
+											{
+												"iv": "angular_input_delay",
+												"state": true
+											},
+											{
+												"iv": "angular_buffer_time",
+												"state": true
+											},
+											{
+												"iv": "max_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "direction",
+												"state": false
+											},
+											{
+												"iv": "excluded_collisions",
+												"state": true
+											},
+											{
+												"iv": "velocity",
+												"state": true
+											},
+											{
+												"iv": "angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "previous_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "previous_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "collision_cooldown",
+												"state": true
+											},
+											{
+												"iv": "turn_left_cooldown",
+												"state": true
+											},
+											{
+												"iv": "turn_right_cooldown",
+												"state": true
+											},
+											{
+												"iv": "max_velocity_multiplier",
+												"state": true
+											},
+											{
+												"iv": "read_input",
+												"state": true
+											},
+											{
+												"iv": "disabled",
+												"state": true
+											},
+											{
+												"iv": "just_pushed",
+												"state": true
+											},
+											{
+												"iv": "just_rotated",
+												"state": true
+											},
+											{
+												"iv": "left_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "right_angular_input_timer",
+												"state": true
+											},
+											{
+												"iv": "consecutive_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "invulnerability_timer",
+												"state": true
+											},
+											{
+												"iv": "old_velocity",
+												"state": true
+											},
+											{
+												"iv": "old_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "old_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "old_previous_wheel_ticks",
+												"state": true
+											},
+											{
+												"iv": "old_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "old_previous_rotate_ticks",
+												"state": true
+											},
+											{
+												"iv": "is_aiming",
+												"state": true
+											},
+											{
+												"iv": "is_dead",
+												"state": true
+											},
+											{
+												"iv": "is_in_chair",
+												"state": false
+											},
+											{
+												"iv": "recoil",
+												"state": true
+											},
+											{
+												"iv": "angular_recoil",
+												"state": true
+											},
+											{
+												"iv": "interact_timer",
+												"state": true
+											},
+											{
+												"iv": "shoot_cooldown",
+												"state": true
+											},
+											{
+												"iv": "chair_uid",
+												"state": true
+											},
+											{
+												"iv": "can_enter_chair",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Custom",
+										"state": [
+											[
+												"stepping-mode",
+												true
+											],
+											[
+												"pixels-per-step",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 528,
+						"y": 944,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 272500,
+					"sid": 792850475018640,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 504,
+						"y": 960,
+						"width": 48,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 901459,
+					"sid": 361639807964743,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 552,
+						"y": 960,
+						"width": 184,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 195180,
+					"sid": 808319733058789,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 504,
+						"y": 848,
+						"width": 112,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "Floor_Tiles1",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 271364,
+					"sid": 716866074932847,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 432,
+						"y": 776,
+						"width": 72,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 719438,
+					"sid": 363387395520981,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 432,
+						"y": 848,
+						"width": 72,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 259154,
+					"sid": 704340028515322,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 432,
+						"y": 776,
+						"width": 72,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 357784,
+					"sid": 585010957997168,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 472,
+						"y": 776,
+						"width": 40,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "DynamicLight",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 621570,
+					"sid": 539233430494271,
+					"tags": "",
+					"instanceVariables": {
+						"size": 300,
+						"intensity": 80,
+						"mask": "Default",
+						"blink": true,
+						"blink_start_offset": 0,
+						"on_duration": 0.8,
+						"on_duration_bias": 0,
+						"off_duration": 0.4,
+						"off_duration_bias": 0,
+						"off_intensity": 10,
+						"timer": 0,
+						"on": false,
+						"internal_intensity": 0,
+						"on_flicker": false,
+						"off_flicker": false
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 528,
+						"y": 944,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							0,
+							0,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "DynamicLight",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 694280,
+					"sid": 998737084054676,
+					"tags": "",
+					"instanceVariables": {
+						"size": 100,
+						"intensity": 30,
+						"mask": "Default",
+						"blink": false,
+						"blink_start_offset": 0,
+						"on_duration": 12,
+						"on_duration_bias": 3,
+						"off_duration": 0.8,
+						"off_duration_bias": 0,
+						"off_intensity": 0,
+						"timer": 0,
+						"on": false,
+						"internal_intensity": 0,
+						"on_flicker": false,
+						"off_flicker": true
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "PlayerLight",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "size",
+												"state": false
+											},
+											{
+												"iv": "intensity",
+												"state": false
+											},
+											{
+												"iv": "mask",
+												"state": false
+											},
+											{
+												"iv": "blink",
+												"state": false
+											},
+											{
+												"iv": "blink_start_offset",
+												"state": true
+											},
+											{
+												"iv": "on_duration",
+												"state": true
+											},
+											{
+												"iv": "on_duration_bias",
+												"state": true
+											},
+											{
+												"iv": "off_duration",
+												"state": true
+											},
+											{
+												"iv": "off_duration_bias",
+												"state": true
+											},
+											{
+												"iv": "timer",
+												"state": true
+											},
+											{
+												"iv": "on",
+												"state": true
+											},
+											{
+												"iv": "internal_intensity",
+												"state": true
+											},
+											{
+												"iv": "on_flicker",
+												"state": true
+											},
+											{
+												"iv": "off_flicker",
+												"state": true
+											},
+											{
+												"iv": "off_intensity",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Tween",
+										"state": [
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												false
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 470.1455383300781,
+						"y": 817.6666870117188,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							0,
+							0,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "DoorFrame",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 837079,
+					"sid": 595812922280064,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 480,
+						"y": 768,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 519779,
+					"sid": 737274605319585,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 552,
+						"y": 776,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "Floor_Tiles1",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 182040,
+					"sid": 536640076387495,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 480,
+						"y": 768,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 115012,
+					"sid": 341515773264354,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 472,
+						"y": 608,
+						"width": 160,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "OuterWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 973610,
+					"sid": 391729914262478,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 520,
+						"y": 768,
+						"width": 160,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "Floor_Tiles1",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 399101,
+					"sid": 997963639247428,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 472,
+						"y": 608,
+						"width": 48,
+						"height": 160,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "InnerWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": 920243466915879
+					},
+					"uid": 432406,
+					"sid": 735388275547811,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 480,
+						"y": 776,
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "InnerWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": 920243466915879
+					},
+					"uid": 314107,
+					"sid": 130939470695371,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 520,
+						"y": 776,
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
+					"type": "BloodStain2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 449602,
+					"sid": 763431230452142,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 461.74969482421875,
+						"y": 816.8576049804688,
+						"width": 29,
+						"height": 23,
+						"originX": 0.41379310344827586,
+						"originY": 0.5652173913043478,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 1.2924232427490954
+					}
+				},
+				{
+					"type": "Corpse",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Mike",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 208072,
+					"sid": 510321061342614,
+					"tags": "",
+					"instanceVariables": {
+						"revive_cooldown": 0,
+						"spawn_dust": true
+					},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 447.6622619628906,
+						"y": 800.6755981445312,
+						"width": 32,
+						"height": 32,
+						"originX": 0.703125,
+						"originY": 0.484375,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 3.622693669306999
+					}
+				},
+				{
+					"type": "FlashLight",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 739206,
+					"sid": 144243913694960,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 460.338623046875,
+						"y": 818.6712646484375,
+						"width": 13,
+						"height": 8,
+						"originX": 0.5384615384615384,
+						"originY": 0.375,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 1,
+						"angle": 5.969026041820607
+					}
 				}
 			],
 			"sid": 772184983566168,
@@ -3097,6 +4537,75 @@
 			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "StaticLight",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "Mask",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "SmallSpot",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 427017,
+					"sid": 421405405693946,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": true,
+					"world": {
+						"x": 469.11505126953125,
+						"y": 816.9873657226562,
+						"width": 100,
+						"height": 100,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.7372549019607844,
+							0.788235294117647,
+							0.9411764705882353,
+							1
+						],
+						"z": 3,
+						"angle": 5.969026041820607
+					}
+				}
+			],
+			"sid": 701118005443051,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "screen",
 			"zElevation": 0,
 			"global": false
 		},
