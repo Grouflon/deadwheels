@@ -983,9 +983,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": false,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1857,7 +1859,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -1921,7 +1923,7 @@
 					}
 				},
 				{
-					"type": "WallTextureSide",
+					"type": "WallTextureSide_Concrete",
 					"properties": {
 						"initially-visible": false,
 						"origin": "bottom-left",
@@ -1964,7 +1966,7 @@
 					}
 				},
 				{
-					"type": "WallTextureTop",
+					"type": "OuterWallTextureTop",
 					"properties": {
 						"initially-visible": false,
 						"origin": "bottom-left",
@@ -2007,7 +2009,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2071,7 +2073,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2135,7 +2137,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2199,7 +2201,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2263,7 +2265,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2327,7 +2329,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2391,7 +2393,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2455,7 +2457,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2662,7 +2664,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2726,7 +2728,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2790,7 +2792,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3421,7 +3423,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3485,7 +3487,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4051,9 +4053,11 @@
 						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": false,
 						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0,
 						"ClosingTime": 15
 					},
 					"behaviors": {
@@ -4071,6 +4075,13 @@
 						},
 						"TweenSelf": {
 							"properties": {
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
 								"enabled": true
 							}
 						}
@@ -4126,7 +4137,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4190,7 +4201,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -5719,7 +5730,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -5783,7 +5794,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -5847,7 +5858,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -14395,7 +14406,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -14459,7 +14470,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -15945,7 +15956,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18307,7 +18318,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18371,7 +18382,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18435,7 +18446,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18499,7 +18510,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19463,7 +19474,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19527,7 +19538,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19591,7 +19602,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19655,7 +19666,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19719,7 +19730,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19783,7 +19794,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19880,7 +19891,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -19944,7 +19955,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -20008,7 +20019,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -20515,7 +20526,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -20579,7 +20590,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",

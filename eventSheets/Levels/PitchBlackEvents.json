@@ -147,21 +147,13 @@
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 874879489078008,
-					"parameters": {
-						"variable": "player_light_intensity",
-						"value": "DynamicLight.intensity"
-					}
-				},
-				{
-					"id": "set-instvar-value",
+					"id": "set-boolean-instvar",
 					"objectClass": "DynamicLight",
-					"sid": 588261116572219,
+					"sid": 309034427536278,
+					"disabled": true,
 					"parameters": {
-						"instance-variable": "intensity",
-						"value": "0"
+						"instance-variable": "enabled",
+						"value": "false"
 					}
 				}
 			],
@@ -196,12 +188,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-instvar-value",
+							"id": "set-boolean-instvar",
 							"objectClass": "DynamicLight",
-							"sid": 274893766598872,
+							"sid": 854210109190827,
 							"parameters": {
-								"instance-variable": "intensity",
-								"value": "player_light_intensity"
+								"instance-variable": "enabled",
+								"value": "true"
 							}
 						},
 						{

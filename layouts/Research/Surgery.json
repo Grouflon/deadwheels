@@ -35,9 +35,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": true,
-						"isLocked": true
+						"isLocked": true,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -67,8 +69,8 @@
 						"y": 560,
 						"width": 28,
 						"height": 4,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"color": [
 							1,
 							1,
@@ -925,9 +927,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": true,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -957,8 +961,8 @@
 						"y": 488,
 						"width": 28,
 						"height": 4,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"color": [
 							1,
 							1,
@@ -2659,7 +2663,7 @@
 					}
 				},
 				{
-					"type": "WallTextureSide",
+					"type": "WallTextureSide_Concrete",
 					"properties": {
 						"initially-visible": false,
 						"origin": "bottom-left",
@@ -2702,7 +2706,7 @@
 					}
 				},
 				{
-					"type": "WallTextureTop",
+					"type": "OuterWallTextureTop",
 					"properties": {
 						"initially-visible": false,
 						"origin": "bottom-left",
@@ -2788,7 +2792,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2852,7 +2856,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -2916,7 +2920,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3008,9 +3012,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": false,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3054,7 +3060,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3118,7 +3124,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3182,7 +3188,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3246,7 +3252,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3310,7 +3316,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3420,7 +3426,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3484,7 +3490,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3548,7 +3554,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3612,7 +3618,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3722,7 +3728,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4561,7 +4567,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4625,7 +4631,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4689,7 +4695,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4753,7 +4759,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -4853,6 +4859,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -4911,6 +4924,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4971,6 +4991,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -5029,6 +5056,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5089,6 +5123,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -5147,6 +5188,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5207,6 +5255,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -5265,6 +5320,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5325,6 +5387,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -5383,6 +5452,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5443,6 +5519,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -5502,6 +5585,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -5560,6 +5650,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5879,7 +5976,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -5943,7 +6040,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -6053,7 +6150,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -6117,7 +6214,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -6217,6 +6314,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -6275,6 +6379,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6335,6 +6446,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -6393,6 +6511,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6453,6 +6578,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -6511,6 +6643,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6571,6 +6710,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -6629,6 +6775,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6748,6 +6901,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -6807,6 +6967,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -6865,6 +7032,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -7125,7 +7299,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -7189,7 +7363,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -7479,6 +7653,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -7725,7 +7906,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -7848,7 +8029,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -7912,7 +8093,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -7976,7 +8157,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -8040,7 +8221,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -8104,7 +8285,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -8439,6 +8620,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -9030,6 +9218,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -9053,7 +9248,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -9388,6 +9583,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -9743,6 +9945,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -9872,7 +10081,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -9982,7 +10191,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -10046,7 +10255,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -10110,7 +10319,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -10233,7 +10442,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -10687,6 +10896,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -10745,6 +10961,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -10805,6 +11028,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -10863,6 +11093,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -10923,6 +11160,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -10982,6 +11226,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -11040,6 +11291,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -12470,7 +12728,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -13231,7 +13489,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -13295,7 +13553,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -14444,6 +14702,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -14502,6 +14767,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -15675,7 +15947,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -15739,7 +16011,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -16426,6 +16698,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -16485,6 +16764,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -16543,6 +16829,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -18113,7 +18406,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18177,7 +18470,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18241,7 +18534,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18305,7 +18598,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -20016,7 +20309,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -21399,7 +21692,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -21463,7 +21756,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -22028,7 +22321,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -23155,7 +23448,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -23741,7 +24034,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -23805,7 +24098,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -23965,7 +24258,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -24029,7 +24322,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -24093,7 +24386,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -24157,7 +24450,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -24695,7 +24988,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -24759,7 +25052,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -26088,6 +26381,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -27890,7 +28190,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -27954,7 +28254,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28018,7 +28318,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28318,7 +28618,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28382,7 +28682,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28446,7 +28746,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28510,7 +28810,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28574,7 +28874,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -28638,7 +28938,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -29367,6 +29667,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -29390,7 +29697,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -29559,7 +29866,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -29623,7 +29930,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -29687,7 +29994,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -29751,7 +30058,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -29843,9 +30150,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": false,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -30100,7 +30409,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -30164,7 +30473,7 @@
 					}
 				},
 				{
-					"type": "OuterWallStretched",
+					"type": "OuterWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -30228,7 +30537,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -30292,7 +30601,7 @@
 					}
 				},
 				{
-					"type": "InnerWallStretched",
+					"type": "InnerWall_Concrete",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -30463,9 +30772,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": true,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -30495,8 +30806,8 @@
 						"y": 380,
 						"width": 28,
 						"height": 4,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"color": [
 							1,
 							1,
@@ -30596,9 +30907,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": true,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -30628,8 +30941,8 @@
 						"y": 336,
 						"width": 28,
 						"height": 4,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"color": [
 							1,
 							1,
@@ -30687,6 +31000,7 @@
 					"sid": 106901512444475,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 150,
 						"intensity": 40,
 						"mask": "",
@@ -30742,6 +31056,7 @@
 					"sid": 911380813556949,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 500,
 						"intensity": 80,
 						"mask": "",
@@ -30797,6 +31112,7 @@
 					"sid": 434003775199889,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 300,
 						"intensity": 70,
 						"mask": "",
@@ -30852,6 +31168,7 @@
 					"sid": 483502655293554,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 150,
 						"intensity": 40,
 						"mask": "",
@@ -30907,6 +31224,7 @@
 					"sid": 184847166529205,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 150,
 						"intensity": 40,
 						"mask": "",
@@ -30962,6 +31280,7 @@
 					"sid": 374704883687563,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 30,
 						"intensity": 100,
 						"mask": "",
@@ -31017,6 +31336,7 @@
 					"sid": 555899881663067,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 400,
 						"intensity": 40,
 						"mask": "",
@@ -31072,6 +31392,7 @@
 					"sid": 573260430042807,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 200,
 						"intensity": 100,
 						"mask": "",
@@ -31127,6 +31448,7 @@
 					"sid": 365210248512491,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 300,
 						"intensity": 70,
 						"mask": "",
@@ -31182,6 +31504,7 @@
 					"sid": 451872796120909,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 500,
 						"intensity": 70,
 						"mask": "",
@@ -31237,6 +31560,7 @@
 					"sid": 626960119393835,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 500,
 						"intensity": 70,
 						"mask": "",
@@ -31292,6 +31616,7 @@
 					"sid": 873611133164764,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 500,
 						"intensity": 70,
 						"mask": "",
@@ -32143,6 +32468,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},

@@ -405,15 +405,6 @@
 				"subfolders": [
 					{
 						"items": [
-							"OuterWallStretched",
-							"InnerWallStretched",
-							"BreakableWallStretched"
-						],
-						"subfolders": [],
-						"name": "Walls_Scalable"
-					},
-					{
-						"items": [
 							"ArmChair",
 							"Barricades",
 							"Bed",
@@ -441,7 +432,9 @@
 							"Bed_Surgery",
 							"Sign4",
 							"Poster1",
-							"TV"
+							"TV",
+							"PCMonitor",
+							"PCKeyboard"
 						],
 						"subfolders": [],
 						"name": "Furniture"
@@ -503,8 +496,25 @@
 							"RoofTopBlockade",
 							"GooWall"
 						],
-						"subfolders": [],
-						"name": "Walls"
+						"subfolders": [
+							{
+								"items": [
+									"BreakableWallStretched"
+								],
+								"subfolders": [],
+								"name": "Walls_Scalable"
+							},
+							{
+								"items": [
+									"InnerWall_Concrete",
+									"OuterWall_Concrete",
+									"InnerWideWindow_Concrete"
+								],
+								"subfolders": [],
+								"name": "Concrete"
+							}
+						],
+						"name": "01-Walls"
 					},
 					{
 						"items": [
@@ -515,13 +525,14 @@
 					},
 					{
 						"items": [
-							"WallTextureTop",
-							"WallTextureSide",
+							"OuterWallTextureTop",
 							"Texture_IronShutter",
-							"TV_screen"
+							"TV_screen",
+							"InnerWallTextureTop",
+							"WallTextureSide_Concrete"
 						],
 						"subfolders": [],
-						"name": "WorldTextures"
+						"name": "00-WorldTextures"
 					},
 					{
 						"items": [
@@ -549,7 +560,7 @@
 						"name": "Sprites"
 					}
 				],
-				"name": "World"
+				"name": "00-World"
 			},
 			{
 				"items": [

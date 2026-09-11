@@ -1015,6 +1015,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "DynamicLight",
+									"sid": 933082937113922,
+									"parameters": {
+										"instance-variable": "enabled"
+									}
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "DynamicLight",
 									"sid": 221429975641647,
@@ -1143,6 +1151,14 @@
 									"parameters": {
 										"unique-id": "DynamicLights.At(loopindex, 1)"
 									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "DynamicLight",
+									"sid": 892566479966430,
+									"parameters": {
+										"instance-variable": "enabled"
+									}
 								}
 							],
 							"actions": [
@@ -1188,16 +1204,6 @@
 									"parameters": {
 										"x": "DynamicLight.X",
 										"y": "DynamicLight.Y"
-									}
-								},
-								{
-									"id": "set-light-position",
-									"objectClass": "ShadowLight",
-									"sid": 535236994452694,
-									"disabled": true,
-									"parameters": {
-										"x": "DynamicLight.X + DynamicLight.Width * 0.5",
-										"y": "DynamicLight.Y + DynamicLight.Height * 0.5"
 									}
 								},
 								{

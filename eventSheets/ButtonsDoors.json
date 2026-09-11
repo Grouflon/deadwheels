@@ -485,6 +485,26 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "DoorPivotOffsetX",
+					"type": "number",
+					"initialValue": "3",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 311637677861275
+				},
+				{
+					"eventType": "variable",
+					"name": "DoorPivotOffsetY",
+					"type": "number",
+					"initialValue": "4",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 123365132469940
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -501,6 +521,24 @@
 							"parameters": {
 								"instance-variable": "ClosedAngle",
 								"value": "Self.Angle"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Doors",
+							"sid": 950363624595619,
+							"parameters": {
+								"instance-variable": "PivotX",
+								"value": "Doors.X + DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Doors",
+							"sid": 408866882321518,
+							"parameters": {
+								"instance-variable": "PivotY",
+								"value": "Doors.Y + DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle)"
 							}
 						}
 					],
@@ -848,6 +886,32 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Door_Windowed",
+							"sid": 251054366503831,
+							"parameters": {
+								"x": "Self.PivotX - (DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle))",
+								"y": "Self.PivotY - (DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle))"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Door_Windowed",
+							"sid": 192480489861028,
+							"disabled": true,
+							"parameters": {
+								"x": "Self.PivotX",
+								"y": "Self.PivotY"
+							}
+						}
+					],
+					"sid": 657579524087100
 				}
 			],
 			"sid": 159107266233541

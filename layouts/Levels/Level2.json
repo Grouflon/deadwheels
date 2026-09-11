@@ -35,9 +35,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": true,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -67,8 +69,8 @@
 						"y": 704,
 						"width": 28,
 						"height": 4,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"color": [
 							1,
 							1,
@@ -7673,9 +7675,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": true,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7705,8 +7709,8 @@
 						"y": 828,
 						"width": 28,
 						"height": 4,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"color": [
 							1,
 							1,
@@ -13878,9 +13882,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": false,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -13987,9 +13993,11 @@
 						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"ClosedAngle": 0,
 						"CanBePushed": false,
-						"isLocked": false
+						"isLocked": false,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -22776,6 +22784,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -22893,6 +22908,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -24114,6 +24136,13 @@
 								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"showing": true,
@@ -24172,6 +24201,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -24526,6 +24562,13 @@
 								"enabled": true,
 								"use-instance-tags": true,
 								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -29211,6 +29254,7 @@
 					"sid": 797126145937141,
 					"tags": "",
 					"instanceVariables": {
+						"enabled": true,
 						"size": 100,
 						"intensity": 20,
 						"mask": "Default",
