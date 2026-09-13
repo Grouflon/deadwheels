@@ -1,5 +1,5 @@
 {
-	"name": "Destruction",
+	"name": "Debris",
 	"events": [
 		{
 			"eventType": "variable",
@@ -1327,6 +1327,202 @@
 				}
 			],
 			"sid": 186989640443371
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Paper",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ChairController",
+							"sid": 327577341384367,
+							"parameters": {
+								"object": "Paper"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 616874185312615,
+							"parameters": {
+								"first-value": "abs(ChairController.velocity)",
+								"comparison": 4,
+								"second-value": "50"
+							}
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "Paper",
+							"sid": 671716075436961,
+							"behaviorType": "Tween",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Paper",
+							"sid": 244269124758977,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"X\"",
+								"property": "offsetX",
+								"end-value": "Self.X+choose(-10,10)",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Paper",
+							"sid": 538746307997819,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Y\"",
+								"property": "offsetY",
+								"end-value": "Self.Y+choose(-10,10)",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Paper",
+							"sid": 601802200725500,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetZElevation",
+								"end-value": "Self.Z+random(5,10)",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Paper",
+							"sid": 637777418208648,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetAngle",
+								"end-value": "Self.Angle+random(100,300)",
+								"time": "1",
+								"ease": "easeoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Paper",
+							"sid": 140297344598820,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetWidth",
+								"end-value": "Self.Width*random(-0.5,0.5)",
+								"time": "0.5",
+								"ease": "easeoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 795752810639050,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Foley/PaperFly\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "-5",
+								"object": "Paper",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 709414321138525,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.8,1.2)"
+							}
+						}
+					],
+					"sid": 558483443795870
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Paper",
+							"sid": 395682613195064,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"X\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Paper",
+							"sid": 278478327026755,
+							"parameters": {
+								"object": "Buildings"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "Paper",
+							"sid": 161724945466380,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"X\""
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "Paper",
+							"sid": 241254660628367,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Y\""
+							}
+						}
+					],
+					"sid": 973787657485209
+				}
+			],
+			"sid": 857651941236802
 		}
 	],
 	"sid": 535961549360984
