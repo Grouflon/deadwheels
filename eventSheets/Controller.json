@@ -723,6 +723,10 @@
 											"sid": 873354126576123
 										},
 										{
+											"eventType": "comment",
+											"text": "Thomas : Added is keyboard checks here "
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -732,6 +736,14 @@
 													"parameters": {
 														"mouse-button": "right",
 														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 669798349200242,
+													"parameters": {
+														"key": 68
 													}
 												}
 											],
@@ -794,7 +806,12 @@
 													],
 													"sid": 290435434645352
 												}
-											]
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Thomas : Added is keyboard checks here "
 										},
 										{
 											"eventType": "block",
@@ -806,6 +823,14 @@
 													"parameters": {
 														"mouse-button": "left",
 														"click-type": "clicked"
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 903406607680552,
+													"parameters": {
+														"key": 65
 													}
 												}
 											],
@@ -878,7 +903,12 @@
 													],
 													"sid": 320446949710391
 												}
-											]
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Thomas : Added is keyboard checks here "
 										},
 										{
 											"eventType": "block",
@@ -898,6 +928,24 @@
 													"sid": 817343302300209,
 													"parameters": {
 														"mouse-button": "right"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 701426993165680,
+													"parameters": {
+														"key": 65
+													},
+													"isInverted": true
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 599077317150002,
+													"parameters": {
+														"key": 68
 													},
 													"isInverted": true
 												}
@@ -1100,7 +1148,6 @@
 															"id": "every-x-seconds",
 															"objectClass": "System",
 															"sid": 539113563477091,
-															"disabled": true,
 															"parameters": {
 																"interval-seconds": "0.03"
 															}
@@ -1109,6 +1156,10 @@
 													"actions": [],
 													"sid": 615773124570853,
 													"children": [
+														{
+															"eventType": "comment",
+															"text": "Thomas : This isn't working so I disabled it"
+														},
 														{
 															"eventType": "block",
 															"conditions": [
@@ -1134,14 +1185,15 @@
 																{
 																	"id": "add-to-instvar",
 																	"objectClass": "Controllers",
-																	"sid": 626473730568688,
+																	"sid": 206933302668042,
 																	"parameters": {
 																		"instance-variable": "rotate_ticks",
-																		"value": "-0.8"
+																		"value": "-1"
 																	}
 																}
 															],
-															"sid": 409992608950215
+															"sid": 409992608950215,
+															"disabled": true
 														},
 														{
 															"eventType": "block",
@@ -1175,7 +1227,8 @@
 																	}
 																}
 															],
-															"sid": 457473515773241
+															"sid": 457473515773241,
+															"disabled": true
 														}
 													]
 												}
