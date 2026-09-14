@@ -227,7 +227,7 @@
 									"objectClass": "ButtonSlot",
 									"sid": 956012177930923,
 									"parameters": {
-										"child": "Door_Elevator",
+										"child": "ElevatorDoor",
 										"which": "own"
 									}
 								}
@@ -329,7 +329,7 @@
 									"objectClass": "ButtonSlot",
 									"sid": 340407234416582,
 									"parameters": {
-										"child": "Door_Button",
+										"child": "PrisonDoor",
 										"which": "own"
 									}
 								}
@@ -337,7 +337,7 @@
 							"actions": [
 								{
 									"customAction": "OpenDoor",
-									"objectClass": "Door_Button",
+									"objectClass": "PrisonDoor",
 									"customActionObjectClass": "Doors",
 									"sid": 571456259611817,
 									"parameters": [
@@ -356,7 +356,7 @@
 									"objectClass": "ButtonSlot",
 									"sid": 546128708527350,
 									"parameters": {
-										"child": "Door_Elevator",
+										"child": "ElevatorDoor",
 										"which": "own"
 									}
 								}
@@ -364,7 +364,7 @@
 							"actions": [
 								{
 									"customAction": "OpenDoor",
-									"objectClass": "Door_Elevator",
+									"objectClass": "ElevatorDoor",
 									"customActionObjectClass": "Doors",
 									"sid": 705995751897747,
 									"parameters": [
@@ -435,7 +435,7 @@
 									"objectClass": "ButtonSlot",
 									"sid": 463117123051557,
 									"parameters": {
-										"child": "Door_Elevator",
+										"child": "ElevatorDoor",
 										"which": "own"
 									}
 								}
@@ -893,7 +893,7 @@
 					"actions": [
 						{
 							"id": "set-position",
-							"objectClass": "Door_Windowed",
+							"objectClass": "WindowedDoor",
 							"sid": 251054366503831,
 							"parameters": {
 								"x": "Self.PivotX - (DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle))",
@@ -902,7 +902,7 @@
 						},
 						{
 							"id": "set-position",
-							"objectClass": "Door_Windowed",
+							"objectClass": "WindowedDoor",
 							"sid": 192480489861028,
 							"disabled": true,
 							"parameters": {
