@@ -232,6 +232,59 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "FPS Display",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 880540400864295
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 426875994162463,
+									"parameters": {
+										"object-to-create": "FPSDisplay",
+										"layer": "\"UI\"",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 582078084525484,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "FPSDisplay",
+									"sid": 871742131026047,
+									"parameters": {
+										"text": "\"FPS \"&fps"
+									}
+								}
+							],
+							"sid": 981010795809614,
+							"disabled": true
+						}
+					],
+					"sid": 373634420820058
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -498,35 +551,6 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 166667584009429,
-									"parameters": {
-										"key": 68
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 314834828647611,
-									"parameters": {
-										"object-to-create": "DustParticle",
-										"layer": "CharacterController.LayerName",
-										"x": "CharacterController.X",
-										"y": "CharacterController.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 542112456209420
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
 									"sid": 398423783548800,
 									"parameters": {
 										"key": 49
@@ -722,49 +746,6 @@
 							"sid": 326237056461216
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 941855564378159
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 809357747554152,
-							"parameters": {
-								"object-to-create": "FPSDisplay",
-								"layer": "\"UI\"",
-								"x": "0",
-								"y": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 710362519342786,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "FPSDisplay",
-							"sid": 695858735886966,
-							"parameters": {
-								"text": "\"FPS \"&fps"
-							}
-						}
-					],
-					"sid": 899699270861342,
-					"disabled": true
 				}
 			],
 			"sid": 345752545051477
