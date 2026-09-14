@@ -405,7 +405,9 @@
 				"name": "UI"
 			},
 			{
-				"items": [],
+				"items": [
+					"1x1x1_white"
+				],
 				"subfolders": [
 					{
 						"items": [
@@ -486,7 +488,9 @@
 							"WindowedDoor",
 							"Elevator",
 							"ButtonSlot",
-							"ButtonSlot2"
+							"ButtonSlot2",
+							"DoorBar",
+							"DoorFrame"
 						],
 						"subfolders": [],
 						"name": "Door&Buttons"
@@ -500,25 +504,32 @@
 							"Floor_Tiles3",
 							"Floor_Tiles4",
 							"Floor_Tiles5",
-							"Helipad"
+							"Helipad",
+							"Floor_",
+							"Floor_Lino"
 						],
 						"subfolders": [],
-						"name": "Floors"
+						"name": "02-Floors"
 					},
 					{
 						"items": [
-							"InnerWall",
-							"InnerWall2",
+							"InnerWall_old",
+							"InnerWall2_old",
 							"InnerWallBrick",
-							"DoorFrame",
 							"InsideWallElevator",
-							"InsideWallVentFrame",
+							"Vent",
 							"InsideWallWindow",
 							"IronShutter",
-							"OuterWall",
+							"OuterWall_old",
 							"OuterWallVent",
 							"RoofTopBlockade",
-							"GooWall"
+							"GooWall",
+							"InnerWall",
+							"Wall",
+							"WideWindow",
+							"InnerWideWindowInside",
+							"OuterWindowInside",
+							"OuterWideWindowInside"
 						],
 						"subfolders": [
 							{
@@ -530,12 +541,21 @@
 							},
 							{
 								"items": [
-									"InnerWall_Concrete",
-									"OuterWall_Concrete",
-									"InnerWideWindow_Concrete"
+									"Concrete_Vent",
+									"Concrete_Wall",
+									"Concrete_WideWindow"
 								],
 								"subfolders": [],
 								"name": "Concrete"
+							},
+							{
+								"items": [
+									"TwoShades_Vent",
+									"TwoShades_Wall",
+									"TwoShades_WideWindow"
+								],
+								"subfolders": [],
+								"name": "TwoShades"
 							}
 						],
 						"name": "01-Walls"
@@ -559,7 +579,7 @@
 							"Texture_IronShutter",
 							"TV_screen",
 							"InnerWallTextureTop",
-							"WallTextureSide_Concrete"
+							"TexturesContainer"
 						],
 						"subfolders": [],
 						"name": "00-WorldTextures"
@@ -742,7 +762,8 @@
 					"WorldObjectRepository",
 					"ObjectRepository",
 					"UIRepository",
-					"PostProcess"
+					"PostProcess",
+					"WallKitsRepository"
 				],
 				"subfolders": [],
 				"name": "Repositories"
