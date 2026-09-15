@@ -3658,6 +3658,44 @@
 				}
 			],
 			"sid": 954682176889554
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TheL5",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "L5Attachment",
+							"sid": 628883599044310
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "L5Attachment",
+							"sid": 652086227011175,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Mike2",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 195999162442755
+				}
+			],
+			"sid": 545761517896897
 		}
 	],
 	"sid": 810694807837553
