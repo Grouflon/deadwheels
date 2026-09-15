@@ -31,6 +31,15 @@
 					"parameters": {
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "set-solid-collision-filter",
+					"objectClass": "Bullet",
+					"sid": 823634752794223,
+					"parameters": {
+						"mode": "exclusive",
+						"tags": "\"IgnoreBullets\""
+					}
 				}
 			],
 			"sid": 293544077854530
@@ -130,6 +139,15 @@
 					"parameters": {
 						"object": "Buildings"
 					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Buildings",
+					"sid": 821514133173432,
+					"parameters": {
+						"tags": "\"IgnoreBullets\""
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [

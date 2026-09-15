@@ -3089,6 +3089,120 @@
 				}
 			],
 			"sid": 722833334694531
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 965525107776123
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GENERATOR",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "shake_amplitude",
+					"type": "number",
+					"initialValue": "0.5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 230870551717425
+				},
+				{
+					"eventType": "variable",
+					"name": "shake_speed",
+					"type": "number",
+					"initialValue": "2000",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 985317916119861
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Generator",
+							"sid": 883620280250562
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Generator",
+							"sid": 721730673650261,
+							"parameters": {
+								"instance-variable": "initial_position_x",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Generator",
+							"sid": 937576291646419,
+							"parameters": {
+								"instance-variable": "initial_position_y",
+								"value": "Self.Y"
+							}
+						}
+					],
+					"sid": 909395460034591
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Generator",
+							"sid": 926894794154429,
+							"parameters": {
+								"instance-variable": "enabled"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Generator",
+							"sid": 814393292330443,
+							"parameters": {
+								"x": "Self.initial_position_x + shake_amplitude * (AdvancedRandom.Classic2d(Self.UID, time * shake_speed) * 2.0 - 1.0)",
+								"y": "Self.initial_position_y + shake_amplitude * (AdvancedRandom.Classic2d(Self.UID * 0.5, time * shake_speed) * 2.0 - 1.0)"
+							}
+						}
+					],
+					"sid": 352636010148223
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 823632191252221
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Generator",
+							"sid": 759648699896962,
+							"parameters": {
+								"x": "Self.initial_position_x",
+								"y": "Self.initial_position_y"
+							}
+						}
+					],
+					"sid": 559590823255589
+				}
+			],
+			"sid": 642821477636293
 		}
 	],
 	"sid": 171422187705970
