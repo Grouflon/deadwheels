@@ -3543,6 +3543,121 @@
 				}
 			],
 			"sid": 345073671218522
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Legs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Zombies",
+							"sid": 233819952592777
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Zombies",
+							"sid": 987568558572277,
+							"parameters": {
+								"instance-variable": "spawnLegs"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Zombies",
+							"sid": 821944113718602,
+							"parameters": {
+								"object": "zLegs",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Zombies",
+							"sid": 655812894784452,
+							"parameters": {
+								"child": "zLegs",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": false,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-d": true,
+								"transform-a": true,
+								"transform-o": true,
+								"transform-visibility": true,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "zLegs",
+							"sid": 398518622493076,
+							"parameters": {
+								"angle": "Zombies.Angle"
+							}
+						}
+					],
+					"sid": 719152545190634
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-parent",
+							"objectClass": "zLegs",
+							"sid": 419593376956283,
+							"parameters": {
+								"parent": "Zombies",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "zLegs",
+							"sid": 539032249752018,
+							"parameters": {
+								"animation": "Zombies.AnimationName",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "zLegs",
+							"sid": 617949020857234,
+							"parameters": {
+								"frame-number": "Zombies.AnimationFrame"
+							}
+						}
+					],
+					"sid": 629813658485248
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Zombies",
+							"sid": 467542460384057
+						}
+					],
+					"actions": [],
+					"sid": 810825541744356
+				}
+			],
+			"sid": 954682176889554
 		}
 	],
 	"sid": 810694807837553
