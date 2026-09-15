@@ -421,6 +421,359 @@
 					}
 				},
 				{
+					"type": "Chair_Base",
+					"properties": {
+						"shape": "prism",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 687989,
+					"sid": 561445688143784,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Chair",
+						"replicaHierarchyInSyncWithTemplate": true,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "chairCanDestroy",
+												"state": true
+											},
+											{
+												"iv": "isDoor",
+												"state": true
+											},
+											{
+												"iv": "bulletsCollide",
+												"state": true
+											},
+											{
+												"iv": "sawCanDestroy",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												false
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 687989,
+						"children": [
+							{
+								"uid": 950650,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 344.877197265625,
+						"y": 344.7017517089844,
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 10,
+						"angle": 0.3949024719703782
+					}
+				},
+				{
 					"type": "Floor_",
 					"properties": {
 						"shape": "box",
@@ -6228,7 +6581,7 @@
 					"locked": false,
 					"world": {
 						"x": 392,
-						"y": 640,
+						"y": 648,
 						"width": 16,
 						"height": 8,
 						"originX": 0,
@@ -6353,7 +6706,7 @@
 					"locked": false,
 					"world": {
 						"x": 392,
-						"y": 624,
+						"y": 632,
 						"width": 16,
 						"height": 8,
 						"originX": 0,
@@ -6419,7 +6772,7 @@
 					"locked": false,
 					"world": {
 						"x": 392,
-						"y": 608,
+						"y": 616,
 						"width": 16,
 						"height": 8,
 						"originX": 0,
@@ -6543,8 +6896,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 376,
-						"y": 608,
+						"x": 376.8714294433594,
+						"y": 599.1766967773438,
 						"width": 16,
 						"height": 8,
 						"originX": 0,
@@ -6609,8 +6962,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 376,
-						"y": 624,
+						"x": 376.54461669921875,
+						"y": 616.2659912109375,
 						"width": 16,
 						"height": 8,
 						"originX": 0,
@@ -6675,8 +7028,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 376,
-						"y": 640,
+						"x": 376.5446472167969,
+						"y": 632.2659912109375,
 						"width": 16,
 						"height": 8,
 						"originX": 0,
@@ -11855,7 +12208,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 208,
+						"x": 248,
 						"y": 144,
 						"width": 16,
 						"height": 10,
@@ -14749,359 +15102,6 @@
 						"object-top": -1,
 						"object-bottom": -1
 					},
-					"uid": 687989,
-					"sid": 561445688143784,
-					"tags": "",
-					"instanceVariables": {
-						"chairCanDestroy": false,
-						"isDoor": false,
-						"bulletsCollide": false,
-						"sawCanDestroy": false
-					},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
-					},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Chair",
-						"replicaHierarchyInSyncWithTemplate": true,
-						"templatePropagateHierarchyChanges": true,
-						"replicaIgnoreTemplateHierarchyChanges": false,
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"shape",
-												true
-											],
-											[
-												"z-origin",
-												true
-											],
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"face-back",
-												true
-											],
-											[
-												"face-front",
-												true
-											],
-											[
-												"face-left",
-												true
-											],
-											[
-												"face-right",
-												true
-											],
-											[
-												"face-top",
-												true
-											],
-											[
-												"face-bottom",
-												true
-											],
-											[
-												"back-face-culling",
-												true
-											],
-											[
-												"z-tiling-factor",
-												true
-											],
-											[
-												"object-back",
-												true
-											],
-											[
-												"object-front",
-												true
-											],
-											[
-												"object-left",
-												true
-											],
-											[
-												"object-right",
-												true
-											],
-											[
-												"object-top",
-												true
-											],
-											[
-												"object-bottom",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "chairCanDestroy",
-												"state": true
-											},
-											{
-												"iv": "isDoor",
-												"state": true
-											},
-											{
-												"iv": "bulletsCollide",
-												"state": true
-											},
-											{
-												"iv": "sawCanDestroy",
-												"state": true
-											}
-										]
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": [
-									{
-										"key": "Solid",
-										"state": [
-											[
-												"enabled",
-												true
-											],
-											[
-												"use-instance-tags",
-												true
-											],
-											[
-												"tags",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "effect",
-								"component": []
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												true
-											],
-											[
-												"w",
-												true
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"d",
-												true
-											],
-											[
-												"a",
-												false
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												true
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"sz",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"sam",
-												true
-											],
-											[
-												"tgs",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpd",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"sceneGraphData": {
-						"parent-uid": null,
-						"uid": 687989,
-						"children": [
-							{
-								"uid": 950650,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"d": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"sm": "wrap"
-								}
-							}
-						],
-						"flags": {
-							"x": true,
-							"y": true,
-							"z": true,
-							"w": true,
-							"h": true,
-							"d": true,
-							"a": true,
-							"o": false,
-							"v": false,
-							"sm": "wrap"
-						},
-						"preview": {
-							"transformX": 0,
-							"transformY": 0,
-							"transformZ": 0,
-							"transformW": 0,
-							"transformH": 0,
-							"transformD": 0,
-							"transformA": 0,
-							"transformSX": 0,
-							"transformSY": 0,
-							"transformSZ": 0,
-							"transformO": 0,
-							"previewSceneGraph": false
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 344.877197265625,
-						"y": 344.7017517089844,
-						"width": 10,
-						"height": 10,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 10,
-						"angle": 0.3949024719703782
-					}
-				},
-				{
-					"type": "Chair_Base",
-					"properties": {
-						"shape": "prism",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
 					"uid": 698262,
 					"sid": 768497049744636,
 					"tags": "",
@@ -15910,6 +15910,632 @@
 						"z": 0,
 						"depth": 32,
 						"angle": 4.71238898038469
+					}
+				},
+				{
+					"type": "Table",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 538849,
+					"sid": 581163449365020,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 240.1613006591797,
+						"y": 231.76983642578125,
+						"width": 32,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 8,
+						"angle": 1.5856650844416658
+					}
+				},
+				{
+					"type": "Whiteboard_Foot",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 305789,
+					"sid": 734001497216576,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 989171,
+						"uid": 305789,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 216,
+						"y": 208,
+						"width": 32,
+						"height": 5,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 1,
+						"angle": 0.2518849114684365
+					}
+				},
+				{
+					"type": "Whiteboard",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 989171,
+					"sid": 728702761703378,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Whiteboard",
+						"replicaHierarchyInSyncWithTemplate": true,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "chairCanDestroy",
+												"state": true
+											},
+											{
+												"iv": "isDoor",
+												"state": true
+											},
+											{
+												"iv": "bulletsCollide",
+												"state": true
+											},
+											{
+												"iv": "sawCanDestroy",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												false
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 989171,
+						"children": [
+							{
+								"uid": 305789,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 216,
+						"y": 208,
+						"width": 32,
+						"height": 1,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 28,
+						"angle": 0.2518849114684365
+					}
+				},
+				{
+					"type": "Table",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 450350,
+					"sid": 882434621536467,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 183.74314880371094,
+						"y": 201.57872009277344,
+						"width": 32,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 8,
+						"angle": 0.05643332984356686
+					}
+				},
+				{
+					"type": "Cabinet_Closed",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 471866,
+					"sid": 414933881518349,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"isDoor": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 208,
+						"y": 128,
+						"width": 16,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
 					}
 				},
 				{
