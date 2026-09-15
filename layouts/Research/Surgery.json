@@ -17594,12 +17594,263 @@
 							}
 						}
 					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Concrete_Outer",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									},
+									{
+										"key": "NoSave",
+										"state": []
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												false
+											],
+											[
+												"w",
+												false
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												false
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												false
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
 						"x": 1112,
-						"y": 756,
-						"width": 380,
+						"y": 612,
+						"width": 228,
 						"height": 8,
 						"originX": 0,
 						"originY": 0,
@@ -20906,66 +21157,6 @@
 						"depth": 10,
 						"originZ": 0.5,
 						"angle": 0.030451355314217388
-					}
-				},
-				{
-					"type": "Bed_Stretcher",
-					"properties": {
-						"shape": "box",
-						"z-origin": "middle",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 312353,
-					"sid": 338430139216458,
-					"tags": "",
-					"instanceVariables": {
-						"chairCanDestroy": false,
-						"isDoor": false,
-						"bulletsCollide": false,
-						"sawCanDestroy": false
-					},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": true,
-								"tags": ""
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 712,
-						"y": 396,
-						"width": 20,
-						"height": 33,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 10,
-						"originZ": 0.5,
-						"angle": 0.02741114556597024
 					}
 				},
 				{
