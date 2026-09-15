@@ -3627,9 +3627,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "zLegs",
-							"sid": 539032249752018,
+							"sid": 325946807543208,
 							"parameters": {
-								"animation": "Zombies.AnimationName",
+								"animation": "Zombies.AnimationName&Zombies.ObjectTypeName",
 								"from": "beginning"
 							}
 						},
@@ -3671,18 +3671,18 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "L5Attachment",
+							"objectClass": "L5Hand",
 							"sid": 628883599044310
 						}
 					],
 					"actions": [
 						{
 							"id": "pin-to-object-properties",
-							"objectClass": "L5Attachment",
+							"objectClass": "L5Hand",
 							"sid": 652086227011175,
 							"behaviorType": "Pin",
 							"parameters": {
-								"pin-to": "Mike2",
+								"pin-to": "L5",
 								"x": true,
 								"y": true,
 								"angle": true,
@@ -3693,6 +3693,82 @@
 						}
 					],
 					"sid": 195999162442755
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "L5Hand",
+							"sid": 446494482462655
+						}
+					],
+					"actions": [
+						{
+							"id": "add-object-to-target",
+							"objectClass": "L5Hand",
+							"sid": 772397967580700,
+							"behaviorType": "Turret",
+							"parameters": {
+								"target": "CharacterController"
+							}
+						}
+					],
+					"sid": 100297324621345
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "L5",
+							"sid": 223307013689379,
+							"parameters": {
+								"instance-variable": "spottedPlayer"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "unacquire-target",
+							"objectClass": "L5Hand",
+							"sid": 531251240068772,
+							"behaviorType": "Turret"
+						},
+						{
+							"id": "rotate-toward-angle",
+							"objectClass": "L5Hand",
+							"sid": 309181404763066,
+							"parameters": {
+								"degrees": "1",
+								"angle": "L5.Angle"
+							}
+						}
+					],
+					"sid": 397566496730616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-target",
+							"objectClass": "L5Hand",
+							"sid": 262982394681252,
+							"behaviorType": "Turret"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "L5Hand",
+							"sid": 996094970569556,
+							"parameters": {
+								"angle": "L5.Angle\n+ clamp(\n    ((Self.Angle - L5.Angle+ 180) % 360) - 180,\n    -50,\n    50\n)"
+							}
+						}
+					],
+					"sid": 532565946778905
 				}
 			],
 			"sid": 545761517896897
