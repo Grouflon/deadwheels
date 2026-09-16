@@ -3661,7 +3661,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "TheL5",
 			"description": "",
 			"isActiveOnStart": true,
@@ -3679,100 +3679,85 @@
 						{
 							"id": "pin-to-object-properties",
 							"objectClass": "L5Hand",
-							"sid": 652086227011175,
+							"sid": 528206174520449,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "L5",
 								"x": true,
 								"y": true,
-								"angle": true,
+								"angle": false,
 								"width-type": "no",
 								"height-type": "no",
 								"z": false
 							}
 						}
 					],
-					"sid": 195999162442755,
-					"disabled": true
+					"sid": 195999162442755
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "L5Hand",
+							"sid": 329015739489104,
+							"parameters": {
+								"x": "CharacterController.X",
+								"y": "CharacterController.Y"
+							}
+						}
+					],
+					"sid": 100297324621345
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-created",
-							"objectClass": "L5Hand",
-							"sid": 446494482462655
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 294176403519073,
+							"parameters": {
+								"first-value": "distance(L5Hand.X,L5Hand.Y,CharacterController.X,CharacterController.Y)",
+								"comparison": 3,
+								"second-value": "50"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "add-object-to-target",
+							"id": "set-animation",
 							"objectClass": "L5Hand",
-							"sid": 772397967580700,
-							"behaviorType": "Turret",
+							"sid": 254536826187204,
 							"parameters": {
-								"target": "CharacterController"
+								"animation": "\"Catch\"",
+								"from": "beginning"
 							}
 						}
 					],
-					"sid": 100297324621345,
-					"disabled": true
+					"sid": 285721214902472
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "L5",
-							"sid": 223307013689379,
-							"parameters": {
-								"instance-variable": "spottedPlayer"
-							},
-							"isInverted": true
+							"id": "else",
+							"objectClass": "System",
+							"sid": 929923680536334
 						}
 					],
 					"actions": [
 						{
-							"id": "unacquire-target",
+							"id": "set-animation",
 							"objectClass": "L5Hand",
-							"sid": 531251240068772,
-							"behaviorType": "Turret"
-						},
-						{
-							"id": "rotate-toward-angle",
-							"objectClass": "L5Hand",
-							"sid": 309181404763066,
+							"sid": 925721490825800,
 							"parameters": {
-								"degrees": "1",
-								"angle": "L5.Angle"
+								"animation": "\"Idle\"",
+								"from": "beginning"
 							}
 						}
 					],
-					"sid": 397566496730616,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "has-target",
-							"objectClass": "L5Hand",
-							"sid": 262982394681252,
-							"behaviorType": "Turret"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-angle",
-							"objectClass": "L5Hand",
-							"sid": 996094970569556,
-							"parameters": {
-								"angle": "L5.Angle\n+ clamp(\n    ((Self.Angle - L5.Angle+ 180) % 360) - 180,\n    -50,\n    50\n)"
-							}
-						}
-					],
-					"sid": 532565946778905,
-					"disabled": true
+					"sid": 581908167241051
 				}
 			],
 			"sid": 545761517896897
