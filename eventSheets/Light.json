@@ -1293,6 +1293,31 @@
 						}
 					],
 					"sid": 731626896088170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "DynamicLight",
+							"sid": 178948492472264,
+							"parameters": {
+								"tag": "\"enable\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 233887470929398,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 415312010630521
 				}
 			],
 			"sid": 853145342800293

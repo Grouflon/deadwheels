@@ -3200,6 +3200,31 @@
 						}
 					],
 					"sid": 559590823255589
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Generator",
+							"sid": 751036813371683,
+							"parameters": {
+								"tag": "\"enable\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Generator",
+							"sid": 617108193534577,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 454954377697395
 				}
 			],
 			"sid": 642821477636293
