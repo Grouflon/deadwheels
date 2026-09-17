@@ -399,6 +399,96 @@
 								}
 							],
 							"sid": 592148723821342
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 481827451157642,
+									"parameters": {
+										"name": "\"signal\"",
+										"start-index": "0",
+										"end-index": "tokencount(ButtonSlot.Signals, \",\")"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 283650858990994,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 351258128477098,
+											"parameters": {
+												"name": "\"i\"",
+												"start-index": "0",
+												"end-index": "ButtonSlot.ChildCount-1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 761154106610830,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-nth-child",
+													"objectClass": "ButtonSlot",
+													"sid": 835288767029084,
+													"parameters": {
+														"child": "Signalable3DShape",
+														"index-type": "all",
+														"instance": "loopindex(\"i\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "instance-signal",
+													"objectClass": "Signalable3DShape",
+													"sid": 650506230699513,
+													"parameters": {
+														"tag": "tokenat(ButtonSlot.Signals, loopindex(\"signal\"), \",\")"
+													}
+												}
+											],
+											"sid": 416804249173764
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-nth-child",
+													"objectClass": "ButtonSlot",
+													"sid": 963184721797869,
+													"parameters": {
+														"child": "SignalableSprite",
+														"index-type": "all",
+														"instance": "loopindex(\"i\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "instance-signal",
+													"objectClass": "SignalableSprite",
+													"sid": 854001867586687,
+													"parameters": {
+														"tag": "tokenat(ButtonSlot.Signals, loopindex(\"signal\"), \",\")"
+													}
+												}
+											],
+											"sid": 844030666668052
+										}
+									]
+								}
+							]
 						}
 					]
 				},
