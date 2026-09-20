@@ -187,15 +187,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "DynamicLight",
-							"sid": 854210109190827,
-							"parameters": {
-								"instance-variable": "enabled",
-								"value": "true"
-							}
-						},
-						{
 							"id": "play-at-object-by-name",
 							"objectClass": "Audio",
 							"sid": 493893249902241,
@@ -209,6 +200,38 @@
 								"outer-angle": "360",
 								"outer-gain": "0",
 								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 433797093900276,
+							"parameters": {
+								"audio-file": {
+									"path": "PickUp/pickflashLight"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 982658305791156,
+							"parameters": {
+								"seconds": "0.2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 714004355750931,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
 							}
 						}
 					],
