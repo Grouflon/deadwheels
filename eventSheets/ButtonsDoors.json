@@ -1828,6 +1828,268 @@
 				}
 			],
 			"sid": 968014154452411
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Computer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CanPickUp",
+							"sid": 806844513029579,
+							"parameters": {
+								"object": "PCKeyboard"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 892024078849418
+						}
+					],
+					"actions": [],
+					"sid": 122521920465724,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-nearestfurthest",
+									"objectClass": "PCMonitor",
+									"sid": 914434455760870,
+									"parameters": {
+										"which": "nearest",
+										"x": "PCKeyboard.X",
+										"y": "PCKeyboard.Y",
+										"z": "0",
+										"pick-all-tied": false
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 425357679703715,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/ComputerButton"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 985072346964378,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "PCMonitor",
+											"sid": 189122222604100,
+											"parameters": {
+												"instance-variable": "On"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "PCMonitor",
+											"sid": 752464066170898,
+											"parameters": {
+												"instance-variable": "On",
+												"value": "true"
+											}
+										},
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 986011848448196,
+											"parameters": {
+												"tag": "PCMonitor.UID&\"computerOff\""
+											}
+										},
+										{
+											"id": "play-at-object",
+											"objectClass": "Audio",
+											"sid": 236701017399600,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/ComputerOn"
+												},
+												"loop": "not-looping",
+												"volume": "-10",
+												"object": "PCMonitor",
+												"inner-angle": "360",
+												"outer-angle": "360",
+												"outer-gain": "0",
+												"tag-optional": "PCMonitor.UID&\"computerOn\""
+											}
+										},
+										{
+											"id": "play-at-object",
+											"objectClass": "Audio",
+											"sid": 939707221792369,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/ComputerLoop"
+												},
+												"loop": "looping",
+												"volume": "-100",
+												"object": "PCMonitor",
+												"inner-angle": "360",
+												"outer-angle": "360",
+												"outer-gain": "0",
+												"tag-optional": "PCMonitor.UID&\"computerLoop\""
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "Audio",
+											"sid": 539993285436255,
+											"parameters": {
+												"tag": "PCMonitor.UID&\"computerLoop\"",
+												"db": "-10",
+												"duration": "4",
+												"ending": "keep-playing"
+											}
+										},
+										{
+											"id": "set-face-object",
+											"objectClass": "PCMonitor",
+											"sid": 738493581481514,
+											"parameters": {
+												"face": "right",
+												"object": "PC_Screen"
+											}
+										}
+									],
+									"sid": 956577614329166
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 670814745797342
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "PCMonitor",
+											"sid": 748478794708211,
+											"parameters": {
+												"instance-variable": "On"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "PCMonitor",
+											"sid": 631017304616881,
+											"parameters": {
+												"instance-variable": "On",
+												"value": "false"
+											}
+										},
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 171144215179509,
+											"parameters": {
+												"tag": "PCMonitor.UID&\"computerLoop\""
+											}
+										},
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 829564467613234,
+											"parameters": {
+												"tag": "PCMonitor.UID&\"computerOn\""
+											}
+										},
+										{
+											"id": "play-at-object",
+											"objectClass": "Audio",
+											"sid": 727075755781462,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/ComputerOff"
+												},
+												"loop": "not-looping",
+												"volume": "-10",
+												"object": "PCMonitor",
+												"inner-angle": "360",
+												"outer-angle": "360",
+												"outer-gain": "0",
+												"tag-optional": "PCMonitor.UID&\"computerOff\""
+											}
+										},
+										{
+											"id": "set-face-image",
+											"objectClass": "PCMonitor",
+											"sid": 758145932467773,
+											"parameters": {
+												"face": "right",
+												"image": "right"
+											}
+										}
+									],
+									"sid": 685545669087373
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-ended",
+							"objectClass": "Audio",
+							"sid": 196199228806668,
+							"parameters": {
+								"tag": "PCMonitor.UID&\"computerOn\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 899968465261732,
+							"parameters": {
+								"audio-file": {
+									"path": "Interactive/ComputerLoop"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"object": "PCMonitor",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "PCMonitor.UID&\"computerLoop\""
+							}
+						}
+					],
+					"sid": 940179564013693,
+					"disabled": true
+				}
+			],
+			"sid": 456696732295521
 		}
 	],
 	"sid": 287643589064356
