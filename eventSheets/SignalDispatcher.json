@@ -1,0 +1,652 @@
+{
+	"name": "SignalDispatcher",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "3DShape",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "DispatchSignals",
+					"objectClass": "SignalDispatcher3DShape",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 992186895125517,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "signal_name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 795699578467932
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 935139587975887,
+									"parameters": {
+										"name": "\"signal\"",
+										"start-index": "0",
+										"end-index": "max(tokencount(SignalDispatcher3DShape.Signals, \",\")-1, 0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 952413387744555,
+									"parameters": {
+										"variable": "signal_name",
+										"value": "tokenat(SignalDispatcher3DShape.Signals, loopindex(\"signal \"), \",\")"
+									}
+								}
+							],
+							"sid": 146413127094257,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 555640959187748,
+											"parameters": {
+												"name": "\"target\"",
+												"start-index": "0",
+												"end-index": "tokencount(SignalDispatcher3DShape.Targets, \",\")-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DispatchSignalToTarget",
+											"sid": 621824947618369,
+											"parameters": [
+												"int(tokenat(SignalDispatcher3DShape.Targets, loopindex(\"target\"),\",\"))",
+												"signal_name"
+											]
+										}
+									],
+									"sid": 627777591983465
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 546829108945257,
+											"parameters": {
+												"first-value": "SignalDispatcher3DShape.ChildCount",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 370868162270626,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 278937905068238,
+													"parameters": {
+														"name": "\"i\"",
+														"start-index": "0",
+														"end-index": "SignalDispatcher3DShape.ChildCount-1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 417488695157448,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcher3DShape",
+															"sid": 634160142034763,
+															"parameters": {
+																"child": "Signalable3DShape",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "Signalable3DShape",
+															"sid": 416014103108332,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 113526616402137
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcher3DShape",
+															"sid": 664386729611189,
+															"parameters": {
+																"child": "SignalableSprite",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "SignalableSprite",
+															"sid": 182873888475026,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 122645832421467
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 991631534716539
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sprite",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "DispatchSignals",
+					"objectClass": "SignalDispatcherSprite",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 707869105702373,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "signal_name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 179881381394751
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 811051765675814,
+									"parameters": {
+										"name": "\"signal\"",
+										"start-index": "0",
+										"end-index": "max(tokencount(SignalDispatcherSprite.Signals, \",\")-1, 0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 526638590293922,
+									"parameters": {
+										"variable": "signal_name",
+										"value": "tokenat(SignalDispatcherSprite.Signals, loopindex(\"signal \"), \",\")"
+									}
+								}
+							],
+							"sid": 561350708841814,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 515542049835238,
+											"parameters": {
+												"name": "\"target\"",
+												"start-index": "0",
+												"end-index": "tokencount(SignalDispatcherSprite.Targets, \",\")-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DispatchSignalToTarget",
+											"sid": 734552853051169,
+											"parameters": [
+												"int(tokenat(SignalDispatcherSprite.Targets, loopindex(\"target\"),\",\"))",
+												"signal_name"
+											]
+										}
+									],
+									"sid": 178567969027943
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 534635820642694,
+											"parameters": {
+												"first-value": "SignalDispatcherSprite.ChildCount",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 392234096766084,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 667661079341938,
+													"parameters": {
+														"name": "\"i\"",
+														"start-index": "0",
+														"end-index": "SignalDispatcherSprite.ChildCount-1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 275125633489926,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcherSprite",
+															"sid": 506968701262070,
+															"parameters": {
+																"child": "Signalable3DShape",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "Signalable3DShape",
+															"sid": 757682890338606,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 556880972679356
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcherSprite",
+															"sid": 122331503787809,
+															"parameters": {
+																"child": "SignalableSprite",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "SignalableSprite",
+															"sid": 971223867070972,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 758039136060409
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 910328953386221
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TiledBackground",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"aceType": "action",
+					"aceName": "DispatchSignals",
+					"objectClass": "SignalDispatcherTiledBackground",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 475501088645447,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "signal_name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 875984359395233
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 145149267589643,
+									"parameters": {
+										"name": "\"signal\"",
+										"start-index": "0",
+										"end-index": "max(tokencount(SignalDispatcherTiledBackground.Signals, \",\")-1, 0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 784565944983234,
+									"parameters": {
+										"variable": "signal_name",
+										"value": "tokenat(SignalDispatcherTiledBackground.Signals, loopindex(\"signal \"), \",\")"
+									}
+								}
+							],
+							"sid": 676482120291358,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 639635888714874,
+											"parameters": {
+												"name": "\"target\"",
+												"start-index": "0",
+												"end-index": "tokencount(SignalDispatcherTiledBackground.Targets, \",\")-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DispatchSignalToTarget",
+											"sid": 108760174266265,
+											"parameters": [
+												"int(tokenat(SignalDispatcherTiledBackground.Targets, loopindex(\"target\"),\",\"))",
+												"signal_name"
+											]
+										}
+									],
+									"sid": 472328803807403
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 686854655251728,
+											"parameters": {
+												"first-value": "SignalDispatcherTiledBackground.ChildCount",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 612214983167715,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 651724930798310,
+													"parameters": {
+														"name": "\"i\"",
+														"start-index": "0",
+														"end-index": "SignalDispatcherTiledBackground.ChildCount-1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 423359363378665,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcherTiledBackground",
+															"sid": 171129161193271,
+															"parameters": {
+																"child": "Signalable3DShape",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "Signalable3DShape",
+															"sid": 982663444155464,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 719518595382996
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcherTiledBackground",
+															"sid": 118115407056104,
+															"parameters": {
+																"child": "SignalableSprite",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "SignalableSprite",
+															"sid": 835787796967142,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 841351777942326
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 996785272502934
+		},
+		{
+			"functionName": "DispatchSignalToTarget",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "target_uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 650284504994061
+				},
+				{
+					"name": "signal_name",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 725094827941452
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 496558982871666,
+					"parameters": {
+						"first-value": "target_uid",
+						"comparison": 1,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 137058791876034,
+					"disabled": true,
+					"parameters": {
+						"type": "log",
+						"message": "target_uid & \" \" & signal_name"
+					}
+				}
+			],
+			"sid": 526410835116645,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Signalable3DShape",
+							"sid": 255684624570713,
+							"parameters": {
+								"unique-id": "target_uid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "instance-signal",
+							"objectClass": "Signalable3DShape",
+							"sid": 568020765999822,
+							"parameters": {
+								"tag": "signal_name"
+							}
+						}
+					],
+					"sid": 532937137977655
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "SignalableSprite",
+							"sid": 422766518241590,
+							"parameters": {
+								"unique-id": "target_uid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "instance-signal",
+							"objectClass": "SignalableSprite",
+							"sid": 374351188627257,
+							"parameters": {
+								"tag": "signal_name"
+							}
+						}
+					],
+					"sid": 580848414382616
+				}
+			]
+		}
+	],
+	"sid": 695860873137144
+}

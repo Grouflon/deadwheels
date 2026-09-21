@@ -1295,29 +1295,128 @@
 					"sid": 731626896088170
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "DYNAMIC LIGHT SIGNALS",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "on-instance-signal",
-							"objectClass": "DynamicLight",
-							"sid": 178948492472264,
-							"parameters": {
-								"tag": "\"enable\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "DynamicLight",
+									"sid": 576187077170277,
+									"parameters": {
+										"tag": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 439379263892882,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "DynamicLight",
+											"sid": 289778381041393,
+											"parameters": {
+												"instance-variable": "enabled"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "DynamicLight",
+											"sid": 669023400784659,
+											"parameters": {
+												"instance-variable": "enabled",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 601274778134976
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 650627305124117
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "DynamicLight",
+											"sid": 480598193125982,
+											"parameters": {
+												"instance-variable": "enabled",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 931804540072053
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "DynamicLight",
+									"sid": 987776894520267,
+									"parameters": {
+										"tag": "\"enable\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "DynamicLight",
+									"sid": 149957234282790,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 208476799953999
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "DynamicLight",
+									"sid": 826892154917459,
+									"parameters": {
+										"tag": "\"disable\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "DynamicLight",
+									"sid": 622930155356383,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 588028063413280
 						}
 					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "DynamicLight",
-							"sid": 233887470929398,
-							"parameters": {
-								"instance-variable": "enabled",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 415312010630521
+					"sid": 630615899264243
 				}
 			],
 			"sid": 853145342800293

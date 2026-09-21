@@ -108,7 +108,7 @@
 											"objectClass": "Trigger",
 											"sid": 275185590969356,
 											"parameters": {
-												"child": "ButtonSlot",
+												"child": "ButtonBase",
 												"which": "own"
 											}
 										}
@@ -116,7 +116,7 @@
 									"actions": [
 										{
 											"customAction": "ButtonEnabled",
-											"objectClass": "ButtonSlot",
+											"objectClass": "ButtonBase",
 											"sid": 426922934747561
 										}
 									],
@@ -779,6 +779,28 @@
 							"sid": 862091720275120
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Event_Dispatcher",
+							"sid": 890347494962401,
+							"parameters": {
+								"tag": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DispatchSignals",
+							"objectClass": "Event_Dispatcher",
+							"customActionObjectClass": "SignalDispatcherSprite",
+							"sid": 447937326530662
+						}
+					],
+					"sid": 426656199381442
 				}
 			],
 			"sid": 681703188924567

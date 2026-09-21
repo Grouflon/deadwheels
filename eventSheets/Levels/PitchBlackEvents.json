@@ -62,6 +62,16 @@
 			"sid": 704453836876118
 		},
 		{
+			"eventType": "variable",
+			"name": "has_flashlight",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 554268044902727
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Global"
 		},
@@ -107,6 +117,16 @@
 							"parameters": [
 								"1"
 							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 929743416481799,
+							"disabled": true,
+							"parameters": {
+								"variable": "has_flashlight",
+								"value": "true"
+							}
 						}
 					],
 					"sid": 549602672194029
@@ -175,6 +195,60 @@
 			"children": [
 				{
 					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "FlashLight",
+							"sid": 459971632579643
+						}
+					],
+					"sid": 222461462197077
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "DynamicLight",
+							"sid": 969433235070618,
+							"parameters": {
+								"unique-id": "694280"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "DynamicLight",
+							"sid": 644087037915197
+						}
+					],
+					"sid": 546339045601804
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Mask",
+							"sid": 594230734647150,
+							"parameters": {
+								"unique-id": "427017"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Mask",
+							"sid": 735334338335531
+						}
+					],
+					"sid": 757998159306579
+				},
+				{
+					"eventType": "block",
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
@@ -226,55 +300,16 @@
 							}
 						},
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "DynamicLight",
-							"sid": 714004355750931,
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 820979338951305,
 							"parameters": {
-								"instance-variable": "enabled",
+								"variable": "has_flashlight",
 								"value": "true"
 							}
 						}
 					],
 					"sid": 887932405179668
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "DynamicLight",
-							"sid": 212051182915874,
-							"parameters": {
-								"unique-id": "694280"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Mask",
-							"sid": 744697211856532,
-							"parameters": {
-								"unique-id": "427017"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "FlashLight",
-							"sid": 303258026517353
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Mask",
-							"sid": 487773313913319
-						},
-						{
-							"id": "destroy",
-							"objectClass": "DynamicLight",
-							"sid": 645202657957744
-						}
-					],
-					"sid": 485096985366394
 				}
 			]
 		},
@@ -303,6 +338,53 @@
 			],
 			"sid": 409894254418051,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 937637853147312,
+							"parameters": {
+								"variable": "has_flashlight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 476420785294210,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 263096615866687
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 360575965783055
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 684725289579539,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 146143220447856
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -462,31 +544,6 @@
 					"sid": 583639280425764
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "DynamicLight",
-					"sid": 567154641884267,
-					"parameters": {
-						"unique-id": "217987"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-angle",
-					"objectClass": "DynamicLight",
-					"sid": 991049022463765,
-					"parameters": {
-						"angle": "DynamicLight.Angle + dt * 400"
-					}
-				}
-			],
-			"sid": 589186161474626,
-			"disabled": true
 		}
 	],
 	"sid": 253229832371815

@@ -491,8 +491,8 @@
 							"ElevatorDoor",
 							"WindowedDoor",
 							"Elevator",
-							"ButtonSlot",
-							"ButtonSlot2",
+							"ButtonBase",
+							"ButtonTip",
 							"DoorBar",
 							"DoorFrame"
 						],
@@ -643,7 +643,8 @@
 					"Trigger",
 					"Event_BreakFurniture",
 					"LevelManager",
-					"Event_TypeWriterText"
+					"Event_TypeWriterText",
+					"Event_Dispatcher"
 				],
 				"subfolders": [],
 				"name": "Events"
@@ -728,8 +729,8 @@
 		},
 		{
 			"members": [
-				"ButtonSlot",
-				"ButtonSlot2"
+				"ButtonBase",
+				"ButtonTip"
 			]
 		},
 		{
@@ -780,7 +781,10 @@
 			"FloorGoo",
 			"BarnacleTarget",
 			"Signalable3DShape",
-			"SignalableSprite"
+			"SignalableSprite",
+			"SignalDispatcher3DShape",
+			"SignalDispatcherTiledBackground",
+			"SignalDispatcherSprite"
 		],
 		"subfolders": []
 	},
@@ -874,7 +878,8 @@
 			"ButtonsDoors",
 			"ElevatorScene",
 			"Light",
-			"Particles"
+			"Particles",
+			"SignalDispatcher"
 		],
 		"subfolders": [
 			{

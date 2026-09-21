@@ -66,6 +66,10 @@
 			"includeSheet": "Particles"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "SignalDispatcher"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Setup",
@@ -3196,29 +3200,128 @@
 					"sid": 559590823255589
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "SIGNALS",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "on-instance-signal",
-							"objectClass": "Generator",
-							"sid": 751036813371683,
-							"parameters": {
-								"tag": "\"enable\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Generator",
+									"sid": 317803589415864,
+									"parameters": {
+										"tag": "\"enable\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Generator",
+									"sid": 539407196907372,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 920211850871279
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Generator",
+									"sid": 711536869491833,
+									"parameters": {
+										"tag": "\"disable\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Generator",
+									"sid": 695970582796706,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 555598557325563
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Generator",
+									"sid": 984265399812881,
+									"parameters": {
+										"tag": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 301770014968181,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Generator",
+											"sid": 556597177371757,
+											"parameters": {
+												"instance-variable": "enabled"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Generator",
+											"sid": 356329832245882,
+											"parameters": {
+												"instance-variable": "enabled",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 639628207942836
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 337479999234109
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Generator",
+											"sid": 709518890648584,
+											"parameters": {
+												"instance-variable": "enabled",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 119409554961994
+								}
+							]
 						}
 					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Generator",
-							"sid": 617108193534577,
-							"parameters": {
-								"instance-variable": "enabled",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 454954377697395
+					"sid": 832576338193383
 				}
 			],
 			"sid": 642821477636293
