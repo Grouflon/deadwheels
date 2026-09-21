@@ -1,68 +1,103 @@
 {
-	"name": "PrisonDoor",
+	"name": "PivotDoor",
 	"plugin-id": "Shape3D",
-	"sid": 202523295639606,
+	"sid": 109558811502894,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "isLocked",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 591504166909708
+		},
+		{
+			"name": "ClosedAngle",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 707594705864255
+		},
+		{
+			"name": "PivotX",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 706945258049407
+		},
+		{
+			"name": "PivotY",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 892504471187787
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "shadowcaster",
+			"name": "ShadowCaster",
+			"sid": 633321309235982
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 16,
-						"height": 16,
-						"originX": -0.0625,
-						"originY": 0.5,
+						"width": 28,
+						"height": 4,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 935644,
+						"imageSpriteId": 4754416,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 16,
-						"height": 16,
+						"width": 28,
+						"height": 4,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7971854,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 4,
+						"height": 28,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 7154242,
+						"imageSpriteId": 1495063,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 16,
-						"height": 16,
+						"width": 4,
+						"height": 28,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 8414291,
-						"useCollisionPoly": true,
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 4693074,
+						"imageSpriteId": 9325873,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
@@ -76,7 +111,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 2634977,
+						"imageSpriteId": 6733334,
 						"collisionPoly": {
 							"points": [
 								1,
@@ -102,25 +137,13 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4426555,
-						"collisionPoly": {
-							"points": [
-								0,
-								0.21428571428571427,
-								1,
-								0.21428571428571427,
-								1,
-								0.7857142857142857,
-								0,
-								0.7857142857142857
-							]
-						},
+						"imageSpriteId": 4137994,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 567438510808730,
+				"sid": 433612600290944,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

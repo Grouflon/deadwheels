@@ -32,7 +32,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -121,7 +120,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -1470,8 +1468,8 @@
 					"sid": 940404298472780,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -2074,14 +2072,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2180,7 +2177,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -2287,10 +2283,6 @@
 										"state": [
 											{
 												"iv": "chairCanDestroy",
-												"state": true
-											},
-											{
-												"iv": "isDoor",
 												"state": true
 											},
 											{
@@ -2533,7 +2525,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -2640,10 +2631,6 @@
 										"state": [
 											{
 												"iv": "chairCanDestroy",
-												"state": true
-											},
-											{
-												"iv": "isDoor",
 												"state": true
 											},
 											{
@@ -2886,7 +2873,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -3000,10 +2986,6 @@
 										"state": [
 											{
 												"iv": "chairCanDestroy",
-												"state": true
-											},
-											{
-												"iv": "isDoor",
 												"state": true
 											},
 											{
@@ -3262,8 +3244,8 @@
 					"sid": 954151010336628,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Enabled": false,
 						"Time": 0
 					},
@@ -3335,8 +3317,10 @@
 					"sid": 366970145778066,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": ""
+						"signals": "Trigger",
+						"targets": "",
+						"needed_triggers": -1,
+						"trigger_count": 0
 					},
 					"behaviors": {},
 					"sceneGraphData": {
@@ -3373,7 +3357,7 @@
 					"locked": false,
 					"world": {
 						"x": 408,
-						"y": 192,
+						"y": 200,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,

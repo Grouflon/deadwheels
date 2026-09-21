@@ -381,8 +381,8 @@
 					"sid": 208235687650386,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -1594,8 +1594,8 @@
 					"sid": 545249003073441,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -1984,7 +1984,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -6781,8 +6780,8 @@
 					"sid": 250946295470034,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -7294,7 +7293,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7353,7 +7351,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7412,7 +7409,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7471,7 +7467,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7530,7 +7525,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7589,7 +7583,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8401,7 +8394,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8460,7 +8452,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8991,7 +8982,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -9016,11 +9007,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
-						"isLocked": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
 						"PivotY": 0
@@ -9896,7 +9889,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9955,7 +9947,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10014,7 +10005,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10820,14 +10810,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -10971,8 +10960,8 @@
 					"sid": 358734372317929,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Enabled": false,
 						"Time": 0
 					},
@@ -11241,7 +11230,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11300,7 +11288,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11392,7 +11379,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11451,7 +11437,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12026,7 +12011,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12115,8 +12099,8 @@
 					"sid": 573665417335924,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -13013,7 +12997,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13072,7 +13055,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13164,7 +13146,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13223,7 +13204,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -16438,14 +16418,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -16705,8 +16684,8 @@
 					"sid": 260135566039003,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -17074,8 +17053,8 @@
 					"sid": 892162480110661,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Enabled": false,
 						"Time": 0
 					},
@@ -18379,7 +18358,7 @@
 					}
 				},
 				{
-					"type": "PrisonDoor",
+					"type": "SlidingDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -18404,14 +18383,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -20017,6 +19995,36 @@
 									"v": false,
 									"sm": "normal"
 								}
+							},
+							{
+								"uid": 825888,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								}
+							},
+							{
+								"uid": 492582,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								}
 							}
 						],
 						"flags": {
@@ -20844,7 +20852,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20903,7 +20910,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20962,7 +20968,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21021,7 +21026,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -22967,7 +22971,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -27566,6 +27569,142 @@
 							1
 						],
 						"z": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Texture_IronShutter",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 825888,
+					"sid": 862616893449829,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 974567,
+						"uid": 825888,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -160,
+						"y": 440,
+						"width": 32,
+						"height": 16,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Texture_Elevator",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 492582,
+					"sid": 167806549135496,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 974567,
+						"uid": 492582,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -176,
+						"y": 448,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
 						"angle": 0
 					}
 				}

@@ -322,16 +322,6 @@
 							],
 							"actions": [
 								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 429314131926019,
-									"disabled": true,
-									"parameters": {
-										"type": "log",
-										"message": "\"ccsssccol\""
-									}
-								},
-								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 943108827516329,
@@ -388,18 +378,10 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Doors",
+											"objectClass": "PivotDoor",
 											"sid": 425567673591036,
 											"parameters": {
 												"unique-id": "uid"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Doors",
-											"sid": 149882718877127,
-											"parameters": {
-												"instance-variable": "CanBePushed"
 											}
 										}
 									],
@@ -412,81 +394,19 @@
 												"instance-variable": "ram_cooldown",
 												"value": "ram_cooldown_time"
 											}
-										}
-									],
-									"sid": 552594519821912,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Doors",
-													"sid": 792220227694113,
-													"parameters": {
-														"instance-variable": "isLocked"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"customAction": "OpenDoor",
-													"objectClass": "Doors",
-													"sid": 570399103806671,
-													"parameters": [
-														"ChairController.X",
-														"ChairController.Y"
-													]
-												}
-											],
-											"sid": 452104438587627
 										},
 										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 574066899811073
-												}
-											],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 499942264588370,
-													"parameters": {
-														"audio-file": {
-															"path": "Interactive/DoorLocked"
-														},
-														"loop": "not-looping",
-														"volume": "0",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												},
-												{
-													"id": "tween-one-property",
-													"objectClass": "Doors",
-													"sid": 461044946783482,
-													"behaviorType": "Tween",
-													"parameters": {
-														"tags": "\"\"",
-														"property": "offsetX",
-														"end-value": "Doors.X+choose(-2,2)",
-														"time": "0.1",
-														"ease": "easeinoutback",
-														"destroy-on-complete": "no",
-														"loop": "no",
-														"ping-pong": "yes",
-														"repeat-count": "3"
-													}
-												}
-											],
-											"sid": 386609911548119
+											"customAction": "Toggle",
+											"objectClass": "PivotDoor",
+											"customActionObjectClass": "Doors",
+											"sid": 563792048119870,
+											"parameters": [
+												"ChairController.X",
+												"ChairController.Y"
+											]
 										}
-									]
+									],
+									"sid": 552594519821912
 								}
 							]
 						}

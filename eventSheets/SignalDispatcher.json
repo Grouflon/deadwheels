@@ -19,7 +19,18 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "custom-ace-block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 640179725789383,
+							"parameters": {
+								"first-value": "len(SignalDispatcher3DShape.Signals)",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
 					"actions": [],
 					"sid": 992186895125517,
 					"children": [
@@ -39,11 +50,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 935139587975887,
+									"sid": 500334946578944,
 									"parameters": {
 										"name": "\"signal\"",
 										"start-index": "0",
-										"end-index": "max(tokencount(SignalDispatcher3DShape.Signals, \",\")-1, 0)"
+										"end-index": "tokencount(SignalDispatcher3DShape.Signals, \",\")-1"
 									}
 								}
 							],
@@ -201,7 +212,18 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "custom-ace-block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 277312663581667,
+							"parameters": {
+								"first-value": "len(SignalDispatcherSprite.Signals)",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
 					"actions": [],
 					"sid": 707869105702373,
 					"children": [
@@ -221,11 +243,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 811051765675814,
+									"sid": 781118629554813,
 									"parameters": {
 										"name": "\"signal\"",
 										"start-index": "0",
-										"end-index": "max(tokencount(SignalDispatcherSprite.Signals, \",\")-1, 0)"
+										"end-index": "tokencount(SignalDispatcherSprite.Signals, \",\")-1"
 									}
 								}
 							],
@@ -383,7 +405,18 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "custom-ace-block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 551407776572587,
+							"parameters": {
+								"first-value": "len(SignalDispatcherTiledBackground.Signals)",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
 					"actions": [],
 					"sid": 475501088645447,
 					"children": [
@@ -403,11 +436,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 145149267589643,
+									"sid": 811381741957997,
 									"parameters": {
 										"name": "\"signal\"",
 										"start-index": "0",
-										"end-index": "max(tokencount(SignalDispatcherTiledBackground.Signals, \",\")-1, 0)"
+										"end-index": "tokencount(SignalDispatcherTiledBackground.Signals, \",\")-1"
 									}
 								}
 							],

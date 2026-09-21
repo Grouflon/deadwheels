@@ -1,52 +1,82 @@
 {
-	"name": "WindowedDoor",
+	"name": "SlidingDoor",
 	"plugin-id": "Shape3D",
-	"sid": 109558811502894,
+	"sid": 202523295639606,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [
+	"instanceVariables": [
 		{
-			"behaviorId": "shadowcaster",
-			"name": "ShadowCaster",
-			"sid": 633321309235982
+			"name": "ClosedWidth",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 978628470458794
 		}
 	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 28,
-						"height": 4,
-						"originX": -0.07142857142857142,
-						"originY": -0.5,
+						"width": 16,
+						"height": 16,
+						"originX": -0.0625,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4754416,
+						"imageSpriteId": 935644,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7154242,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8414291,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 4693074,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
 						"width": 28,
-						"height": 4,
-						"originX": -0.07142857142857142,
-						"originY": -0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 7971854,
-						"useCollisionPoly": true,
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 4,
 						"height": 28,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -54,35 +84,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 1495063,
-						"useCollisionPoly": true,
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 4,
-						"height": 28,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 9325873,
-						"useCollisionPoly": true,
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 28,
-						"height": 28,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 6733334,
+						"imageSpriteId": 2634977,
 						"collisionPoly": {
 							"points": [
 								1,
@@ -108,13 +110,25 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4137994,
+						"imageSpriteId": 4426555,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.21428571428571427,
+								1,
+								0.21428571428571427,
+								1,
+								0.7857142857142857,
+								0,
+								0.7857142857142857
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 433612600290944,
+				"sid": 567438510808730,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

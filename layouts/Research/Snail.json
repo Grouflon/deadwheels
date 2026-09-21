@@ -50,7 +50,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -75,11 +75,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
-						"isLocked": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
 						"PivotY": 0
@@ -126,7 +128,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -151,11 +153,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
-						"isLocked": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
 						"PivotY": 0
@@ -2392,14 +2396,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2990,7 +2993,7 @@
 					}
 				},
 				{
-					"type": "PrisonDoor",
+					"type": "SlidingDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -3015,14 +3018,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3242,14 +3244,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3393,8 +3394,8 @@
 					"sid": 847136417530994,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Enabled": false,
 						"Time": 5
 					},
@@ -3808,8 +3809,8 @@
 					"sid": 398744666993764,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Enabled": false,
 						"Time": 0
 					},
@@ -7140,7 +7141,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -7165,10 +7166,12 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
 						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
@@ -8933,7 +8936,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8993,7 +8995,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},

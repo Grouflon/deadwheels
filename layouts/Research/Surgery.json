@@ -7,7 +7,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -32,11 +32,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
-						"isLocked": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
 						"PivotY": 0
@@ -664,8 +666,8 @@
 					"sid": 499557881000077,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -901,7 +903,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -926,10 +928,12 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
 						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
@@ -3011,14 +3015,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3819,7 +3822,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -3879,7 +3881,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -3939,7 +3940,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -3999,7 +3999,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4059,7 +4058,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4119,7 +4117,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4179,7 +4176,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4245,7 +4241,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4311,7 +4306,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4377,7 +4371,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4443,7 +4436,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4503,7 +4495,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4563,7 +4554,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -4878,7 +4868,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -4944,7 +4933,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5010,7 +4998,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5076,7 +5063,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5142,7 +5128,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5208,7 +5193,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5274,7 +5258,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5340,7 +5323,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5406,7 +5388,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5472,7 +5453,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5538,7 +5518,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5604,7 +5583,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5670,7 +5648,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -5736,7 +5713,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -5795,7 +5771,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -5854,7 +5829,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -5913,7 +5887,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -5972,7 +5945,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -6333,7 +6305,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6399,7 +6370,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6465,7 +6435,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6531,7 +6500,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6597,7 +6565,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6663,7 +6630,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6729,7 +6695,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6795,7 +6760,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6861,7 +6825,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -6920,7 +6883,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -6986,7 +6948,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -7052,7 +7013,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -7118,7 +7078,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7177,7 +7136,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7236,7 +7194,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7295,7 +7252,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7482,7 +7438,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7554,7 +7509,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7613,7 +7567,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7672,7 +7625,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -7738,7 +7690,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7797,7 +7748,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -7856,7 +7806,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8025,7 +7974,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8450,7 +8398,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8509,7 +8456,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8568,7 +8514,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8640,7 +8585,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -8706,7 +8650,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8765,7 +8708,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8824,7 +8766,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8883,7 +8824,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -8942,7 +8882,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9001,7 +8940,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9060,7 +8998,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9119,7 +9056,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9178,7 +9114,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9244,7 +9179,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -9374,7 +9308,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9433,7 +9366,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9492,7 +9424,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9551,7 +9482,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9610,7 +9540,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -9676,7 +9605,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9735,7 +9663,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9794,7 +9721,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9853,7 +9779,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9912,7 +9837,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -9978,7 +9902,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -10044,7 +9967,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10575,7 +10497,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10634,7 +10555,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10693,7 +10613,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10752,7 +10671,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10811,7 +10729,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10870,7 +10787,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -10929,7 +10845,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -10995,7 +10910,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -11061,7 +10975,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -11127,7 +11040,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -11193,7 +11105,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -11259,7 +11170,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -11325,7 +11235,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -11391,7 +11300,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11450,7 +11358,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11509,7 +11416,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11568,7 +11474,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11627,7 +11532,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11686,7 +11590,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11745,7 +11648,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11804,7 +11706,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11863,7 +11764,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11922,7 +11822,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -11981,7 +11880,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12047,7 +11945,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12113,7 +12010,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12179,7 +12075,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12251,7 +12146,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12310,7 +12204,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12369,7 +12262,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12428,7 +12320,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12487,7 +12378,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12547,7 +12437,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12607,7 +12496,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12667,7 +12555,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12889,7 +12776,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -12948,7 +12834,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13004,8 +12889,8 @@
 					"sid": 303995186716853,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Triggered": false,
 						"enabled": true
 					},
@@ -13102,7 +12987,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13161,7 +13045,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13220,7 +13103,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -13286,7 +13168,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -13352,7 +13233,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13411,7 +13291,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13483,7 +13362,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13549,7 +13427,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13737,7 +13614,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -13862,7 +13738,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -13928,7 +13803,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -13994,7 +13868,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -14515,7 +14388,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -14910,7 +14782,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -14976,7 +14847,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -15042,7 +14912,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -15108,7 +14977,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15167,7 +15035,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15226,7 +15093,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15285,7 +15151,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15344,7 +15209,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15403,7 +15267,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15462,7 +15325,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15521,7 +15383,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15580,7 +15441,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -15639,7 +15499,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -16484,7 +16343,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -16543,7 +16401,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -16602,7 +16459,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -17107,7 +16963,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -17166,7 +17021,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -17225,7 +17079,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -17284,7 +17137,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -17343,7 +17195,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -19847,7 +19698,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -19906,7 +19756,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -19965,7 +19814,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20024,7 +19872,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20221,7 +20068,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20280,7 +20126,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20339,7 +20184,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20398,7 +20242,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20457,7 +20300,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20516,7 +20358,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -20575,7 +20416,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21018,7 +20858,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21077,7 +20916,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -21143,7 +20981,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21203,7 +21040,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21262,7 +21098,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21321,7 +21156,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21380,7 +21214,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21631,7 +21464,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21690,7 +21522,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21749,7 +21580,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -21808,7 +21638,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -22347,7 +22176,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -22406,7 +22234,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -22536,7 +22363,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -22897,14 +22723,13 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": false,
-						"isLocked": false,
-						"ClosedAngle": 0,
-						"PivotX": 0,
-						"PivotY": 0
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"ClosedWidth": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -23083,8 +22908,8 @@
 					"sid": 758125040786901,
 					"tags": "",
 					"instanceVariables": {
-						"Signals": "",
-						"Targets": "",
+						"signals": "Trigger",
+						"targets": "",
 						"Enabled": false,
 						"Time": 3
 					},
@@ -23496,7 +23321,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -23521,10 +23346,12 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
 						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
@@ -23597,7 +23424,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false
 					},
@@ -23631,7 +23457,7 @@
 					}
 				},
 				{
-					"type": "WindowedDoor",
+					"type": "PivotDoor",
 					"properties": {
 						"shape": "box",
 						"z-origin": "back",
@@ -23656,10 +23482,12 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": true,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
-						"CanBePushed": true,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
 						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
@@ -25689,7 +25517,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": true,
 						"sawCanDestroy": false
 					},
@@ -25849,7 +25676,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": true,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": false,
 						"Enabled": false,
@@ -26007,7 +25833,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": true
 					},
@@ -26066,7 +25891,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": true
 					},
@@ -26125,7 +25949,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": true
 					},
@@ -26184,7 +26007,6 @@
 					"tags": "",
 					"instanceVariables": {
 						"chairCanDestroy": false,
-						"isDoor": false,
 						"bulletsCollide": false,
 						"sawCanDestroy": true
 					},

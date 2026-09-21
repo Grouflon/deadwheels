@@ -330,13 +330,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"customAction": "ToggleShutter",
-									"objectClass": "IronShutter",
-									"sid": 112580209380951
-								}
-							],
+							"actions": [],
 							"sid": 535802952226751
 						},
 						{
@@ -347,15 +341,15 @@
 									"objectClass": "ButtonBase",
 									"sid": 340407234416582,
 									"parameters": {
-										"child": "PrisonDoor",
+										"child": "SlidingDoor",
 										"which": "own"
 									}
 								}
 							],
 							"actions": [
 								{
-									"customAction": "OpenDoor",
-									"objectClass": "PrisonDoor",
+									"customAction": "Open",
+									"objectClass": "SlidingDoor",
 									"customActionObjectClass": "Doors",
 									"sid": 571456259611817,
 									"parameters": [
@@ -381,7 +375,7 @@
 							],
 							"actions": [
 								{
-									"customAction": "OpenDoor",
+									"customAction": "Open",
 									"objectClass": "ElevatorDoor",
 									"customActionObjectClass": "Doors",
 									"sid": 705995751897747,
@@ -516,306 +510,165 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "DoorPivotOffsetX",
-					"type": "number",
-					"initialValue": "3",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": true,
-					"sid": 311637677861275
-				},
-				{
-					"eventType": "variable",
-					"name": "DoorPivotOffsetY",
-					"type": "number",
-					"initialValue": "4",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": true,
-					"sid": 123365132469940
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "Doors",
-							"sid": 120417696358059
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Doors",
-							"sid": 543677900882593,
-							"parameters": {
-								"instance-variable": "ClosedAngle",
-								"value": "Self.Angle"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Doors",
-							"sid": 950363624595619,
-							"parameters": {
-								"instance-variable": "PivotX",
-								"value": "Doors.X + DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle)"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Doors",
-							"sid": 408866882321518,
-							"parameters": {
-								"instance-variable": "PivotY",
-								"value": "Doors.Y + DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle)"
-							}
-						}
-					],
-					"sid": 747454593181733
-				},
-				{
-					"aceType": "action",
-					"aceName": "OpenDoor",
-					"objectClass": "Doors",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "OpenerX",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 419440102794434
-						},
-						{
-							"name": "OpenerY",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 456333856768355
-						}
-					],
-					"eventType": "custom-ace-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 227777274669928,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Pivot Door",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "Side",
+							"name": "DoorPivotOffsetX",
 							"type": "number",
-							"initialValue": "0",
+							"initialValue": "3",
 							"comment": "",
 							"isStatic": false,
-							"isConstant": false,
-							"sid": 325238255734920
+							"isConstant": true,
+							"sid": 953880814953948
 						},
 						{
-							"eventType": "comment",
-							"text": "Door is elevator"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 667385687204087,
-									"parameters": {
-										"first-value": "Doors.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"ElevatorDoor\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "Doors",
-									"sid": 323973510554090,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetWidth",
-										"end-value": "0",
-										"time": "2",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								},
-								{
-									"id": "play-at-object",
-									"objectClass": "Audio",
-									"sid": 196456344026101,
-									"parameters": {
-										"audio-file": {
-											"path": "ElevatorEvent"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"object": "Doors",
-										"inner-angle": "360",
-										"outer-angle": "360",
-										"outer-gain": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"customAction": "Enable",
-									"objectClass": "Elevator",
-									"sid": 531506692790863
-								}
-							],
-							"sid": 239515095019589
-						},
-						{
-							"eventType": "comment",
-							"text": "Door is a mechanical, sliding door"
+							"eventType": "variable",
+							"name": "DoorPivotOffsetY",
+							"type": "number",
+							"initialValue": "4",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 659593325354614
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 698823273719202
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 145026235678882,
-									"parameters": {
-										"first-value": "Doors.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"PrisonDoor\""
-									}
+									"id": "on-created",
+									"objectClass": "PivotDoor",
+									"sid": 571401072600757
 								}
 							],
 							"actions": [
 								{
-									"id": "tween-one-property",
-									"objectClass": "Doors",
-									"sid": 789716762957655,
-									"behaviorType": "Tween",
+									"id": "set-instvar-value",
+									"objectClass": "PivotDoor",
+									"sid": 405431039144359,
 									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetWidth",
-										"end-value": "0",
-										"time": "2",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
+										"instance-variable": "ClosedAngle",
+										"value": "Self.Angle"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PivotDoor",
+									"sid": 882552936510784,
+									"parameters": {
+										"instance-variable": "PivotX",
+										"value": "PivotDoor.X + DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PivotDoor",
+									"sid": 324178563294726,
+									"parameters": {
+										"instance-variable": "PivotY",
+										"value": "PivotDoor.Y + DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle)"
 									}
 								}
 							],
-							"sid": 570649243777126
-						},
-						{
-							"eventType": "comment",
-							"text": "Regular doors"
+							"sid": 384402945676695
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
+									"id": "for-each",
 									"objectClass": "System",
-									"sid": 606799992540604
+									"sid": 523157522039610,
+									"parameters": {
+										"object": "PivotDoor"
+									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 924018945852321,
+									"id": "set-position",
+									"objectClass": "PivotDoor",
+									"sid": 831469940963120,
 									"parameters": {
-										"variable": "Side",
-										"value": "sin(Doors.ClosedAngle)*(OpenerX-Doors.X)-cos(Doors.ClosedAngle)*(OpenerY-Doors.Y)"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 918289650661368,
-									"parameters": {
-										"audio-file": {
-											"path": "Interactive/DoorAOpen"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
+										"x": "Self.PivotX - (DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle))",
+										"y": "Self.PivotY - (DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle))"
 									}
 								}
 							],
-							"sid": 332724905356098,
+							"sid": 594721774400008
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "PivotDoor",
+									"sid": 124745678772909,
+									"parameters": {
+										"tag": "\"Open\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "PivotDoor",
+									"sid": 600329591150690,
+									"behaviorType": "Tween"
+								}
+							],
+							"sid": 335738964123929,
 							"children": [
-								{
-									"eventType": "comment",
-									"text": "Door is opened"
-								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-within-angle",
-											"objectClass": "Doors",
-											"sid": 806328526080569,
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "PivotDoor",
+											"sid": 758550410315876,
 											"parameters": {
-												"within": "1",
-												"angle": "Self.ClosedAngle"
-											},
-											"isInverted": true
+												"instance-variable": "isLocked"
+											}
 										}
 									],
 									"actions": [
 										{
-											"id": "tween-one-property",
-											"objectClass": "Doors",
-											"sid": 427433080750281,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetAngle",
-												"end-value": "Self.ClosedAngle",
-												"time": "0.2",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 963812438241647,
+											"sid": 499942264588370,
 											"parameters": {
 												"audio-file": {
-													"path": "Interactive/DoorAClose"
+													"path": "Interactive/DoorLocked"
 												},
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "PivotDoor",
+											"sid": 813057393637945,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetX",
+												"end-value": "PivotDoor.X+choose(-2,2)",
+												"time": "0.1",
+												"ease": "easeinoutback",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "yes",
+												"repeat-count": "3"
+											}
 										}
 									],
-									"sid": 387767718750362
-								},
-								{
-									"eventType": "comment",
-									"text": "Door is closed"
+									"sid": 678327868481948
 								},
 								{
 									"eventType": "block",
@@ -823,19 +676,59 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 284631180978713
+											"sid": 114214561857860
 										}
 									],
 									"actions": [],
-									"sid": 482633329861492,
+									"sid": 208431674517549,
 									"children": [
+										{
+											"eventType": "variable",
+											"name": "Side",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 341408370712478
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 188983746412256,
+													"parameters": {
+														"audio-file": {
+															"path": "Interactive/DoorAOpen"
+														},
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 170754477010522,
+													"parameters": {
+														"variable": "Side",
+														"value": "sin(PivotDoor.ClosedAngle)*(PivotDoor.openerX-PivotDoor.X)-cos(PivotDoor.ClosedAngle)*(PivotDoor.openerY-PivotDoor.Y)"
+													}
+												}
+											],
+											"sid": 857742408024836
+										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 715930386759887,
+													"sid": 798855650638161,
 													"parameters": {
 														"variable": "Side",
 														"comparison": 4,
@@ -846,11 +739,11 @@
 											"actions": [
 												{
 													"id": "tween-one-property",
-													"objectClass": "Doors",
-													"sid": 674781182601011,
+													"objectClass": "PivotDoor",
+													"sid": 864276252422283,
 													"behaviorType": "Tween",
 													"parameters": {
-														"tags": "\"\"",
+														"tags": "\"DoorMove\"",
 														"property": "offsetAngle",
 														"end-value": "Self.ClosedAngle+90",
 														"time": "0.2",
@@ -864,14 +757,14 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 314138005413116,
+													"sid": 465994566607980,
 													"parameters": {
 														"variable": "Side",
 														"value": "0"
 													}
 												}
 											],
-											"sid": 566015489952975
+											"sid": 418696586445307
 										},
 										{
 											"eventType": "block",
@@ -879,17 +772,17 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 626535576571820
+													"sid": 995177457794400
 												}
 											],
 											"actions": [
 												{
 													"id": "tween-one-property",
-													"objectClass": "Doors",
-													"sid": 782928005898030,
+													"objectClass": "PivotDoor",
+													"sid": 996198491830396,
 													"behaviorType": "Tween",
 													"parameters": {
-														"tags": "\"\"",
+														"tags": "\"DoorMove\"",
 														"property": "offsetAngle",
 														"end-value": "Self.ClosedAngle-90",
 														"time": "0.2",
@@ -903,46 +796,1686 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 715558833375194,
+													"sid": 933428060631387,
 													"parameters": {
 														"variable": "Side",
 														"value": "0"
 													}
 												}
 											],
-											"sid": 930756586753455
+											"sid": 262316052373571
 										}
 									]
 								}
 							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "WindowedDoor",
-							"sid": 251054366503831,
-							"parameters": {
-								"x": "Self.PivotX - (DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle))",
-								"y": "Self.PivotY - (DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle))"
-							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "WindowedDoor",
-							"sid": 192480489861028,
-							"disabled": true,
-							"parameters": {
-								"x": "Self.PivotX",
-								"y": "Self.PivotY"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "PivotDoor",
+									"sid": 852161306789020,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"DoorMove\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 367716648128512,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "PivotDoor.X - 32",
+										"start-y": "PivotDoor.Y - 32",
+										"end-x": "PivotDoor.X + 32",
+										"end-y": "PivotDoor.Y + 32"
+									}
+								}
+							],
+							"sid": 320702730250037
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "PivotDoor",
+									"sid": 208469970787563,
+									"parameters": {
+										"tag": "\"Close\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "PivotDoor",
+									"sid": 693222568198822,
+									"behaviorType": "Tween"
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 130197393522376,
+									"parameters": {
+										"audio-file": {
+											"path": "Interactive/DoorAClose"
+										},
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "PivotDoor",
+									"sid": 489624092756077,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "Self.ClosedAngle",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 593017885778048
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "PivotDoor",
+									"sid": 136862595425081,
+									"parameters": {
+										"tag": "\"SetOpened\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "PivotDoor",
+									"sid": 527068414486613,
+									"parameters": {
+										"angle": "Self.ClosedAngle + 90"
+									}
+								}
+							],
+							"sid": 392491674796230
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "PivotDoor",
+									"sid": 777339123840356,
+									"parameters": {
+										"tag": "\"SetClosed\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 664723439860421
 						}
 					],
-					"sid": 657579524087100
+					"sid": 441379128049505
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Sliding Door",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "SlidingDoor",
+									"sid": 721365656051283
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "SlidingDoor",
+									"sid": 286434535525070,
+									"parameters": {
+										"instance-variable": "ClosedWidth",
+										"value": "Self.Width"
+									}
+								}
+							],
+							"sid": 622788773783659
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "SlidingDoor",
+									"sid": 749809738002202,
+									"parameters": {
+										"tag": "\"Open\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "SlidingDoor",
+									"sid": 766001324658260,
+									"behaviorType": "Tween"
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "SlidingDoor",
+									"sid": 426727294469947,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"DoorMove\"",
+										"property": "offsetWidth",
+										"end-value": "0",
+										"time": "2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 599336537377135
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "SlidingDoor",
+									"sid": 206994832490799,
+									"parameters": {
+										"tag": "\"Close\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "SlidingDoor",
+									"sid": 616675444004275,
+									"behaviorType": "Tween"
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "SlidingDoor",
+									"sid": 678655010329194,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"DoorMove\"",
+										"property": "offsetWidth",
+										"end-value": "Self.ClosedWidth",
+										"time": "2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 860147807302318
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "SlidingDoor",
+									"sid": 614330172031351,
+									"parameters": {
+										"tag": "\"SetOpened\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "SlidingDoor",
+									"sid": 813131953135501,
+									"parameters": {
+										"width": "0"
+									}
+								}
+							],
+							"sid": 961295572432726
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "SlidingDoor",
+									"sid": 940809467821712,
+									"parameters": {
+										"tag": "\"SetClosed\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "SlidingDoor",
+									"sid": 383437651132875,
+									"parameters": {
+										"width": "Self.ClosedWidth"
+									}
+								}
+							],
+							"sid": 968304694806487
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "SlidingDoor",
+									"sid": 756187584169278,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"DoorMove\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "regenerate-region",
+									"objectClass": "Zombies",
+									"sid": 252239901301989,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"start-x": "SlidingDoor.X - 32",
+										"start-y": "SlidingDoor.Y - 32",
+										"end-x": "SlidingDoor.X + 32",
+										"end-y": "SlidingDoor.Y + 32"
+									}
+								}
+							],
+							"sid": 792362196886103
+						}
+					],
+					"sid": 875477366156603
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Shutter",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "SOLID_SHUTTER_HEIGHT",
+							"type": "number",
+							"initialValue": "15",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 711641259019445
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "IronShutter",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "IronShutter",
+											"sid": 530426150543394
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 181999361927333,
+											"parameters": {
+												"object-to-create": "LightShutter",
+												"layer": "IronShutter.LayerName",
+												"x": "IronShutter.BBoxMidX",
+												"y": "IronShutter.BBoxMidY",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "IronShutter",
+											"sid": 253364092574819,
+											"parameters": {
+												"child": "LightShutter",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-z-elevation": false,
+												"transform-w": false,
+												"transform-h": false,
+												"transform-d": false,
+												"transform-a": true,
+												"transform-o": false,
+												"transform-visibility": false,
+												"destroy-with-parent": false
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "LightShutter",
+											"sid": 143020682469768,
+											"parameters": {
+												"angle": "IronShutter.Angle"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "LightShutter",
+											"sid": 292905867926528,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 471038792779361
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-instance-signal",
+											"objectClass": "IronShutter",
+											"sid": 714806493782821,
+											"parameters": {
+												"tag": "\"Open\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "StopMovement",
+											"objectClass": "IronShutter",
+											"sid": 337314410880354
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 552062163286472,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/IronShutterUse"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "IronShutter",
+											"sid": 976822158738084,
+											"behaviorType": "TweenSelf",
+											"parameters": {
+												"tags": "\"ShutterMovement\"",
+												"property": "offsetZElevation",
+												"end-value": "32",
+												"time": "IronShutter.ClosingTime",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "IronShutter",
+											"sid": 603145351999194,
+											"behaviorType": "TweenSelf",
+											"parameters": {
+												"tags": "\"ShutterAlpha\"",
+												"property": "offsetOpacity",
+												"end-value": "40",
+												"time": "IronShutter.ClosingTime",
+												"ease": "easeoutcubic",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"customAction": "StartMovement",
+											"objectClass": "IronShutter",
+											"sid": 302788858224271
+										}
+									],
+									"sid": 385287251375104
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-instance-signal",
+											"objectClass": "IronShutter",
+											"sid": 854409146199102,
+											"parameters": {
+												"tag": "\"Close\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "StopMovement",
+											"objectClass": "IronShutter",
+											"sid": 797028860462155
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 621291237233926,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/IronShutterUse"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "IronShutter",
+											"sid": 256549920550996,
+											"behaviorType": "TweenSelf",
+											"parameters": {
+												"tags": "\"ShutterMovement\"",
+												"property": "offsetZElevation",
+												"end-value": "0",
+												"time": "IronShutter.ClosingTime",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "IronShutter",
+											"sid": 737789884993680,
+											"behaviorType": "TweenSelf",
+											"parameters": {
+												"tags": "\"ShutterAlpha\"",
+												"property": "offsetOpacity",
+												"end-value": "100",
+												"time": "IronShutter.ClosingTime",
+												"ease": "easeincubic",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"customAction": "StartMovement",
+											"objectClass": "IronShutter",
+											"sid": 137500867390348
+										}
+									],
+									"sid": 634370122210251
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-instance-signal",
+											"objectClass": "IronShutter",
+											"sid": 239490690495072,
+											"parameters": {
+												"tag": "\"SetOpened\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "IronShutter",
+											"sid": 351319013450064,
+											"parameters": {
+												"z": "32"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "IronShutter",
+											"sid": 403893352163152,
+											"parameters": {
+												"opacity": "40"
+											}
+										}
+									],
+									"sid": 671999931206480
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-instance-signal",
+											"objectClass": "IronShutter",
+											"sid": 346170897372339,
+											"parameters": {
+												"tag": "\"SetClosed\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "IronShutter",
+											"sid": 486425300332988,
+											"parameters": {
+												"z": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "IronShutter",
+											"sid": 379565185070646,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 116172347391523
+								},
+								{
+									"aceType": "action",
+									"aceName": "StartMovement",
+									"objectClass": "IronShutter",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "custom-ace-block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "IronShutter",
+											"sid": 763642576638593,
+											"parameters": {
+												"child": "LightShutter",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play-at-object",
+											"objectClass": "Audio",
+											"sid": 732201113817116,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/IronShutterLoop"
+												},
+												"loop": "looping",
+												"volume": "0",
+												"object": "IronShutter",
+												"inner-angle": "360",
+												"outer-angle": "360",
+												"outer-gain": "0",
+												"tag-optional": "\"IronShutter\"&IronShutter.UID"
+											}
+										},
+										{
+											"id": "set-playback-rate",
+											"objectClass": "Audio",
+											"sid": 691092689154845,
+											"parameters": {
+												"tag": "\"IronShutter\"&IronShutter.UID",
+												"playback-rate": "1"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "LightShutter",
+											"sid": 338470980449112,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 613995416384982
+								},
+								{
+									"aceType": "action",
+									"aceName": "StopMovement",
+									"objectClass": "IronShutter",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "custom-ace-block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "IronShutter",
+											"sid": 926097382801133,
+											"parameters": {
+												"child": "LightShutter",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 231889505641259,
+											"parameters": {
+												"tag": "\"IronShutter\"&IronShutter.UID"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "LightShutter",
+											"sid": 692584308666352,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 389737344636312
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-tweens-finished",
+											"objectClass": "IronShutter",
+											"sid": 991972596110062,
+											"behaviorType": "TweenSelf",
+											"parameters": {
+												"tags": "\"ShutterMovement\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 168334830595504,
+											"parameters": {
+												"audio-file": {
+													"path": "Interactive/IronShutterUse"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"customAction": "StopMovement",
+											"objectClass": "IronShutter",
+											"sid": 822028852856305
+										}
+									],
+									"sid": 194219550997840,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 329712896294989,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 0,
+														"z-elevation": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 384321910459585,
+													"parameters": {
+														"object-to-create": "DustParticle",
+														"layer": "IronShutter.LayerName",
+														"x": "IronShutter.X",
+														"y": "IronShutter.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 818756028008154,
+													"parameters": {
+														"object-to-create": "DustParticle",
+														"layer": "IronShutter.LayerName",
+														"x": "IronShutter.FaceImagePointX(0,1)",
+														"y": "IronShutter.FaceImagePointY(0,1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 609105663178198,
+													"parameters": {
+														"object-to-create": "DustParticle",
+														"layer": "IronShutter.LayerName",
+														"x": "IronShutter.FaceImagePointX(0,2)",
+														"y": "IronShutter.FaceImagePointY(0,2)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 865724979309656
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 116310764969577
+										}
+									],
+									"actions": [],
+									"sid": 960220722636555,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 443874356163011,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 0,
+														"z-elevation": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "IronShutter",
+													"sid": 493786089890847,
+													"parameters": {
+														"action": "replace",
+														"tags": "\"\""
+													}
+												}
+											],
+											"sid": 129378770527583
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 860505715514487,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 5,
+														"z-elevation": "6"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "IronShutter",
+													"sid": 900020003954926,
+													"parameters": {
+														"action": "replace",
+														"tags": "\"Crawlable\""
+													}
+												}
+											],
+											"sid": 211791800564574
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 176953830485204,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 2,
+														"z-elevation": "SOLID_SHUTTER_HEIGHT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-enabled",
+													"objectClass": "IronShutter",
+													"sid": 466265454714777,
+													"behaviorType": "Solid",
+													"parameters": {
+														"state": "enabled"
+													}
+												}
+											],
+											"sid": 759979115274530
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 853252093128605,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 5,
+														"z-elevation": "SOLID_SHUTTER_HEIGHT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-enabled",
+													"objectClass": "IronShutter",
+													"sid": 836045492939496,
+													"behaviorType": "Solid",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "change-tags",
+													"objectClass": "IronShutter",
+													"sid": 913174155562904,
+													"parameters": {
+														"action": "replace",
+														"tags": "\"Crawlable Chair\""
+													}
+												}
+											],
+											"sid": 562604853306184
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 343754685374046,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 3,
+														"z-elevation": "1"
+													}
+												},
+												{
+													"id": "is-playing",
+													"objectClass": "IronShutter",
+													"sid": 458052591137082,
+													"behaviorType": "TweenSelf",
+													"parameters": {
+														"tags": "\"ShutterMovement\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 278646082036247,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "IronShutter",
+															"sid": 805477544693946,
+															"parameters": {
+																"object": "CrawlingSprite"
+															}
+														}
+													],
+													"actions": [
+														{
+															"customAction": "DoDamage",
+															"objectClass": "CharacterController",
+															"sid": 496883628416678,
+															"parameters": [
+																"200",
+																false
+															]
+														}
+													],
+													"sid": 489591235668875
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 493160733442866,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 2,
+														"z-elevation": "14"
+													}
+												},
+												{
+													"id": "is-playing",
+													"objectClass": "IronShutter",
+													"sid": 779708490878816,
+													"behaviorType": "TweenSelf",
+													"parameters": {
+														"tags": "\"ShutterMovement\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 328490496120899,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "IronShutter",
+															"sid": 626626385729658,
+															"parameters": {
+																"object": "Zombies"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "play-at-object",
+															"objectClass": "Audio",
+															"sid": 885252140172720,
+															"parameters": {
+																"audio-file": {
+																	"path": "GoreBig2"
+																},
+																"loop": "not-looping",
+																"volume": "0",
+																"object": "IronShutter",
+																"inner-angle": "360",
+																"outer-angle": "360",
+																"outer-gain": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"customAction": "DoDamage",
+															"objectClass": "Zombies",
+															"sid": 145020169789820,
+															"parameters": [
+																"200",
+																"0"
+															]
+														}
+													],
+													"sid": 294735474671057
+												}
+											]
+										},
+										{
+											"eventType": "variable",
+											"name": "regenerate_navmesh",
+											"type": "boolean",
+											"initialValue": "false",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 205348030817477
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "IronShutter",
+													"sid": 997903104581857,
+													"parameters": {
+														"instance-variable": "isOpen"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "IronShutter",
+													"sid": 300489676377094,
+													"parameters": {
+														"instance-variable": "PreviousZ",
+														"comparison": 2,
+														"value": "SOLID_SHUTTER_HEIGHT"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 718649991159605,
+													"parameters": {
+														"first-value": "IronShutter.Z",
+														"comparison": 5,
+														"second-value": "SOLID_SHUTTER_HEIGHT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 142751466112945,
+													"parameters": {
+														"variable": "regenerate_navmesh",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 859208535251892
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "IronShutter",
+													"sid": 236320989149977,
+													"parameters": {
+														"instance-variable": "isOpen"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "IronShutter",
+													"sid": 279256394630475,
+													"parameters": {
+														"instance-variable": "PreviousZ",
+														"comparison": 4,
+														"value": "SOLID_SHUTTER_HEIGHT"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 162167744588615,
+													"parameters": {
+														"first-value": "IronShutter.Z",
+														"comparison": 3,
+														"second-value": "SOLID_SHUTTER_HEIGHT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 860402186810458,
+													"parameters": {
+														"variable": "regenerate_navmesh",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 146619322942678
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 346553892884116,
+													"parameters": {
+														"variable": "regenerate_navmesh"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "regenerate-region",
+													"objectClass": "Zombies",
+													"sid": 744416938542641,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"start-x": "IronShutter.X - 32",
+														"start-y": "IronShutter.Y - 32",
+														"end-x": "IronShutter.X + 32",
+														"end-y": "IronShutter.Y + 32"
+													}
+												}
+											],
+											"sid": 106192780769304
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "IronShutter",
+													"sid": 309515962415897,
+													"parameters": {
+														"instance-variable": "PreviousZ",
+														"value": "Self.Z"
+													}
+												}
+											],
+											"sid": 121640717546348
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-z-elevation",
+													"objectClass": "IronShutter",
+													"sid": 187982951318216,
+													"parameters": {
+														"which": "z-elevation",
+														"comparison": 4,
+														"z-elevation": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-enabled",
+													"objectClass": "IronShutter",
+													"sid": 579485264973371,
+													"behaviorType": "ShadowCaster",
+													"parameters": {
+														"state": "disabled"
+													}
+												}
+											],
+											"sid": 103716909615541
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 336516371340595
+												}
+											],
+											"actions": [
+												{
+													"id": "set-enabled",
+													"objectClass": "IronShutter",
+													"sid": 610727540122868,
+													"behaviorType": "ShadowCaster",
+													"parameters": {
+														"state": "enabled"
+													}
+												}
+											],
+											"sid": 823369174089209
+										}
+									]
+								}
+							],
+							"sid": 112801254294398
+						}
+					],
+					"sid": 538992061872495
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Generic Door (put all doors before that)",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Doors",
+									"sid": 956337841807161
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Doors",
+									"sid": 435491218447360,
+									"parameters": {
+										"instance-variable": "startOpened"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "SetOpened",
+									"objectClass": "Doors",
+									"sid": 453293519317637
+								}
+							],
+							"sid": 912687385962668
+						},
+						{
+							"aceType": "action",
+							"aceName": "Open",
+							"objectClass": "Doors",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "OpenerX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 419440102794434
+								},
+								{
+									"name": "OpenerY",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 456333856768355
+								}
+							],
+							"eventType": "custom-ace-block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Doors",
+									"sid": 785012193148063,
+									"parameters": {
+										"instance-variable": "isOpen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Doors",
+									"sid": 597987657555087,
+									"parameters": {
+										"instance-variable": "openerX",
+										"value": "OpenerX"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Doors",
+									"sid": 296786030277873,
+									"parameters": {
+										"instance-variable": "openerY",
+										"value": "OpenerY"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Doors",
+									"sid": 319593972865681,
+									"parameters": {
+										"instance-variable": "isOpen",
+										"value": "true"
+									}
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "Doors",
+									"sid": 844973532652141,
+									"parameters": {
+										"tag": "\"Open\""
+									}
+								}
+							],
+							"sid": 735271759500874,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Door is elevator"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 975066855777665,
+											"parameters": {
+												"first-value": "Doors.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"ElevatorDoor\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Doors",
+											"sid": 360709473424382,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetWidth",
+												"end-value": "0",
+												"time": "2",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"customAction": "Enable",
+											"objectClass": "Elevator",
+											"sid": 807635013429549
+										}
+									],
+									"sid": 607009222875190
+								}
+							]
+						},
+						{
+							"aceType": "action",
+							"aceName": "Close",
+							"objectClass": "Doors",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "custom-ace-block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Doors",
+									"sid": 616130420261392,
+									"parameters": {
+										"instance-variable": "isOpen"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Doors",
+									"sid": 495635087642674,
+									"parameters": {
+										"instance-variable": "isOpen",
+										"value": "false"
+									}
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "Doors",
+									"sid": 131187298872625,
+									"parameters": {
+										"tag": "\"Close\""
+									}
+								}
+							],
+							"sid": 665575021912664
+						},
+						{
+							"aceType": "action",
+							"aceName": "Toggle",
+							"objectClass": "Doors",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "OpenerX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 979452119384658
+								},
+								{
+									"name": "OpenerY",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 360791531918840
+								}
+							],
+							"eventType": "custom-ace-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 717213333505134,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Doors",
+											"sid": 829414953239650,
+											"parameters": {
+												"instance-variable": "isOpen"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "Close",
+											"objectClass": "Doors",
+											"sid": 300328699052413
+										}
+									],
+									"sid": 996757252286091
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 245257212883444
+										}
+									],
+									"actions": [
+										{
+											"customAction": "Open",
+											"objectClass": "Doors",
+											"sid": 457351479814047,
+											"parameters": [
+												"OpenerX",
+												"OpenerY"
+											]
+										}
+									],
+									"sid": 457015570671092
+								}
+							]
+						},
+						{
+							"aceType": "action",
+							"aceName": "SetOpened",
+							"objectClass": "Doors",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "custom-ace-block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Doors",
+									"sid": 784791328838607,
+									"parameters": {
+										"instance-variable": "isOpen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Doors",
+									"sid": 877003133570635,
+									"parameters": {
+										"instance-variable": "isOpen",
+										"value": "true"
+									}
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "Doors",
+									"sid": 123589576378074,
+									"parameters": {
+										"tag": "\"SetOpened\""
+									}
+								}
+							],
+							"sid": 516191530111107
+						},
+						{
+							"aceType": "action",
+							"aceName": "SetClosed",
+							"objectClass": "Doors",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "custom-ace-block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Doors",
+									"sid": 136916759710657,
+									"parameters": {
+										"instance-variable": "isOpen"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Doors",
+									"sid": 418481977225196,
+									"parameters": {
+										"instance-variable": "isOpen",
+										"value": "false"
+									}
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "Doors",
+									"sid": 811839289154095,
+									"parameters": {
+										"tag": "\"SetClosed\""
+									}
+								}
+							],
+							"sid": 792508933830062
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Doors",
+									"sid": 203637727192153,
+									"parameters": {
+										"tag": "\"Toggle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Toggle",
+									"objectClass": "Doors",
+									"sid": 901567948022146,
+									"parameters": [
+										"0",
+										"0"
+									]
+								}
+							],
+							"sid": 468835825844840
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Doors",
+									"sid": 430863898748171,
+									"parameters": {
+										"tag": "\"Trigger\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Toggle",
+									"objectClass": "Doors",
+									"sid": 982414696570075,
+									"parameters": [
+										"0",
+										"0"
+									]
+								}
+							],
+							"sid": 769922633787957
+						}
+					],
+					"sid": 118779972199477
 				}
 			],
 			"sid": 159107266233541
@@ -999,6 +2532,23 @@
 					"eventType": "custom-ace-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 324859744305882,
+							"parameters": {
+								"audio-file": {
+									"path": "ElevatorEvent"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Elevator",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
 						{
 							"id": "play-at-object",
 							"objectClass": "Audio",
@@ -1134,903 +2684,6 @@
 				}
 			],
 			"sid": 701136920108105
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "IronShutter",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"aceType": "action",
-					"aceName": "ToggleShutter",
-					"objectClass": "IronShutter",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "custom-ace-block",
-					"conditions": [
-						{
-							"id": "is-playing",
-							"objectClass": "IronShutter",
-							"sid": 821199729524453,
-							"behaviorType": "TweenSelf",
-							"parameters": {
-								"tags": "\"ShutterMovement\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [],
-					"sid": 788910358149164,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-z-elevation",
-									"objectClass": "IronShutter",
-									"sid": 346289665187690,
-									"parameters": {
-										"which": "z-elevation",
-										"comparison": 3,
-										"z-elevation": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 204137049390221,
-									"parameters": {
-										"audio-file": {
-											"path": "Interactive/IronShutterUse"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "IronShutter",
-									"sid": 144479601147789,
-									"behaviorType": "TweenSelf",
-									"parameters": {
-										"tags": "\"ShutterMovement\"",
-										"property": "offsetZElevation",
-										"end-value": "32",
-										"time": "IronShutter.ClosingTime",
-										"ease": "noease",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								}
-							],
-							"sid": 158874553576273
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 295254275731466
-								},
-								{
-									"id": "compare-z-elevation",
-									"objectClass": "IronShutter",
-									"sid": 356484990521641,
-									"parameters": {
-										"which": "z-elevation",
-										"comparison": 4,
-										"z-elevation": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 587664236753041,
-									"parameters": {
-										"audio-file": {
-											"path": "Interactive/IronShutterUse"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "IronShutter",
-									"sid": 971416233779913,
-									"behaviorType": "TweenSelf",
-									"parameters": {
-										"tags": "\"ShutterMovement\"",
-										"property": "offsetZElevation",
-										"end-value": "0",
-										"time": "IronShutter.ClosingTime",
-										"ease": "noease",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								}
-							],
-							"sid": 357370440833963
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "play-at-object",
-									"objectClass": "Audio",
-									"sid": 841624671718304,
-									"parameters": {
-										"audio-file": {
-											"path": "Interactive/IronShutterLoop"
-										},
-										"loop": "looping",
-										"volume": "0",
-										"object": "IronShutter",
-										"inner-angle": "360",
-										"outer-angle": "360",
-										"outer-gain": "0",
-										"tag-optional": "\"IronShutter\"&IronShutter.UID"
-									}
-								},
-								{
-									"id": "set-playback-rate",
-									"objectClass": "Audio",
-									"sid": 516775942797248,
-									"parameters": {
-										"tag": "\"IronShutter\"&IronShutter.UID",
-										"playback-rate": "1"
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 329551873849880,
-									"parameters": {
-										"object-to-create": "LightShutter",
-										"layer": "IronShutter.LayerName",
-										"x": "IronShutter.BBoxMidX",
-										"y": "IronShutter.BBoxMidY",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "add-child",
-									"objectClass": "IronShutter",
-									"sid": 283126754166177,
-									"parameters": {
-										"child": "LightShutter",
-										"transform-x": true,
-										"transform-y": true,
-										"transform-z-elevation": false,
-										"transform-w": false,
-										"transform-h": false,
-										"transform-d": false,
-										"transform-a": true,
-										"transform-o": false,
-										"transform-visibility": false,
-										"destroy-with-parent": false
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "LightShutter",
-									"sid": 524877714680240,
-									"parameters": {
-										"angle": "IronShutter.Angle"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "LightShutter",
-									"sid": 302074641782091,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 413608861831115
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-z-elevation",
-							"objectClass": "IronShutter",
-							"sid": 817264844526370,
-							"parameters": {
-								"which": "z-elevation",
-								"comparison": 0,
-								"z-elevation": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "change-tags",
-							"objectClass": "IronShutter",
-							"sid": 867475157688686,
-							"parameters": {
-								"action": "replace",
-								"tags": "\"\""
-							}
-						}
-					],
-					"sid": 989244761149770
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-z-elevation",
-							"objectClass": "IronShutter",
-							"sid": 436501291597561,
-							"parameters": {
-								"which": "z-elevation",
-								"comparison": 5,
-								"z-elevation": "6"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "change-tags",
-							"objectClass": "IronShutter",
-							"sid": 261820060351391,
-							"parameters": {
-								"action": "replace",
-								"tags": "\"Crawlable\""
-							}
-						}
-					],
-					"sid": 285841916677857
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-z-elevation",
-							"objectClass": "IronShutter",
-							"sid": 951817911144096,
-							"parameters": {
-								"which": "z-elevation",
-								"comparison": 2,
-								"z-elevation": "15"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "IronShutter",
-							"sid": 288282859168026,
-							"behaviorType": "Solid",
-							"parameters": {
-								"state": "enabled"
-							}
-						}
-					],
-					"sid": 326407229537747,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 981558904425408
-								}
-							],
-							"actions": [
-								{
-									"id": "regenerate-region",
-									"objectClass": "Zombies",
-									"sid": 777416628518218,
-									"behaviorType": "Pathfinding",
-									"parameters": {
-										"start-x": "IronShutter.X - 32",
-										"start-y": "IronShutter.Y - 32",
-										"end-x": "IronShutter.X + 32",
-										"end-y": "IronShutter.Y + 32"
-									}
-								}
-							],
-							"sid": 887885349978362
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-z-elevation",
-							"objectClass": "IronShutter",
-							"sid": 222543379190668,
-							"parameters": {
-								"which": "z-elevation",
-								"comparison": 5,
-								"z-elevation": "15"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "IronShutter",
-							"sid": 968065612294057,
-							"behaviorType": "Solid",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "change-tags",
-							"objectClass": "IronShutter",
-							"sid": 195132149672683,
-							"parameters": {
-								"action": "replace",
-								"tags": "\"Crawlable Chair\""
-							}
-						}
-					],
-					"sid": 979833528863973,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 122846620690870
-								}
-							],
-							"actions": [
-								{
-									"id": "regenerate-region",
-									"objectClass": "Zombies",
-									"sid": 320207990750237,
-									"behaviorType": "Pathfinding",
-									"parameters": {
-										"start-x": "IronShutter.X - 32",
-										"start-y": "IronShutter.Y - 32",
-										"end-x": "IronShutter.X + 32",
-										"end-y": "IronShutter.Y + 32"
-									}
-								}
-							],
-							"sid": 196823889920367
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tweens-finished",
-							"objectClass": "IronShutter",
-							"sid": 190952688033346,
-							"behaviorType": "TweenSelf",
-							"parameters": {
-								"tags": "\"ShutterMovement\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 418526454918209,
-							"parameters": {
-								"audio-file": {
-									"path": "Interactive/IronShutterUse"
-								},
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Audio",
-							"sid": 731541686884062,
-							"parameters": {
-								"tag": "\"IronShutter\"&IronShutter.UID"
-							}
-						}
-					],
-					"sid": 540748866045551,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-z-elevation",
-									"objectClass": "IronShutter",
-									"sid": 680127112663314,
-									"parameters": {
-										"which": "z-elevation",
-										"comparison": 0,
-										"z-elevation": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 319196349751234,
-									"parameters": {
-										"object-to-create": "DustParticle",
-										"layer": "IronShutter.LayerName",
-										"x": "IronShutter.X",
-										"y": "IronShutter.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 543927501843256,
-									"parameters": {
-										"object-to-create": "DustParticle",
-										"layer": "IronShutter.LayerName",
-										"x": "IronShutter.FaceImagePointX(0,1)",
-										"y": "IronShutter.FaceImagePointY(0,1)",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 683164404438014,
-									"parameters": {
-										"object-to-create": "DustParticle",
-										"layer": "IronShutter.LayerName",
-										"x": "IronShutter.FaceImagePointX(0,2)",
-										"y": "IronShutter.FaceImagePointY(0,2)",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 806997834497891
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "IronShutter",
-									"sid": 149611957256809,
-									"parameters": {
-										"child": "LightShutter",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "LightShutter",
-									"sid": 696914567040189
-								}
-							],
-							"sid": 129768241772334
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-z-elevation",
-							"objectClass": "IronShutter",
-							"sid": 394096504238003,
-							"parameters": {
-								"which": "z-elevation",
-								"comparison": 3,
-								"z-elevation": "1"
-							}
-						},
-						{
-							"id": "is-playing",
-							"objectClass": "IronShutter",
-							"sid": 885203298989080,
-							"behaviorType": "TweenSelf",
-							"parameters": {
-								"tags": "\"ShutterMovement\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 710831391991068,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "IronShutter",
-									"sid": 795823415966073,
-									"parameters": {
-										"object": "CrawlingSprite"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "DoDamage",
-									"objectClass": "CharacterController",
-									"sid": 484185747646557,
-									"parameters": [
-										"200",
-										false
-									]
-								}
-							],
-							"sid": 862598685815957
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-z-elevation",
-							"objectClass": "IronShutter",
-							"sid": 928431920545933,
-							"parameters": {
-								"which": "z-elevation",
-								"comparison": 2,
-								"z-elevation": "14"
-							}
-						},
-						{
-							"id": "is-playing",
-							"objectClass": "IronShutter",
-							"sid": 834131713039956,
-							"behaviorType": "TweenSelf",
-							"parameters": {
-								"tags": "\"ShutterMovement\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 614410561945389,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "IronShutter",
-									"sid": 485257289603821,
-									"parameters": {
-										"object": "Zombies"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play-at-object",
-									"objectClass": "Audio",
-									"sid": 933824528259391,
-									"parameters": {
-										"audio-file": {
-											"path": "GoreBig2"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"object": "IronShutter",
-										"inner-angle": "360",
-										"outer-angle": "360",
-										"outer-gain": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"customAction": "DoDamage",
-									"objectClass": "Zombies",
-									"sid": 387989949461132,
-									"parameters": [
-										"200",
-										"0"
-									]
-								}
-							],
-							"sid": 696145529201395
-						}
-					]
-				}
-			],
-			"sid": 968014154452411
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Computer",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "CanPickUp",
-							"sid": 806844513029579,
-							"parameters": {
-								"object": "PCKeyboard"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 892024078849418
-						}
-					],
-					"actions": [],
-					"sid": 122521920465724,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-nearestfurthest",
-									"objectClass": "PCMonitor",
-									"sid": 914434455760870,
-									"parameters": {
-										"which": "nearest",
-										"x": "PCKeyboard.X",
-										"y": "PCKeyboard.Y",
-										"z": "0",
-										"pick-all-tied": false
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 425357679703715,
-									"parameters": {
-										"audio-file": {
-											"path": "Interactive/ComputerButton"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								}
-							],
-							"sid": 985072346964378,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "PCMonitor",
-											"sid": 189122222604100,
-											"parameters": {
-												"instance-variable": "On"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "PCMonitor",
-											"sid": 752464066170898,
-											"parameters": {
-												"instance-variable": "On",
-												"value": "true"
-											}
-										},
-										{
-											"id": "stop",
-											"objectClass": "Audio",
-											"sid": 986011848448196,
-											"parameters": {
-												"tag": "PCMonitor.UID&\"computerOff\""
-											}
-										},
-										{
-											"id": "play-at-object",
-											"objectClass": "Audio",
-											"sid": 236701017399600,
-											"parameters": {
-												"audio-file": {
-													"path": "Interactive/ComputerOn"
-												},
-												"loop": "not-looping",
-												"volume": "-10",
-												"object": "PCMonitor",
-												"inner-angle": "360",
-												"outer-angle": "360",
-												"outer-gain": "0",
-												"tag-optional": "PCMonitor.UID&\"computerOn\""
-											}
-										},
-										{
-											"id": "play-at-object",
-											"objectClass": "Audio",
-											"sid": 939707221792369,
-											"parameters": {
-												"audio-file": {
-													"path": "Interactive/ComputerLoop"
-												},
-												"loop": "looping",
-												"volume": "-100",
-												"object": "PCMonitor",
-												"inner-angle": "360",
-												"outer-angle": "360",
-												"outer-gain": "0",
-												"tag-optional": "PCMonitor.UID&\"computerLoop\""
-											}
-										},
-										{
-											"id": "fade-volume",
-											"objectClass": "Audio",
-											"sid": 539993285436255,
-											"parameters": {
-												"tag": "PCMonitor.UID&\"computerLoop\"",
-												"db": "-10",
-												"duration": "4",
-												"ending": "keep-playing"
-											}
-										},
-										{
-											"id": "set-face-object",
-											"objectClass": "PCMonitor",
-											"sid": 738493581481514,
-											"parameters": {
-												"face": "right",
-												"object": "PC_Screen"
-											}
-										}
-									],
-									"sid": 956577614329166
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 670814745797342
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "PCMonitor",
-											"sid": 748478794708211,
-											"parameters": {
-												"instance-variable": "On"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "PCMonitor",
-											"sid": 631017304616881,
-											"parameters": {
-												"instance-variable": "On",
-												"value": "false"
-											}
-										},
-										{
-											"id": "stop",
-											"objectClass": "Audio",
-											"sid": 171144215179509,
-											"parameters": {
-												"tag": "PCMonitor.UID&\"computerLoop\""
-											}
-										},
-										{
-											"id": "stop",
-											"objectClass": "Audio",
-											"sid": 829564467613234,
-											"parameters": {
-												"tag": "PCMonitor.UID&\"computerOn\""
-											}
-										},
-										{
-											"id": "play-at-object",
-											"objectClass": "Audio",
-											"sid": 727075755781462,
-											"parameters": {
-												"audio-file": {
-													"path": "Interactive/ComputerOff"
-												},
-												"loop": "not-looping",
-												"volume": "-10",
-												"object": "PCMonitor",
-												"inner-angle": "360",
-												"outer-angle": "360",
-												"outer-gain": "0",
-												"tag-optional": "PCMonitor.UID&\"computerOff\""
-											}
-										},
-										{
-											"id": "set-face-image",
-											"objectClass": "PCMonitor",
-											"sid": 758145932467773,
-											"parameters": {
-												"face": "right",
-												"image": "right"
-											}
-										}
-									],
-									"sid": 685545669087373
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-ended",
-							"objectClass": "Audio",
-							"sid": 196199228806668,
-							"parameters": {
-								"tag": "PCMonitor.UID&\"computerOn\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "play-at-object",
-							"objectClass": "Audio",
-							"sid": 899968465261732,
-							"parameters": {
-								"audio-file": {
-									"path": "Interactive/ComputerLoop"
-								},
-								"loop": "looping",
-								"volume": "0",
-								"object": "PCMonitor",
-								"inner-angle": "360",
-								"outer-angle": "360",
-								"outer-gain": "0",
-								"tag-optional": "PCMonitor.UID&\"computerLoop\""
-							}
-						}
-					],
-					"sid": 940179564013693,
-					"disabled": true
-				}
-			],
-			"sid": 456696732295521
 		}
 	],
 	"sid": 287643589064356
