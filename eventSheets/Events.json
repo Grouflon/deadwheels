@@ -33,6 +33,15 @@
 									"parameters": {
 										"instance-variable": "enabled"
 									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Trigger",
+									"sid": 514938231579141,
+									"parameters": {
+										"instance-variable": "Triggered"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -44,6 +53,12 @@
 										"instance-variable": "Triggered",
 										"value": "true"
 									}
+								},
+								{
+									"customAction": "DispatchSignals",
+									"objectClass": "Trigger",
+									"customActionObjectClass": "SignalDispatcherTiledBackground",
+									"sid": 713682435523342
 								}
 							],
 							"sid": 111305308500410,
@@ -80,32 +95,6 @@
 										{
 											"id": "pick-children",
 											"objectClass": "Trigger",
-											"sid": 839820827938167,
-											"parameters": {
-												"child": "Doors",
-												"which": "own"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "Open",
-											"objectClass": "Doors",
-											"sid": 515504637193151,
-											"parameters": [
-												"Doors.X",
-												"Doors.Y"
-											]
-										}
-									],
-									"sid": 184855228346799
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-children",
-											"objectClass": "Trigger",
 											"sid": 275185590969356,
 											"parameters": {
 												"child": "ButtonBase",
@@ -123,6 +112,70 @@
 									"sid": 933087257597995
 								}
 							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Trigger",
+							"sid": 938052602741693,
+							"parameters": {
+								"tag": "\"Trigger\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 581898863368131,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Trigger",
+									"sid": 102366964422260,
+									"parameters": {
+										"instance-variable": "enabled"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Trigger",
+									"sid": 139713405933866,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 123539994388259
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 324421165485573
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Trigger",
+									"sid": 160527451599970,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 921071912944662
 						}
 					]
 				},
@@ -794,13 +847,142 @@
 					],
 					"actions": [
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Event_Dispatcher",
+							"sid": 334843982038009,
+							"parameters": {
+								"instance-variable": "trigger_count",
+								"value": "Self.trigger_count + 1"
+							}
+						}
+					],
+					"sid": 426656199381442,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Event_Dispatcher",
+									"sid": 911523448388886,
+									"parameters": {
+										"instance-variable": "trigger_count",
+										"comparison": 5,
+										"value": "Self.needed_triggers"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 417864049222868,
+									"parameters": {
+										"type": "log",
+										"message": "\"trigger \" & Event_Dispatcher.UID"
+									}
+								}
+							],
+							"sid": 835113535238548,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Event_Dispatcher",
+											"sid": 719885862526967,
+											"parameters": {
+												"instance-variable": "delay",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all-timers",
+											"objectClass": "Event_Dispatcher",
+											"sid": 888117038415889,
+											"behaviorType": "Timer"
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 376760134349664,
+											"parameters": {
+												"type": "log",
+												"message": "\"timer on\""
+											}
+										},
+										{
+											"id": "start-timer",
+											"objectClass": "Event_Dispatcher",
+											"sid": 267281303145286,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Self.delay",
+												"type": "once",
+												"tag": "\"\"&Event_Dispatcher.UID"
+											}
+										}
+									],
+									"sid": 606643055676182
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 634701623800676
+										}
+									],
+									"actions": [
+										{
+											"customAction": "DispatchSignals",
+											"objectClass": "Event_Dispatcher",
+											"customActionObjectClass": "SignalDispatcherSprite",
+											"sid": 922511994497308
+										}
+									],
+									"sid": 956003292307002
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Event_Dispatcher",
+							"sid": 599766013223327,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"\"&Event_Dispatcher.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 694333549767148,
+							"parameters": {
+								"type": "log",
+								"message": "\"timer off\""
+							}
+						},
+						{
 							"customAction": "DispatchSignals",
 							"objectClass": "Event_Dispatcher",
 							"customActionObjectClass": "SignalDispatcherSprite",
 							"sid": 447937326530662
 						}
 					],
-					"sid": 426656199381442
+					"sid": 527616576500635
 				}
 			],
 			"sid": 681703188924567

@@ -460,7 +460,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "LIGHTS SORTING",
+			"title": "DYNAMIC LIGHTS UPDATE & SORT",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -605,22 +605,9 @@
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
+													"customAction": "BlinkOff",
 													"objectClass": "DynamicLight",
-													"sid": 370798397336452,
-													"parameters": {
-														"instance-variable": "timer",
-														"value": "DynamicLight.off_duration + random(-DynamicLight.off_duration_bias, DynamicLight.off_duration_bias)"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "DynamicLight",
-													"sid": 573425099275598,
-													"parameters": {
-														"instance-variable": "on",
-														"value": "false"
-													}
+													"sid": 495406267569930
 												}
 											],
 											"sid": 777021453243871
@@ -636,22 +623,9 @@
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
+													"customAction": "BlinkOn",
 													"objectClass": "DynamicLight",
-													"sid": 189218877319046,
-													"parameters": {
-														"instance-variable": "timer",
-														"value": "DynamicLight.on_duration + random(-DynamicLight.on_duration_bias, DynamicLight.on_duration_bias)"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "DynamicLight",
-													"sid": 263971495795037,
-													"parameters": {
-														"instance-variable": "on",
-														"value": "true"
-													}
+													"sid": 698463440125947
 												}
 											],
 											"sid": 297007426426826
@@ -1086,6 +1060,74 @@
 						}
 					],
 					"sid": 508790863405931
+				},
+				{
+					"aceType": "action",
+					"aceName": "BlinkOn",
+					"objectClass": "DynamicLight",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "DynamicLight",
+							"sid": 189218877319046,
+							"parameters": {
+								"instance-variable": "timer",
+								"value": "DynamicLight.on_duration + random(-DynamicLight.on_duration_bias, DynamicLight.on_duration_bias)"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 263971495795037,
+							"parameters": {
+								"instance-variable": "on",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 780195960210823
+				},
+				{
+					"aceType": "action",
+					"aceName": "BlinkOff",
+					"objectClass": "DynamicLight",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "DynamicLight",
+							"sid": 370798397336452,
+							"parameters": {
+								"instance-variable": "timer",
+								"value": "DynamicLight.off_duration + random(-DynamicLight.off_duration_bias, DynamicLight.off_duration_bias)"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 573425099275598,
+							"parameters": {
+								"instance-variable": "on",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 913527300981183
 				}
 			],
 			"sid": 113731267081521
@@ -1330,12 +1372,11 @@
 									],
 									"actions": [
 										{
-											"id": "set-boolean-instvar",
+											"id": "instance-signal",
 											"objectClass": "DynamicLight",
-											"sid": 669023400784659,
+											"sid": 796156877350380,
 											"parameters": {
-												"instance-variable": "enabled",
-												"value": "false"
+												"tag": "\"Disable\""
 											}
 										}
 									],
@@ -1352,12 +1393,11 @@
 									],
 									"actions": [
 										{
-											"id": "set-boolean-instvar",
+											"id": "instance-signal",
 											"objectClass": "DynamicLight",
-											"sid": 480598193125982,
+											"sid": 810489300332783,
 											"parameters": {
-												"instance-variable": "enabled",
-												"value": "true"
+												"tag": "\"Enable\""
 											}
 										}
 									],
@@ -1381,14 +1421,41 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "DynamicLight",
-									"sid": 149957234282790,
+									"sid": 474664635677024,
 									"parameters": {
 										"instance-variable": "enabled",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 208476799953999
+							"sid": 208476799953999,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "DynamicLight",
+											"sid": 380662444893821,
+											"parameters": {
+												"instance-variable": "blink"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Forces blink to resync"
+										},
+										{
+											"customAction": "BlinkOn",
+											"objectClass": "DynamicLight",
+											"sid": 922281718645065
+										}
+									],
+									"sid": 392402298156477
+								}
+							]
 						},
 						{
 							"eventType": "block",

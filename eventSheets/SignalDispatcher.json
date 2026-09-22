@@ -182,6 +182,32 @@
 														}
 													],
 													"sid": 122645832421467
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcher3DShape",
+															"sid": 357525427958556,
+															"parameters": {
+																"child": "SignalDispatcherTiledBackground",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "SignalableTiledBackground",
+															"sid": 908954424835448,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 221610789491605
 												}
 											]
 										}
@@ -375,6 +401,32 @@
 														}
 													],
 													"sid": 758039136060409
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcherSprite",
+															"sid": 264309202108748,
+															"parameters": {
+																"child": "SignalDispatcherTiledBackground",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "SignalableTiledBackground",
+															"sid": 166974214617956,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 350069331397724
 												}
 											]
 										}
@@ -568,6 +620,32 @@
 														}
 													],
 													"sid": 841351777942326
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nth-child",
+															"objectClass": "SignalDispatcherTiledBackground",
+															"sid": 734684298713448,
+															"parameters": {
+																"child": "SignalDispatcherTiledBackground",
+																"index-type": "all",
+																"instance": "loopindex(\"i\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "instance-signal",
+															"objectClass": "SignalableTiledBackground",
+															"sid": 528479812045597,
+															"parameters": {
+																"tag": "signal_name"
+															}
+														}
+													],
+													"sid": 790693344915742
 												}
 											]
 										}
@@ -677,6 +755,30 @@
 						}
 					],
 					"sid": 580848414382616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "SignalableTiledBackground",
+							"sid": 551564359466863,
+							"parameters": {
+								"unique-id": "target_uid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "instance-signal",
+							"objectClass": "SignalableTiledBackground",
+							"sid": 956894423188728,
+							"parameters": {
+								"tag": "signal_name"
+							}
+						}
+					],
+					"sid": 141652925073737
 				}
 			]
 		}
