@@ -42,14 +42,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "pick-by-unique-id",
-					"objectClass": "ElevatorDoor",
-					"sid": 752672567552040,
-					"parameters": {
-						"unique-id": "992220"
-					}
-				},
-				{
 					"id": "is-boolean-instance-variable-set",
 					"objectClass": "Elevator",
 					"sid": 995986918356561,
@@ -138,12 +130,22 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "Elevator",
+							"sid": 229521331885629,
+							"parameters": {
+								"child": "SlidingDoor",
+								"which": "own"
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "set-enabled",
-							"objectClass": "ElevatorDoor",
-							"sid": 225287159545804,
+							"objectClass": "SlidingDoor",
+							"sid": 461956135264941,
 							"behaviorType": "Solid",
 							"parameters": {
 								"state": "disabled"

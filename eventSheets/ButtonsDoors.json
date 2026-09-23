@@ -155,347 +155,13 @@
 									}
 								},
 								{
-									"id": "start-timer",
-									"objectClass": "ButtonBase",
-									"sid": 960310203117513,
-									"behaviorType": "Timer",
-									"parameters": {
-										"duration": "ButtonBase.Time",
-										"type": "once",
-										"tag": "\"\"&ButtonBase.UID"
-									}
-								}
-							],
-							"sid": 779045628555775
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ButtonBase",
-									"sid": 231923560383450,
-									"parameters": {
-										"instance-variable": "Time",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 587503583268432,
-									"parameters": {
-										"object-to-create": "LightButton",
-										"layer": "ButtonBase.LayerName",
-										"x": "ButtonBase.X",
-										"y": "ButtonBase.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "add-child",
-									"objectClass": "ButtonBase",
-									"sid": 253754600228926,
-									"parameters": {
-										"child": "LightButton",
-										"transform-x": true,
-										"transform-y": true,
-										"transform-z-elevation": true,
-										"transform-w": true,
-										"transform-h": true,
-										"transform-d": true,
-										"transform-a": true,
-										"transform-o": false,
-										"transform-visibility": false,
-										"destroy-with-parent": false
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "LightButton",
-									"sid": 602910493107216,
-									"parameters": {
-										"angle": "ButtonBase.Angle"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "LightButton",
-									"sid": 937429046341703,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 180136127039688
-						},
-						{
-							"eventType": "comment",
-							"text": "If elevator, alert zombies"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "ButtonBase",
-									"sid": 956012177930923,
-									"parameters": {
-										"child": "ElevatorDoor",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 504853706277629,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 209773857990474,
-											"parameters": {
-												"object": "Zombies"
-											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 160032569645334,
-											"parameters": {
-												"first-value": "distance(CharacterController.X,CharacterController.Y,Zombies.X,Zombies.Y)",
-												"comparison": 3,
-												"second-value": "zombie_elevator_detection_distance"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Zombies",
-											"sid": 562467792604191,
-											"parameters": {
-												"instance-variable": "moveToX",
-												"value": "CharacterController.X"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Zombies",
-											"sid": 502082649137929,
-											"parameters": {
-												"instance-variable": "moveToY",
-												"value": "CharacterController.Y"
-											}
-										}
-									],
-									"sid": 472723852369483
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-timer",
-							"objectClass": "ButtonBase",
-							"sid": 787548417201705,
-							"behaviorType": "Timer",
-							"parameters": {
-								"tag": "\"\"&ButtonBase.UID"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 859912288588498,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "ButtonBase",
-									"sid": 464838773094536,
-									"parameters": {
-										"child": "IronShutter",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 535802952226751
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "ButtonBase",
-									"sid": 340407234416582,
-									"parameters": {
-										"child": "SlidingDoor",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "Open",
-									"objectClass": "SlidingDoor",
-									"customActionObjectClass": "Doors",
-									"sid": 571456259611817,
-									"parameters": [
-										"ChairController.X",
-										"ChairController.Y"
-									]
-								}
-							],
-							"sid": 237843178851151
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "ButtonBase",
-									"sid": 546128708527350,
-									"parameters": {
-										"child": "ElevatorDoor",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "Open",
-									"objectClass": "ElevatorDoor",
-									"customActionObjectClass": "Doors",
-									"sid": 705995751897747,
-									"parameters": [
-										"ChairController.X",
-										"ChairController.Y"
-									]
-								}
-							],
-							"sid": 167096622460059
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "ButtonBase",
-									"sid": 556742130302399,
-									"parameters": {
-										"child": "LightButton",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "LightButton",
-									"sid": 660258989483177,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 592148723821342
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
 									"customAction": "DispatchSignals",
 									"objectClass": "ButtonBase",
 									"customActionObjectClass": "SignalDispatcher3DShape",
-									"sid": 866464677061348
+									"sid": 524290560826432
 								}
 							],
-							"sid": 487217085524599
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-timer-running",
-							"objectClass": "ButtonBase",
-							"sid": 248216840048868,
-							"behaviorType": "Timer",
-							"parameters": {
-								"tag": "\"\"&ButtonBase.UID"
-							}
-						},
-						{
-							"id": "is-tag-playing",
-							"objectClass": "Audio",
-							"sid": 399960642348044,
-							"parameters": {
-								"tag": "\"ElevatorLoop\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [],
-					"sid": 602601766968749,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "ButtonBase",
-									"sid": 463117123051557,
-									"parameters": {
-										"child": "ElevatorDoor",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 369698159261328,
-									"parameters": {
-										"audio-file": {
-											"path": "ElevatorLoop"
-										},
-										"loop": "looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"ElevatorLoop\""
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 940725631964424,
-									"parameters": {
-										"audio-file": {
-											"path": "ElevatorStart"
-										},
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								}
-							],
-							"sid": 752931840835143
+							"sid": 779045628555775
 						}
 					]
 				}
@@ -2174,53 +1840,7 @@
 									}
 								}
 							],
-							"sid": 735271759500874,
-							"children": [
-								{
-									"eventType": "comment",
-									"text": "Door is elevator"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 975066855777665,
-											"parameters": {
-												"first-value": "Doors.ObjectTypeName",
-												"comparison": 0,
-												"second-value": "\"ElevatorDoor\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "tween-one-property",
-											"objectClass": "Doors",
-											"sid": 360709473424382,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"\"",
-												"property": "offsetWidth",
-												"end-value": "0",
-												"time": "2",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"customAction": "Enable",
-											"objectClass": "Elevator",
-											"sid": 807635013429549
-										}
-									],
-									"sid": 607009222875190
-								}
-							]
+							"sid": 735271759500874
 						},
 						{
 							"aceType": "action",
@@ -2520,6 +2140,199 @@
 					"sid": 269951651595966
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Elevator",
+							"sid": 507577609126861,
+							"parameters": {
+								"tag": "\"Trigger\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 679318128742842,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Elevator",
+									"sid": 650017946051006,
+									"parameters": {
+										"instance-variable": "alertZombies"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 496700658317117,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 890540634152745,
+											"parameters": {
+												"object": "Zombies"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 397738121607144,
+											"parameters": {
+												"first-value": "distance(CharacterController.X,CharacterController.Y,Zombies.X,Zombies.Y)",
+												"comparison": 3,
+												"second-value": "Elevator.alertDistance"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 564379316112178,
+											"parameters": {
+												"instance-variable": "moveToX",
+												"value": "CharacterController.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 308929628135713,
+											"parameters": {
+												"instance-variable": "moveToY",
+												"value": "CharacterController.Y"
+											}
+										}
+									],
+									"sid": 938724206263673
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Elevator",
+									"sid": 608980236575894,
+									"parameters": {
+										"instance-variable": "delay",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Elevator",
+									"sid": 211999255930408,
+									"parameters": {
+										"child": "DynamicLight",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 293161995215699,
+									"parameters": {
+										"audio-file": {
+											"path": "ElevatorLoop"
+										},
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"ElevatorLoop\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 321288924636641,
+									"parameters": {
+										"audio-file": {
+											"path": "ElevatorStart"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Elevator",
+									"sid": 776805541681723,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "Self.delay",
+										"type": "once",
+										"tag": "\"\"&Self.UID"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "DynamicLight",
+									"sid": 231182896790386,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 526937931669450
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 541347909035301
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Enable",
+									"objectClass": "Elevator",
+									"sid": 989986097606208
+								}
+							],
+							"sid": 426949368251616
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Elevator",
+							"sid": 879839267942791,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"\"&Self.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Enable",
+							"objectClass": "Elevator",
+							"sid": 512519205147502
+						}
+					],
+					"sid": 266566637684918
+				},
+				{
 					"aceType": "action",
 					"aceName": "Enable",
 					"objectClass": "Elevator",
@@ -2652,6 +2465,59 @@
 					"children": [
 						{
 							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Elevator",
+									"sid": 332084032935927,
+									"parameters": {
+										"child": "SlidingDoor",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Open",
+									"objectClass": "SlidingDoor",
+									"customActionObjectClass": "Doors",
+									"sid": 842248691048166,
+									"parameters": [
+										"0",
+										"0"
+									]
+								}
+							],
+							"sid": 625551776595569
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Elevator",
+									"sid": 726309840712008,
+									"parameters": {
+										"child": "DynamicLight",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "DynamicLight",
+									"sid": 754979996205621,
+									"parameters": {
+										"instance-variable": "enabled",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 968760543521932
+						},
+						{
+							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
@@ -2673,12 +2539,6 @@
 								}
 							],
 							"sid": 505521075751838
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 241286741386500
 						}
 					]
 				}

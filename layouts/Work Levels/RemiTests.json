@@ -38,7 +38,7 @@
 						"openerX": 0,
 						"openerY": 0,
 						"isOpen": false,
-						"isLocked": true,
+						"isLocked": false,
 						"ClosedAngle": 0,
 						"PivotX": 0,
 						"PivotY": 0
@@ -4746,7 +4746,7 @@
 						}
 					},
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 168,
 						"y": 48,
@@ -4791,7 +4791,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"signals": "Trigger",
-						"targets": "384917",
+						"targets": "384917,142807",
 						"Enabled": false,
 						"Time": 0
 					},
@@ -4847,7 +4847,7 @@
 						],
 						"z": 0,
 						"depth": 8,
-						"angle": 1.5549616117377743
+						"angle": 1.5707963267948966
 					}
 				},
 				{
@@ -5029,6 +5029,13 @@
 						},
 						"Tween": {
 							"properties": {
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
 								"enabled": true
 							}
 						}
@@ -6610,6 +6617,21 @@
 									"v": false,
 									"sm": "normal"
 								}
+							},
+							{
+								"uid": 614194,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "normal"
+								}
 							}
 						],
 						"flags": {
@@ -6752,8 +6774,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 120,
-						"y": 3,
+						"x": 112,
+						"y": 16,
 						"width": 36,
 						"height": 3,
 						"originX": 0,
@@ -6951,6 +6973,13 @@
 							"properties": {
 								"enabled": true
 							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"template": {
@@ -7104,6 +7133,23 @@
 									{
 										"key": "Tween",
 										"state": [
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
 											[
 												"enabled",
 												true
@@ -7276,6 +7322,69 @@
 					}
 				},
 				{
+					"type": "Texture_ElevatorTop",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 614194,
+					"sid": 214291032217910,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 323153,
+						"uid": 614194,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": -272,
+						"y": 176,
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "DoorBar",
 					"properties": {
 						"shape": "box",
@@ -7332,7 +7441,7 @@
 						}
 					},
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 161.4329361867912,
 						"y": 64,
@@ -7408,7 +7517,7 @@
 						}
 					},
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 166.43820729285707,
 						"y": 64,
