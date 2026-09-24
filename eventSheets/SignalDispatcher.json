@@ -62,10 +62,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 952413387744555,
+									"sid": 417255783029871,
 									"parameters": {
 										"variable": "signal_name",
-										"value": "tokenat(SignalDispatcher3DShape.Signals, loopindex(\"signal \"), \",\")"
+										"value": "tokenat(SignalDispatcher3DShape.Signals, loopindex(\"signal\"), \",\")"
 									}
 								}
 							],
@@ -281,10 +281,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 526638590293922,
+									"sid": 420898521133461,
 									"parameters": {
 										"variable": "signal_name",
-										"value": "tokenat(SignalDispatcherSprite.Signals, loopindex(\"signal \"), \",\")"
+										"value": "tokenat(SignalDispatcherSprite.Signals, loopindex(\"signal\"), \",\")"
 									}
 								}
 							],
@@ -500,10 +500,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 784565944983234,
+									"sid": 441754414784237,
 									"parameters": {
 										"variable": "signal_name",
-										"value": "tokenat(SignalDispatcherTiledBackground.Signals, loopindex(\"signal \"), \",\")"
+										"value": "tokenat(SignalDispatcherTiledBackground.Signals, loopindex(\"signal\"), \",\")"
 									}
 								}
 							],
@@ -566,7 +566,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 530181460908651,
+													"parameters": {
+														"type": "log",
+														"message": "loopindex(\"i\")&\" \"&signal_name"
+													}
+												}
+											],
 											"sid": 423359363378665,
 											"children": [
 												{

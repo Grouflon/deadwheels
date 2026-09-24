@@ -88,28 +88,6 @@
 										}
 									],
 									"sid": 140820457530759
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-children",
-											"objectClass": "Trigger",
-											"sid": 275185590969356,
-											"parameters": {
-												"child": "ButtonBase",
-												"which": "own"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "ButtonEnabled",
-											"objectClass": "ButtonBase",
-											"sid": 426922934747561
-										}
-									],
-									"sid": 933087257597995
 								}
 							]
 						}
@@ -187,24 +165,16 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 502224006681922,
-							"parameters": {
-								"object": "Event_ZombieSpawn"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
+							"id": "on-instance-signal",
 							"objectClass": "Event_ZombieSpawn",
-							"sid": 841261465527926,
+							"sid": 558789531595537,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"tag": "\"Trigger\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 897364073879097,
+					"sid": 126963330943011,
 					"children": [
 						{
 							"eventType": "block",
@@ -212,7 +182,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Event_ZombieSpawn",
-									"sid": 174193320274947,
+									"sid": 607312476970693,
 									"parameters": {
 										"instance-variable": "ZombieName",
 										"comparison": 0,
@@ -224,14 +194,14 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Event_ZombieSpawn",
-									"sid": 279225055068374,
+									"sid": 644919127917893,
 									"parameters": {
 										"instance-variable": "ZombieName",
 										"value": "\"Mike\""
 									}
 								}
 							],
-							"sid": 306725955549169
+							"sid": 336841262211070
 						},
 						{
 							"eventType": "block",
@@ -239,7 +209,7 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 626372102842879,
+									"sid": 401069410680745,
 									"parameters": {
 										"count": "Event_ZombieSpawn.Zombies"
 									}
@@ -249,7 +219,7 @@
 								{
 									"id": "create-object-by-name",
 									"objectClass": "System",
-									"sid": 553180662655002,
+									"sid": 721633059060489,
 									"parameters": {
 										"object-name": "Event_ZombieSpawn.ZombieName",
 										"layer": "Event_ZombieSpawn.LayerName",
@@ -260,7 +230,7 @@
 									}
 								}
 							],
-							"sid": 285041562423327,
+							"sid": 565739852540267,
 							"children": [
 								{
 									"eventType": "block",
@@ -268,7 +238,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Event_ZombieSpawn",
-											"sid": 461558016223427,
+											"sid": 630045249976551,
 											"parameters": {
 												"instance-variable": "ZombiesSpotPlayer"
 											}
@@ -276,7 +246,7 @@
 										{
 											"id": "pick-last-created",
 											"objectClass": "System",
-											"sid": 186843087430105,
+											"sid": 954499817689992,
 											"parameters": {
 												"object": "Zombies"
 											}
@@ -286,7 +256,7 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Zombies",
-											"sid": 518913492001512,
+											"sid": 366764462510978,
 											"parameters": {
 												"instance-variable": "spottedPlayer",
 												"value": "true"
@@ -295,27 +265,15 @@
 										{
 											"id": "set-angle",
 											"objectClass": "Zombies",
-											"sid": 741193609308772,
+											"sid": 434542071304241,
 											"parameters": {
 												"angle": "angle(Zombies.X, Zombies.Y, CharacterController.X, CharacterController.Y)"
 											}
 										}
 									],
-									"sid": 459716131097164
+									"sid": 699976343180175
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Event_ZombieSpawn",
-									"sid": 879334912099668
-								}
-							],
-							"sid": 592203005960854
 						}
 					]
 				},
@@ -327,16 +285,16 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
+							"id": "on-instance-signal",
 							"objectClass": "Event_Sound",
-							"sid": 280518291945603,
+							"sid": 843564502368188,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"tag": "\"Trigger\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 133983558114791,
+					"sid": 613238888294356,
 					"children": [
 						{
 							"eventType": "block",
@@ -345,13 +303,13 @@
 								{
 									"id": "stop",
 									"objectClass": "Audio",
-									"sid": 441267058734277,
+									"sid": 753731406869137,
 									"parameters": {
 										"tag": "Event_Sound.StopTag"
 									}
 								}
 							],
-							"sid": 726356975153671,
+							"sid": 545086692828720,
 							"children": [
 								{
 									"eventType": "block",
@@ -359,7 +317,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Event_Sound",
-											"sid": 773919849025739,
+											"sid": 300204655676622,
 											"parameters": {
 												"instance-variable": "PlayAtThisObject"
 											}
@@ -369,7 +327,7 @@
 										{
 											"id": "play-at-object-by-name",
 											"objectClass": "Audio",
-											"sid": 185113551581088,
+											"sid": 438262377314297,
 											"parameters": {
 												"folder": "sounds",
 												"audio-file-name": "Event_Sound.Sound",
@@ -383,7 +341,7 @@
 											}
 										}
 									],
-									"sid": 690691543126394
+									"sid": 576759849987406
 								},
 								{
 									"eventType": "block",
@@ -391,7 +349,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Event_Sound",
-											"sid": 902411501192298,
+											"sid": 733963045060662,
 											"parameters": {
 												"instance-variable": "PlayAtThisObject"
 											},
@@ -399,7 +357,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 654056320067417,
+									"sid": 401375108337871,
 									"children": [
 										{
 											"eventType": "block",
@@ -407,7 +365,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "Event_Sound",
-													"sid": 470815759336365,
+													"sid": 909484957068146,
 													"parameters": {
 														"instance-variable": "SoundLoop"
 													}
@@ -417,7 +375,7 @@
 												{
 													"id": "play-by-name",
 													"objectClass": "Audio",
-													"sid": 570587654521091,
+													"sid": 932355033115756,
 													"parameters": {
 														"folder": "sounds",
 														"audio-file-name": "Event_Sound.Sound",
@@ -428,7 +386,7 @@
 													}
 												}
 											],
-											"sid": 866147910721340
+											"sid": 472385635221068
 										},
 										{
 											"eventType": "block",
@@ -436,7 +394,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "Event_Sound",
-													"sid": 398330025050507,
+													"sid": 608961739316290,
 													"parameters": {
 														"instance-variable": "SoundLoop"
 													},
@@ -447,7 +405,7 @@
 												{
 													"id": "play-by-name",
 													"objectClass": "Audio",
-													"sid": 149714677417031,
+													"sid": 123692920675297,
 													"parameters": {
 														"folder": "sounds",
 														"audio-file-name": "Event_Sound.Sound",
@@ -458,7 +416,7 @@
 													}
 												}
 											],
-											"sid": 801076829179627
+											"sid": 440203682882344
 										}
 									]
 								},
@@ -468,7 +426,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Event_Sound",
-											"sid": 511123822613301,
+											"sid": 856170692364868,
 											"parameters": {
 												"instance-variable": "SoundTag",
 												"comparison": 1,
@@ -478,7 +436,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Event_Sound",
-											"sid": 979322815961729,
+											"sid": 193182689568880,
 											"parameters": {
 												"instance-variable": "SoundLoop"
 											}
@@ -488,26 +446,14 @@
 										{
 											"id": "set-looping",
 											"objectClass": "Audio",
-											"sid": 982057048133750,
+											"sid": 683166501984724,
 											"parameters": {
 												"tag": "Event_Sound.SoundTag",
 												"state": "looping"
 											}
 										}
 									],
-									"sid": 931586313702010
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "Event_Sound",
-											"sid": 680973522897861
-										}
-									],
-									"sid": 349522437993645
+									"sid": 980830379283307
 								}
 							]
 						}
@@ -776,62 +722,47 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Event_BreakFurniture",
-							"sid": 818702885804076,
+							"id": "on-instance-signal",
+							"objectClass": "Furniture",
+							"sid": 763543641020232,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"tag": "\"Break\""
 							}
 						}
 					],
-					"actions": [],
-					"sid": 251971917377166,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "Event_BreakFurniture",
-									"sid": 444604945824866,
-									"parameters": {
-										"child": "Furniture",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Furniture",
-									"sid": 932867053851175
-								}
-							],
-							"sid": 643406269168645
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "Event_BreakFurniture",
-									"sid": 897841486991491,
-									"parameters": {
-										"child": "Buildings",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Buildings",
-									"sid": 656386686276410
-								}
-							],
-							"sid": 862091720275120
+							"id": "destroy",
+							"objectClass": "Furniture",
+							"sid": 797215064659904
 						}
-					]
+					],
+					"sid": 704539386087443
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Buildings",
+							"sid": 808365882724616,
+							"parameters": {
+								"tag": "\"Break\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Buildings",
+							"sid": 532594619280387
+						}
+					],
+					"sid": 756587444519308
+				},
+				{
+					"eventType": "comment",
+					"text": "Generic event dispatcher"
 				},
 				{
 					"eventType": "block",
@@ -910,6 +841,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 376760134349664,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"timer on\""
@@ -970,6 +902,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 694333549767148,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"timer off\""
