@@ -6,80 +6,6 @@
 			"includeSheet": "Global"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 184648241582904
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 732559790771383,
-					"parameters": {
-						"seconds": "4",
-						"use-timescale": true
-					}
-				}
-			],
-			"sid": 310135279553840,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Trigger",
-							"sid": 114962819851422,
-							"parameters": {
-								"unique-id": "118936"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Trigger",
-							"sid": 562076894187212,
-							"parameters": {
-								"instance-variable": "enabled",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 793493237294815
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Trigger",
-							"sid": 471667828602103,
-							"parameters": {
-								"unique-id": "235716"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Trigger",
-							"sid": 575614701735811,
-							"parameters": {
-								"instance-variable": "enabled",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 270600096125747
-				}
-			]
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Intro",
@@ -103,6 +29,10 @@
 							"id": "destroy",
 							"objectClass": "IntroHero",
 							"sid": 463725821502224
+						},
+						{
+							"callFunction": "EndIntro",
+							"sid": 572032235661018
 						}
 					],
 					"sid": 216148981527530
@@ -114,17 +44,6 @@
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 202595671863914
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 749119220420639,
-							"disabled": true,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Level1\""
-							}
 						}
 					],
 					"actions": [
@@ -526,49 +445,11 @@
 															"children": [
 																{
 																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "TextFont",
-																			"sid": 326243653624798,
-																			"parameters": {
-																				"unique-id": "461565"
-																			}
-																		}
-																	],
+																	"conditions": [],
 																	"actions": [
 																		{
-																			"id": "wait",
-																			"objectClass": "System",
-																			"sid": 465594345977757,
-																			"parameters": {
-																				"seconds": "2",
-																				"use-timescale": true
-																			}
-																		},
-																		{
-																			"id": "set-fade-in-time",
-																			"objectClass": "TextFont",
-																			"sid": 364928031989173,
-																			"behaviorType": "Fade",
-																			"parameters": {
-																				"fade-in-time": "1"
-																			}
-																		},
-																		{
-																			"id": "start-fade",
-																			"objectClass": "TextFont",
-																			"sid": 249198659800382,
-																			"behaviorType": "Fade"
-																		},
-																		{
-																			"id": "set-fade-out-time",
-																			"objectClass": "TextFont",
-																			"sid": 131962633737879,
-																			"behaviorType": "Fade",
-																			"parameters": {
-																				"fade-out-time": "0"
-																			}
+																			"callFunction": "EndIntro",
+																			"sid": 797750650809192
 																		}
 																	],
 																	"sid": 403742712682868
@@ -837,6 +718,55 @@
 				}
 			],
 			"sid": 874277693130697
+		},
+		{
+			"functionName": "EndIntro",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 465594345977757,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				}
+			],
+			"sid": 677738578312690,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Fadable",
+							"sid": 302726736955214,
+							"parameters": {
+								"unique-id": "461565"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "FadeIn",
+							"objectClass": "Fadable",
+							"sid": 358504380230668,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 711563179522757
+				}
+			]
 		}
 	],
 	"sid": 666939927933128
