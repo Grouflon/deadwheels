@@ -3367,6 +3367,15 @@
 										"z": "0",
 										"pick-all-tied": false
 									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "PCMonitor",
+									"sid": 823825119775203,
+									"parameters": {
+										"child": "Mask",
+										"which": "own"
+									}
 								}
 							],
 							"actions": [
@@ -3464,6 +3473,14 @@
 											}
 										},
 										{
+											"id": "set-visible",
+											"objectClass": "Mask",
+											"sid": 467266042850428,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
 											"id": "set-face-object",
 											"objectClass": "PCMonitor",
 											"sid": 738493581481514,
@@ -3533,6 +3550,14 @@
 												"outer-angle": "360",
 												"outer-gain": "0",
 												"tag-optional": "PCMonitor.UID&\"computerOff\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Mask",
+											"sid": 158556725148222,
+											"parameters": {
+												"visibility": "invisible"
 											}
 										},
 										{
