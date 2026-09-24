@@ -61,35 +61,7 @@
 									"sid": 713682435523342
 								}
 							],
-							"sid": 111305308500410,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-children",
-											"objectClass": "Trigger",
-											"sid": 490715496331003,
-											"parameters": {
-												"child": "Events",
-												"which": "own"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Events",
-											"sid": 322003062288259,
-											"parameters": {
-												"instance-variable": "Triggered",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 140820457530759
-								}
-							]
+							"sid": 111305308500410
 						}
 					]
 				},
@@ -467,16 +439,16 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
+							"id": "on-instance-signal",
 							"objectClass": "Event_TypeWriterText",
-							"sid": 933742566132832,
+							"sid": 939044034704731,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"tag": "\"Trigger\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 876220071527709,
+					"sid": 529002932155348,
 					"children": [
 						{
 							"eventType": "block",
@@ -485,7 +457,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 663566459481433,
+									"sid": 859124451274230,
 									"parameters": {
 										"object-to-create": "IntroTextFont",
 										"layer": "\"WorldUI\"",
@@ -498,7 +470,7 @@
 								{
 									"id": "set-z-elevation",
 									"objectClass": "IntroTextFont",
-									"sid": 105056313265790,
+									"sid": 858532237701930,
 									"parameters": {
 										"z": "0"
 									}
@@ -506,7 +478,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "IntroTextFont",
-									"sid": 184523678127939,
+									"sid": 836442300797548,
 									"parameters": {
 										"instance-variable": "SourceText",
 										"value": "Event_TypeWriterText.Text"
@@ -515,12 +487,12 @@
 								{
 									"id": "destroy",
 									"objectClass": "Event_TypeWriterText",
-									"sid": 456223197169099
+									"sid": 214251726331715
 								},
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 929324235776142,
+									"sid": 836375315972899,
 									"parameters": {
 										"seconds": "5",
 										"use-timescale": true
@@ -529,16 +501,16 @@
 								{
 									"id": "destroy",
 									"objectClass": "IntroTextFont",
-									"sid": 263691455797288
+									"sid": 843302641733621
 								}
 							],
-							"sid": 119011861703794,
+							"sid": 995063452824699,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [],
-									"sid": 839830362059491
+									"sid": 737795953281053
 								}
 							]
 						}
@@ -546,173 +518,183 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "Fade in something"
+					"text": "Fade something"
+				},
+				{
+					"aceType": "action",
+					"aceName": "FadeIn",
+					"objectClass": "Fadable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "fade_time",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 294547314257252
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "Fadable",
+							"sid": 819875400007874,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-in-time": "fade_time"
+							}
+						},
+						{
+							"id": "set-fade-out-time",
+							"objectClass": "Fadable",
+							"sid": 867520058981033,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-out-time": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Fadable",
+							"sid": 328243540667118,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Fadable",
+							"sid": 172134854407004,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 360919119380661
+				},
+				{
+					"aceType": "action",
+					"aceName": "FadeOut",
+					"objectClass": "Fadable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "fade_time",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 779033708537196
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "Fadable",
+							"sid": 264954472689202,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-in-time": "0"
+							}
+						},
+						{
+							"id": "set-fade-out-time",
+							"objectClass": "Fadable",
+							"sid": 852795588584659,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-out-time": "fade_time"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Fadable",
+							"sid": 155986127152083,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 813836662085832
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Event_FadeIn",
-							"sid": 913739751532913,
+							"id": "on-instance-signal",
+							"objectClass": "Fadable",
+							"sid": 333577646999904,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"tag": "\"Trigger\""
 							}
 						}
 					],
-					"actions": [],
-					"sid": 511660533392497,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "Event_FadeIn",
-									"sid": 754928733974617,
-									"parameters": {
-										"child": "Fadable",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-fade-in-time",
-									"objectClass": "Fadable",
-									"sid": 711152948845835,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-in-time": "1"
-									}
-								},
-								{
-									"id": "set-fade-out-time",
-									"objectClass": "Fadable",
-									"sid": 796346615305258,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-out-time": "0"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Fadable",
-									"sid": 637244576324316,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "restart-fade",
-									"objectClass": "Fadable",
-									"sid": 670016328116499,
-									"disabled": true,
-									"behaviorType": "Fade"
-								},
-								{
-									"id": "start-fade",
-									"objectClass": "Fadable",
-									"sid": 316327139642457,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 121845720686828
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Event_FadeIn",
-									"sid": 308835228685397
-								}
-							],
-							"sid": 466410654084529
+							"id": "instance-signal",
+							"objectClass": "Fadable",
+							"sid": 569040714059638,
+							"parameters": {
+								"tag": "\"FadeIn\""
+							}
 						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Fade out something"
+					],
+					"sid": 353858346577104
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Event_FadeOut",
-							"sid": 562899364035987,
+							"id": "on-instance-signal",
+							"objectClass": "Fadable",
+							"sid": 487770039377887,
 							"parameters": {
-								"instance-variable": "Triggered"
+								"tag": "\"FadeIn\""
 							}
 						}
 					],
-					"actions": [],
-					"sid": 863722815634719,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-children",
-									"objectClass": "Event_FadeOut",
-									"sid": 136443909872764,
-									"parameters": {
-										"child": "Fadable",
-										"which": "own"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-fade-in-time",
-									"objectClass": "Fadable",
-									"sid": 264954472689202,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-in-time": "0"
-									}
-								},
-								{
-									"id": "set-fade-out-time",
-									"objectClass": "Fadable",
-									"sid": 438805683414315,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-out-time": "1"
-									}
-								},
-								{
-									"id": "restart-fade",
-									"objectClass": "Fadable",
-									"sid": 694237531298943,
-									"disabled": true,
-									"behaviorType": "Fade"
-								},
-								{
-									"id": "start-fade",
-									"objectClass": "Fadable",
-									"sid": 155986127152083,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 670212157184325
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Event_FadeOut",
-									"sid": 744977769733489
-								}
-							],
-							"sid": 468962404783128
+							"customAction": "FadeIn",
+							"objectClass": "Fadable",
+							"sid": 794000437115650,
+							"parameters": [
+								"1"
+							]
 						}
-					]
+					],
+					"sid": 298959485356359
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "Fadable",
+							"sid": 931295775947050,
+							"parameters": {
+								"tag": "\"FadeOut\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "FadeOut",
+							"objectClass": "Fadable",
+							"sid": 280351730224586,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 288720875461707
 				},
 				{
 					"eventType": "comment",

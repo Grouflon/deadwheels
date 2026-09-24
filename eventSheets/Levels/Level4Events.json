@@ -48,6 +48,11 @@
 					"parameters": {
 						"instance-variable": "enabled"
 					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 229508084801934
 				}
 			],
 			"actions": [],
@@ -67,149 +72,15 @@
 					],
 					"actions": [
 						{
-							"id": "set-boolean-instvar",
+							"id": "instance-signal",
 							"objectClass": "Event_ZombieSpawn",
-							"sid": 520699653081772,
+							"sid": 181102503879672,
 							"parameters": {
-								"instance-variable": "Triggered",
-								"value": "true"
+								"tag": "\"Trigger\""
 							}
 						}
 					],
 					"sid": 802088375530630
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Event_ZombieSpawn",
-							"sid": 460523237308122,
-							"parameters": {
-								"unique-id": "101912"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Event_ZombieSpawn",
-							"sid": 310045725032669,
-							"parameters": {
-								"instance-variable": "Triggered",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 470274726884334
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Event_ZombieSpawn",
-							"sid": 472568634412211,
-							"parameters": {
-								"unique-id": "177914"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Event_ZombieSpawn",
-							"sid": 481451211122065,
-							"parameters": {
-								"instance-variable": "Triggered",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 702877917486272
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-children",
-							"objectClass": "Elevator",
-							"sid": 229521331885629,
-							"parameters": {
-								"child": "SlidingDoor",
-								"which": "own"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "SlidingDoor",
-							"sid": 461956135264941,
-							"behaviorType": "Solid",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 453758560016307,
-							"disabled": true,
-							"parameters": {
-								"seconds": "1.0",
-								"use-timescale": true
-							}
-						}
-					],
-					"sid": 347299471088862
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 208601718030423,
-							"parameters": {
-								"object": "Zombies"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 416107143947219,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 731335950518701,
-									"parameters": {
-										"first-value": "distance(Zombies.X, Zombies.Y, Elevator.X, Elevator.Y)",
-										"comparison": 2,
-										"second-value": "50"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "regenerate-region",
-									"objectClass": "Zombies",
-									"sid": 940430053856729,
-									"behaviorType": "Pathfinding",
-									"parameters": {
-										"start-x": "Elevator.X - 32",
-										"start-y": "Elevator.Y - 32",
-										"end-x": "Elevator.X + 32",
-										"end-y": "Elevator.Y + 32"
-									}
-								}
-							],
-							"sid": 663110890128687
-						}
-					]
 				}
 			]
 		}
