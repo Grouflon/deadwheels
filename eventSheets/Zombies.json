@@ -2164,6 +2164,11 @@
 					"text": "Target detection and throw tentacle"
 				},
 				{
+					"eventType": "script",
+					"language": "typescript",
+					"script": []
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2226,6 +2231,26 @@
 					"actions": [],
 					"sid": 816821325164143,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "throwTargetX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 997433425743633
+						},
+						{
+							"eventType": "variable",
+							"name": "throwTargetY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 265984833019804
+						},
 						{
 							"eventType": "variable",
 							"name": "ThrowTentacle",
@@ -2372,10 +2397,28 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 921377530612381,
+									"sid": 578710268344237,
 									"parameters": {
 										"seconds": "0.3",
 										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 267004673508447,
+									"parameters": {
+										"variable": "throwTargetX",
+										"value": "BarnacleTarget.X"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 932598792862559,
+									"parameters": {
+										"variable": "throwTargetY",
+										"value": "BarnacleTarget.Y"
 									}
 								},
 								{
@@ -2397,13 +2440,13 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Tentacle",
-									"sid": 992851721032677,
+									"sid": 916801271201501,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"tryGrab\"",
 										"property": "offsetWidth",
-										"end-value": "24+distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)",
-										"time": "distance(Self.X,Self.Y,BarnacleTarget.X,BarnacleTarget.Y)/400",
+										"end-value": "24+distance(Self.X,Self.Y,throwTargetX,throwTargetY)",
+										"time": "distance(Self.X,Self.Y,throwTargetX,throwTargetY)/400",
 										"ease": "default",
 										"destroy-on-complete": "no",
 										"loop": "no",
@@ -2414,10 +2457,10 @@
 								{
 									"id": "set-angle-toward-position",
 									"objectClass": "Tentacle",
-									"sid": 478975129735092,
+									"sid": 854293687510885,
 									"parameters": {
-										"x": "BarnacleTarget.X",
-										"y": "BarnacleTarget.Y"
+										"x": "throwTargetX",
+										"y": "throwTargetY"
 									}
 								}
 							],
