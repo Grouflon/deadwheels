@@ -1,0 +1,77 @@
+{
+	"name": "BarnacleMatsuriEvents",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DEBUG: STARTING STATE2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 901331416164054
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 634491230391966,
+							"parameters": {
+								"variable": "gun_unlocked",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 425458562916109,
+							"parameters": {
+								"variable": "shotgun_unlocked",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 782494751978724,
+							"parameters": {
+								"variable": "gun_ammo",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 478366261983452,
+							"parameters": {
+								"variable": "shotgun_ammo",
+								"value": "5"
+							}
+						},
+						{
+							"customAction": "SwitchWeapon",
+							"objectClass": "CharacterController",
+							"sid": 497564827972618,
+							"parameters": [
+								"1"
+							]
+						}
+					],
+					"sid": 915112041808172
+				}
+			],
+			"sid": 857097326786516
+		}
+	],
+	"sid": 983143186306043
+}
