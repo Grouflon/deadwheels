@@ -1228,6 +1228,84 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-created",
+					"objectClass": "Zombies",
+					"sid": 280478703132578
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 429166974249998,
+					"parameters": {
+						"instance-variable": "tryIdleVoiceCooldown",
+						"value": "random(2,8)"
+					}
+				}
+			],
+			"sid": 545584635690166
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Zombies",
+					"sid": 398656509526295,
+					"parameters": {
+						"instance-variable": "tryIdleVoiceCooldown",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombies",
+					"sid": 602146862872943,
+					"parameters": {
+						"instance-variable": "tryIdleVoiceCooldown",
+						"value": "random(4,10)"
+					}
+				}
+			],
+			"sid": 140545537471701,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 440877101789195,
+							"parameters": {
+								"first-value": "distance(Zombies.X,Zombies.Y,scrollx,scrolly)",
+								"comparison": 3,
+								"second-value": "300"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "zombieVoice",
+							"objectClass": "Zombies",
+							"sid": 604158828813005,
+							"parameters": [
+								"\"Idle\"",
+								false
+							]
+						}
+					],
+					"sid": 384873332347096
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "is-animation-playing",
 					"objectClass": "Zombies",
 					"sid": 386214274135760,
@@ -1282,6 +1360,15 @@
 					"sid": 330686273691081,
 					"parameters": {
 						"instance-variable": "footStepCoolDown",
+						"value": "-0.1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Zombies",
+					"sid": 567733326033659,
+					"parameters": {
+						"instance-variable": "tryIdleVoiceCooldown",
 						"value": "-0.1"
 					}
 				}
@@ -1352,6 +1439,10 @@
 						}
 					],
 					"sid": 590340250065894
+				},
+				{
+					"eventType": "comment",
+					"text": "Not amazing, but for now, I hardcoded this to assign a voice type to each zombie type"
 				},
 				{
 					"eventType": "block",
@@ -1452,6 +1543,10 @@
 					"sid": 316814640258220,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "If the sound is idle there are more variations so I'm running this. Otherwise its just 2"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -1469,12 +1564,12 @@
 								{
 									"id": "play-at-object-by-name",
 									"objectClass": "Audio",
-									"sid": 930559636780415,
+									"sid": 841815047696161,
 									"parameters": {
 										"folder": "sounds",
 										"audio-file-name": "\"Zombie/Zombie\"&voiceType&sound&choose(1,2,3,4,5,6)",
 										"loop": "not-looping",
-										"volume": "-10",
+										"volume": "-5",
 										"object": "Zombies",
 										"inner-angle": "360",
 										"outer-angle": "360",
@@ -1527,6 +1622,18 @@
 								}
 							],
 							"sid": 936085064933646
+						},
+						{
+							"eventType": "comment",
+							"text": "Assign tag using zombie uid"
+						},
+						{
+							"eventType": "comment",
+							"text": "Pitch variation"
+						},
+						{
+							"eventType": "comment",
+							"text": "Voice cooldown is applied"
 						},
 						{
 							"eventType": "block",

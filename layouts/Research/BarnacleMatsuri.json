@@ -187,6 +187,146 @@
 					}
 				},
 				{
+					"type": "PivotDoor",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 947901,
+					"sid": 330119663143917,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false,
+						"startOpened": false,
+						"openerX": 0,
+						"openerY": 0,
+						"isOpen": false,
+						"isLocked": true,
+						"ClosedAngle": 0,
+						"PivotX": 0,
+						"PivotY": 0
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 113444,
+						"uid": 947901,
+						"children": [
+							{
+								"uid": 755119,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							},
+							{
+								"uid": 326835,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 728,
+						"y": 416,
+						"width": 28,
+						"height": 4,
+						"originX": -0.07142857142857142,
+						"originY": -0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -0.1,
+						"depth": 28,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Floor_",
 					"properties": {
 						"shape": "box",
@@ -52201,7 +52341,7 @@
 					"world": {
 						"x": 692,
 						"y": 416,
-						"width": 68,
+						"width": 36,
 						"height": 8,
 						"originX": 0,
 						"originY": 0,
@@ -56071,7 +56211,7 @@
 						"x": 696,
 						"y": 256,
 						"width": 204,
-						"height": 164,
+						"height": 168,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -59060,6 +59200,341 @@
 					}
 				},
 				{
+					"type": "DoorFrame",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 3.6818983322052894,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 113444,
+					"sid": 468698434843808,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Door",
+						"replicaHierarchyInSyncWithTemplate": true,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": []
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": []
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 113444,
+						"children": [
+							{
+								"uid": 947901,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							},
+							{
+								"uid": 672151,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							},
+							{
+								"uid": 322627,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"d": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 728,
+						"y": 416,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
 					"type": "Corpse",
 					"properties": {
 						"initially-visible": true,
@@ -59833,64 +60308,6 @@
 						"object-top": -1,
 						"object-bottom": -1
 					},
-					"uid": 953125,
-					"sid": 395928082653222,
-					"tags": "",
-					"instanceVariables": {
-						"chairCanDestroy": false,
-						"bulletsCollide": false,
-						"sawCanDestroy": false
-					},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": true,
-								"tags": ""
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 224,
-						"y": 136,
-						"width": 64,
-						"height": 10,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 8,
-						"depth": 4,
-						"angle": 0
-					}
-				},
-				{
-					"type": "DisabilityBarLong",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": false,
-						"face-right": false,
-						"face-top": false,
-						"face-bottom": false,
-						"back-face-culling": false,
-						"z-tiling-factor": 1,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
 					"uid": 716673,
 					"sid": 792288298150218,
 					"tags": "",
@@ -59902,7 +60319,7 @@
 					"behaviors": {
 						"Solid": {
 							"properties": {
-								"enabled": true,
+								"enabled": false,
 								"use-instance-tags": true,
 								"tags": ""
 							}
@@ -60216,6 +60633,216 @@
 					}
 				},
 				{
+					"type": "DisabilityBarLong",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": false,
+						"face-right": false,
+						"face-top": false,
+						"face-bottom": false,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 422584,
+					"sid": 341333182110869,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": false,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 224,
+						"y": 136,
+						"width": 64,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 8,
+						"depth": 4,
+						"angle": 0
+					}
+				},
+				{
+					"type": "DoorBar",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 326835,
+					"sid": 434095317829555,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 947901,
+						"uid": 326835,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 744,
+						"y": 424,
+						"width": 25.74497037693436,
+						"height": 1,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 10,
+						"depth": 1,
+						"angle": 0
+					}
+				},
+				{
+					"type": "DoorBar",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 755119,
+					"sid": 286153502594575,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 947901,
+						"uid": 755119,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 744,
+						"y": 416,
+						"width": 25.74497037693436,
+						"height": 1,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 10,
+						"depth": 1,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Sign_Exit",
 					"properties": {
 						"shape": "box",
@@ -60303,6 +60930,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": true,
 						"spawnLegs": true,
+						"tryIdleVoiceCooldown": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -60459,6 +61087,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
 												"state": true
 											}
 										]
@@ -60782,6 +61414,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": true,
 						"spawnLegs": true,
+						"tryIdleVoiceCooldown": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -60938,6 +61571,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
 												"state": true
 											}
 										]
@@ -61261,6 +61898,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": true,
 						"spawnLegs": true,
+						"tryIdleVoiceCooldown": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -61417,6 +62055,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
 												"state": true
 											}
 										]
@@ -62065,6 +62707,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": true
@@ -62233,6 +62876,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -62559,6 +63206,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": true
@@ -62727,6 +63375,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -63053,6 +63705,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": true
@@ -63221,6 +63874,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -63547,6 +64204,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": true
@@ -63715,6 +64373,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -64041,6 +64703,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": true
@@ -64209,6 +64872,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -64535,6 +65202,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": true
@@ -64703,6 +65371,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -65029,6 +65701,7 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": false,
 						"spawnLegs": false,
+						"tryIdleVoiceCooldown": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": false
@@ -65197,6 +65870,10 @@
 											{
 												"iv": "spawnHole",
 												"state": false
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
 											}
 										]
 									}
@@ -65525,6 +66202,148 @@
 						],
 						"z": 16,
 						"angle": 0
+					}
+				},
+				{
+					"type": "LightBlocker",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 322627,
+					"sid": 141163766920876,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 113444,
+						"uid": 322627,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 728,
+						"y": 416,
+						"width": 2,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 32,
+						"angle": 0
+					}
+				},
+				{
+					"type": "LightBlocker",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 672151,
+					"sid": 111301932752082,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 113444,
+						"uid": 672151,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"d": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 760,
+						"y": 424,
+						"width": 2,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 32,
+						"angle": 3.141592653589793
 					}
 				},
 				{

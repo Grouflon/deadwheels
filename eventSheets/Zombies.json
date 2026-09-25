@@ -1985,43 +1985,6 @@
 			"sid": 218360608730011
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Zombies",
-					"sid": 436236046820343,
-					"parameters": {
-						"instance-variable": "VoiceCoolDown",
-						"comparison": 3,
-						"value": "0"
-					}
-				},
-				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 472806741876455,
-					"parameters": {
-						"first-value": "distance(Zombies.X,Zombies.Y,scrollx,scrolly)",
-						"comparison": 3,
-						"second-value": "300"
-					}
-				}
-			],
-			"actions": [
-				{
-					"customAction": "zombieVoice",
-					"objectClass": "Zombies",
-					"sid": 538269006031724,
-					"parameters": [
-						"\"Idle\"",
-						false
-					]
-				}
-			],
-			"sid": 169932662811499
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Barnacle",
