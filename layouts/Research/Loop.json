@@ -421,7 +421,6 @@
 						"angular_input_delay": 0.05,
 						"angular_buffer_time": 0.2,
 						"max_angular_velocity": 400,
-						"direction": 90,
 						"excluded_collisions": "Crawlable",
 						"velocity": 0,
 						"angular_velocity": 0,
@@ -440,6 +439,7 @@
 						"left_angular_input_timer": 0,
 						"right_angular_input_timer": 0,
 						"consecutive_wheel_ticks": 0,
+						"last_collision_normal_angle": 0,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -553,10 +553,6 @@
 											{
 												"iv": "max_angular_velocity",
 												"state": true
-											},
-											{
-												"iv": "direction",
-												"state": false
 											},
 											{
 												"iv": "excluded_collisions",
@@ -696,6 +692,10 @@
 											},
 											{
 												"iv": "can_enter_chair",
+												"state": true
+											},
+											{
+												"iv": "last_collision_normal_angle",
 												"state": true
 											}
 										]

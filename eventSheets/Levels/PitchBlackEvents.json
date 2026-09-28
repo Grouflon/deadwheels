@@ -387,48 +387,7 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 263245893025371,
-							"parameters": {
-								"instance-variable": "is_in_chair"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "ChairController",
-							"sid": 272513993407836,
-							"parameters": {
-								"unique-id": "CharacterController.chair_uid"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 297629898955325,
-							"parameters": {
-								"variable": "idle_light_angle",
-								"value": "ChairController.Angle"
-							}
-						}
-					],
-					"sid": 538571157709780,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 751362159977666,
-							"disabled": true
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"id": "set-eventvar-value",

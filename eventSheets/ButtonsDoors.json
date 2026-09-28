@@ -224,19 +224,19 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "PivotDoor",
-									"sid": 882552936510784,
+									"sid": 479466426710400,
 									"parameters": {
 										"instance-variable": "PivotX",
-										"value": "PivotDoor.X + DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle)"
+										"value": "PivotDoor.X + Functions.RotateVectorX(DoorPivotOffsetX, DoorPivotOffsetY, Self.Angle)"
 									}
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "PivotDoor",
-									"sid": 324178563294726,
+									"sid": 303962448330172,
 									"parameters": {
 										"instance-variable": "PivotY",
-										"value": "PivotDoor.Y + DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle)"
+										"value": "PivotDoor.Y + Functions.RotateVectorY(DoorPivotOffsetX, DoorPivotOffsetY, Self.Angle)"
 									}
 								}
 							],
@@ -258,10 +258,10 @@
 								{
 									"id": "set-position",
 									"objectClass": "PivotDoor",
-									"sid": 831469940963120,
+									"sid": 659292790576380,
 									"parameters": {
-										"x": "Self.PivotX - (DoorPivotOffsetX * cos(Self.Angle) - DoorPivotOffsetY * sin(Self.Angle))",
-										"y": "Self.PivotY - (DoorPivotOffsetX * sin(Self.Angle) + DoorPivotOffsetY * cos(Self.Angle))"
+										"x": "Self.PivotX - Functions.RotateVectorX(DoorPivotOffsetX, DoorPivotOffsetY, Self.Angle)",
+										"y": "Self.PivotY - Functions.RotateVectorY(DoorPivotOffsetX, DoorPivotOffsetY, Self.Angle)"
 									}
 								}
 							],

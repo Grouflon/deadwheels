@@ -237,6 +237,152 @@
 				}
 			],
 			"sid": 611054475771340
+		},
+		{
+			"functionName": "RotateVectorX",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 514782768335547
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 286692898657642
+				},
+				{
+					"name": "angle_degrees",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 304361756886611
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 264562987374819,
+					"parameters": {
+						"value": " (x * cos(angle_degrees) - y* sin(angle_degrees))"
+					}
+				}
+			],
+			"sid": 275610284946990
+		},
+		{
+			"functionName": "RotateVectorY",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 398904931811035
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 663069944092069
+				},
+				{
+					"name": "angle_degrees",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 855857616282659
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 714114218753758,
+					"parameters": {
+						"value": "(x* sin(angle_degrees) + y * cos(angle_degrees))"
+					}
+				}
+			],
+			"sid": 256969614709336
+		},
+		{
+			"functionName": "Remap",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 157130457569861
+				},
+				{
+					"name": "sourceMin",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 553634807586630
+				},
+				{
+					"name": "sourceMax",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 371526566478293
+				},
+				{
+					"name": "targetMin",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 951780076134068
+				},
+				{
+					"name": "targetMax",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 644575981222234
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 874205130454364,
+					"parameters": {
+						"value": "lerp(targetMin, targetMax, unlerp(sourceMin, sourceMax, value))"
+					}
+				}
+			],
+			"sid": 844431368035805
 		}
 	],
 	"sid": 150942305447680

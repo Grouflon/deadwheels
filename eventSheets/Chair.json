@@ -111,6 +111,7 @@
 					"id": "set-visible",
 					"objectClass": "ChairController",
 					"sid": 466088377664217,
+					"disabled": true,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -118,22 +119,20 @@
 				{
 					"id": "move-to-top",
 					"objectClass": "ChairController",
-					"sid": 841016769517599
+					"sid": 841016769517599,
+					"disabled": true
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ChairSprite",
+					"sid": 265352462188723,
+					"disabled": true,
+					"parameters": {
+						"visibility": "invisible"
+					}
 				}
 			],
 			"sid": 973098979230283
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 294797201592849
-				}
-			],
-			"actions": [],
-			"sid": 223756107724982
 		},
 		{
 			"eventType": "group",
@@ -842,7 +841,16 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "ChairSprite",
+							"sid": 543495300142905,
+							"parameters": {
+								"angle": "ChairController.Angle"
+							}
+						}
+					],
 					"sid": 133102140052922,
 					"children": [
 						{
