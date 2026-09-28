@@ -74,7 +74,7 @@
 				{
 					"id": "add-child",
 					"objectClass": "ChairController",
-					"sid": 436052847835803,
+					"sid": 367644026267078,
 					"parameters": {
 						"child": "ChairSprite",
 						"transform-x": true,
@@ -83,7 +83,7 @@
 						"transform-w": false,
 						"transform-h": false,
 						"transform-d": false,
-						"transform-a": false,
+						"transform-a": true,
 						"transform-o": true,
 						"transform-visibility": false,
 						"destroy-with-parent": true
@@ -97,6 +97,28 @@
 						"instance-variable": "read_input",
 						"value": "false"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "ChairController",
+					"sid": 681832237804483,
+					"parameters": {
+						"instance-variable": "excluded_collisions",
+						"value": "\"Chair\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ChairController",
+					"sid": 466088377664217,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "ChairController",
+					"sid": 841016769517599
 				}
 			],
 			"sid": 973098979230283
@@ -110,16 +132,7 @@
 					"sid": 294797201592849
 				}
 			],
-			"actions": [
-				{
-					"id": "set-angle",
-					"objectClass": "ChairSprite",
-					"sid": 650380279375766,
-					"parameters": {
-						"angle": "ChairController.direction"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 223756107724982
 		},
 		{
@@ -494,10 +507,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "ChairController",
-									"sid": 953543200019858,
+									"sid": 367936004989270,
 									"parameters": {
 										"instance-variable": "angular_velocity",
-										"value": "-ram_deviation_force * clamp(Functions.SignedAngleBetween(ChairController.direction, angle(ChairController.X, ChairController.Y, Zombies.X, Zombies.Y)) / 45, -1, 1) * 45"
+										"value": "-ram_deviation_force * clamp(Functions.SignedAngleBetween(ChairController.Angle, angle(ChairController.X, ChairController.Y, Zombies.X, Zombies.Y)) / 45, -1, 1) * 45"
 									}
 								}
 							],

@@ -32,28 +32,6 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "ChairController",
-							"sid": 138514579885971
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ChairController",
-							"sid": 681832237804483,
-							"parameters": {
-								"instance-variable": "excluded_collisions",
-								"value": "\"Chair\""
-							}
-						}
-					],
-					"sid": 189159199327551
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
 							"objectClass": "Controllers",
 							"sid": 612772064435301
 						}
@@ -225,10 +203,10 @@
 														{
 															"id": "push-out-solid-at-angle",
 															"objectClass": "Controllers",
-															"sid": 524671578650779,
+															"sid": 927884515718852,
 															"behaviorType": "Custom",
 															"parameters": {
-																"angle": "Controllers.direction+180"
+																"angle": "Controllers.Angle+180"
 															}
 														}
 													],
@@ -247,10 +225,10 @@
 														{
 															"id": "push-out-solid-at-angle",
 															"objectClass": "Controllers",
-															"sid": 319828655308256,
+															"sid": 271805830024727,
 															"behaviorType": "Custom",
 															"parameters": {
-																"angle": "Controllers.direction"
+																"angle": "Controllers.Angle"
 															}
 														}
 													],
@@ -1463,12 +1441,11 @@
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
+											"id": "set-angle",
 											"objectClass": "Controllers",
-											"sid": 468178921309307,
+											"sid": 691265321952473,
 											"parameters": {
-												"instance-variable": "direction",
-												"value": "Controllers.angular_velocity * dt"
+												"angle": "Controllers.Angle + Controllers.angular_velocity * dt"
 											}
 										}
 									],
@@ -1596,10 +1573,10 @@
 										{
 											"id": "set-angle-of-motion",
 											"objectClass": "Controllers",
-											"sid": 785947884674846,
+											"sid": 182767869042687,
 											"behaviorType": "Custom",
 											"parameters": {
-												"angle": "Controllers.direction"
+												"angle": "Controllers.Angle"
 											}
 										}
 									],
@@ -1623,10 +1600,10 @@
 										{
 											"id": "set-angle-of-motion",
 											"objectClass": "Controllers",
-											"sid": 843903936719029,
+											"sid": 682857478606823,
 											"behaviorType": "Custom",
 											"parameters": {
-												"angle": "Controllers.direction+180"
+												"angle": "Controllers.Angle+180"
 											}
 										}
 									],

@@ -175,7 +175,7 @@
 						{
 							"id": "add-child",
 							"objectClass": "CharacterController",
-							"sid": 158747063912577,
+							"sid": 838112680153741,
 							"parameters": {
 								"child": "CharacterSprite",
 								"transform-x": true,
@@ -184,7 +184,7 @@
 								"transform-w": false,
 								"transform-h": false,
 								"transform-d": true,
-								"transform-a": false,
+								"transform-a": true,
 								"transform-o": false,
 								"transform-visibility": false,
 								"destroy-with-parent": true
@@ -336,12 +336,11 @@
 									}
 								},
 								{
-									"id": "set-instvar-value",
+									"id": "set-angle",
 									"objectClass": "ChairController",
-									"sid": 725882065012061,
+									"sid": 265511234552086,
 									"parameters": {
-										"instance-variable": "direction",
-										"value": "CharacterController.direction"
+										"angle": "CharacterController.Angle"
 									}
 								},
 								{
@@ -409,16 +408,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-angle",
-									"objectClass": "CharacterSprite",
-									"sid": 311020082051307,
-									"parameters": {
-										"angle": "ChairController.direction"
-									}
-								}
-							],
+							"actions": [],
 							"sid": 324232495101451
 						},
 						{
@@ -430,16 +420,7 @@
 									"sid": 807818263271010
 								}
 							],
-							"actions": [
-								{
-									"id": "set-angle",
-									"objectClass": "CrawlingSprite",
-									"sid": 783769913505042,
-									"parameters": {
-										"angle": "CharacterController.direction"
-									}
-								}
-							],
+							"actions": [],
 							"sid": 692356697298242
 						}
 					]
@@ -3916,12 +3897,11 @@
 							}
 						},
 						{
-							"id": "set-instvar-value",
+							"id": "set-angle",
 							"objectClass": "CharacterController",
-							"sid": 525000335266097,
+							"sid": 101125284315847,
 							"parameters": {
-								"instance-variable": "direction",
-								"value": "ChairController.direction"
+								"angle": "ChairController.Angle"
 							}
 						},
 						{
@@ -4060,6 +4040,14 @@
 							}
 						},
 						{
+							"id": "set-angle",
+							"objectClass": "CharacterSprite",
+							"sid": 497269323311747,
+							"parameters": {
+								"angle": "ChairController.Angle"
+							}
+						},
+						{
 							"id": "set-visible",
 							"objectClass": "Legs",
 							"sid": 170947493664486,
@@ -4105,7 +4093,7 @@
 						{
 							"id": "pin-to-object-properties",
 							"objectClass": "Arm",
-							"sid": 127368090578428,
+							"sid": 155249938236163,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "CharacterSprite",
@@ -4126,7 +4114,7 @@
 						{
 							"id": "add-child",
 							"objectClass": "ChairController",
-							"sid": 186974884676754,
+							"sid": 626200132230503,
 							"parameters": {
 								"child": "CharacterController",
 								"transform-x": true,
@@ -4135,7 +4123,7 @@
 								"transform-w": false,
 								"transform-h": false,
 								"transform-d": false,
-								"transform-a": false,
+								"transform-a": true,
 								"transform-o": false,
 								"transform-visibility": false,
 								"destroy-with-parent": true
