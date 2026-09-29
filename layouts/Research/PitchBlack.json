@@ -10317,6 +10317,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -10357,6 +10360,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -10478,6 +10492,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -10594,6 +10620,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -43880,7 +43939,10 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": true,
 						"spawnLegs": false,
-						"tryIdleVoiceCooldown": 0
+						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -43920,6 +43982,17 @@
 								"range": 35,
 								"cone-of-view": 75,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"Turret": {
@@ -44048,6 +44121,18 @@
 											{
 												"iv": "tryIdleVoiceCooldown",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -44164,6 +44249,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -44403,7 +44521,10 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": true,
 						"spawnLegs": false,
-						"tryIdleVoiceCooldown": 0
+						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -44443,6 +44564,17 @@
 								"range": 35,
 								"cone-of-view": 75,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"Turret": {
@@ -44571,6 +44703,18 @@
 											{
 												"iv": "tryIdleVoiceCooldown",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -44687,6 +44831,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -44926,7 +45103,10 @@
 						"onCreatedAngle": 0,
 						"canBeRammed": true,
 						"spawnLegs": false,
-						"tryIdleVoiceCooldown": 0
+						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -44966,6 +45146,17 @@
 								"range": 35,
 								"cone-of-view": 75,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"Turret": {
@@ -45094,6 +45285,18 @@
 											{
 												"iv": "tryIdleVoiceCooldown",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -45210,6 +45413,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -48201,6 +48437,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -48241,6 +48480,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						}
 					},
@@ -48354,6 +48604,18 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
 												"state": true
 											}
 										]
@@ -48471,6 +48733,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -48661,6 +48956,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -48701,6 +48999,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						}
 					},
@@ -48814,6 +49123,18 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
 												"state": true
 											}
 										]
@@ -48931,6 +49252,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -49121,6 +49475,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -49161,6 +49518,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -49282,6 +49650,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -49398,6 +49778,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -49605,6 +50018,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -49645,6 +50061,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -49766,6 +50193,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -49882,6 +50321,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -50089,6 +50561,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -50129,6 +50604,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -50250,6 +50736,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -50366,6 +50864,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -50573,6 +51104,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -50613,6 +51147,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -50734,6 +51279,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -50850,6 +51407,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -51057,6 +51647,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -51097,6 +51690,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -51218,6 +51822,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -51334,6 +51950,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -51541,6 +52190,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -51581,6 +52233,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -51702,6 +52365,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -51818,6 +52493,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -52025,6 +52733,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -52065,6 +52776,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -52186,6 +52908,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -52302,6 +53036,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -52509,6 +53276,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -52549,6 +53319,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -52670,6 +53451,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -52786,6 +53579,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -52993,6 +53819,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -53033,6 +53862,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -53154,6 +53994,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -53270,6 +54122,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -53477,6 +54362,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -53517,6 +54405,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -53638,6 +54537,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -53754,6 +54665,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -53961,6 +54905,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -54001,6 +54948,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						}
 					},
@@ -54114,6 +55072,18 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
 												"state": true
 											}
 										]
@@ -54231,6 +55201,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -54421,6 +55424,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -54461,6 +55467,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -54582,6 +55599,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -54698,6 +55727,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -54905,6 +55967,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -54945,6 +56010,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -55066,6 +56142,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -55182,6 +56270,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -55389,6 +56510,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -55429,6 +56553,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -55550,6 +56685,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -55666,6 +56813,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -55873,6 +57053,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -55913,6 +57096,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -56034,6 +57228,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -56150,6 +57356,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -56357,6 +57596,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -56397,6 +57639,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -56518,6 +57771,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -56634,6 +57899,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -56841,6 +58139,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -56881,6 +58182,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -57002,6 +58314,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -57118,6 +58442,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -57325,6 +58682,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -57365,6 +58725,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -57486,6 +58857,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -57602,6 +58985,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -57809,6 +59225,9 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -57849,6 +59268,17 @@
 								"range": 25,
 								"cone-of-view": 45,
 								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"ShadowCaster": {
@@ -57970,6 +59400,18 @@
 											{
 												"iv": "isBeingGrabbed",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -58086,6 +59528,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]
@@ -58795,6 +60270,9 @@
 						"canBeRammed": false,
 						"spawnLegs": false,
 						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": false
@@ -58837,6 +60315,17 @@
 								"range": 0,
 								"cone-of-view": 0,
 								"use-collision-cells": false
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						},
 						"LineOfSight": {
@@ -58967,6 +60456,18 @@
 											{
 												"iv": "spawnHole",
 												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
 											}
 										]
 									}
@@ -59083,6 +60584,39 @@
 											],
 											[
 												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
 												true
 											]
 										]

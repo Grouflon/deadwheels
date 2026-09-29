@@ -1366,7 +1366,7 @@
 			"conditions": [
 				{
 					"id": "is-animation-playing",
-					"objectClass": "Zombies",
+					"objectClass": "Mike",
 					"sid": 110039291495945,
 					"parameters": {
 						"animation": "\"Atk\""
@@ -1374,7 +1374,7 @@
 				},
 				{
 					"id": "compare-animation-frame",
-					"objectClass": "Zombies",
+					"objectClass": "Mike",
 					"sid": 155233377586795,
 					"parameters": {
 						"comparison": 0,
@@ -1390,7 +1390,7 @@
 			"actions": [
 				{
 					"id": "spawn-another-object",
-					"objectClass": "Zombies",
+					"objectClass": "Mike",
 					"sid": 603525968104521,
 					"parameters": {
 						"object": "ZombiesHitbox",
@@ -1399,9 +1399,69 @@
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "ZombiesHitbox",
+					"sid": 661051733260236,
+					"parameters": {
+						"instance-variable": "Damage",
+						"value": "zombie_damage"
+					}
 				}
 			],
 			"sid": 274793918371644
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Andrea",
+					"sid": 244853309437594,
+					"parameters": {
+						"animation": "\"Atk\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Andrea",
+					"sid": 529278212080562,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 664264432615795
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Andrea",
+					"sid": 736563449776897,
+					"parameters": {
+						"object": "ZombiesHitbox",
+						"layer": "Self.LayerName",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "ZombiesHitbox",
+					"sid": 414956434301402,
+					"parameters": {
+						"instance-variable": "Damage",
+						"value": "zombie_damage"
+					}
+				}
+			],
+			"sid": 988109551060306
 		},
 		{
 			"eventType": "variable",
@@ -1412,6 +1472,10 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 926491910685479
+		},
+		{
+			"eventType": "comment",
+			"text": "Hitbox collision with player"
 		},
 		{
 			"eventType": "block",
@@ -1444,9 +1508,9 @@
 						{
 							"customAction": "DoDamage",
 							"objectClass": "CharacterController",
-							"sid": 430297642369827,
+							"sid": 890513820288167,
 							"parameters": [
-								"zombie_damage",
+								"ZombiesHitbox.Damage",
 								false
 							]
 						}
@@ -1483,9 +1547,9 @@
 						{
 							"customAction": "DoDamage",
 							"objectClass": "CharacterController",
-							"sid": 368780752318449,
+							"sid": 866160549909052,
 							"parameters": [
-								"zombie_damage",
+								"ZombiesHitbox.Damage",
 								false
 							]
 						}
@@ -1584,6 +1648,81 @@
 						}
 					],
 					"sid": 512831606305027
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Determines if zombies are rotating"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 297827387666689,
+					"parameters": {
+						"object": "Zombies"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Zombies",
+					"sid": 987733224886542,
+					"parameters": {
+						"instance-variable": "isRotating",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 957251292248896,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 684493444927704,
+							"parameters": {
+								"first-value": "abs(Zombies.Angle-Zombies.lastFrameAngle)",
+								"comparison": 4,
+								"second-value": "1"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Zombies",
+							"sid": 987618558953757,
+							"parameters": {
+								"instance-variable": "isRotating",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 863187536050523
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombies",
+							"sid": 909585087086304,
+							"parameters": {
+								"instance-variable": "lastFrameAngle",
+								"value": "Zombies.Angle"
+							}
+						}
+					],
+					"sid": 353153080235343
 				}
 			]
 		},
@@ -3676,14 +3815,23 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "L5Hand",
+							"objectClass": "L5Turret",
 							"sid": 628883599044310
 						}
 					],
 					"actions": [
 						{
+							"id": "set-position-to-another-object",
+							"objectClass": "L5Turret",
+							"sid": 948849713279960,
+							"parameters": {
+								"object": "L5",
+								"image-point-optional": "0"
+							}
+						},
+						{
 							"id": "pin-to-object-properties",
-							"objectClass": "L5Hand",
+							"objectClass": "L5Turret",
 							"sid": 528206174520449,
 							"behaviorType": "Pin",
 							"parameters": {
@@ -3700,13 +3848,133 @@
 					"sid": 195999162442755
 				},
 				{
+					"eventType": "comment",
+					"text": "Aura damage"
+				},
+				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 761357515644158,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 933299596732967,
+							"parameters": {
+								"first-value": "distance(CharacterController.X,CharacterController.Y,L5.X,L5.Y)",
+								"comparison": 3,
+								"second-value": "25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "DoDamage",
+							"objectClass": "CharacterController",
+							"sid": 116794991573502,
+							"parameters": [
+								"2",
+								false
+							]
+						}
+					],
+					"sid": 342312846523914
+				},
+				{
+					"eventType": "comment",
+					"text": "Turret "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "L5",
+							"sid": 375104490841274,
+							"parameters": {
+								"instance-variable": "isAttacking"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 750070792720958,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 971266006379514,
+									"parameters": {
+										"first-value": "distance(L5Turret.X,L5Turret.Y,CharacterController.X,CharacterController.Y)",
+										"comparison": 3,
+										"second-value": "50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "L5Turret",
+									"sid": 570864352840615,
+									"parameters": {
+										"animation": "\"Catch\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 199774887745621
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 277930480913484
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "L5Turret",
+									"sid": 992341257968168,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 947921414667958
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "L5",
+							"sid": 927985279822905,
+							"parameters": {
+								"instance-variable": "isAttacking"
+							},
+							"isInverted": true
+						}
+					],
 					"actions": [
 						{
 							"id": "set-angle-toward-position",
-							"objectClass": "L5Hand",
-							"sid": 329015739489104,
+							"objectClass": "L5Turret",
+							"sid": 254819522629803,
 							"parameters": {
 								"x": "CharacterController.X",
 								"y": "CharacterController.Y"
@@ -3719,28 +3987,420 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 294176403519073,
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 482524499272034,
 							"parameters": {
-								"first-value": "distance(L5Hand.X,L5Hand.Y,CharacterController.X,CharacterController.Y)",
-								"comparison": 3,
-								"second-value": "50"
+								"animation": "\"Atk\""
 							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "L5",
+							"sid": 320946328644512,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 323822662388462
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "L5Hand",
-							"sid": 254536826187204,
+							"objectClass": "L5Turret",
+							"sid": 994071644692404,
 							"parameters": {
-								"animation": "\"Catch\"",
+								"animation": "\"Atk\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-speed",
+							"objectClass": "L5Turret",
+							"sid": 799078680799368,
+							"parameters": {
+								"speed": "L5.AnimationSpeed"
 							}
 						}
 					],
-					"sid": 285721214902472
+					"sid": 756893329701107
+				},
+				{
+					"eventType": "comment",
+					"text": "Attack hitbox and movement"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 720215918405117,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "L5",
+							"sid": 375688292291541,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 851397044787568
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "L5",
+							"sid": 187370870252730,
+							"parameters": {
+								"object": "ZombiesHitbox",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ZombiesHitbox",
+							"sid": 899242887340733,
+							"parameters": {
+								"instance-variable": "Damage",
+								"value": "35"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "ZombiesHitbox",
+							"sid": 326648758200835,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "L5",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-wait-time",
+							"objectClass": "ZombiesHitbox",
+							"sid": 721228004903719,
+							"behaviorType": "Fade",
+							"parameters": {
+								"wait-time": "0.5"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "ZombiesHitbox",
+							"sid": 638946278050947,
+							"parameters": {
+								"scale": "2"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 183140969781491,
+							"parameters": {
+								"audio-file": {
+									"path": "Explosion"
+								},
+								"loop": "not-looping",
+								"volume": "-20",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Camera",
+							"sid": 232240723311505,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "15",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 935390689735791
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 675845644709046,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "L5",
+							"sid": 925137209756421,
+							"parameters": {
+								"object": "Buildings"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "L5",
+							"sid": 285555667420090,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"sid": 204861035076641
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 729795059157767,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "L5",
+							"sid": 252330635875970,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 442646444729304
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "L5",
+							"sid": 388858808874718,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Self.X+cos(Self.Angle)*40",
+								"y": "Self.Y+sin(Self.Angle)*40",
+								"mode": "direct"
+							}
+						},
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 752435051511805,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Zombie/L5Atk\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 236874047983192
+				},
+				{
+					"eventType": "comment",
+					"text": "Audio"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "L5",
+							"sid": 105743954564052
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 839997684712342,
+							"parameters": {
+								"tag": "\"L5Loop\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 148295688975041,
+							"parameters": {
+								"tag": "\"L5MoveLoop\""
+							}
+						}
+					],
+					"sid": 760117015040805
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "L5",
+							"sid": 430948731322985
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 260102973127836,
+							"parameters": {
+								"audio-file": {
+									"path": "Zombie/L5Loop"
+								},
+								"loop": "looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"L5Loop\""
+							}
+						},
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 807273033604179,
+							"parameters": {
+								"audio-file": {
+									"path": "Zombie/L5MoveLoop"
+								},
+								"loop": "looping",
+								"volume": "-10",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"L5MoveLoop\""
+							}
+						},
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 923626073482933,
+							"parameters": {
+								"audio-file": {
+									"path": "Zombie/L5Rotation"
+								},
+								"loop": "looping",
+								"volume": "-200",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"L5Rotation\""
+							}
+						}
+					],
+					"sid": 650880210860923
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-along-path",
+							"objectClass": "L5",
+							"sid": 584995542932302,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 309268233658218,
+							"parameters": {
+								"tag": "\"L5MoveLoop\"",
+								"db": "lerp(Audio.Volume(\"L5MoveLoop\"),0,0.2)"
+							}
+						}
+					],
+					"sid": 666100313552057
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-along-path",
+							"objectClass": "L5",
+							"sid": 921815457764076,
+							"behaviorType": "Pathfinding",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 875172561665870,
+							"parameters": {
+								"tag": "\"L5MoveLoop\"",
+								"db": "lerp(Audio.Volume(\"L5MoveLoop\"),-100,0.03)"
+							}
+						}
+					],
+					"sid": 606583279170908
+				},
+				{
+					"eventType": "comment",
+					"text": "Rotation audio"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "L5",
+							"sid": 908314019520827,
+							"parameters": {
+								"instance-variable": "isRotating"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 501553646038736,
+							"parameters": {
+								"tag": "\"L5Rotation\"",
+								"db": "lerp(Audio.Volume(\"L5Rotation\"),0,0.2)"
+							}
+						}
+					],
+					"sid": 437373621126117
 				},
 				{
 					"eventType": "block",
@@ -3748,21 +4408,21 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 929923680536334
+							"sid": 491952392924010
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation",
-							"objectClass": "L5Hand",
-							"sid": 925721490825800,
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 774393230062936,
 							"parameters": {
-								"animation": "\"Idle\"",
-								"from": "beginning"
+								"tag": "\"L5Rotation\"",
+								"db": "lerp(Audio.Volume(\"L5Rotation\"),-100,0.02)"
 							}
 						}
 					],
-					"sid": 581908167241051
+					"sid": 922489403039402
 				}
 			],
 			"sid": 545761517896897
