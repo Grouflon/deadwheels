@@ -4300,23 +4300,6 @@
 						{
 							"id": "play-at-object",
 							"objectClass": "Audio",
-							"sid": 807273033604179,
-							"parameters": {
-								"audio-file": {
-									"path": "Zombie/L5MoveLoop"
-								},
-								"loop": "looping",
-								"volume": "-10",
-								"object": "L5",
-								"inner-angle": "360",
-								"outer-angle": "360",
-								"outer-gain": "0",
-								"tag-optional": "\"L5MoveLoop\""
-							}
-						},
-						{
-							"id": "play-at-object",
-							"objectClass": "Audio",
 							"sid": 923626073482933,
 							"parameters": {
 								"audio-file": {
@@ -4333,63 +4316,6 @@
 						}
 					],
 					"sid": 650880210860923
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving-along-path",
-							"objectClass": "L5",
-							"sid": 584995542932302,
-							"behaviorType": "Pathfinding"
-						},
-						{
-							"id": "compare-speed",
-							"objectClass": "L5",
-							"sid": 180140489893592,
-							"behaviorType": "Pathfinding",
-							"parameters": {
-								"comparison": 4,
-								"speed": "3"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-volume",
-							"objectClass": "Audio",
-							"sid": 309268233658218,
-							"parameters": {
-								"tag": "\"L5MoveLoop\"",
-								"db": "lerp(Audio.Volume(\"L5MoveLoop\"),0,0.2)"
-							}
-						}
-					],
-					"sid": 666100313552057
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving-along-path",
-							"objectClass": "L5",
-							"sid": 921815457764076,
-							"behaviorType": "Pathfinding",
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-volume",
-							"objectClass": "Audio",
-							"sid": 875172561665870,
-							"parameters": {
-								"tag": "\"L5MoveLoop\"",
-								"db": "lerp(Audio.Volume(\"L5MoveLoop\"),-100,0.03)"
-							}
-						}
-					],
-					"sid": 606583279170908
 				},
 				{
 					"eventType": "comment",
@@ -4444,6 +4370,121 @@
 				}
 			],
 			"sid": 545761517896897
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "L5",
+					"sid": 531677662058754,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"speed": "L5.Tween.Value(\"L5Speed\")"
+					}
+				}
+			],
+			"sid": 205344802493320
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "L5",
+					"sid": 619512014771031,
+					"parameters": {
+						"animation": "\"Walk\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "L5",
+					"sid": 162385468072928,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 881517912849662
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-tweens",
+					"objectClass": "L5",
+					"sid": 190271773399150,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"L5Speed\""
+					}
+				},
+				{
+					"id": "tween-value",
+					"objectClass": "L5",
+					"sid": 782539673797561,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"L5Speed\"",
+						"start-value": "2",
+						"end-value": "50",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "yes",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 642348335983403
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "L5",
+					"sid": 638693033366185,
+					"parameters": {
+						"animation": "\"Walk\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "L5",
+					"sid": 763073163262952,
+					"parameters": {
+						"comparison": 0,
+						"number": "3"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 138836133458451
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 165358336904537,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "\"Zombie/L5Move\"&choose(1,2)",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 728155605533554
 		}
 	],
 	"sid": 810694807837553
