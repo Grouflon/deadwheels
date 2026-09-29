@@ -4258,6 +4258,14 @@
 							"parameters": {
 								"tag": "\"L5MoveLoop\""
 							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 376613392995377,
+							"parameters": {
+								"tag": "\"L5Rotation\""
+							}
 						}
 					],
 					"sid": 760117015040805
@@ -4275,13 +4283,13 @@
 						{
 							"id": "play-at-object",
 							"objectClass": "Audio",
-							"sid": 260102973127836,
+							"sid": 838291966072762,
 							"parameters": {
 								"audio-file": {
 									"path": "Zombie/L5Loop"
 								},
 								"loop": "looping",
-								"volume": "0",
+								"volume": "-5",
 								"object": "L5",
 								"inner-angle": "360",
 								"outer-angle": "360",
@@ -4334,6 +4342,16 @@
 							"objectClass": "L5",
 							"sid": 584995542932302,
 							"behaviorType": "Pathfinding"
+						},
+						{
+							"id": "compare-speed",
+							"objectClass": "L5",
+							"sid": 180140489893592,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"comparison": 4,
+								"speed": "3"
+							}
 						}
 					],
 					"actions": [
