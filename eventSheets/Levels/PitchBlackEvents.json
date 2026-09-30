@@ -505,6 +505,197 @@
 					"sid": 583639280425764
 				}
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Generator activations change mass grave apperance"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Generator",
+					"sid": 643274161382692,
+					"parameters": {
+						"instance-variable": "enabled"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 588246341872785,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "massGraveCenterX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 595832639426059
+				},
+				{
+					"eventType": "variable",
+					"name": "massGraveCenterY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 838936010477298
+				},
+				{
+					"eventType": "comment",
+					"text": "1 generator enabled : corpses disappear in main room and the big pile appears"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 446958470427583,
+							"parameters": {
+								"first-value": "Generator.PickedCount",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 262891477412427
+						}
+					],
+					"actions": [],
+					"sid": 237141156783730,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Corpse",
+									"sid": 193455671304799,
+									"parameters": {
+										"tags": "\"l5Pile\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Corpse",
+									"sid": 518470620039330,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 360118892679773,
+									"parameters": {
+										"variable": "massGraveCenterX",
+										"value": "Corpse.X"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 359877692265882,
+									"parameters": {
+										"variable": "massGraveCenterY",
+										"value": "Corpse.Y"
+									}
+								}
+							],
+							"sid": 790541694364875
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 254683709343460,
+									"parameters": {
+										"object": "Corpse"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Corpse",
+									"sid": 596807862259293,
+									"parameters": {
+										"tags": "\"l5Pile\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 159137214606379,
+									"parameters": {
+										"first-value": "distance(Corpse.X,Corpse.Y,massGraveCenterX,massGraveCenterY)",
+										"comparison": 3,
+										"second-value": "200"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Corpse",
+									"sid": 515474044581979
+								}
+							],
+							"sid": 668385011146733
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "2 generators enabled : corpses pile disappears"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 129927674941498,
+							"parameters": {
+								"first-value": "Generator.PickedCount",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Corpse",
+							"sid": 518564495349059,
+							"parameters": {
+								"tags": "\"l5Pile\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 293934672888114
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Corpse",
+							"sid": 142192208350045
+						}
+					],
+					"sid": 534841455563136
+				}
+			]
 		}
 	],
 	"sid": 253229832371815
