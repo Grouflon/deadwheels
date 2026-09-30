@@ -176,7 +176,33 @@
 					}
 				}
 			],
-			"sid": 253449374864083
+			"sid": 253449374864083,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "Corpse",
+							"sid": 626853837112457,
+							"parameters": {
+								"tags": "\"phase2\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Corpse",
+							"sid": 735430632181694,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 243253331338781
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -617,30 +643,11 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 254683709343460,
-									"parameters": {
-										"object": "Corpse"
-									}
-								},
-								{
 									"id": "has-tags",
 									"objectClass": "Corpse",
-									"sid": 596807862259293,
+									"sid": 768084210178505,
 									"parameters": {
-										"tags": "\"l5Pile\""
-									},
-									"isInverted": true
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 573391656194535,
-									"parameters": {
-										"first-value": "distance(Corpse.X,Corpse.Y,massGraveCenterX,massGraveCenterY)",
-										"comparison": 3,
-										"second-value": "250"
+										"tags": "\"phase1\""
 									}
 								}
 							],
@@ -648,10 +655,34 @@
 								{
 									"id": "destroy",
 									"objectClass": "Corpse",
-									"sid": 515474044581979
+									"sid": 931657351879908
 								}
 							],
-							"sid": 668385011146733
+							"sid": 322303954842056
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Corpse",
+									"sid": 567117419814945,
+									"parameters": {
+										"tags": "\"phase2\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Corpse",
+									"sid": 924678896989168,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 105918890595196
 						}
 					]
 				},
@@ -685,11 +716,30 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 911512688128227,
+									"parameters": {
+										"object": "Corpse"
+									}
+								},
+								{
 									"id": "has-tags",
 									"objectClass": "Corpse",
-									"sid": 930180854112880,
+									"sid": 968952574995384,
 									"parameters": {
 										"tags": "\"l5Pile\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 139383628344602,
+									"parameters": {
+										"first-value": "distance(Corpse.X,Corpse.Y,massGraveCenterX,massGraveCenterY)",
+										"comparison": 3,
+										"second-value": "250"
 									}
 								}
 							],
@@ -697,10 +747,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "Corpse",
-									"sid": 208871915537661
+									"sid": 330184868444336
 								}
 							],
-							"sid": 496874168459736
+							"sid": 369849978136794
 						},
 						{
 							"eventType": "block",
@@ -743,6 +793,57 @@
 							"sid": 506545014455238
 						}
 					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Trigger",
+					"sid": 409739602807599,
+					"parameters": {
+						"unique-id": "231741"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Trigger",
+					"sid": 436819053281765,
+					"parameters": {
+						"instance-variable": "Triggered"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 156424390481493
+				}
+			],
+			"actions": [],
+			"sid": 351060016274158,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "Corpse",
+							"sid": 824858646274178,
+							"parameters": {
+								"tags": "\"l5Pile\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Corpse",
+							"sid": 935987940148926
+						}
+					],
+					"sid": 825395687425954
 				}
 			]
 		}
