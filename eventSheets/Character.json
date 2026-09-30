@@ -3170,6 +3170,13 @@
 					"initialValue": "false",
 					"comment": "",
 					"sid": 975511842831105
+				},
+				{
+					"name": "Audio",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 545599008640900
 				}
 			],
 			"eventType": "custom-ace-block",
@@ -3203,33 +3210,39 @@
 						"variable": "health",
 						"value": "-Damage"
 					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 338571824593167,
-					"parameters": {
-						"audio-file": {
-							"path": "GoreBig1"
-						},
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "set-playback-rate",
-					"objectClass": "Audio",
-					"sid": 472561195342184,
-					"parameters": {
-						"tag": "\"\"",
-						"playback-rate": "2"
-					}
 				}
 			],
 			"sid": 866440990664613,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 447338136554756,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Impacts/\"&Audio&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 443383575632466,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.8,1.2)"
+							}
+						}
+					],
+					"sid": 598422126471643
+				},
 				{
 					"eventType": "block",
 					"conditions": [

@@ -394,7 +394,8 @@
 					"sid": 538686225828351,
 					"tags": "",
 					"instanceVariables": {
-						"Damage": 10
+						"Damage": 10,
+						"Audio": "GorePunch"
 					},
 					"behaviors": {
 						"Fade": {
@@ -1794,7 +1795,7 @@
 						"object": 950991769226762,
 						"initially-visible": true,
 						"live-preview": false,
-						"speed": 5,
+						"speed": 0,
 						"size": 16,
 						"opacity": 100,
 						"grow-rate": 0,
@@ -1806,7 +1807,7 @@
 						"acceleration": 0,
 						"gravity": 0,
 						"angle-randomiser": 0,
-						"life-speed-randomiser": 10,
+						"life-speed-randomiser": 0,
 						"opacity-randomiser": 0,
 						"destroy-mode": "timeout-expired",
 						"timeout": 1
@@ -5949,6 +5950,56 @@
 					}
 				},
 				{
+					"type": "DustParticleLarge",
+					"properties": {
+						"rate": 15,
+						"spray-cone": 360,
+						"type": "one-shot",
+						"object": 950991769226762,
+						"initially-visible": true,
+						"live-preview": false,
+						"speed": 0,
+						"size": 16,
+						"opacity": 100,
+						"grow-rate": 0,
+						"x-randomiser": 20,
+						"y-randomiser": 20,
+						"initial-speed-randomiser": 0,
+						"size-randomiser": 0,
+						"grow-rate-randomiser": 0,
+						"acceleration": 0,
+						"gravity": 0,
+						"angle-randomiser": 0,
+						"life-speed-randomiser": 0,
+						"opacity-randomiser": 0,
+						"destroy-mode": "timeout-expired",
+						"timeout": 1
+					},
+					"uid": 114376,
+					"sid": 896060971192683,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 256,
+						"y": 156,
+						"width": 15.53807566746167,
+						"height": 13.753668815365813,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "SawBlade",
 					"properties": {
 						"initially-visible": true,
@@ -7978,7 +8029,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -8521,7 +8572,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -9674,6 +9725,50 @@
 							1
 						],
 						"z": 18,
+						"angle": 0
+					}
+				},
+				{
+					"type": "L5Turret",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Catch",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 968345,
+					"sid": 638129838894746,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 256,
+						"y": 20,
+						"width": 64,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.5104166666666666,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 25,
 						"angle": 0
 					}
 				},

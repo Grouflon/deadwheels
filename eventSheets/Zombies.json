@@ -1508,10 +1508,11 @@
 						{
 							"customAction": "DoDamage",
 							"objectClass": "CharacterController",
-							"sid": 890513820288167,
+							"sid": 353570896302924,
 							"parameters": [
 								"ZombiesHitbox.Damage",
-								false
+								false,
+								"ZombiesHitbox.Audio"
 							]
 						}
 					],
@@ -1550,7 +1551,8 @@
 							"sid": 866160549909052,
 							"parameters": [
 								"ZombiesHitbox.Damage",
-								false
+								false,
+								"\"\""
 							]
 						}
 					],
@@ -3304,7 +3306,8 @@
 									"sid": 144510556238145,
 									"parameters": [
 										"100",
-										false
+										false,
+										"\"\""
 									]
 								},
 								{
@@ -3391,7 +3394,8 @@
 											"sid": 115442262979856,
 											"parameters": [
 												"100",
-												true
+												true,
+												"\"\""
 											]
 										}
 									],
@@ -3871,17 +3875,48 @@
 								"comparison": 3,
 								"second-value": "25"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 820027555668044,
+							"parameters": {
+								"instance-variable": "is_dead"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"customAction": "DoDamage",
-							"objectClass": "CharacterController",
-							"sid": 116794991573502,
-							"parameters": [
-								"2",
-								false
-							]
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 214430046604523,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Impacts/GorePunch\"&choose(1,2,3)",
+								"loop": "not-looping",
+								"volume": "-20",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 581549343909743,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "random(0.8,1.1)"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 885889515440181,
+							"parameters": {
+								"variable": "health",
+								"value": "-1"
+							}
 						}
 					],
 					"sid": 342312846523914
@@ -4082,12 +4117,33 @@
 							}
 						},
 						{
+							"id": "spawn-another-object",
+							"objectClass": "L5",
+							"sid": 502293738190085,
+							"parameters": {
+								"object": "DustParticleLarge",
+								"layer": "Self.LayerName",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "ZombiesHitbox",
 							"sid": 899242887340733,
 							"parameters": {
 								"instance-variable": "Damage",
 								"value": "35"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ZombiesHitbox",
+							"sid": 665930677675955,
+							"parameters": {
+								"instance-variable": "Audio",
+								"value": "\"GoreBig\""
 							}
 						},
 						{
@@ -4125,13 +4181,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 183140969781491,
+							"sid": 652208184353075,
 							"parameters": {
 								"audio-file": {
 									"path": "Explosion"
 								},
 								"loop": "not-looping",
-								"volume": "-20",
+								"volume": "-10",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -4447,13 +4503,13 @@
 						{
 							"id": "play-at-object",
 							"objectClass": "Audio",
-							"sid": 838291966072762,
+							"sid": 561169015657722,
 							"parameters": {
 								"audio-file": {
 									"path": "Zombie/L5Loop"
 								},
 								"loop": "looping",
-								"volume": "-5",
+								"volume": "0",
 								"object": "L5",
 								"inner-angle": "360",
 								"outer-angle": "360",
@@ -4501,10 +4557,10 @@
 						{
 							"id": "set-volume",
 							"objectClass": "Audio",
-							"sid": 501553646038736,
+							"sid": 261742461937953,
 							"parameters": {
 								"tag": "\"L5Rotation\"",
-								"db": "lerp(Audio.Volume(\"L5Rotation\"),0,0.2)"
+								"db": "lerp(Audio.Volume(\"L5Rotation\"),0,0.5)"
 							}
 						}
 					],
@@ -4531,174 +4587,248 @@
 						}
 					],
 					"sid": 922489403039402
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-max-speed",
+							"objectClass": "L5",
+							"sid": 450218394190331,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"speed": "L5.Tween.Value(\"L5Speed\")"
+							}
+						},
+						{
+							"id": "set-rotate-speed",
+							"objectClass": "L5",
+							"sid": 159641052007569,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"rotate-speed": "L5.Tween.Value(\"L5RotationSpeed\")"
+							}
+						}
+					],
+					"sid": 345020648177228
+				},
+				{
+					"eventType": "comment",
+					"text": "Walking effects"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 907805765631095,
+							"parameters": {
+								"animation": "\"Walk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "L5",
+							"sid": 135232065667461,
+							"parameters": {
+								"comparison": 0,
+								"number": "3"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 485146280469270
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "L5",
+							"sid": 802818855578813,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"L5Speed\""
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "L5",
+							"sid": 284022053219775,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"L5Speed\"",
+								"start-value": "2",
+								"end-value": "50",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "L5",
+							"sid": 198375676144521,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"L5RotationSpeed\""
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "L5",
+							"sid": 820630537038514,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"L5RotationSpeed\"",
+								"start-value": "2",
+								"end-value": "200",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 544257265630001
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 692236771080758,
+							"parameters": {
+								"animation": "\"Walk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "L5",
+							"sid": 531100243323236,
+							"parameters": {
+								"comparison": 0,
+								"number": "4"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 450850062743210
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 935180509821768,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Zombie/L5Move\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 194806511478966
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "L5",
+							"sid": 930792932120591,
+							"parameters": {
+								"animation": "\"Walk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "L5",
+							"sid": 972516487363873,
+							"parameters": {
+								"comparison": 0,
+								"number": "4"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 764331532271229
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "L5",
+							"sid": 812517473640863,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"WalkZTween\""
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "L5Turret",
+							"sid": 469426472672781,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"WalkZTween\"",
+								"property": "offsetZElevation",
+								"end-value": "Self.Z-5",
+								"time": "0.4",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "L5",
+							"sid": 755016848918606,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"WalkZTween\""
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "L5",
+							"sid": 853157520072270,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"WalkZTween\"",
+								"property": "offsetZElevation",
+								"end-value": "Self.Z-5",
+								"time": "0.4",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 885543374204242
 				}
 			],
 			"sid": 545761517896897
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-max-speed",
-					"objectClass": "L5",
-					"sid": 531677662058754,
-					"behaviorType": "Pathfinding",
-					"parameters": {
-						"speed": "L5.Tween.Value(\"L5Speed\")"
-					}
-				}
-			],
-			"sid": 205344802493320
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-animation-playing",
-					"objectClass": "L5",
-					"sid": 619512014771031,
-					"parameters": {
-						"animation": "\"Walk\""
-					}
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "L5",
-					"sid": 579395209416993,
-					"parameters": {
-						"comparison": 0,
-						"number": "3"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 881517912849662
-				}
-			],
-			"actions": [
-				{
-					"id": "stop-tweens",
-					"objectClass": "L5",
-					"sid": 190271773399150,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"L5Speed\""
-					}
-				},
-				{
-					"id": "tween-value",
-					"objectClass": "L5",
-					"sid": 782539673797561,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"L5Speed\"",
-						"start-value": "2",
-						"end-value": "50",
-						"time": "0.5",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "yes",
-						"repeat-count": "1"
-					}
-				}
-			],
-			"sid": 642348335983403
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-animation-playing",
-					"objectClass": "L5",
-					"sid": 638693033366185,
-					"parameters": {
-						"animation": "\"Walk\""
-					}
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "L5",
-					"sid": 498615861364105,
-					"parameters": {
-						"comparison": 0,
-						"number": "4"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 138836133458451
-				}
-			],
-			"actions": [
-				{
-					"id": "play-at-object-by-name",
-					"objectClass": "Audio",
-					"sid": 415415449943861,
-					"parameters": {
-						"folder": "sounds",
-						"audio-file-name": "\"Zombie/L5Move\"&choose(1,2)",
-						"loop": "not-looping",
-						"volume": "0",
-						"object": "L5",
-						"inner-angle": "360",
-						"outer-angle": "0",
-						"outer-gain": "0",
-						"tag-optional": "\"\""
-					}
-				}
-			],
-			"sid": 728155605533554
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-animation-playing",
-					"objectClass": "L5",
-					"sid": 297183645028996,
-					"parameters": {
-						"animation": "\"Walk\""
-					}
-				},
-				{
-					"id": "compare-animation-frame",
-					"objectClass": "L5",
-					"sid": 485276061265899,
-					"parameters": {
-						"comparison": 0,
-						"number": "4"
-					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 898274720873969
-				}
-			],
-			"actions": [
-				{
-					"id": "tween-one-property",
-					"objectClass": "L5Turret",
-					"sid": 558256924097903,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"Z\"",
-						"property": "offsetZElevation",
-						"end-value": "Self.Z-5",
-						"time": "0.4",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "yes",
-						"repeat-count": "1"
-					}
-				}
-			],
-			"sid": 169915409574218
 		}
 	],
 	"sid": 810694807837553

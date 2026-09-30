@@ -11846,132 +11846,6 @@
 					}
 				},
 				{
-					"type": "L5",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 569329,
-					"sid": 450774520644477,
-					"tags": "",
-					"instanceVariables": {
-						"spottedPlayer": false,
-						"followPlayer": false,
-						"health": 1000,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false,
-						"pathfindingCooldown": 0,
-						"pendingValidTargetX": 0,
-						"pendingValidTargetY": 0,
-						"lastValidTargetX": 0,
-						"lastValidTargetY": 0,
-						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0,
-						"onCreatedAngle": 0,
-						"canBeRammed": false,
-						"spawnLegs": true,
-						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
-						"isRotating": false,
-						"lastFrameAngle": 0,
-						"isBeingGrabbed": false
-					},
-					"behaviors": {
-						"AcquireVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 200,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"LoseVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 500,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 8,
-								"cell-border": 8,
-								"obstacles": "solids",
-								"max-speed": 1,
-								"acceleration": 200,
-								"deceleration": 800,
-								"rotate-speed": 70,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
-								"enabled": true
-							}
-						},
-						"LineOfSight2": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 40,
-								"cone-of-view": 80,
-								"use-collision-cells": true
-							}
-						},
-						"MoveTo": {
-							"properties": {
-								"max-speed": 300,
-								"acceleration": 2000,
-								"deceleration": 200,
-								"rotate-speed": 0,
-								"set-angle": true,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
-						"ShadowCaster": {
-							"properties": {
-								"height": 100,
-								"tag": "",
-								"enabled": false
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 744,
-						"y": 136,
-						"width": 64,
-						"height": 48,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 8,
-						"angle": 6.27647315228915
-					}
-				},
-				{
 					"type": "PCKeyboard",
 					"properties": {
 						"shape": "box",
@@ -12627,7 +12501,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -13146,7 +13020,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -13665,7 +13539,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -14184,7 +14058,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -14703,7 +14577,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -15222,7 +15096,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -15741,7 +15615,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -16260,7 +16134,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -16803,7 +16677,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -17346,7 +17220,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -17889,7 +17763,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -18432,7 +18306,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -18975,7 +18849,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -19518,7 +19392,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -20061,7 +19935,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -20604,7 +20478,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -21147,7 +21021,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -21690,7 +21564,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -22233,7 +22107,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -22776,7 +22650,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -23319,7 +23193,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -23862,7 +23736,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -24405,7 +24279,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -24948,7 +24822,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -25491,7 +25365,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -26034,7 +25908,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -26577,7 +26451,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -27120,7 +26994,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -27663,7 +27537,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -28206,7 +28080,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -28749,7 +28623,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -29292,7 +29166,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -29835,7 +29709,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -30378,7 +30252,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -30921,7 +30795,7 @@
 						"canBeRammed": true,
 						"spawnLegs": true,
 						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": false,
+						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
 						"isBeingGrabbed": false
@@ -31560,22 +31434,96 @@
 					}
 				},
 				{
-					"type": "L5Turret",
+					"type": "L5",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Catch",
+						"initial-animation": "Idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 933546,
-					"sid": 851243580768225,
+					"uid": 569329,
+					"sid": 450774520644477,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"spottedPlayer": false,
+						"followPlayer": false,
+						"health": 1000,
+						"moveToX": 0,
+						"moveToY": 0,
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0,
+						"VoiceCoolDown": 0,
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0,
+						"canBeRammed": false,
+						"spawnLegs": true,
+						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": false,
+						"isRotating": false,
+						"lastFrameAngle": 0,
+						"isBeingGrabbed": false
+					},
 					"behaviors": {
-						"Pin": {
+						"AcquireVision": {
 							"properties": {
-								"destroy": false
+								"obstacles": "solids",
+								"range": 200,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 8,
+								"cell-border": 8,
+								"obstacles": "solids",
+								"max-speed": 1,
+								"acceleration": 200,
+								"deceleration": 800,
+								"rotate-speed": 70,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						},
+						"LineOfSight2": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 40,
+								"cone-of-view": 80,
+								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 300,
+								"acceleration": 2000,
+								"deceleration": 200,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": false
 							}
 						},
 						"Tween": {
@@ -31584,15 +31532,23 @@
 							}
 						}
 					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 736,
-						"y": 72,
+						"x": 744,
+						"y": 136,
 						"width": 64,
 						"height": 48,
 						"originX": 0.5,
-						"originY": 0.5104166666666666,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -31600,7 +31556,7 @@
 							1
 						],
 						"z": 16,
-						"angle": 0
+						"angle": 6.27647315228915
 					}
 				},
 				{
