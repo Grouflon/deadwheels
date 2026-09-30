@@ -319,9 +319,9 @@
 														{
 															"id": "pick-nth-child",
 															"objectClass": "SignalDispatcher3DShape",
-															"sid": 357525427958556,
+															"sid": 207734704809449,
 															"parameters": {
-																"child": "SignalDispatcherTiledBackground",
+																"child": "SignalableTiledBackground",
 																"index-type": "all",
 																"instance": "loopindex(\"i\")"
 															}
@@ -668,9 +668,9 @@
 														{
 															"id": "pick-nth-child",
 															"objectClass": "SignalDispatcherSprite",
-															"sid": 264309202108748,
+															"sid": 422369418264642,
 															"parameters": {
-																"child": "SignalDispatcherTiledBackground",
+																"child": "SignalableTiledBackground",
 																"index-type": "all",
 																"instance": "loopindex(\"i\")"
 															}
@@ -770,6 +770,14 @@
 							"sid": 676482120291358,
 							"children": [
 								{
+									"eventType": "script",
+									"language": "javascript",
+									"script": [
+										"",
+										""
+									]
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -831,6 +839,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 530181460908651,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "loopindex(\"i\")&\" \"&signal_name"
@@ -1027,9 +1036,9 @@
 														{
 															"id": "pick-nth-child",
 															"objectClass": "SignalDispatcherTiledBackground",
-															"sid": 734684298713448,
+															"sid": 323894015969637,
 															"parameters": {
-																"child": "SignalDispatcherTiledBackground",
+																"child": "SignalableTiledBackground",
 																"index-type": "all",
 																"instance": "loopindex(\"i\")"
 															}

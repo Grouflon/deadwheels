@@ -35,7 +35,7 @@
 			"eventType": "variable",
 			"name": "DEBUG_COLLISIONS",
 			"type": "boolean",
-			"initialValue": "false",
+			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -1138,7 +1138,7 @@
 														"    localVars.collider_centerX + v1.x,",
 														"    localVars.collider_centerY + v1.y",
 														");",
-														"console.log(bary);",
+														"//console.log(bary);",
 														"localVars.bary1 = bary.y;",
 														"localVars.bary2 = bary.z;",
 														""
@@ -1477,7 +1477,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Controllers",
-													"sid": 528045143859400,
+													"sid": 798149488420883,
 													"parameters": {
 														"instance-variable": "collision_cooldown",
 														"value": "0.1"
@@ -1752,10 +1752,19 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Controllers",
-															"sid": 598771701374253,
+															"sid": 556927064208243,
 															"parameters": {
 																"instance-variable": "angular_velocity",
-																"value": "-sign(collision_angle) * Functions.Remap(collision_ratio, 0, 1, 100, 300)"
+																"value": "-sign(collision_angle) * Functions.Remap(collision_ratio, 0, 1, 175, 300)"
+															}
+														},
+														{
+															"id": "set-angle",
+															"objectClass": "Controllers",
+															"sid": 337223896834646,
+															"disabled": true,
+															"parameters": {
+																"angle": "Self.Angle - sign(collision_angle) * (90 - abs(collision_angle))"
 															}
 														},
 														{
@@ -1955,6 +1964,16 @@
 									]
 								},
 								{
+									"eventType": "variable",
+									"name": "is_overlapping",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 177282882193736
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -1997,6 +2016,15 @@
 													"customAction": "OnOverlapCollision",
 													"objectClass": "Controllers",
 													"sid": 655620645137622
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 100383913009920,
+													"parameters": {
+														"variable": "is_overlapping",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 500243326423943,
@@ -2047,6 +2075,15 @@
 													"customAction": "OnOverlapCollision",
 													"objectClass": "Controllers",
 													"sid": 450814480463032
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 575271328760029,
+													"parameters": {
+														"variable": "is_overlapping",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 861728252537937,
@@ -2066,17 +2103,7 @@
 									"functionParameters": [],
 									"eventType": "custom-ace-block",
 									"conditions": [],
-									"actions": [
-										{
-											"id": "push-out-solid-at-angle",
-											"objectClass": "Controllers",
-											"sid": 976572190423370,
-											"behaviorType": "Custom",
-											"parameters": {
-												"angle": "Controllers.last_collision_normal_angle"
-											}
-										}
-									],
+									"actions": [],
 									"sid": 527051493154474,
 									"children": [
 										{
@@ -2108,6 +2135,113 @@
 											"sid": 355630125111186
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 612008763563619,
+											"parameters": {
+												"variable": "is_overlapping"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "push-out-solid-at-angle",
+											"objectClass": "Controllers",
+											"sid": 976572190423370,
+											"behaviorType": "Custom",
+											"parameters": {
+												"angle": "Controllers.last_collision_normal_angle"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 821246585121029,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"value": "0.2"
+											}
+										}
+									],
+									"sid": 704870531737446
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 932145147518673
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 818663525936284,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 687222382858664,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"value": "Self.collision_cooldown - dt"
+											}
+										}
+									],
+									"sid": 184920968138030,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Controllers",
+													"sid": 331807557021661,
+													"parameters": {
+														"instance-variable": "collision_cooldown",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 847158687878455,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 697191812398813,
+											"parameters": {
+												"instance-variable": "collision_cooldown",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 365943170336240,
+									"disabled": true
 								}
 							],
 							"sid": 574382851640218
