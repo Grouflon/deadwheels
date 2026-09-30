@@ -3912,11 +3912,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 971266006379514,
+									"sid": 191158495130307,
 									"parameters": {
 										"first-value": "distance(L5Turret.X,L5Turret.Y,CharacterController.X,CharacterController.Y)",
 										"comparison": 3,
-										"second-value": "50"
+										"second-value": "80"
 									}
 								}
 							],
@@ -4026,6 +4026,14 @@
 							"parameters": {
 								"speed": "L5.AnimationSpeed"
 							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "L5Turret",
+							"sid": 297678362430737,
+							"parameters": {
+								"angle": "L5.Angle"
+							}
 						}
 					],
 					"sid": 756893329701107
@@ -4048,10 +4056,10 @@
 						{
 							"id": "compare-animation-frame",
 							"objectClass": "L5",
-							"sid": 375688292291541,
+							"sid": 774291446746328,
 							"parameters": {
 								"comparison": 0,
-								"number": "2"
+								"number": "3"
 							}
 						},
 						{
@@ -4186,10 +4194,10 @@
 						{
 							"id": "compare-animation-frame",
 							"objectClass": "L5",
-							"sid": 252330635875970,
+							"sid": 153223424960606,
 							"parameters": {
 								"comparison": 0,
-								"number": "2"
+								"number": "3"
 							}
 						},
 						{
@@ -4269,6 +4277,162 @@
 						}
 					],
 					"sid": 760117015040805
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "L5",
+							"sid": 859395066945297,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "750"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 368015068493834
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 398122448132491,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Zombie/L5Pain\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 988850722624036
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "L5",
+							"sid": 357752651721272,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "500"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 534553250767781
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 780570403202169,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Zombie/L5Pain\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 958047862992799
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "L5",
+							"sid": 888372795706062,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "250"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 601285339916620
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 568842693554103,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Zombie/L5Pain\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 898251258050829
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "L5",
+							"sid": 573234565903928
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "L5",
+							"sid": 226837212684802,
+							"parameters": {
+								"instance-variable": "health",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 139022321152583,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Zombie/L5Death\"",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "L5",
+								"inner-angle": "360",
+								"outer-angle": "0",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 258958694973052
 				},
 				{
 					"eventType": "block",
@@ -4401,10 +4565,10 @@
 				{
 					"id": "compare-animation-frame",
 					"objectClass": "L5",
-					"sid": 162385468072928,
+					"sid": 579395209416993,
 					"parameters": {
 						"comparison": 0,
-						"number": "2"
+						"number": "3"
 					}
 				},
 				{
@@ -4457,10 +4621,10 @@
 				{
 					"id": "compare-animation-frame",
 					"objectClass": "L5",
-					"sid": 763073163262952,
+					"sid": 498615861364105,
 					"parameters": {
 						"comparison": 0,
-						"number": "3"
+						"number": "4"
 					}
 				},
 				{
@@ -4471,20 +4635,70 @@
 			],
 			"actions": [
 				{
-					"id": "play-by-name",
+					"id": "play-at-object-by-name",
 					"objectClass": "Audio",
-					"sid": 165358336904537,
+					"sid": 415415449943861,
 					"parameters": {
 						"folder": "sounds",
 						"audio-file-name": "\"Zombie/L5Move\"&choose(1,2)",
 						"loop": "not-looping",
 						"volume": "0",
-						"stereo-pan": "0",
+						"object": "L5",
+						"inner-angle": "360",
+						"outer-angle": "0",
+						"outer-gain": "0",
 						"tag-optional": "\"\""
 					}
 				}
 			],
 			"sid": 728155605533554
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "L5",
+					"sid": 297183645028996,
+					"parameters": {
+						"animation": "\"Walk\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "L5",
+					"sid": 485276061265899,
+					"parameters": {
+						"comparison": 0,
+						"number": "4"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 898274720873969
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "L5Turret",
+					"sid": 558256924097903,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"Z\"",
+						"property": "offsetZElevation",
+						"end-value": "Self.Z-5",
+						"time": "0.4",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "yes",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 169915409574218
 		}
 	],
 	"sid": 810694807837553
