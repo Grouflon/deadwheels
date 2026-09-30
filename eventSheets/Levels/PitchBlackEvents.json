@@ -496,7 +496,7 @@
 						{
 							"id": "set-angle",
 							"objectClass": "DynamicLight",
-							"sid": 331249718852035,
+							"sid": 387438566848578,
 							"parameters": {
 								"angle": "idle_light_angle + lerp(0, aiming_light_angle, light_transition_t)"
 							}
@@ -509,6 +509,26 @@
 		{
 			"eventType": "comment",
 			"text": "Generator activations change mass grave apperance"
+		},
+		{
+			"eventType": "variable",
+			"name": "massGraveCenterX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535091884266000
+		},
+		{
+			"eventType": "variable",
+			"name": "massGraveCenterY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 405654840357326
 		},
 		{
 			"eventType": "block",
@@ -525,26 +545,6 @@
 			"actions": [],
 			"sid": 588246341872785,
 			"children": [
-				{
-					"eventType": "variable",
-					"name": "massGraveCenterX",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 595832639426059
-				},
-				{
-					"eventType": "variable",
-					"name": "massGraveCenterY",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 838936010477298
-				},
 				{
 					"eventType": "comment",
 					"text": "1 generator enabled : corpses disappear in main room and the big pile appears"
@@ -636,11 +636,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 159137214606379,
+									"sid": 573391656194535,
 									"parameters": {
 										"first-value": "distance(Corpse.X,Corpse.Y,massGraveCenterX,massGraveCenterY)",
 										"comparison": 3,
-										"second-value": "200"
+										"second-value": "250"
 									}
 								}
 							],
@@ -673,27 +673,76 @@
 							}
 						},
 						{
-							"id": "has-tags",
-							"objectClass": "Corpse",
-							"sid": 518564495349059,
-							"parameters": {
-								"tags": "\"l5Pile\""
-							}
-						},
-						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 293934672888114
+							"sid": 623505248367955
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 534841455563136,
+					"children": [
 						{
-							"id": "destroy",
-							"objectClass": "Corpse",
-							"sid": 142192208350045
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Corpse",
+									"sid": 930180854112880,
+									"parameters": {
+										"tags": "\"l5Pile\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Corpse",
+									"sid": 208871915537661
+								}
+							],
+							"sid": 496874168459736
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 801507227455627,
+									"parameters": {
+										"object": "Zombies"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 426329825439429,
+									"parameters": {
+										"first-value": "distance(Zombies.X,Zombies.Y,massGraveCenterX,massGraveCenterY)",
+										"comparison": 3,
+										"second-value": "250"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Zombies",
+									"sid": 534430585172781,
+									"parameters": {
+										"tags": "\"doNotDestroy\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Zombies",
+									"sid": 399392537732540
+								}
+							],
+							"sid": 506545014455238
 						}
-					],
-					"sid": 534841455563136
+					]
 				}
 			]
 		}
