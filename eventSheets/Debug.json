@@ -1,0 +1,110 @@
+{
+	"name": "Debug",
+	"events": [
+		{
+			"functionName": "DrawDebugBox",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 189977421079084
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 995863404784111
+				},
+				{
+					"name": "z",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 374842722316005
+				},
+				{
+					"name": "width",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 546944536524747
+				},
+				{
+					"name": "height",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 152690088869746
+				},
+				{
+					"name": "angle_degrees",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 756178438082162
+				},
+				{
+					"name": "color",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 500220536455586
+				},
+				{
+					"name": "opacity",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"sid": 506754903453848
+				},
+				{
+					"name": "duration",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 604583772603063
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"let r = localVars.color & 0xff;",
+						"let g = (localVars.color & 0xff00) >> 8;",
+						"let b = (localVars.color & 0xff0000) >> 16;",
+						"",
+						"DebugDraw.DrawBox(",
+						"\tlocalVars.x,",
+						"\tlocalVars.y,",
+						"\tlocalVars.z,",
+						"\tlocalVars.width,",
+						"\tlocalVars.height,",
+						"\tlocalVars.angle_degrees,",
+						"\t[r/255,g/255,b/255],",
+						"\tlocalVars.opacity,",
+						"\tlocalVars.duration",
+						");"
+					]
+				}
+			],
+			"sid": 440911561730372
+		},
+		{
+			"eventType": "script",
+			"language": "typescript",
+			"script": []
+		}
+	],
+	"sid": 420330664403272
+}

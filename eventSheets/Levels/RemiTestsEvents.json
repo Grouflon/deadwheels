@@ -1,0 +1,67 @@
+{
+	"name": "RemiTestsEvents",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 622185308382687
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "DrawDebugBox",
+					"sid": 675013655907719,
+					"disabled": true,
+					"parameters": [
+						"Mouse.X",
+						"Mouse.Y",
+						"1",
+						"10",
+						"10",
+						"90",
+						"0",
+						"50",
+						"1"
+					]
+				}
+			],
+			"sid": 939601945022110
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 766955961414661
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "DrawDebugBox",
+					"sid": 867434806965881,
+					"parameters": [
+						"Mouse.X",
+						"Mouse.Y",
+						"1",
+						"10",
+						"10",
+						"90",
+						"rgb(0,0,255)",
+						"50",
+						"1"
+					]
+				}
+			],
+			"sid": 294484393358255
+		}
+	],
+	"sid": 872526592616675
+}
