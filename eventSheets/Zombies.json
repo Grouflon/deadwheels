@@ -1984,6 +1984,57 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-animation-playing",
+							"objectClass": "Chimio",
+							"sid": 428319069559402,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Chimio",
+							"sid": 959797922553906,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 474949621145682
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Chimio",
+							"sid": 520008972900965,
+							"parameters": {
+								"object": "ZombiesHitbox",
+								"layer": "Self.LayerName",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ZombiesHitbox",
+							"sid": 262424932442328,
+							"parameters": {
+								"instance-variable": "Damage",
+								"value": "zombie_damage"
+							}
+						}
+					],
+					"sid": 180108435928428
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Chimio",
 							"sid": 265911757225100,
