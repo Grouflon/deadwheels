@@ -619,6 +619,135 @@
 				}
 			],
 			"sid": 843205154340389
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 781267050598742
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-effect-enabled",
+					"objectClass": "System",
+					"sid": 149830671880295,
+					"parameters": {
+						"layer": "\"World\"",
+						"mode": "enable",
+						"effect": "\"Fogexponential\""
+					}
+				}
+			],
+			"sid": 182782482834236
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 883480972928162
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Mask",
+					"sid": 728801548426081,
+					"parameters": {
+						"tags": "\"Red\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 960195574139151,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-cycle-position",
+					"objectClass": "Mask",
+					"sid": 705469497730375,
+					"behaviorType": "Sine",
+					"parameters": {
+						"cycle-position": "0"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Mask",
+					"sid": 631416198838166,
+					"disabled": true
+				}
+			],
+			"sid": 158927301486006
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "misc",
+					"sid": 482566090758467
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "misc",
+					"sid": 731118833425207,
+					"parameters": {
+						"animation": "\"PoliceCar\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "misc",
+					"sid": 955885784186565,
+					"parameters": {
+						"object": "Mask",
+						"layer": "\"StaticLight\"",
+						"image-point": "2",
+						"create-hierarchy": false,
+						"template-name": "\"policeLightBlue\""
+					}
+				},
+				{
+					"id": "set-z-elevation",
+					"objectClass": "Mask",
+					"sid": 332603379192619,
+					"parameters": {
+						"z": "misc.Z"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "misc",
+					"sid": 583826294489186,
+					"parameters": {
+						"object": "Mask",
+						"layer": "\"StaticLight\"",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"policeLightRed\""
+					}
+				},
+				{
+					"id": "set-z-elevation",
+					"objectClass": "Mask",
+					"sid": 803148854233157,
+					"parameters": {
+						"z": "misc.Z"
+					}
+				}
+			],
+			"sid": 799170186073773
 		}
 	],
 	"sid": 667236467756999
