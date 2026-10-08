@@ -17445,6 +17445,39 @@
 					}
 				},
 				{
+					"type": "ShadowSettings",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 998140,
+					"sid": 469548247216831,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 20,
+						"y": -100,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.26666666666666666,
+							0.47843137254901963,
+							0.7568627450980392,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Ammo",
 					"properties": {
 						"initially-visible": true,
@@ -18178,7 +18211,25 @@
 				}
 			],
 			"sid": 327585569870798,
-			"effectTypes": [],
+			"effectTypes": [
+				{
+					"effectId": "fogexponential",
+					"name": "Fogexponential",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"fog-color": [
+								0.7607843137254902,
+								0.7607843137254902,
+								0.7607843137254902,
+								1
+							],
+							"fog-density": 0.0025,
+							"near-dist": 350
+						}
+					}
+				}
+			],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
