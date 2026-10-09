@@ -8529,8 +8529,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 416,
-						"y": 488,
+						"x": 392,
+						"y": 552,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5025295109612141,
@@ -8565,8 +8565,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 836,
-						"y": 432,
+						"x": 888,
+						"y": 392,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5025295109612141,
@@ -11335,8 +11335,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 640,
-						"y": 196,
+						"x": 632,
+						"y": 224,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5025295109612141,
@@ -11371,8 +11371,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 892,
-						"y": 484,
+						"x": 888,
+						"y": 528,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5025295109612141,
@@ -11407,7 +11407,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 376,
+						"x": 384,
 						"y": 408,
 						"width": 16,
 						"height": 16,
@@ -11443,8 +11443,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 696,
-						"y": 692,
+						"x": 720,
+						"y": 728,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5025295109612141,
@@ -20431,83 +20431,6 @@
 					}
 				},
 				{
-					"type": "LightButton",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 2",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 378555,
-					"sid": 332715690647597,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Sine": {
-							"properties": {
-								"movement": "opacity",
-								"wave": "sine",
-								"period": 1,
-								"period-random": 0,
-								"period-offset": 0,
-								"period-offset-random": 0,
-								"magnitude": 80,
-								"magnitude-random": 0,
-								"enabled": true,
-								"live-preview": false
-							}
-						},
-						"Rotate": {
-							"properties": {
-								"speed": 180,
-								"acceleration": 0,
-								"rotation-type": "rotation-y",
-								"enabled": false,
-								"live-preview": false
-							}
-						}
-					},
-					"effects": {
-						"HardLight": {
-							"isEnabled": true,
-							"parameters": {}
-						}
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 688,
-						"y": 480,
-						"width": 24,
-						"height": 28.000000000000004,
-						"originX": 0.5,
-						"originY": 0,
-						"color": [
-							1,
-							0,
-							0,
-							1
-						],
-						"z": 4,
-						"angle": 0,
-						"rotation3d": {
-							"quaternion": [
-								0.08715564012527466,
-								0,
-								0,
-								-0.9961947202682495
-							],
-							"euler": [
-								6.108652591705322,
-								0,
-								0
-							]
-						},
-						"blendMode": "additive"
-					}
-				},
-				{
 					"type": "Radio",
 					"properties": {
 						"shape": "box",
@@ -23888,6 +23811,112 @@
 						],
 						"z": 2,
 						"angle": 6.269222673163632
+					}
+				},
+				{
+					"type": "Mask",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Spot",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 143658,
+					"sid": 979415298550103,
+					"tags": "radio",
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "opacity",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 100,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 683.059326171875,
+						"y": 477.6148681640625,
+						"width": 48,
+						"height": 40,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.4117647058823529,
+							0.9686274509803922,
+							0.5215686274509804,
+							1
+						],
+						"z": 10,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "Mask",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Spot",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 463712,
+					"sid": 387644150894624,
+					"tags": "radio",
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "opacity",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 100,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 700.2590942382812,
+						"y": 476.9334411621094,
+						"width": 48,
+						"height": 40,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.4117647058823529,
+							0.9686274509803922,
+							0.5215686274509804,
+							1
+						],
+						"z": 10,
+						"angle": 1.5198382491665257
 					}
 				}
 			],

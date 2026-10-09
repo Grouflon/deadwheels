@@ -66,7 +66,7 @@
 								{
 									"id": "play-at-object",
 									"objectClass": "Audio",
-									"sid": 438606957141365,
+									"sid": 405569032469438,
 									"parameters": {
 										"audio-file": {
 											"path": "Radio1"
@@ -77,7 +77,7 @@
 										"inner-angle": "360",
 										"outer-angle": "360",
 										"outer-gain": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "\"radio\""
 									}
 								},
 								{
@@ -92,7 +92,7 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 209897114976238,
+									"sid": 730265106266261,
 									"parameters": {
 										"audio-file": {
 											"path": "Radio1"
@@ -100,7 +100,7 @@
 										"loop": "not-looping",
 										"volume": "0",
 										"stereo-pan": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "\"radio\""
 									}
 								},
 								{
@@ -185,11 +185,20 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Mask",
+									"sid": 642510239308795,
+									"parameters": {
+										"tags": "\"Radio\""
+									}
+								}
+							],
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "LightButton",
+									"objectClass": "Mask",
 									"sid": 272307809165464,
 									"parameters": {
 										"visibility": "visible"
@@ -639,6 +648,16 @@
 						"mode": "enable",
 						"effect": "\"Fogexponential\""
 					}
+				},
+				{
+					"id": "add-analyser-effect",
+					"objectClass": "Audio",
+					"sid": 698870055292928,
+					"parameters": {
+						"tag": "\"radio\"",
+						"fft-size": "512",
+						"smoothing": "0"
+					}
 				}
 			],
 			"sid": 182782482834236
@@ -821,6 +840,68 @@
 						}
 					],
 					"sid": 850459459771355
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-tags",
+					"objectClass": "Mask",
+					"sid": 960639841078960,
+					"parameters": {
+						"tags": "\"radio\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 917429847482939,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 768076110195233
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Mask",
+							"sid": 513621540869161,
+							"parameters": {
+								"opacity": "0"
+							}
+						}
+					],
+					"sid": 786974024784408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 460085615790801,
+							"parameters": {
+								"tag": "\"radio\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Mask",
+							"sid": 330294254274112,
+							"parameters": {
+								"opacity": "clamp((Audio.AnalyserRMSLevel(\"radio\", 0) + 40) * 10, 0, 100)"
+							}
+						}
+					],
+					"sid": 724605748952500
 				}
 			]
 		}
