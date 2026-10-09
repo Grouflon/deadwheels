@@ -748,6 +748,81 @@
 				}
 			],
 			"sid": 799170186073773
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 495971503984556,
+					"parameters": {
+						"interval-seconds": "3"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 542258821795577,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "Mask",
+							"sid": 187609366931665,
+							"parameters": {
+								"tags": "\"helipad\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 936854427853623,
+							"parameters": {
+								"object": "Mask"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Mask",
+							"sid": 809683292428222,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 787488221092538,
+							"parameters": {
+								"seconds": "loopindex*0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Mask",
+							"sid": 544034084961439,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 850459459771355
+				}
+			]
 		}
 	],
 	"sid": 667236467756999
