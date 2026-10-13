@@ -304,8 +304,90 @@
 								}
 							],
 							"sid": 238183274774931
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Mask",
+									"sid": 365288836860456,
+									"parameters": {
+										"tags": "\"helicopter1\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Mask",
+									"sid": 851866053671874,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-position-3d",
+									"objectClass": "Mask",
+									"sid": 462025612094666,
+									"parameters": {
+										"x": "Helicopter.X",
+										"y": "Helicopter.Y",
+										"z": "Helicopter.Z-1"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Mask",
+									"sid": 215459816630645,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Helicopter",
+										"x": true,
+										"y": true,
+										"angle": false,
+										"width-type": "no",
+										"height-type": "absolute",
+										"z": true
+									}
+								}
+							],
+							"sid": 702070041404330
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "Mask",
+							"sid": 702498765562035,
+							"parameters": {
+								"tags": "\"helicopter1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Mask",
+							"sid": 279151400447503,
+							"parameters": {
+								"x": "CharacterController.X",
+								"y": "CharacterController.Y"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Mask",
+							"sid": 124012985681686,
+							"parameters": {
+								"width": "50+distance(Self.X,Self.Y,CharacterController.X,CharacterController.Y)"
+							}
+						}
+					],
+					"sid": 998229182508393
 				},
 				{
 					"eventType": "block",
@@ -453,6 +535,30 @@
 								}
 							],
 							"sid": 531697371448614
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Mask",
+									"sid": 751746952010806,
+									"parameters": {
+										"tags": "\"helicopter1\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Mask",
+									"sid": 748015096818891,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 697877014625026
 						},
 						{
 							"eventType": "block",
