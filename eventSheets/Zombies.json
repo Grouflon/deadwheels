@@ -1288,11 +1288,20 @@
 					"id": "has-los-to-object",
 					"objectClass": "Zombies",
 					"sid": 341926631441004,
-					"behaviorType": "LineOfSight2",
+					"behaviorType": "AttackRange",
 					"parameters": {
 						"object": "CharacterController",
 						"image-point": "0"
 					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "CharacterController",
+					"sid": 523415604824281,
+					"parameters": {
+						"instance-variable": "is_dead"
+					},
+					"isInverted": true
 				},
 				{
 					"id": "is-boolean-instance-variable-set",
@@ -1508,11 +1517,12 @@
 						{
 							"customAction": "DoDamage",
 							"objectClass": "CharacterController",
-							"sid": 353570896302924,
+							"sid": 256077871642278,
 							"parameters": [
 								"ZombiesHitbox.Damage",
 								false,
-								"ZombiesHitbox.Audio"
+								"ZombiesHitbox.Audio",
+								"ZombiesHitbox.UID"
 							]
 						}
 					],
@@ -1548,11 +1558,12 @@
 						{
 							"customAction": "DoDamage",
 							"objectClass": "CharacterController",
-							"sid": 866160549909052,
+							"sid": 544806700673428,
 							"parameters": [
 								"ZombiesHitbox.Damage",
 								false,
-								"\"\""
+								"ZombiesHitbox.Audio",
+								"ZombiesHitbox.UID"
 							]
 						}
 					],
@@ -2254,6 +2265,15 @@
 							}
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "Barnacle",
+							"sid": 947516866331349,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-z-elevation",
 							"objectClass": "Tentacle",
 							"sid": 775628488657617,
@@ -2273,13 +2293,13 @@
 							"id": "clear-obstacles",
 							"objectClass": "Barnacle",
 							"sid": 173138594049891,
-							"behaviorType": "LineOfSight"
+							"behaviorType": "TentacleLOS"
 						},
 						{
 							"id": "add-obstacle",
 							"objectClass": "Barnacle",
 							"sid": 266976700818629,
-							"behaviorType": "LineOfSight",
+							"behaviorType": "TentacleLOS",
 							"parameters": {
 								"obstacle": "Wall"
 							}
@@ -2288,7 +2308,7 @@
 							"id": "add-obstacle",
 							"objectClass": "Barnacle",
 							"sid": 354654182906531,
-							"behaviorType": "LineOfSight",
+							"behaviorType": "TentacleLOS",
 							"parameters": {
 								"obstacle": "OuterWall_old"
 							}
@@ -2297,7 +2317,7 @@
 							"id": "add-obstacle",
 							"objectClass": "Barnacle",
 							"sid": 353741155047643,
-							"behaviorType": "LineOfSight",
+							"behaviorType": "TentacleLOS",
 							"parameters": {
 								"obstacle": "InnerWall_old"
 							}
@@ -2306,7 +2326,7 @@
 							"id": "add-obstacle",
 							"objectClass": "Barnacle",
 							"sid": 188401672429516,
-							"behaviorType": "LineOfSight",
+							"behaviorType": "TentacleLOS",
 							"parameters": {
 								"obstacle": "InnerWall"
 							}
@@ -2315,7 +2335,7 @@
 							"id": "add-obstacle",
 							"objectClass": "Barnacle",
 							"sid": 135085467073612,
-							"behaviorType": "LineOfSight",
+							"behaviorType": "TentacleLOS",
 							"parameters": {
 								"obstacle": "Doors"
 							}
@@ -2326,11 +2346,6 @@
 				{
 					"eventType": "comment",
 					"text": "Target detection and throw tentacle"
-				},
-				{
-					"eventType": "script",
-					"language": "typescript",
-					"script": []
 				},
 				{
 					"eventType": "block",
@@ -2347,7 +2362,7 @@
 							"id": "has-los-to-object",
 							"objectClass": "Barnacle",
 							"sid": 583312848856360,
-							"behaviorType": "LineOfSight",
+							"behaviorType": "TentacleLOS",
 							"parameters": {
 								"object": "BarnacleTarget",
 								"image-point": "0"
@@ -2849,25 +2864,6 @@
 					"isOrBlock": true
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-any-tweens-finished",
-							"objectClass": "Tentacle",
-							"sid": 186078072987719,
-							"behaviorType": "Tween"
-						}
-					],
-					"actions": [
-						{
-							"customAction": "StopGrabbingTarget",
-							"objectClass": "Tentacle",
-							"sid": 678820982805890
-						}
-					],
-					"sid": 432952152750751
-				},
-				{
 					"eventType": "comment",
 					"text": "Tentacle grabs target"
 				},
@@ -3027,81 +3023,6 @@
 								}
 							],
 							"sid": 504677550535217
-						},
-						{
-							"eventType": "comment",
-							"text": "if tentacle has grabbed the character but the latter is in a chair, grab the chair instead (hack shit)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 474492600851861,
-									"parameters": {
-										"first-value": "BarnacleTarget.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"CharacterController\""
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "ChairController",
-									"sid": 143455200396260,
-									"parameters": {
-										"instance-variable": "isBeingGrabbed"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "CharacterController",
-									"sid": 274088100940691,
-									"parameters": {
-										"instance-variable": "is_in_chair"
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "ChairController",
-									"sid": 799233362064364,
-									"parameters": {
-										"unique-id": "CharacterController.chair_uid"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "CharacterController",
-									"sid": 586791154444140,
-									"parameters": {
-										"instance-variable": "isBeingGrabbed",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "ChairController",
-									"sid": 796628266568255,
-									"parameters": {
-										"instance-variable": "isBeingGrabbed",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Tentacle",
-									"sid": 226572804477035,
-									"parameters": {
-										"instance-variable": "GrabbingObjectUID",
-										"value": "ChairController.UID"
-									}
-								}
-							],
-							"sid": 319815887562944,
-							"disabled": true
 						}
 					]
 				},
@@ -3300,36 +3221,81 @@
 					"sid": 710119044409810
 				},
 				{
-					"eventType": "comment",
-					"text": "Barnacle eats target"
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "Barnacle",
+							"sid": 703046865354687,
+							"behaviorType": "AttackRange",
+							"parameters": {
+								"object": "BarnacleTarget",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Barnacle",
+							"sid": 501097919131102,
+							"parameters": {
+								"instance-variable": "isAttacking"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Barnacle",
+							"sid": 768428594492457,
+							"parameters": {
+								"instance-variable": "isAttacking",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Barnacle",
+							"sid": 628253786446209,
+							"parameters": {
+								"animation": "\"Atk\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 974163707050519
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
+							"id": "is-animation-playing",
 							"objectClass": "Barnacle",
-							"sid": 639960161840704,
+							"sid": 703718367637346,
 							"parameters": {
-								"object": "BarnacleTarget"
+								"animation": "\"Atk\""
 							}
 						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 689700970630671,
+							"id": "compare-animation-frame",
+							"objectClass": "Barnacle",
+							"sid": 577860969519878,
 							"parameters": {
-								"first-value": "BarnacleTarget.UID",
 								"comparison": 0,
-								"second-value": "Tentacle.GrabbingObjectUID"
+								"number": "1"
 							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 503197314981825
 						}
 					],
 					"actions": [
 						{
 							"id": "play-at-object-by-name",
 							"objectClass": "Audio",
-							"sid": 825034711029349,
+							"sid": 606167501446516,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Voice/BarnacleAggro\"&choose(1,2)",
@@ -3341,200 +3307,296 @@
 								"outer-gain": "0",
 								"tag-optional": "\"\""
 							}
+						},
+						{
+							"id": "play-at-object",
+							"objectClass": "Audio",
+							"sid": 582862409612814,
+							"parameters": {
+								"audio-file": {
+									"path": "Movement/TentacleGrab"
+								},
+								"loop": "not-looping",
+								"volume": "-10",
+								"object": "Barnacle",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-playback-rate",
+							"objectClass": "Audio",
+							"sid": 210746708318978,
+							"parameters": {
+								"tag": "\"\"",
+								"playback-rate": "0.4"
+							}
 						}
 					],
-					"sid": 369672323236144,
+					"sid": 401330219169287
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Barnacle",
+							"sid": 565490723580943,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Barnacle",
+							"sid": 798539667784557,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 702344589516795
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Barnacle",
+							"sid": 981407982057281,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Barnacle",
+							"sid": 852799198012091,
+							"parameters": {
+								"comparison": 0,
+								"number": "6"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Barnacle",
+							"sid": 600236397962237,
+							"parameters": {
+								"object": "CharacterController"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 602704686869068,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 533662293667741,
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 924814112300246,
 									"parameters": {
-										"first-value": "BarnacleTarget.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"CharacterController\""
+										"instance-variable": "is_in_chair"
 									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ChairController",
+									"sid": 563899736700147,
+									"parameters": {
+										"unique-id": "CharacterController.chair_uid"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "ChairController",
+									"sid": 352126319077332
+								}
+							],
+							"sid": 295849986703713
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 459319551950564
 								}
 							],
 							"actions": [
 								{
 									"customAction": "DoDamage",
 									"objectClass": "CharacterController",
-									"sid": 144510556238145,
+									"sid": 875865377219788,
 									"parameters": [
-										"100",
-										false,
-										"\"\""
-									]
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Barnacle",
-									"sid": 881395828747612,
-									"parameters": {
-										"instance-variable": "tryGrabCoolDown",
-										"value": "barnacle_digestionTime"
-									}
-								}
-							],
-							"sid": 462867475409647
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 723664835781059,
-									"parameters": {
-										"first-value": "BarnacleTarget.ObjectTypeName",
-										"comparison": 0,
-										"second-value": "\"ChairController\""
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "ChairController",
-									"sid": 486018641193263,
-									"parameters": {
-										"unique-id": "Tentacle.GrabbingObjectUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-angle",
-									"objectClass": "ChairController",
-									"sid": 311675185204385,
-									"parameters": {
-										"angle": "Barnacle.Angle+choose(-30,30)"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "ChairController",
-									"sid": 219378866416949,
-									"parameters": {
-										"instance-variable": "velocity",
-										"value": "150"
-									}
-								}
-							],
-							"sid": 829246793417909,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "CharacterController",
-											"sid": 466725606446712,
-											"parameters": {
-												"instance-variable": "is_in_chair"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "CharacterController",
-											"sid": 562815075928743,
-											"parameters": {
-												"instance-variable": "chair_uid",
-												"comparison": 0,
-												"value": "ChairController.UID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "DoDamage",
-											"objectClass": "CharacterController",
-											"sid": 115442262979856,
-											"parameters": [
-												"100",
-												true,
-												"\"\""
-											]
-										}
-									],
-									"sid": 236154723200599
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Zombies",
-									"sid": 447840584456140,
-									"parameters": {
-										"unique-id": "BarnacleTarget.UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "DoDamage",
-									"objectClass": "Zombies",
-									"sid": 122633133684136,
-									"parameters": [
-										"100",
+										"200",
+										true,
+										"\"GoreBig\"",
 										"0"
 									]
 								},
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Barnacle",
-									"sid": 811875849495993,
+									"id": "add-filter-effect",
+									"objectClass": "Audio",
+									"sid": 799229833444275,
 									"parameters": {
-										"instance-variable": "tryGrabCoolDown",
-										"value": "barnacle_digestionTime"
+										"tag": "\"playerVoice\"",
+										"type": "low-pass",
+										"frequency": "450",
+										"detune": "0",
+										"q": "1",
+										"gain": "0",
+										"mix": "100"
 									}
 								}
 							],
-							"sid": 954591452669005
-						},
-						{
-							"eventType": "comment",
-							"text": "After barnacle has eaten or collided with target, it is not being grabbed anymore"
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "BarnacleTarget",
-									"sid": 653317162801622,
-									"parameters": {
-										"instance-variable": "isBeingGrabbed",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-width",
-									"objectClass": "Tentacle",
-									"sid": 397069079607557,
-									"parameters": {
-										"width": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Tentacle",
-									"sid": 807370735486531,
-									"parameters": {
-										"instance-variable": "GrabbingObjectUID",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 951249966008844
+							"sid": 544741175217807
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Barnacle",
+							"sid": 405728627502878,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Barnacle",
+							"sid": 582449190952776,
+							"parameters": {
+								"comparison": 0,
+								"number": "6"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Barnacle",
+							"sid": 128245893706433,
+							"parameters": {
+								"object": "ChairController"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 665268032551524
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "ChairController",
+							"sid": 509966020072293,
+							"parameters": {
+								"angle": "Barnacle.Angle+random(-40,40)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ChairController",
+							"sid": 779889723628145,
+							"parameters": {
+								"instance-variable": "velocity",
+								"value": "200"
+							}
+						}
+					],
+					"sid": 533615157159801
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Barnacle",
+							"sid": 833135253378734,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Barnacle",
+							"sid": 343253428110930,
+							"parameters": {
+								"comparison": 0,
+								"number": "6"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Zombies",
+							"sid": 936303851798694,
+							"parameters": {
+								"unique-id": "Tentacle.GrabbingObjectUID"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 136172325807392
+						}
+					],
+					"actions": [
+						{
+							"id": "play-at-object-by-name",
+							"objectClass": "Audio",
+							"sid": 742039685356741,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"Impacts/GoreBig\"&choose(1,2)",
+								"loop": "not-looping",
+								"volume": "0",
+								"object": "Zombies",
+								"inner-angle": "360",
+								"outer-angle": "360",
+								"outer-gain": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Zombies",
+							"sid": 712217396998345
+						}
+					],
+					"sid": 827013642335075
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Barnacle",
+							"sid": 992111394924869,
+							"parameters": {
+								"animation": "\"Atk\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "StopGrabbingTarget",
+							"objectClass": "Tentacle",
+							"sid": 444391926077278
+						}
+					],
+					"sid": 795338996303451
 				},
 				{
 					"eventType": "comment",
@@ -3717,35 +3779,19 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-any-playing",
-									"objectClass": "Tentacle",
-									"sid": 697398426700783,
-									"behaviorType": "Tween"
-								}
-							],
+							"conditions": [],
 							"actions": [
 								{
-									"id": "tween-one-property",
+									"id": "set-instvar-value",
 									"objectClass": "Tentacle",
-									"sid": 774926696895763,
-									"behaviorType": "Tween",
+									"sid": 969282924105375,
 									"parameters": {
-										"tags": "\"comeBack\"",
-										"property": "offsetWidth",
-										"end-value": "0",
-										"time": "Self.Width/200",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
+										"instance-variable": "GrabbingObjectUID",
+										"value": "0"
 									}
 								}
 							],
-							"sid": 909306244601770,
-							"disabled": true
+							"sid": 550173292856042
 						}
 					]
 				}

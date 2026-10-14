@@ -1969,9 +1969,9 @@
 														{
 															"id": "is-tag-playing",
 															"objectClass": "Audio",
-															"sid": 587715225924180,
+															"sid": 265584246269251,
 															"parameters": {
-																"tag": "\"oumf\""
+																"tag": "\"playerVoice\""
 															},
 															"isInverted": true
 														}
@@ -1980,14 +1980,14 @@
 														{
 															"id": "play-by-name",
 															"objectClass": "Audio",
-															"sid": 817692733407526,
+															"sid": 255689233469633,
 															"parameters": {
 																"folder": "sounds",
 																"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
 																"loop": "not-looping",
 																"volume": "0",
 																"stereo-pan": "0",
-																"tag-optional": "\"oumf\""
+																"tag-optional": "\"playerVoice\""
 															}
 														}
 													],
@@ -2041,9 +2041,9 @@
 														{
 															"id": "is-tag-playing",
 															"objectClass": "Audio",
-															"sid": 762113785751064,
+															"sid": 832756669194706,
 															"parameters": {
-																"tag": "\"oumf\""
+																"tag": "\"playerVoice\""
 															},
 															"isInverted": true
 														}
@@ -2052,14 +2052,14 @@
 														{
 															"id": "play-by-name",
 															"objectClass": "Audio",
-															"sid": 230941579277478,
+															"sid": 363829376370102,
 															"parameters": {
 																"folder": "sounds",
 																"audio-file-name": "\"Voice/MaleEffortS\"&round(random(1,4))",
 																"loop": "not-looping",
 																"volume": "0",
 																"stereo-pan": "0",
-																"tag-optional": "\"oumf\""
+																"tag-optional": "\"playerVoice\""
 															}
 														}
 													],
@@ -3177,6 +3177,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 545599008640900
+				},
+				{
+					"name": "hitBoxUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 258191240220260
 				}
 			],
 			"eventType": "custom-ace-block",
@@ -3214,6 +3221,39 @@
 			],
 			"sid": 866440990664613,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ZombiesHitbox",
+							"sid": 936188164053740,
+							"parameters": {
+								"unique-id": "hitBoxUID"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ZombiesHitbox",
+							"sid": 372391922209615,
+							"parameters": {
+								"instance-variable": "hideSpriteOnDeath"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 945817204505122,
+							"parameters": {
+								"variable": "hideSpriteOnDeath",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 670639464769962
+				},
 				{
 					"eventType": "block",
 					"conditions": [],
@@ -3284,14 +3324,14 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 747971666062095,
+							"sid": 328693361060434,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Voice/MaleDeath1\"",
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"playerVoice\""
 							}
 						},
 						{
@@ -3352,14 +3392,14 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 678796885179582,
+							"sid": 452496305896079,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "\"Voice/MaleHurt\"&round(random(3))",
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"playerVoice\""
 							}
 						}
 					],

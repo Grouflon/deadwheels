@@ -951,7 +951,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"Damage": 10,
-						"Audio": "GorePunch"
+						"Audio": "GorePunch",
+						"hideSpriteOnDeath": false
 					},
 					"behaviors": {
 						"Fade": {
@@ -7549,7 +7550,7 @@
 								"enabled": true
 							}
 						},
-						"LineOfSight2": {
+						"AttackRange": {
 							"properties": {
 								"obstacles": "custom",
 								"range": 35,
@@ -7806,7 +7807,7 @@
 										]
 									},
 									{
-										"key": "LineOfSight2",
+										"key": "AttackRange",
 										"state": [
 											[
 												"obstacles",
@@ -8710,7 +8711,7 @@
 								"enabled": true
 							}
 						},
-						"LineOfSight2": {
+						"AttackRange": {
 							"properties": {
 								"obstacles": "custom",
 								"range": 25,
@@ -8960,7 +8961,7 @@
 										]
 									},
 									{
-										"key": "LineOfSight2",
+										"key": "AttackRange",
 										"state": [
 											[
 												"obstacles",
@@ -9253,7 +9254,7 @@
 								"enabled": true
 							}
 						},
-						"LineOfSight2": {
+						"AttackRange": {
 							"properties": {
 								"obstacles": "custom",
 								"range": 25,
@@ -9496,7 +9497,7 @@
 										]
 									},
 									{
-										"key": "LineOfSight2",
+										"key": "AttackRange",
 										"state": [
 											[
 												"obstacles",
@@ -9754,8 +9755,8 @@
 				{
 					"type": "Barnacle",
 					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
+						"initially-visible": true,
+						"initial-animation": "EditorSprite",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -9820,11 +9821,11 @@
 								"enabled": false
 							}
 						},
-						"LineOfSight2": {
+						"AttackRange": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 0,
-								"cone-of-view": 0,
+								"range": 20,
+								"cone-of-view": 90,
 								"use-collision-cells": false
 							}
 						},
@@ -9839,7 +9840,7 @@
 								"enabled": true
 							}
 						},
-						"LineOfSight": {
+						"TentacleLOS": {
 							"properties": {
 								"obstacles": "custom",
 								"range": 130,
@@ -10079,7 +10080,7 @@
 										]
 									},
 									{
-										"key": "LineOfSight2",
+										"key": "AttackRange",
 										"state": [
 											[
 												"obstacles",
@@ -10133,7 +10134,7 @@
 										]
 									},
 									{
-										"key": "LineOfSight",
+										"key": "TentacleLOS",
 										"state": [
 											[
 												"obstacles",
@@ -10293,11 +10294,11 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 185.951904296875,
-						"y": 196.08059692382812,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
+						"x": 188,
+						"y": 196,
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
 						"originY": 0.5,
 						"color": [
 							1,

@@ -30,7 +30,7 @@
 	"behaviorTypes": [
 		{
 			"behaviorId": "LOS",
-			"name": "LineOfSight",
+			"name": "TentacleLOS",
 			"sid": 281307712087104
 		}
 	],
@@ -40,9 +40,9 @@
 			{
 				"frames": [
 					{
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
@@ -52,26 +52,31 @@
 						"collisionPoly": {
 							"points": [
 								0,
+								0.25,
+								0.1875,
+								0.25,
+								0.1875,
+								0.75,
 								0,
-								0.375,
-								0,
-								0.375,
-								1,
-								0,
-								1
+								0.75
 							]
 						},
 						"useCollisionPoly": true,
 						"imagePoints": [
 							{
 								"name": "TentacleBase",
-								"x": -0.125,
-								"y": 0.4375
+								"x": -0.0625,
+								"y": 0.46875
 							},
 							{
 								"name": "Hole",
-								"x": 0.00625,
-								"y": 0.4375
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
 							}
 						],
 						"duration": 1,
@@ -79,7 +84,416 @@
 					}
 				],
 				"sid": 162366199946018,
-				"name": "Animation 1",
+				"name": "EditorSprite",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 596229,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1260296,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 374498,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6783170,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9965704,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6792873,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 0.5,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1995081,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 0.5,
+						"tag": ""
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2143740,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 0.5,
+						"tag": ""
+					}
+				],
+				"sid": 391700906379246,
+				"name": "Atk",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.25,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3817718,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.25,
+								0.1875,
+								0.25,
+								0.1875,
+								0.75,
+								0,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "TentacleBase",
+								"x": -0.0625,
+								"y": 0.46875
+							},
+							{
+								"name": "Hole",
+								"x": 0.003125,
+								"y": 0.46875
+							},
+							{
+								"name": "Hitbox",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 103136265924818,
+				"name": "Idle",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

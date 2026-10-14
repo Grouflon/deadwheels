@@ -441,7 +441,8 @@
 									"parameters": [
 										"10",
 										false,
-										"\"\""
+										"\"\"",
+										"0"
 									]
 								}
 							],
@@ -475,7 +476,8 @@
 									"parameters": [
 										"100",
 										false,
-										"\"\""
+										"\"\"",
+										"0"
 									]
 								}
 							],
@@ -1809,19 +1811,68 @@
 					"conditions": [],
 					"actions": [
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Camera",
+							"sid": 953430946290275,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 617681533248475,
+							"parameters": {
+								"seconds": "0.3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 978898679166045,
+							"parameters": {
+								"audio-file": {
+									"path": "GameOver"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 245473341611031,
+							"parameters": {
+								"seconds": "1.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 399481821001102,
+							"parameters": {
+								"tag": "\"Music\""
+							}
+						},
+						{
 							"customAction": "FadeToBlack",
 							"objectClass": "FadeToBlack",
-							"sid": 578395610242143,
+							"sid": 186952761472059,
 							"parameters": [
-								"1"
+								"0.05"
 							]
 						},
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 137511493288597,
+							"sid": 209764517090537,
 							"parameters": {
-								"seconds": "2",
+								"seconds": "2.5",
 								"use-timescale": true
 							}
 						},
@@ -2181,7 +2232,8 @@
 							"parameters": [
 								"50",
 								false,
-								"\"\""
+								"\"\"",
+								"0"
 							]
 						}
 					],
@@ -2706,7 +2758,8 @@
 											"parameters": [
 												"30",
 												false,
-												"\"\""
+												"\"\"",
+												"0"
 											]
 										},
 										{
