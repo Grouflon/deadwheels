@@ -103,6 +103,7 @@
 							],
 							"actions": [],
 							"sid": 178428813561480,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -147,7 +148,8 @@
 											}
 										}
 									],
-									"sid": 862654643870000
+									"sid": 862654643870000,
+									"disabled": true
 								}
 							]
 						}
@@ -199,8 +201,12 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Events"
+								},
+								{
 									"aceType": "action",
-									"aceName": "OnCollision",
+									"aceName": "OnBump",
 									"objectClass": "Controllers",
 									"functionDescription": "",
 									"functionCategory": "",
@@ -209,1688 +215,260 @@
 									"functionIsAsync": false,
 									"functionParameters": [
 										{
-											"name": "collider_uid",
+											"name": "bumpAngle",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 998271693874139
+											"sid": 859045860970396
 										},
 										{
-											"name": "is_furniture",
+											"name": "bumpVelocity",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 329598470322529
+											"sid": 492674447060362
 										},
 										{
-											"name": "collider_centerX",
+											"name": "bumpPointX",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 606507919315926
+											"sid": 615087822062361
 										},
 										{
-											"name": "collider_centerY",
+											"name": "bumpPointY",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 497742797367978
+											"sid": 563935925474048
 										},
 										{
-											"name": "collider_width",
+											"name": "bumpNormalX",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 631790630910357
+											"sid": 259895872878890
 										},
 										{
-											"name": "collider_height",
+											"name": "bumpNormalY",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 509082325739095
+											"sid": 449647367061360
 										},
 										{
-											"name": "collider_angle",
+											"name": "colliderUID",
 											"type": "number",
 											"initialValue": "0",
 											"comment": "",
-											"sid": 684907193814518
+											"sid": 303168966498168
 										}
 									],
 									"eventType": "custom-ace-block",
 									"conditions": [],
 									"actions": [],
-									"sid": 776436013894415,
+									"sid": 846857613586916,
 									"children": [
 										{
 											"eventType": "variable",
-											"name": "collision_velocity",
-											"type": "number",
-											"initialValue": "0",
+											"name": "isFurniture",
+											"type": "boolean",
+											"initialValue": "false",
 											"comment": "",
 											"isStatic": false,
 											"isConstant": false,
-											"sid": 717755784874656
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 250608655627610,
-													"parameters": {
-														"variable": "collision_velocity",
-														"value": "Controllers.velocity"
-													}
-												}
-											],
-											"sid": 273817982281006
+											"sid": 951103580652059
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 107022627929793,
-													"parameters": {
-														"variable": "DEBUG_COLLISIONS"
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "DrawDebugBox",
-													"sid": 993965790385596,
-													"parameters": [
-														"collider_centerX",
-														"collider_centerY",
-														"0",
-														"collider_width",
-														"collider_height",
-														"collider_angle",
-														"rgb(255,0,0)",
-														"50",
-														"3"
-													]
-												}
-											],
-											"sid": 176689459145191
-										},
-										{
-											"eventType": "comment",
-											"text": "Compute collision point"
-										},
-										{
-											"eventType": "variable",
-											"name": "collision_mask",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 645082377103628
-										},
-										{
-											"eventType": "variable",
-											"name": "collision_point_x",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 387511375724783
-										},
-										{
-											"eventType": "variable",
-											"name": "collision_point_y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 688208956931575
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for",
-													"objectClass": "System",
-													"sid": 517407523632048,
-													"parameters": {
-														"name": "\"\"",
-														"start-index": "0",
-														"end-index": "7"
-													}
-												},
-												{
-													"id": "pick-nth-child",
-													"objectClass": "Controllers",
-													"sid": 768261061933703,
-													"parameters": {
-														"child": "ControllerSubCollider",
-														"index-type": "filtered",
-														"instance": "loopindex"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 556897984993758,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "ControllerSubCollider",
-															"sid": 919248208057916,
-															"parameters": {
-																"object": "Furniture"
-															}
-														},
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 737017026408067,
-															"parameters": {
-																"first-value": "Furniture.UID",
-																"comparison": 0,
-																"second-value": "collider_uid"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 210593114731179,
-															"parameters": {
-																"variable": "collision_mask",
-																"value": "setbit(collision_mask,loopindex,1)"
-															}
-														}
-													],
-													"sid": 174419184616621
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "ControllerSubCollider",
-															"sid": 880754051875734,
-															"parameters": {
-																"object": "Buildings"
-															}
-														},
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 701878194413549,
-															"parameters": {
-																"first-value": "Buildings.UID",
-																"comparison": 0,
-																"second-value": "collider_uid"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 391587923369802,
-															"parameters": {
-																"variable": "collision_mask",
-																"value": "setbit(collision_mask,loopindex,1)"
-															}
-														}
-													],
-													"sid": 335535528690156
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "every-tick",
-													"objectClass": "System",
-													"sid": 225510382756781
-												}
-											],
-											"actions": [
-												{
-													"id": "log",
-													"objectClass": "Browser",
-													"sid": 406279246752947,
-													"disabled": true,
-													"parameters": {
-														"type": "log",
-														"message": "\"c: \"&getbit(collision_mask,1)"
-													}
-												}
-											],
-											"sid": 428661362166889
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 327967834459461,
-													"parameters": {
-														"first-value": "getbit(collision_mask,0) + getbit(collision_mask,1)",
-														"comparison": 0,
-														"second-value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Face"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 122633312953928,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(Controllers.Width*0.5,0,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 776970422782445,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(Controllers.Width*0.5,0,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 952724198636555
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 858831712852933
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 379849807573878,
-													"parameters": {
-														"first-value": "getbit(collision_mask,2) + getbit(collision_mask,3)",
-														"comparison": 0,
-														"second-value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Right"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 694335079458282,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(0,Controllers.Height*0.5,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 622687227907843,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(0,Controllers.Height*0.5,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 580439549244455
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 885941271518310
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 918506333011525,
-													"parameters": {
-														"first-value": "getbit(collision_mask,4) + getbit(collision_mask,5)",
-														"comparison": 0,
-														"second-value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Back"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 472434496285688,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(-Controllers.Width*0.5,0,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 610057204781402,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(-Controllers.Width*0.5,0,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 804455377750802
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 940846241516263
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 572255233092795,
-													"parameters": {
-														"first-value": "getbit(collision_mask,6) + getbit(collision_mask,7)",
-														"comparison": 0,
-														"second-value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Left"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 571415784595390,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(0,-Controllers.Height*0.5,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 130128819243558,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(0,-Controllers.Height*0.5,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 466116157865221
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 958217641800379
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 526836560555509,
-													"parameters": {
-														"first-value": "getbit(collision_mask,7) + getbit(collision_mask,0)",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Face Left"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 629685152623563,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(Controllers.Width * 0.5,-Controllers.Height*0.5,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 826289316688062,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(Controllers.Width * 0.5,-Controllers.Height*0.5,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 778833274388485
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 180274649150646
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 297702700097080,
-													"parameters": {
-														"first-value": "getbit(collision_mask,1) + getbit(collision_mask,2)",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Face Right"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 813310935468094,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(Controllers.Width * 0.5,Controllers.Height*0.5,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 674868295126621,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(Controllers.Width * 0.5,Controllers.Height*0.5,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 182138316085997
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 966827285048056
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 269355433548222,
-													"parameters": {
-														"first-value": "getbit(collision_mask,3) + getbit(collision_mask,4)",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Back Right"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 715756862727553,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(-Controllers.Width * 0.5,Controllers.Height*0.5,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 558653588502830,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(-Controllers.Width * 0.5,Controllers.Height*0.5,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 964138434915252
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 182267816971287
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 473348383942200,
-													"parameters": {
-														"first-value": "getbit(collision_mask,5) + getbit(collision_mask,6)",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Back Left"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 576491926992565,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X + Functions.RotateVectorX(-Controllers.Width * 0.5,-Controllers.Height*0.5,Controllers.Angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 281706621468622,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y + Functions.RotateVectorY(-Controllers.Width * 0.5,-Controllers.Height*0.5,Controllers.Angle)"
-													}
-												}
-											],
-											"sid": 882343123998562
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 629285118142916
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Default to controller position, so that is is at least somehow relevant"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 337273585234017,
-													"parameters": {
-														"variable": "collision_point_x",
-														"value": "Controllers.X"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 647911399642974,
-													"parameters": {
-														"variable": "collision_point_y",
-														"value": "Controllers.Y"
-													}
-												}
-											],
-											"sid": 521110027315534
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "pull collision point towards controller center to stabilize normal computation"
-												},
-												{
-													"type": "script",
-													"language": "typescript",
-													"script": [
-														"var controller = runtime.objects.Controllers.getFirstPickedInstance();",
-														"if (controller == null) { return; }",
-														"var dx = localVars.collision_point_x - controller.x;",
-														"var dy = localVars.collision_point_y - controller.y;",
-														"const PULL_FACTOR = 0.75;",
-														"localVars.collision_point_x = controller.x + dx * PULL_FACTOR;",
-														"localVars.collision_point_y = controller.y + dy * PULL_FACTOR;"
-													]
-												}
-											],
-											"sid": 504372258050854
-										},
-										{
-											"eventType": "variable",
-											"name": "bary1",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 969188176967642
-										},
-										{
-											"eventType": "variable",
-											"name": "bary2",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 406302138891126
-										},
-										{
-											"eventType": "variable",
-											"name": "normal_x",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 468914028767185
-										},
-										{
-											"eventType": "variable",
-											"name": "normal_y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 279540030407636
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"type": "script",
-													"language": "typescript",
-													"script": [
-														"var v0 = Vector2.Rotate(new Vector2(localVars.collider_width*0.5, -localVars.collider_height*0.5), localVars.collider_angle);",
-														"var v1 = Vector2.Rotate(new Vector2(localVars.collider_width*0.5, localVars.collider_height*0.5), localVars.collider_angle);",
-														"",
-														"var bary = MathUtils.BarycentricCoordinates(",
-														"    new Vector2(localVars.collision_point_x, localVars.collision_point_y),",
-														"    new Vector2(localVars.collider_centerX, localVars.collider_centerY),",
-														"    new Vector2(localVars.collider_centerX + v0.x, localVars.collider_centerY + v0.y),",
-														"    new Vector2(localVars.collider_centerX + v1.x, localVars.collider_centerY + v1.y)",
-														");",
-														"//console.log(bary);",
-														"localVars.bary1 = bary.y;",
-														"localVars.bary2 = bary.z;",
-														""
-													]
-												}
-											],
-											"sid": 949785279637152
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 176577552137342,
-													"parameters": {
-														"first-value": "bary1",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 979534805925426,
-													"parameters": {
-														"first-value": "bary2",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Front"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 894899276325030,
-													"parameters": {
-														"variable": "normal_x",
-														"value": "Functions.RotateVectorX(1, 0, collider_angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 857637088447320,
-													"parameters": {
-														"variable": "normal_y",
-														"value": "Functions.RotateVectorY(1, 0, collider_angle)"
-													}
-												}
-											],
-											"sid": 356146717959737
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 362271639882979
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 921803085910248,
-													"parameters": {
-														"first-value": "bary1",
-														"comparison": 3,
-														"second-value": "0"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 165788915721965,
-													"parameters": {
-														"first-value": "bary2",
-														"comparison": 3,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Back"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 714203954239580,
-													"parameters": {
-														"variable": "normal_x",
-														"value": "Functions.RotateVectorX(-1, 0, collider_angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 383159677116356,
-													"parameters": {
-														"variable": "normal_y",
-														"value": "Functions.RotateVectorY(-1, 0, collider_angle)"
-													}
-												}
-											],
-											"sid": 469043136535378
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 611406575038194
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 444243194593106,
-													"parameters": {
-														"first-value": "bary1",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 834301329451148,
-													"parameters": {
-														"first-value": "bary2",
-														"comparison": 3,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Left"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 491227774269282,
-													"parameters": {
-														"variable": "normal_x",
-														"value": "Functions.RotateVectorX(0, -1, collider_angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 512308393128006,
-													"parameters": {
-														"variable": "normal_y",
-														"value": "Functions.RotateVectorY(0, -1, collider_angle)"
-													}
-												}
-											],
-											"sid": 794597407957800
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 194289937015498
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 159819771655597,
-													"parameters": {
-														"first-value": "bary1",
-														"comparison": 3,
-														"second-value": "0"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 546187033858822,
-													"parameters": {
-														"first-value": "bary2",
-														"comparison": 4,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "Right"
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 592752005778116,
-													"parameters": {
-														"variable": "normal_x",
-														"value": "Functions.RotateVectorX(0, 1, collider_angle)"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 669317605611440,
-													"parameters": {
-														"variable": "normal_y",
-														"value": "Functions.RotateVectorY(0, 1, collider_angle)"
-													}
-												}
-											],
-											"sid": 233208644981150
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 925424100939186
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 637418800710182,
-													"parameters": {
-														"variable": "DEBUG_COLLISIONS"
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "DrawDebugBox",
-													"sid": 479648559341435,
-													"parameters": [
-														"collision_point_x + normal_x * 5",
-														"collision_point_y + normal_y * 5",
-														"0",
-														"1",
-														"1",
-														"0",
-														"rgb(0,255,0)",
-														"50",
-														"3"
-													]
-												}
-											],
-											"sid": 357795409182894
-										},
-										{
-											"eventType": "comment",
-											"text": "Resolve collision"
-										},
-										{
-											"eventType": "variable",
-											"name": "normal_angle",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 825557953782812
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 670251144482539,
-													"parameters": {
-														"variable": "normal_angle",
-														"value": "angle(0,0,normal_x,normal_y)"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Controllers",
-													"sid": 481140669671049,
-													"parameters": {
-														"instance-variable": "last_collision_normal_angle",
-														"value": "normal_angle"
-													}
-												},
-												{
-													"id": "push-out-solid-at-angle",
-													"objectClass": "Controllers",
-													"sid": 250394649999347,
-													"behaviorType": "Custom",
-													"parameters": {
-														"angle": "normal_angle"
-													}
-												}
-											],
-											"sid": 542977659372068
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Controllers",
-													"sid": 994618378316982,
-													"parameters": {
-														"instance-variable": "collision_cooldown",
-														"comparison": 3,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Controllers",
-													"sid": 798149488420883,
-													"parameters": {
-														"instance-variable": "collision_cooldown",
-														"value": "0.1"
-													}
-												}
-											],
-											"sid": 440164530243971,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [],
-													"sid": 549374038657085
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 150185174233882,
-															"disabled": true,
-															"parameters": {
-																"type": "log",
-																"message": "\"a: \"&normal_angle"
-															}
-														}
-													],
-													"sid": 970526753603773
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 675856873025261,
-															"parameters": {
-																"first-value": "Controllers.velocity",
-																"comparison": 5,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "push-out-solid-at-angle",
-															"objectClass": "Controllers",
-															"sid": 927884515718852,
-															"disabled": true,
-															"behaviorType": "Custom",
-															"parameters": {
-																"angle": "Controllers.Angle+180"
-															}
-														}
-													],
-													"sid": 382293099390081
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 843975954405959
-														}
-													],
-													"actions": [
-														{
-															"id": "push-out-solid-at-angle",
-															"objectClass": "Controllers",
-															"sid": 271805830024727,
-															"disabled": true,
-															"behaviorType": "Custom",
-															"parameters": {
-																"angle": "Controllers.Angle"
-															}
-														}
-													],
-													"sid": 969839508234868
-												},
-												{
-													"eventType": "variable",
-													"name": "velocity_x",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 827681600682307
-												},
-												{
-													"eventType": "variable",
-													"name": "movement_angle",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 290281548739331
-												},
-												{
-													"eventType": "variable",
-													"name": "collision_angle",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 984064242866742
-												},
-												{
-													"eventType": "variable",
-													"name": "COLLISION_BUMP_ANGLE",
-													"type": "number",
-													"initialValue": "40",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": true,
-													"sid": 674908530529077
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Controllers",
-															"sid": 924246696160882,
-															"parameters": {
-																"instance-variable": "velocity",
-																"comparison": 5,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 828077212104006,
-															"parameters": {
-																"variable": "movement_angle",
-																"value": "Controllers.Angle"
-															}
-														}
-													],
-													"sid": 859754286213750
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 388617040247194
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 350823217019775,
-															"parameters": {
-																"variable": "movement_angle",
-																"value": "Controllers.Angle+180"
-															}
-														}
-													],
-													"sid": 643826016347366
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 995097213941109,
-															"parameters": {
-																"variable": "collision_angle",
-																"value": "Functions.SignedAngleBetween(movement_angle, normal_angle+180)"
-															}
-														}
-													],
-													"sid": 921937511511948
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"type": "comment",
-															"text": "CHANGE REACTION HERE"
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Controllers",
-															"sid": 437604606048531,
-															"disabled": true,
-															"parameters": {
-																"instance-variable": "velocity",
-																"value": "Controllers.velocity * Controllers.collision_velocity_multiplier"
-															}
-														},
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 314174844051929,
-															"disabled": true,
-															"parameters": {
-																"type": "log",
-																"message": "\"a: \"&Functions.SignedAngleBetween(movement_angle, normal_angle+180)"
-															}
-														}
-													],
-													"sid": 573693372881260
-												},
-												{
-													"eventType": "variable",
-													"name": "collision_ratio",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 747182810668530
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 350408411962195,
-															"parameters": {
-																"first-value": "abs(collision_angle)",
-																"comparison": 5,
-																"second-value": "COLLISION_BUMP_ANGLE"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 959468116976459,
-															"parameters": {
-																"variable": "collision_ratio",
-																"value": "clamp(1 - (abs(collision_angle) - COLLISION_BUMP_ANGLE)/(90-COLLISION_BUMP_ANGLE),0,1)"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Controllers",
-															"sid": 604766961888322,
-															"parameters": {
-																"instance-variable": "velocity",
-																"value": "Controllers.velocity * Functions.Remap(collision_ratio,0,1, 0.8, 0.3)"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Controllers",
-															"sid": 569536377843337,
-															"disabled": true,
-															"parameters": {
-																"instance-variable": "velocity",
-																"value": "Controllers.velocity * clamp((abs(collision_angle) - COLLISION_BUMP_ANGLE)/(90-COLLISION_BUMP_ANGLE), 0.4, 1)"
-															}
-														},
-														{
-															"id": "add-to-instvar",
-															"objectClass": "Controllers",
-															"sid": 556927064208243,
-															"parameters": {
-																"instance-variable": "angular_velocity",
-																"value": "-sign(collision_angle) * Functions.Remap(collision_ratio, 0, 1, 175, 300)"
-															}
-														},
-														{
-															"id": "set-angle",
-															"objectClass": "Controllers",
-															"sid": 337223896834646,
-															"disabled": true,
-															"parameters": {
-																"angle": "Self.Angle - sign(collision_angle) * (90 - abs(collision_angle))"
-															}
-														},
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 547237294053983,
-															"parameters": {
-																"type": "log",
-																"message": "\"turn\"&sign(collision_angle) * Functions.Remap(collision_ratio, 0, 1, 1, 100)"
-															}
-														}
-													],
-													"sid": 436991733842481
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 399147693597961
-														}
-													],
-													"actions": [
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 521388845778496,
-															"disabled": true,
-															"parameters": {
-																"type": "log",
-																"message": "\"bump\""
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Controllers",
-															"sid": 859478111195207,
-															"parameters": {
-																"instance-variable": "velocity",
-																"value": "Controllers.velocity * -abs(Controllers.collision_velocity_multiplier)"
-															}
-														}
-													],
-													"sid": 489495478488064
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "ChairController",
-															"sid": 725196460458723,
-															"parameters": {
-																"unique-id": "Controllers.UID"
-															}
-														}
-													],
-													"actions": [
-														{
-															"customAction": "OnChairCollision",
-															"objectClass": "ChairController",
-															"sid": 237552910289980,
-															"parameters": [
-																"collision_velocity",
-																"collider_uid",
-																"is_furniture"
-															]
-														}
-													],
-													"sid": 909891663494906
-												}
-											]
-										}
-									]
-								},
-								{
-									"eventType": "comment",
-									"text": "Events"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Controllers",
-											"sid": 207526706307829,
-											"parameters": {
-												"object": "Buildings"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 720053534443103,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 990814962167290,
-													"parameters": {
-														"first-value": "Controllers.excluded_collisions",
-														"comparison": 0,
-														"second-value": "\"\""
-													}
-												},
-												{
-													"id": "has-tags",
-													"objectClass": "Buildings",
-													"sid": 170035954211650,
-													"parameters": {
-														"tags": "Controllers.excluded_collisions"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"customAction": "OnCollision",
-													"objectClass": "Controllers",
-													"sid": 338857699826542,
-													"parameters": [
-														"Buildings.UID",
-														"0",
-														"Buildings.BBoxMidX",
-														"Buildings.BBoxMidY",
-														"Buildings.Width",
-														"Buildings.Height",
-														"Buildings.Angle"
-													]
-												}
-											],
-											"sid": 866289839376208,
-											"isOrBlock": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Controllers",
-											"sid": 839550717830059,
-											"parameters": {
-												"object": "Furniture"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 660321771784260,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 965873673914569,
-													"parameters": {
-														"first-value": "Controllers.excluded_collisions",
-														"comparison": 0,
-														"second-value": "\"\""
-													}
-												},
-												{
-													"id": "has-tags",
+													"id": "pick-by-unique-id",
 													"objectClass": "Furniture",
-													"sid": 639097007140367,
+													"sid": 322222315791623,
 													"parameters": {
-														"tags": "Controllers.excluded_collisions"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"customAction": "OnCollision",
-													"objectClass": "Controllers",
-													"sid": 998622766572932,
-													"parameters": [
-														"Furniture.UID",
-														"1",
-														"Furniture.BBoxMidX",
-														"Furniture.BBoxMidY",
-														"Furniture.Width",
-														"Furniture.Height",
-														"Furniture.Angle"
-													]
-												}
-											],
-											"sid": 799192828469396,
-											"isOrBlock": true
-										}
-									]
-								},
-								{
-									"eventType": "variable",
-									"name": "is_overlapping",
-									"type": "boolean",
-									"initialValue": "false",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 177282882193736
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Controllers",
-											"sid": 974807091997810,
-											"parameters": {
-												"object": "Furniture"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 203193655249236,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 956210920435463,
-													"parameters": {
-														"first-value": "Controllers.excluded_collisions",
-														"comparison": 0,
-														"second-value": "\"\""
+														"unique-id": "colliderUID"
 													}
-												},
-												{
-													"id": "has-tags",
-													"objectClass": "Furniture",
-													"sid": 164534010605109,
-													"parameters": {
-														"tags": "Controllers.excluded_collisions"
-													},
-													"isInverted": true
 												}
 											],
 											"actions": [
-												{
-													"customAction": "OnOverlapCollision",
-													"objectClass": "Controllers",
-													"sid": 655620645137622
-												},
 												{
 													"id": "set-boolean-eventvar",
 													"objectClass": "System",
-													"sid": 100383913009920,
+													"sid": 915869950435007,
 													"parameters": {
-														"variable": "is_overlapping",
+														"variable": "isFurniture",
 														"value": "true"
 													}
 												}
 											],
-											"sid": 500243326423943,
-											"isOrBlock": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Controllers",
-											"sid": 856132458752626,
-											"parameters": {
-												"object": "Buildings"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 146186769012447,
-									"children": [
+											"sid": 488449409272283
+										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 637827892576891,
+													"id": "pick-by-unique-id",
+													"objectClass": "ChairController",
+													"sid": 656439114579575,
 													"parameters": {
-														"first-value": "Controllers.excluded_collisions",
-														"comparison": 0,
-														"second-value": "\"\""
+														"unique-id": "Controllers.UID"
 													}
-												},
-												{
-													"id": "has-tags",
-													"objectClass": "Buildings",
-													"sid": 677257810539151,
-													"parameters": {
-														"tags": "Controllers.excluded_collisions"
-													},
-													"isInverted": true
 												}
 											],
 											"actions": [
 												{
-													"customAction": "OnOverlapCollision",
-													"objectClass": "Controllers",
-													"sid": 450814480463032
-												},
-												{
-													"id": "set-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 575271328760029,
-													"parameters": {
-														"variable": "is_overlapping",
-														"value": "true"
-													}
+													"customAction": "OnChairCollision",
+													"objectClass": "ChairController",
+													"sid": 838868924108983,
+													"parameters": [
+														"bumpVelocity",
+														"colliderUID",
+														"isFurniture"
+													]
 												}
 											],
-											"sid": 861728252537937,
-											"isOrBlock": true
+											"sid": 143592622593568
 										}
 									]
 								},
 								{
 									"aceType": "action",
-									"aceName": "OnOverlapCollision",
+									"aceName": "OnSlideBegin",
+									"objectClass": "Controllers",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "contactAngle",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 592640357427938
+										},
+										{
+											"name": "contactPointX",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 331086067354748
+										},
+										{
+											"name": "contactPointY",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 615074851531068
+										},
+										{
+											"name": "contactNormalX",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 271094626924198
+										},
+										{
+											"name": "contactNormalY",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 350510125061580
+										},
+										{
+											"name": "colliderUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 329824442004738
+										}
+									],
+									"eventType": "custom-ace-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 420875755188183
+								},
+								{
+									"aceType": "action",
+									"aceName": "OnSlideTick",
+									"objectClass": "Controllers",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "contactAngle",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 303106555398579
+										},
+										{
+											"name": "contactPointX",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 589043208748064
+										},
+										{
+											"name": "contactPointY",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 225032866666733
+										},
+										{
+											"name": "contactNormalX",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 518471387230554
+										},
+										{
+											"name": "contactNormalY",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 594662582143997
+										},
+										{
+											"name": "colliderUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 672768200757912
+										}
+									],
+									"eventType": "custom-ace-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 296274255361199,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "-sign(Self.velocity) * min(abs(Self.velocity), 200* dt)"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Controllers",
+											"sid": 763982388806977,
+											"parameters": {
+												"angle": "Self.Angle - sign(contactAngle) * 180 * dt"
+											}
+										}
+									],
+									"sid": 759512784430021
+								},
+								{
+									"aceType": "action",
+									"aceName": "OnSlideEnd",
 									"objectClass": "Controllers",
 									"functionDescription": "",
 									"functionCategory": "",
@@ -1901,144 +479,7 @@
 									"eventType": "custom-ace-block",
 									"conditions": [],
 									"actions": [],
-									"sid": 527051493154474,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Controllers",
-													"sid": 977115286629877,
-													"parameters": {
-														"instance-variable": "collision_cooldown",
-														"comparison": 3,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Controllers",
-													"sid": 405207775874014,
-													"disabled": true,
-													"parameters": {
-														"instance-variable": "velocity",
-														"value": "0"
-													}
-												}
-											],
-											"sid": 355630125111186
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 612008763563619,
-											"parameters": {
-												"variable": "is_overlapping"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "push-out-solid-at-angle",
-											"objectClass": "Controllers",
-											"sid": 976572190423370,
-											"behaviorType": "Custom",
-											"parameters": {
-												"angle": "Controllers.last_collision_normal_angle"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 821246585121029,
-											"disabled": true,
-											"parameters": {
-												"instance-variable": "collision_cooldown",
-												"value": "0.2"
-											}
-										}
-									],
-									"sid": 704870531737446
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 932145147518673
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Controllers",
-											"sid": 818663525936284,
-											"disabled": true,
-											"parameters": {
-												"instance-variable": "collision_cooldown",
-												"comparison": 4,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 687222382858664,
-											"disabled": true,
-											"parameters": {
-												"instance-variable": "collision_cooldown",
-												"value": "Self.collision_cooldown - dt"
-											}
-										}
-									],
-									"sid": 184920968138030,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Controllers",
-													"sid": 331807557021661,
-													"parameters": {
-														"instance-variable": "collision_cooldown",
-														"comparison": 3,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 847158687878455,
-											"disabled": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Controllers",
-											"sid": 697191812398813,
-											"parameters": {
-												"instance-variable": "collision_cooldown",
-												"comparison": 3,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 365943170336240,
-									"disabled": true
+									"sid": 962084879272859
 								}
 							],
 							"sid": 574382851640218
@@ -2715,97 +1156,6 @@
 																}
 															],
 															"sid": 503403197851225
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "every-x-seconds",
-															"objectClass": "System",
-															"sid": 539113563477091,
-															"parameters": {
-																"interval-seconds": "0.03"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 615773124570853,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Thomas : This isn't working so I disabled it"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "key-is-down",
-																	"objectClass": "Keyboard",
-																	"sid": 191388009525190,
-																	"parameters": {
-																		"key": 65
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-instvar",
-																	"objectClass": "Controllers",
-																	"sid": 625176910324915,
-																	"parameters": {
-																		"instance-variable": "angular_velocity",
-																		"value": "0.8 * -Controllers.angular_acceleration * dt"
-																	}
-																},
-																{
-																	"id": "add-to-instvar",
-																	"objectClass": "Controllers",
-																	"sid": 206933302668042,
-																	"parameters": {
-																		"instance-variable": "rotate_ticks",
-																		"value": "-1"
-																	}
-																}
-															],
-															"sid": 409992608950215,
-															"disabled": true
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "key-is-down",
-																	"objectClass": "Keyboard",
-																	"sid": 945340631525366,
-																	"parameters": {
-																		"key": 68
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-instvar",
-																	"objectClass": "Controllers",
-																	"sid": 491966276322587,
-																	"parameters": {
-																		"instance-variable": "angular_velocity",
-																		"value": "0.8 * Controllers.angular_acceleration * dt"
-																	}
-																},
-																{
-																	"id": "add-to-instvar",
-																	"objectClass": "Controllers",
-																	"sid": 704675305487708,
-																	"parameters": {
-																		"instance-variable": "rotate_ticks",
-																		"value": "0.8"
-																	}
-																}
-															],
-															"sid": 457473515773241,
-															"disabled": true
 														}
 													]
 												}

@@ -3,11 +3,14 @@
 // import * as myModule from "./mymodule.js";
 
 import * as DebugDraw from "./DebugDraw.js";
+import * as Controllers from "./Controllers.js";
 
 runOnStartup(async runtime =>
 {
 	// Code to run on the loading screen.
 	// Note layouts, objects etc. are not yet available.
+
+	Controllers.SetupEvents(runtime);
 	
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
 });
@@ -17,9 +20,9 @@ async function OnBeforeProjectStart(runtime: IRuntime)
 	// Code to run just before 'On start of layout' on
 	// the first layout. Loading has finished and initial
 	// instances are created and available to use here.
-
-	DebugDraw.Init(runtime);
 	
+	DebugDraw.Init(runtime);
+
 	runtime.addEventListener("pretick", () => PreTick(runtime));
 	runtime.addEventListener("tick", () => Tick(runtime));
 	runtime.addEventListener("tick2", () => Tick2(runtime));
@@ -32,6 +35,7 @@ function PreTick(runtime: IRuntime)
 
 function Tick(runtime: IRuntime)
 {
+	Controllers.Tick(runtime);
 }
 
 function Tick2(runtime: IRuntime)

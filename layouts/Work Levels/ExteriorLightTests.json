@@ -30,6 +30,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -73,6 +74,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -116,6 +118,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -177,6 +180,8 @@
 						"right_angular_input_timer": 0,
 						"consecutive_wheel_ticks": 0,
 						"last_collision_normal_angle": 0,
+						"previous_solid_collision_uid": 0,
+						"isSliding": false,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -368,6 +373,10 @@
 												"state": true
 											},
 											{
+												"iv": "previous_solid_collision_uid",
+												"state": true
+											},
+											{
 												"iv": "isBeingGrabbed",
 												"state": true
 											},
@@ -433,6 +442,10 @@
 											},
 											{
 												"iv": "can_enter_chair",
+												"state": true
+											},
+											{
+												"iv": "isSliding",
 												"state": true
 											}
 										]
@@ -591,6 +604,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 284906,
@@ -600,10 +614,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -656,6 +671,7 @@
 						"globalAtmosphere": "Amb/Amb_Hall1"
 					},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -713,6 +729,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -997,6 +1014,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 321951,
@@ -1009,10 +1027,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							},
@@ -1024,10 +1043,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -1038,10 +1058,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -1120,6 +1141,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1181,6 +1203,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1242,6 +1265,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1303,6 +1327,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1364,6 +1389,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1425,6 +1451,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1486,6 +1513,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1547,6 +1575,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1605,6 +1634,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1666,6 +1696,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1727,6 +1758,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1788,6 +1820,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2072,6 +2105,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 591829,
@@ -2084,10 +2118,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							},
@@ -2099,10 +2134,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -2113,10 +2149,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -2191,6 +2228,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2224,6 +2262,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2284,6 +2323,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2341,6 +2381,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2398,6 +2439,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2455,6 +2497,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2998,6 +3041,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3541,6 +3585,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4084,6 +4129,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4125,6 +4171,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 321951,
 						"uid": 570308,
@@ -4134,10 +4181,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -4196,6 +4244,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 321951,
 						"uid": 127709,
@@ -4205,10 +4254,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -4267,6 +4317,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 591829,
 						"uid": 487430,
@@ -4276,10 +4327,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -4338,6 +4390,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 591829,
 						"uid": 212685,
@@ -4347,10 +4400,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -4855,6 +4909,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 662871,
@@ -4864,10 +4919,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -4929,6 +4985,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 678349,
@@ -4938,10 +4995,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -5002,6 +5060,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 508066,
@@ -5011,10 +5070,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5075,6 +5135,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 292950,
@@ -5084,10 +5145,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5148,6 +5210,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 971546,
@@ -5157,10 +5220,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5221,6 +5285,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 212921,
@@ -5230,10 +5295,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5294,6 +5360,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 994098,
@@ -5303,10 +5370,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5367,6 +5435,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 569830,
@@ -5376,10 +5445,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5440,6 +5510,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 968002,
@@ -5449,10 +5520,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5513,6 +5585,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 859416,
@@ -5522,10 +5595,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5586,6 +5660,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 157467,
@@ -5595,10 +5670,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5659,6 +5735,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 381509,
@@ -5668,10 +5745,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5732,6 +5810,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 722955,
@@ -5741,10 +5820,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5805,6 +5885,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 423088,
@@ -5814,10 +5895,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5878,6 +5960,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 245363,
@@ -5887,10 +5970,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -5951,6 +6035,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 777984,
@@ -5960,10 +6045,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -6024,6 +6110,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 600806,
@@ -6033,10 +6120,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -6247,6 +6335,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 288553,
@@ -6259,10 +6348,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6274,10 +6364,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6289,10 +6380,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6304,10 +6396,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6319,10 +6412,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6334,10 +6428,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6349,10 +6444,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6364,10 +6460,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6379,10 +6476,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6394,10 +6492,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6409,10 +6508,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6424,10 +6524,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6439,10 +6540,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6454,10 +6556,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6469,10 +6572,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6484,10 +6588,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6499,10 +6604,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6514,10 +6620,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -6529,10 +6636,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -6543,10 +6651,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -6607,6 +6716,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 868923,
@@ -6616,10 +6726,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -6670,6 +6781,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 163765,
@@ -6679,10 +6791,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -6733,6 +6846,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 288553,
 						"uid": 907972,
@@ -6742,10 +6856,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -6821,6 +6936,7 @@
 	"height": 1000,
 	"unboundedScrolling": true,
 	"sampling": "nearest",
+	"ambientLight": 0.03,
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",

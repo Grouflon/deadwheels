@@ -1,10 +1,35 @@
+const DEBUG_LAYER_NAME = "DEBUG";
+
+import * as MathUtils from "./MathUtils.ts";
+import { Vector2, Vector3 } from "./MathUtils.ts";
+
+export const WHITE: Vec3Arr = [255,255,255];
+export const BLACK: Vec3Arr = [0,0,0];
+export const GRAY: Vec3Arr = [127,127,127];
+export const RED: Vec3Arr = [255,0,0];
+export const GREEN: Vec3Arr = [0,255,0];
+export const BLUE: Vec3Arr = [0,0,255];
 
 export function Init(runtime: IRuntime)
 {
+
     singleton = new DebugDraw(runtime);
-    if (runtime.layout.getLayer("DEBUG") == null)
+
+    let layers = runtime.layout.getAllLayers();
+    let topLayerIndex = 0;
+    if (layers.length > 0)
     {
-        runtime.layout.addLayer("DEBUG", runtime.layout.getLayer("ScreenPostProcess"), "above");
+        topLayerIndex = layers[layers.length-1].index;
+    }
+
+    let debugLayer = runtime.layout.getLayer(DEBUG_LAYER_NAME);
+    if (debugLayer == null)
+    {
+        runtime.layout.addLayer(DEBUG_LAYER_NAME, runtime.layout.getLayer(topLayerIndex), "above");
+    }
+    else
+    {
+        runtime.layout.moveLayer(debugLayer, runtime.layout.getLayer(topLayerIndex), "above");
     }
 }
 
@@ -17,6 +42,27 @@ export function DrawBox(x: number, y: number, z: number, width: number, height: 
 {
     singleton.DrawBox(x, y, z, width, height, angleDegrees, color, opacity, duration);
 }
+
+export function DrawPoint(x: number, y: number, z: number = 0, color: Vec3Arr = [255,0,0], opacity: number = 100, duration: number = 0, size: number = 2)
+{
+    DrawBox(x, y, z, size, size, 0, color, opacity, duration);
+}
+
+export function DrawLine(p0: Vector2, p1: Vector2, duration: number = 0, color: Vec3Arr = [255,0,0], opacity: number = 100, width: number = 0.5)
+{
+    let midpoint = p0.add(p1).multiply(0.5);
+    let delta = p1.subtract(p0);
+    let angle = Math.atan2(delta.y, delta.x) + Math.PI * 0.5;
+    let length = delta.length();
+
+    DrawBox(midpoint.x, midpoint.y, 0, width, length, angle * MathUtils.R2D, color, opacity, duration);
+}
+
+export function DrawVector(origin: Vector2, v: Vector2, duration: number = 0, color: Vec3Arr = [255,0,0], opacity: number = 100, width: number = 0.5)
+{
+    DrawLine(origin, origin.add(v), duration, color, opacity, width);
+}
+
 
 var singleton: DebugDraw;
 class DebugDraw
@@ -74,7 +120,7 @@ class DebugDraw
         {
             index = this.shapes.length;
 
-            let instance = this.runtime.objects.Box.createInstance("DEBUG", 0, 0);
+            let instance = this.runtime.objects.Box.createInstance(DEBUG_LAYER_NAME, 0, 0);
             this.shapes.push(new Shape(instance));
             this.firstUnused = index;
         }

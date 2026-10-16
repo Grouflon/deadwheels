@@ -30,6 +30,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -73,6 +74,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -116,6 +118,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -159,6 +162,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -202,6 +206,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -245,6 +250,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -288,6 +294,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -331,6 +338,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -374,6 +382,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -417,6 +426,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -460,6 +470,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -521,6 +532,8 @@
 						"right_angular_input_timer": 0,
 						"consecutive_wheel_ticks": 0,
 						"last_collision_normal_angle": 0,
+						"previous_solid_collision_uid": 0,
+						"isSliding": false,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -712,6 +725,10 @@
 												"state": true
 											},
 											{
+												"iv": "previous_solid_collision_uid",
+												"state": true
+											},
+											{
 												"iv": "isBeingGrabbed",
 												"state": true
 											},
@@ -777,6 +794,10 @@
 											},
 											{
 												"iv": "can_enter_chair",
+												"state": true
+											},
+											{
+												"iv": "isSliding",
 												"state": true
 											}
 										]
@@ -935,6 +956,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -970,6 +992,7 @@
 						"globalAtmosphere": "Amb/Amb_Hall1"
 					},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1027,6 +1050,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1311,6 +1335,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 494852,
@@ -1323,10 +1348,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							},
@@ -1338,10 +1364,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -1352,10 +1379,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -1657,6 +1685,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 271202,
@@ -1669,10 +1698,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							},
@@ -1684,10 +1714,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -1698,10 +1729,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -1777,6 +1809,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1835,6 +1868,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1893,6 +1927,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -1951,6 +1986,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2009,6 +2045,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2080,6 +2117,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2138,6 +2176,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2196,6 +2235,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2254,6 +2294,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2312,6 +2353,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2383,6 +2425,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2441,6 +2484,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2502,6 +2546,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2563,6 +2608,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2624,6 +2670,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2685,6 +2732,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2746,6 +2794,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2807,6 +2856,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2868,6 +2918,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2929,6 +2980,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -2990,6 +3042,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3051,6 +3104,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3112,6 +3166,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3173,6 +3228,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3234,6 +3290,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3289,6 +3346,7 @@
 							"properties": {}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 273440,
 						"uid": 574061,
@@ -3301,10 +3359,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -3315,10 +3374,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -3397,6 +3457,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3458,6 +3519,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3519,6 +3581,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3568,6 +3631,7 @@
 						"enabled": true
 					},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 273440,
@@ -3580,10 +3644,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -3594,10 +3659,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -3675,6 +3741,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3736,6 +3803,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3794,6 +3862,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -3856,6 +3925,8 @@
 						"right_angular_input_timer": 0,
 						"consecutive_wheel_ticks": 0,
 						"last_collision_normal_angle": 0,
+						"previous_solid_collision_uid": 0,
+						"isSliding": false,
 						"isBeingGrabbed": false,
 						"wheels_blood_level": 0,
 						"ram_cooldown": 0,
@@ -4027,6 +4098,10 @@
 												"state": true
 											},
 											{
+												"iv": "previous_solid_collision_uid",
+												"state": true
+											},
+											{
 												"iv": "isBeingGrabbed",
 												"state": true
 											},
@@ -4040,6 +4115,10 @@
 											},
 											{
 												"iv": "highlight_cooldown",
+												"state": true
+											},
+											{
+												"iv": "isSliding",
 												"state": true
 											}
 										]
@@ -4181,6 +4260,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4261,6 +4341,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 574061,
 						"uid": 265432,
@@ -4270,10 +4351,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -4352,6 +4434,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4413,6 +4496,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4457,6 +4541,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4517,6 +4602,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4578,6 +4664,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4639,6 +4726,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4700,6 +4788,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4761,6 +4850,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4822,6 +4912,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4883,6 +4974,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -4944,6 +5036,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5005,6 +5098,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5066,6 +5160,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5127,6 +5222,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5188,6 +5284,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5249,6 +5346,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5310,6 +5408,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5371,6 +5470,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5432,6 +5532,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -5737,6 +5838,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -6319,6 +6421,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -6901,6 +7004,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -6958,6 +7062,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7017,6 +7122,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7076,6 +7182,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7135,6 +7242,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7194,6 +7302,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7253,6 +7362,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7312,6 +7422,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7371,6 +7482,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7430,6 +7542,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7489,6 +7602,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -7548,6 +7662,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -8069,6 +8184,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -8588,6 +8704,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9107,6 +9224,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9626,6 +9744,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -10145,6 +10264,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -10664,6 +10784,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -11183,6 +11304,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -11726,6 +11848,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -12269,6 +12392,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -12812,6 +12936,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -13355,6 +13480,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -13898,6 +14024,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -14441,6 +14568,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -14984,6 +15112,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -15527,6 +15656,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -16070,6 +16200,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -16613,6 +16744,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -17156,6 +17288,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -17699,6 +17832,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -18242,6 +18376,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -18785,6 +18920,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -19328,6 +19464,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -19871,6 +20008,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -20414,6 +20552,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -20957,6 +21096,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -21500,6 +21640,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -22043,6 +22184,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -22586,6 +22728,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -23129,6 +23272,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -23672,6 +23816,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -24215,6 +24360,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -24758,6 +24904,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -25301,6 +25448,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -25340,6 +25488,7 @@
 							"parameters": {}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -25393,6 +25542,7 @@
 							"parameters": {}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -25446,6 +25596,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -25487,6 +25638,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 494852,
 						"uid": 339631,
@@ -25496,10 +25648,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -25558,6 +25711,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 494852,
 						"uid": 902461,
@@ -25567,10 +25721,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -25629,6 +25784,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 271202,
 						"uid": 199252,
@@ -25638,10 +25794,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -25700,6 +25857,7 @@
 							}
 						}
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 271202,
 						"uid": 130343,
@@ -25709,10 +25867,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -26164,6 +26323,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 223650,
@@ -26173,10 +26333,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26238,6 +26399,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 423352,
@@ -26247,10 +26409,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -26311,6 +26474,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 302149,
@@ -26320,10 +26484,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26384,6 +26549,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 933925,
@@ -26393,10 +26559,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26457,6 +26624,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 365870,
@@ -26466,10 +26634,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26530,6 +26699,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 580634,
@@ -26539,10 +26709,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26603,6 +26774,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 636769,
@@ -26612,10 +26784,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26676,6 +26849,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 605713,
@@ -26685,10 +26859,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26749,6 +26924,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 729626,
@@ -26758,10 +26934,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26822,6 +26999,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 444389,
@@ -26831,10 +27009,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26895,6 +27074,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 554767,
@@ -26904,10 +27084,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -26968,6 +27149,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 843004,
@@ -26977,10 +27159,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27041,6 +27224,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 387553,
@@ -27050,10 +27234,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27114,6 +27299,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 592402,
@@ -27123,10 +27309,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27187,6 +27374,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 146981,
@@ -27196,10 +27384,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27260,6 +27449,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 591563,
@@ -27269,10 +27459,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27333,6 +27524,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 674427,
@@ -27342,10 +27534,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27556,6 +27749,7 @@
 						],
 						"replicasUIDs": null
 					},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": null,
 						"uid": 408383,
@@ -27568,10 +27762,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27583,10 +27778,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27598,10 +27794,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27613,10 +27810,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27628,10 +27826,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27643,10 +27842,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27658,10 +27858,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27673,10 +27874,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27688,10 +27890,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27703,10 +27906,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27718,10 +27922,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27733,10 +27938,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27748,10 +27954,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27763,10 +27970,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27778,10 +27986,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27793,10 +28002,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27808,10 +28018,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27823,10 +28034,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "wrap"
 								}
 							},
@@ -27838,10 +28050,11 @@
 									"z": true,
 									"w": true,
 									"h": true,
-									"d": true,
+									"de": true,
 									"a": true,
 									"o": false,
 									"v": false,
+									"d": true,
 									"sm": "normal"
 								}
 							}
@@ -27852,10 +28065,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "normal"
 						},
 						"preview": {
@@ -27916,6 +28130,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 531169,
@@ -27925,10 +28140,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -27979,6 +28195,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 242804,
@@ -27988,10 +28205,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -28042,6 +28260,7 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"materialSurfaceType": "smooth",
 					"sceneGraphData": {
 						"parent-uid": 408383,
 						"uid": 411452,
@@ -28051,10 +28270,11 @@
 							"z": true,
 							"w": true,
 							"h": true,
-							"d": true,
+							"de": true,
 							"a": true,
 							"o": false,
 							"v": false,
+							"d": true,
 							"sm": "wrap"
 						},
 						"preview": {
@@ -28130,6 +28350,7 @@
 	"height": 1000,
 	"unboundedScrolling": true,
 	"sampling": "nearest",
+	"ambientLight": 0.03,
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
