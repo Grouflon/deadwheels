@@ -135,7 +135,7 @@ function TickController(c: InstanceType.Controllers)
         const movement = new Vector2(1, 0).rotate(c.angleDegrees).multiply(Math.sign(c.instVars.velocity));
         const contactPoint = ComputeContactPoint(GetCorners(c), collisionNormal);
 
-        const BUMP_ANGLE = 40;
+        const BUMP_ANGLE = 35;
         
         const collisionAngle = Vector2.SignedAngleBetween(movement, collisionNormal.multiply(-1));
         if (Math.abs(collisionAngle) <= BUMP_ANGLE)
