@@ -158,7 +158,7 @@ function TickController(c: InstanceType.Controllers)
         if (DRAW_DEBUG)
         {
             DebugDraw.DrawVector(contactPoint, collisionNormal.multiply(collisionDepth * 10), 3, DebugDraw.GREEN);
-            DrawCollider(collider, 3, DebugDraw.RED);
+            // DrawCollider(collider, 3, DebugDraw.RED);
         }
     }
     else
@@ -262,11 +262,13 @@ function IsInternalFace(b: Corners, normal: Vector2, allStatics: Corners[]): boo
         const edge = p1.subtract(p0);
         const n = new Vector2(edge.y, -edge.x).normalize();
         if (n.dot(normal) < 0.999) continue; // if edges are not aligned, skip
+        if (edge.lengthSquared() > (32 * 32)) continue; // we assume that edges greater than 4 squares are never internal faces (the bigger the edge, the more error prone probing is)
 
         // Test several points for leting partially overlapping edges pass (maybe too expensive)
         for (const t of [0.1, 0.5, 0.9])
         {
             const probe = p0.add(edge.multiply(t)).add(normal.multiply(0.5));
+            // DebugDraw.DrawPoint(probe.x, probe.y, 0, DebugDraw.RED, 100, 3);
             let covered = false;
             for (const other of allStatics)
             {
