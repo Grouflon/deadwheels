@@ -533,16 +533,43 @@
 					"sid": 655251877088771,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "final_velocity_multiplier",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 684537136165884
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "ChairController",
-									"sid": 511914024811381,
+									"sid": 671234017616270,
 									"parameters": {
 										"object": "Zombies"
 									}
-								},
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 523813504203932,
+									"parameters": {
+										"variable": "final_velocity_multiplier",
+										"value": "min(Zombies.controllerOverlapVelocityMultiplier, final_velocity_multiplier)"
+									}
+								}
+							],
+							"sid": 808324857535439
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "ChairController",
@@ -564,12 +591,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "ChairController",
-									"sid": 823840586692298,
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 891390531544107,
 									"parameters": {
-										"instance-variable": "max_velocity_multiplier",
-										"value": "0.2"
+										"variable": "final_velocity_multiplier",
+										"value": "min(0.2, final_velocity_multiplier)"
 									}
 								}
 							],
@@ -578,21 +605,15 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 266141905561093
-								}
-							],
+							"conditions": [],
 							"actions": [
 								{
 									"id": "set-instvar-value",
 									"objectClass": "ChairController",
-									"sid": 333294411026297,
+									"sid": 248134958083621,
 									"parameters": {
 										"instance-variable": "max_velocity_multiplier",
-										"value": "1"
+										"value": "final_velocity_multiplier"
 									}
 								}
 							],

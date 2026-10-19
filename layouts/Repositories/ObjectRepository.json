@@ -7430,7 +7430,11 @@
 						"isGrabbing": false,
 						"GrabbingObjectUID": 0,
 						"warpXamplitude": 1,
-						"warpXamplitudeTarget": 1
+						"warpXamplitudeTarget": 1,
+						"grabOffsetX": 0,
+						"grabOffsetY": 0,
+						"previousPull": 0,
+						"pullSize": 0
 					},
 					"behaviors": {
 						"Tween": {
@@ -7662,7 +7666,9 @@
 						"tryIdleVoiceCooldown": 0,
 						"makesFootStepSound": false,
 						"isRotating": false,
-						"lastFrameAngle": 0
+						"lastFrameAngle": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
+						"canAttack": true
 					},
 					"behaviors": {
 						"AcquireVision": {
@@ -7852,6 +7858,14 @@
 											},
 											{
 												"iv": "lastFrameAngle",
+												"state": true
+											},
+											{
+												"iv": "controllerOverlapVelocityMultiplier",
+												"state": true
+											},
+											{
+												"iv": "canAttack",
 												"state": true
 											}
 										]
@@ -8832,6 +8846,8 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
+						"canAttack": true,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -9015,6 +9031,14 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "controllerOverlapVelocityMultiplier",
+												"state": true
+											},
+											{
+												"iv": "canAttack",
 												"state": true
 											}
 										]
@@ -9376,6 +9400,8 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
+						"canAttack": true,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -9552,6 +9578,14 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "controllerOverlapVelocityMultiplier",
+												"state": true
+											},
+											{
+												"iv": "canAttack",
 												"state": true
 											}
 										]
@@ -9943,6 +9977,8 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
+						"canAttack": true,
 						"tryGrabCoolDown": 0,
 						"ignoreChair": false,
 						"spawnHole": false
@@ -10137,6 +10173,14 @@
 											},
 											{
 												"iv": "spawnHole",
+												"state": true
+											},
+											{
+												"iv": "controllerOverlapVelocityMultiplier",
+												"state": true
+											},
+											{
+												"iv": "canAttack",
 												"state": true
 											}
 										]
