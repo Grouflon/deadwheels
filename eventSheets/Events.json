@@ -611,6 +611,34 @@
 				},
 				{
 					"eventType": "comment",
+					"text": "Lights"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-instance-signal",
+							"objectClass": "DynamicLight",
+							"sid": 968929160589536,
+							"parameters": {
+								"tag": "\"Trigger\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 272243738617581,
+							"parameters": {
+								"instance-variable": "enabled"
+							}
+						}
+					],
+					"sid": 309297055401252
+				},
+				{
+					"eventType": "comment",
 					"text": "Typewriter Text"
 				},
 				{

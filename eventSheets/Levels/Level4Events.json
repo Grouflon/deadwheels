@@ -135,9 +135,111 @@
 						"outer-gain": "0",
 						"tag-optional": "\"\""
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 883485100342431,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
 				}
 			],
-			"sid": 770772004709863
+			"sid": 770772004709863,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "DynamicLight",
+							"sid": 159021165109776,
+							"parameters": {
+								"tags": "\"Ambulance\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "DynamicLight",
+							"sid": 574710624861636,
+							"parameters": {
+								"instance-variable": "enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 579903402440771
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-tags",
+					"objectClass": "DynamicLight",
+					"sid": 640995001623281,
+					"parameters": {
+						"tags": "\"Red\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Mask",
+					"sid": 448376135144812,
+					"parameters": {
+						"tags": "\"Red\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "DynamicLight",
+					"sid": 885865113898182,
+					"parameters": {
+						"instance-variable": "intensity",
+						"value": "Mask.Opacity"
+					}
+				}
+			],
+			"sid": 761382096989714
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-tags",
+					"objectClass": "DynamicLight",
+					"sid": 594482111141784,
+					"parameters": {
+						"tags": "\"Blue\""
+					}
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Mask",
+					"sid": 487936848831376,
+					"parameters": {
+						"tags": "\"Blue\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "DynamicLight",
+					"sid": 704095740206954,
+					"parameters": {
+						"instance-variable": "intensity",
+						"value": "Mask.Opacity"
+					}
+				}
+			],
+			"sid": 733520052351681
 		},
 		{
 			"eventType": "block",
@@ -174,6 +276,45 @@
 				}
 			],
 			"sid": 381448242344777
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Mask",
+					"sid": 246536845759647
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Mask",
+					"sid": 677800531019796,
+					"parameters": {
+						"tags": "\"Blue\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 418999891361694,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-cycle-position",
+					"objectClass": "Mask",
+					"sid": 237472472556812,
+					"behaviorType": "Sine",
+					"parameters": {
+						"cycle-position": "0"
+					}
+				}
+			],
+			"sid": 412358131193609
 		}
 	],
 	"sid": 388929963450072
