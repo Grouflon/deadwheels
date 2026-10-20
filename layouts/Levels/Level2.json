@@ -5418,9 +5418,11 @@
 					"sid": 965623135480516,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"ZombiesSpotPlayer": true,
 						"Zombies": 3,
 						"ZombieName": "",
+						"ContinousZombiesCount": 0,
 						"SpawnRange": 16
 					},
 					"behaviors": {},
@@ -5889,6 +5891,7 @@
 					"sid": 666729750458638,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"Sound": "Amb/DistantCrash2",
 						"PlayAtThisObject": false,
 						"SoundTag": "",
@@ -6101,6 +6104,7 @@
 					"sid": 986699667958027,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"Sound": "Revenge",
 						"PlayAtThisObject": false,
 						"SoundTag": "Music",
@@ -6368,6 +6372,7 @@
 					"sid": 889416135145558,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"Sound": "Prey",
 						"PlayAtThisObject": false,
 						"SoundTag": "Music",
@@ -9193,7 +9198,9 @@
 					"uid": 672656,
 					"sid": 427169516637627,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"hasBeenTriggered": false
+					},
 					"behaviors": {
 						"Tween": {
 							"properties": {
@@ -46628,6 +46635,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -46811,6 +46819,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -47172,6 +47184,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -47355,6 +47368,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -47716,6 +47733,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -47899,6 +47917,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -48260,6 +48282,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -48443,6 +48466,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -48804,6 +48831,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -48987,6 +49015,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -49348,6 +49380,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -49531,6 +49564,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -49892,6 +49929,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -50075,6 +50113,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -50436,6 +50478,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -50619,6 +50662,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -50980,6 +51027,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -51163,6 +51211,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -51524,6 +51576,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -51707,6 +51760,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -52068,6 +52125,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -52251,6 +52309,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -52612,6 +52674,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -52795,6 +52858,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -53156,6 +53223,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -53339,6 +53407,10 @@
 											},
 											{
 												"iv": "isBeingGrabbed",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
