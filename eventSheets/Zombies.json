@@ -2614,6 +2614,16 @@
 							"sid": 884594914096070
 						},
 						{
+							"eventType": "variable",
+							"name": "tempTargetUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 532762576169245
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -2731,85 +2741,6 @@
 									}
 								},
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 350846578877565,
-									"parameters": {
-										"variable": "throwDuration",
-										"value": "distance(Tentacle.X,Tentacle.Y,BarnacleTarget.X,BarnacleTarget.Y)/400"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 994526170806648,
-									"parameters": {
-										"variable": "throwTargetX",
-										"value": "BarnacleTarget.X + ((BarnacleTarget.X - targetPreviousX) / 0.3) * throwDuration * preshotRatio"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 268525321322237,
-									"parameters": {
-										"variable": "throwTargetY",
-										"value": "BarnacleTarget.Y + ((BarnacleTarget.Y - targetPreviousY) / 0.3) * throwDuration * preshotRatio"
-									}
-								},
-								{
-									"id": "move-to-object",
-									"objectClass": "Tentacle",
-									"sid": 595581190981044,
-									"disabled": true,
-									"parameters": {
-										"where": "in-front",
-										"object": "BarnacleTarget"
-									}
-								},
-								{
-									"id": "play-at-object-by-name",
-									"objectClass": "Audio",
-									"sid": 925272557638521,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "\"Movement/BarnacleWhip\"&choose(1,2)",
-										"loop": "not-looping",
-										"volume": "0",
-										"object": "Barnacle",
-										"inner-angle": "360",
-										"outer-angle": "0",
-										"outer-gain": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "Tentacle",
-									"sid": 382156260910944,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"tryGrab\"",
-										"property": "offsetWidth",
-										"end-value": "24+distance(Self.X,Self.Y,throwTargetX,throwTargetY)",
-										"time": "throwDuration",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								},
-								{
-									"id": "set-angle-toward-position",
-									"objectClass": "Tentacle",
-									"sid": 854293687510885,
-									"parameters": {
-										"x": "throwTargetX",
-										"y": "throwTargetY"
-									}
-								},
-								{
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 681567455528067,
@@ -2817,6 +2748,15 @@
 									"parameters": {
 										"type": "log",
 										"message": "\"trygrab\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 483432826726502,
+									"parameters": {
+										"variable": "tempTargetUID",
+										"value": "BarnacleTarget.UID"
 									}
 								}
 							],
@@ -2826,75 +2766,172 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Barnacle",
-											"sid": 681976242581841,
+											"id": "pick-by-unique-id",
+											"objectClass": "BarnacleTarget",
+											"sid": 512444143400244,
 											"parameters": {
-												"instance-variable": "spawnHole"
+												"unique-id": "tempTargetUID"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Barnacle",
-											"sid": 451116290691124,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 203599388374566,
 											"parameters": {
-												"instance-variable": "spawnHole",
-												"value": "false"
+												"variable": "throwDuration",
+												"value": "distance(Tentacle.X,Tentacle.Y,BarnacleTarget.X,BarnacleTarget.Y)/400"
 											}
 										},
 										{
-											"id": "spawn-another-object",
-											"objectClass": "Barnacle",
-											"sid": 977510290409335,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 563691395399695,
 											"parameters": {
-												"object": "wallHole",
-												"layer": "Self.LayerName",
-												"image-point": "2",
-												"create-hierarchy": false,
-												"template-name": "\"\""
+												"variable": "throwTargetX",
+												"value": "BarnacleTarget.X + ((BarnacleTarget.X - targetPreviousX) / 0.3) * throwDuration * preshotRatio"
 											}
 										},
 										{
-											"id": "set-angle",
-											"objectClass": "wallHole",
-											"sid": 187547149375160,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 395205835085695,
 											"parameters": {
-												"angle": "Barnacle.Angle"
+												"variable": "throwTargetY",
+												"value": "BarnacleTarget.Y + ((BarnacleTarget.Y - targetPreviousY) / 0.3) * throwDuration * preshotRatio"
+											}
+										},
+										{
+											"id": "move-to-object",
+											"objectClass": "Tentacle",
+											"sid": 746225823859313,
+											"disabled": true,
+											"parameters": {
+												"where": "in-front",
+												"object": "BarnacleTarget"
+											}
+										},
+										{
+											"id": "play-at-object-by-name",
+											"objectClass": "Audio",
+											"sid": 416687607865346,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"Movement/BarnacleWhip\"&choose(1,2)",
+												"loop": "not-looping",
+												"volume": "0",
+												"object": "Barnacle",
+												"inner-angle": "360",
+												"outer-angle": "0",
+												"outer-gain": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Tentacle",
+											"sid": 916359862774801,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"tryGrab\"",
+												"property": "offsetWidth",
+												"end-value": "24+distance(Self.X,Self.Y,throwTargetX,throwTargetY)",
+												"time": "throwDuration",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "Tentacle",
+											"sid": 860631306663080,
+											"parameters": {
+												"x": "throwTargetX",
+												"y": "throwTargetY"
 											}
 										}
 									],
-									"sid": 701981236640041,
+									"sid": 389560244349472,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "repeat",
-													"objectClass": "System",
-													"sid": 813425430531310,
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Barnacle",
+													"sid": 922792999585127,
 													"parameters": {
-														"count": "5"
+														"instance-variable": "spawnHole"
 													}
 												}
 											],
 											"actions": [
 												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 461480493748888,
+													"id": "set-boolean-instvar",
+													"objectClass": "Barnacle",
+													"sid": 440969771778787,
 													"parameters": {
-														"object-to-create": "Wall_Debris",
-														"layer": "Barnacle.LayerName",
-														"x": "Barnacle.X",
-														"y": "Barnacle.Y",
+														"instance-variable": "spawnHole",
+														"value": "false"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Barnacle",
+													"sid": 627661518384208,
+													"parameters": {
+														"object": "wallHole",
+														"layer": "Self.LayerName",
+														"image-point": "2",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "wallHole",
+													"sid": 437413903550002,
+													"parameters": {
+														"angle": "Barnacle.Angle"
+													}
 												}
 											],
-											"sid": 770419488255290
+											"sid": 172937524764980,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 408484291815051,
+															"parameters": {
+																"count": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 370261602613867,
+															"parameters": {
+																"object-to-create": "Wall_Debris",
+																"layer": "Barnacle.LayerName",
+																"x": "Barnacle.X",
+																"y": "Barnacle.Y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 355594364823157
+												}
+											]
 										}
 									]
 								}
@@ -3080,6 +3117,7 @@
 							"id": "fade-volume",
 							"objectClass": "Audio",
 							"sid": 526985766608200,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"tentacleLoop\"&Tentacle.UID",
 								"db": "-100",
@@ -3503,6 +3541,7 @@
 							"id": "play-at-object",
 							"objectClass": "Audio",
 							"sid": 908647853314570,
+							"disabled": true,
 							"parameters": {
 								"audio-file": {
 									"path": "Movement/TentacleLoop"
@@ -3782,6 +3821,40 @@
 										"loop": "no",
 										"ping-pong": "no",
 										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "play-at-object",
+									"objectClass": "Audio",
+									"sid": 313475722146124,
+									"disabled": true,
+									"parameters": {
+										"audio-file": {
+											"path": "Movement/TentacleLoop"
+										},
+										"loop": "looping",
+										"volume": "0",
+										"object": "BarnacleTarget",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"tentacleLoop\"&Tentacle.UID"
+									}
+								},
+								{
+									"id": "play-at-object-by-name",
+									"objectClass": "Audio",
+									"sid": 240683976501956,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"Zombie/L5Move\"&choose(1,2)",
+										"loop": "not-looping",
+										"volume": "0",
+										"object": "BarnacleTarget",
+										"inner-angle": "360",
+										"outer-angle": "360",
+										"outer-gain": "0",
+										"tag-optional": "\"tentacleSpasm\"&Tentacle.UID"
 									}
 								}
 							],
@@ -4367,6 +4440,7 @@
 							"id": "stop",
 							"objectClass": "Audio",
 							"sid": 158321230030318,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"tentacleLoop\"&Tentacle.UID"
 							}
