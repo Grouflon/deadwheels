@@ -102,10 +102,78 @@
 					"parameters": {
 						"instance-variable": "Triggered"
 					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 637596681091895
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "play-timeline",
+					"objectClass": "TimelineController",
+					"sid": 151069118599957,
+					"parameters": {
+						"timeline": "Level4Ambulance",
+						"tags": "\"\""
+					}
+				},
+				{
+					"id": "play-at-object",
+					"objectClass": "Audio",
+					"sid": 707176905332210,
+					"parameters": {
+						"audio-file": {
+							"path": "Amb/Amb_AmbulanceSiren"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"object": "car_ambo",
+						"inner-angle": "360",
+						"outer-angle": "360",
+						"outer-gain": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
 			"sid": 770772004709863
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Mask",
+					"sid": 262864590569361
+				},
+				{
+					"id": "has-tags",
+					"objectClass": "Mask",
+					"sid": 102134462218005,
+					"parameters": {
+						"tags": "\"Ambulance\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Mask",
+					"sid": 256988156309711,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "car_ambo",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 381448242344777
 		}
 	],
 	"sid": 388929963450072
