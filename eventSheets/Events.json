@@ -12,6 +12,31 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-instance-signal",
+							"objectClass": "Events",
+							"sid": 812862714061475,
+							"parameters": {
+								"tag": "\"Trigger\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Events",
+							"sid": 579689754608863,
+							"parameters": {
+								"instance-variable": "hasBeenTriggered",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 499962745410847
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "CharacterController",
 							"sid": 158975757722231,
@@ -62,6 +87,12 @@
 								}
 							],
 							"sid": 111305308500410
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 385990647178967
 						}
 					]
 				},
@@ -134,6 +165,128 @@
 					"text": "ZombieSpawn"
 				},
 				{
+					"eventType": "comment",
+					"text": "Continous spawn mode"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 120329036521119,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 364348140420232,
+							"parameters": {
+								"object": "Event_ZombieSpawn"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 476239742800473,
+							"parameters": {
+								"instance-variable": "hasBeenTriggered"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Event_ZombieSpawn",
+							"sid": 791980611811396,
+							"parameters": {
+								"instance-variable": "ContinousZombiesCount",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 570344373312749,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "SpawnedZombiesCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 120777735039672
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 550565777562730,
+									"parameters": {
+										"object": "Zombies"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombies",
+									"sid": 497063399035557,
+									"parameters": {
+										"instance-variable": "spawnerUID",
+										"comparison": 0,
+										"value": "Event_ZombieSpawn.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 896457345779779,
+									"parameters": {
+										"variable": "SpawnedZombiesCount",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 529144991956160
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 354133646938694,
+									"parameters": {
+										"first-value": "SpawnedZombiesCount",
+										"comparison": 2,
+										"second-value": "Event_ZombieSpawn.ContinousZombiesCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "Event_ZombieSpawn",
+									"sid": 372400485102367,
+									"parameters": {
+										"tag": "\"Trigger\""
+									}
+								}
+							],
+							"sid": 150380631543139
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Trigger"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -204,6 +357,31 @@
 							],
 							"sid": 565739852540267,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 552174076438766,
+											"parameters": {
+												"object": "Zombies"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Zombies",
+											"sid": 648135819797771,
+											"parameters": {
+												"instance-variable": "spawnerUID",
+												"value": "Event_ZombieSpawn.UID"
+											}
+										}
+									],
+									"sid": 699664990255664
+								},
 								{
 									"eventType": "block",
 									"conditions": [

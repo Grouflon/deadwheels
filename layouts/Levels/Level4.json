@@ -12342,8 +12342,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -12459,8 +12458,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -12748,61 +12746,6 @@
 					"world": {
 						"x": 160,
 						"y": 576,
-						"width": 32,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 32,
-						"angle": 1.5707963267948966
-					}
-				},
-				{
-					"type": "OuterWall_old",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 447372,
-					"sid": 354875071991343,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
-					},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 160,
-						"y": 544,
 						"width": 32,
 						"height": 8,
 						"originX": 0,
@@ -14390,116 +14333,6 @@
 					"world": {
 						"x": 128,
 						"y": 352,
-						"width": 32,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 32,
-						"angle": 1.5707963267948966
-					}
-				},
-				{
-					"type": "OuterWall_old",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 513943,
-					"sid": 531194949027128,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
-					},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 128,
-						"y": 320,
-						"width": 32,
-						"height": 8,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"depth": 32,
-						"angle": 1.5707963267948966
-					}
-				},
-				{
-					"type": "OuterWall_old",
-					"properties": {
-						"shape": "box",
-						"z-origin": "back",
-						"initially-visible": true,
-						"face-back": false,
-						"face-front": true,
-						"face-left": true,
-						"face-right": true,
-						"face-top": true,
-						"face-bottom": true,
-						"back-face-culling": false,
-						"z-tiling-factor": 3.6818983322052894,
-						"object-back": -1,
-						"object-front": -1,
-						"object-left": -1,
-						"object-right": -1,
-						"object-top": -1,
-						"object-bottom": -1
-					},
-					"uid": 447879,
-					"sid": 191378012259752,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"use-instance-tags": false,
-								"tags": ""
-							}
-						}
-					},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 128,
-						"y": 288,
 						"width": 32,
 						"height": 8,
 						"originX": 0,
@@ -18263,8 +18096,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -22457,9 +22289,11 @@
 					"sid": 346919570403305,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"ZombiesSpotPlayer": true,
 						"Zombies": 3,
 						"ZombieName": "",
+						"ContinousZombiesCount": 0,
 						"SpawnRange": 4
 					},
 					"behaviors": {},
@@ -22646,6 +22480,7 @@
 					"sid": 511989242418792,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"Sound": "Revenge",
 						"PlayAtThisObject": false,
 						"SoundTag": "Music",
@@ -22717,6 +22552,7 @@
 					"sid": 531501763633668,
 					"tags": "",
 					"instanceVariables": {
+						"hasBeenTriggered": false,
 						"Sound": "Mystery",
 						"PlayAtThisObject": false,
 						"SoundTag": "Music",
@@ -27301,7 +27137,9 @@
 					"uid": 643456,
 					"sid": 774787363370198,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"hasBeenTriggered": false
+					},
 					"behaviors": {
 						"Tween": {
 							"properties": {
@@ -27411,8 +27249,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -27599,11 +27436,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -27965,8 +27798,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -28153,11 +27985,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -28519,8 +28347,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -28707,11 +28534,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -29073,8 +28896,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -29261,11 +29083,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -29627,8 +29445,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -29815,11 +29632,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -30181,8 +29994,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -30369,11 +30181,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -30735,8 +30543,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -30923,11 +30730,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -31289,8 +31092,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -31477,11 +31279,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -31843,8 +31641,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -32031,11 +31828,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -32397,8 +32190,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -32585,11 +32377,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -32951,8 +32739,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -33139,11 +32926,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -33505,8 +33288,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -33693,11 +33475,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -34059,8 +33837,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -34247,11 +34024,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -34613,8 +34386,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -34801,11 +34573,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -35167,8 +34935,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -35355,11 +35122,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -35697,1668 +35460,6 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 601081,
-					"sid": 624656940949967,
-					"tags": "",
-					"instanceVariables": {
-						"spottedPlayer": false,
-						"followPlayer": false,
-						"health": 100,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false,
-						"pathfindingCooldown": 0,
-						"pendingValidTargetX": 0,
-						"pendingValidTargetY": 0,
-						"lastValidTargetX": 0,
-						"lastValidTargetY": 0,
-						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0,
-						"onCreatedAngle": 0,
-						"canBeRammed": true,
-						"spawnLegs": true,
-						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": true,
-						"isRotating": false,
-						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
-						"isBeingGrabbed": false
-					},
-					"behaviors": {
-						"AcquireVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 120,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"LoseVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 3,
-								"cell-border": -1,
-								"obstacles": "solids",
-								"max-speed": 20,
-								"acceleration": 20,
-								"deceleration": 600,
-								"rotate-speed": 100,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
-								"enabled": true
-							}
-						},
-						"AttackRange": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
-								"use-collision-cells": true
-							}
-						},
-						"MoveTo": {
-							"properties": {
-								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 0,
-								"set-angle": true,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
-						"ShadowCaster": {
-							"properties": {
-								"height": 100,
-								"tag": "",
-								"enabled": true
-							}
-						}
-					},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Mike",
-						"replicaHierarchyInSyncWithTemplate": false,
-						"templatePropagateHierarchyChanges": true,
-						"replicaIgnoreTemplateHierarchyChanges": false,
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"initial-animation",
-												true
-											],
-											[
-												"initial-frame",
-												true
-											],
-											[
-												"enable-collisions",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "spottedPlayer",
-												"state": true
-											},
-											{
-												"iv": "followPlayer",
-												"state": true
-											},
-											{
-												"iv": "health",
-												"state": true
-											},
-											{
-												"iv": "moveToX",
-												"state": true
-											},
-											{
-												"iv": "moveToY",
-												"state": true
-											},
-											{
-												"iv": "isAttacking",
-												"state": true
-											},
-											{
-												"iv": "pathfindingCooldown",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "VoiceCoolDown",
-												"state": true
-											},
-											{
-												"iv": "footStepCoolDown",
-												"state": true
-											},
-											{
-												"iv": "onCreatedAngle",
-												"state": true
-											},
-											{
-												"iv": "canBeRammed",
-												"state": true
-											},
-											{
-												"iv": "spawnLegs",
-												"state": true
-											},
-											{
-												"iv": "tryIdleVoiceCooldown",
-												"state": true
-											},
-											{
-												"iv": "makesFootStepSound",
-												"state": true
-											},
-											{
-												"iv": "isRotating",
-												"state": true
-											},
-											{
-												"iv": "lastFrameAngle",
-												"state": true
-											},
-											{
-												"iv": "isBeingGrabbed",
-												"state": true
-											},
-											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
-												"state": true
-											}
-										]
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": [
-									{
-										"key": "AcquireVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "LoseVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "Pathfinding",
-										"state": [
-											[
-												"cell-size",
-												true
-											],
-											[
-												"cell-border",
-												true
-											],
-											[
-												"obstacles",
-												true
-											],
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"rotate-object",
-												true
-											],
-											[
-												"diagonals",
-												true
-											],
-											[
-												"direct-movement",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "AttackRange",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "MoveTo",
-										"state": [
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"set-angle",
-												true
-											],
-											[
-												"stop-on-solids",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "ShadowCaster",
-										"state": [
-											[
-												"height",
-												true
-											],
-											[
-												"tag",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "effect",
-								"component": [
-									{
-										"key": "Brightness",
-										"state": [
-											[
-												"brightness",
-												true
-											],
-											[
-												"<<effect-template-enable>>",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												false
-											],
-											[
-												"w",
-												false
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"d",
-												true
-											],
-											[
-												"a",
-												false
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												false
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"sz",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"sam",
-												true
-											],
-											[
-												"tgs",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpd",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 201.8800506591797,
-						"y": 315.70428466796875,
-						"width": 32.11811566103294,
-						"height": 32,
-						"originX": 0.4375,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0.8308504383484935
-					}
-				},
-				{
-					"type": "Mike",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 221362,
-					"sid": 229708386003525,
-					"tags": "",
-					"instanceVariables": {
-						"spottedPlayer": false,
-						"followPlayer": false,
-						"health": 100,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false,
-						"pathfindingCooldown": 0,
-						"pendingValidTargetX": 0,
-						"pendingValidTargetY": 0,
-						"lastValidTargetX": 0,
-						"lastValidTargetY": 0,
-						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0,
-						"onCreatedAngle": 0,
-						"canBeRammed": true,
-						"spawnLegs": true,
-						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": true,
-						"isRotating": false,
-						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
-						"isBeingGrabbed": false
-					},
-					"behaviors": {
-						"AcquireVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 120,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"LoseVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 3,
-								"cell-border": -1,
-								"obstacles": "solids",
-								"max-speed": 20,
-								"acceleration": 20,
-								"deceleration": 600,
-								"rotate-speed": 100,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
-								"enabled": true
-							}
-						},
-						"AttackRange": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
-								"use-collision-cells": true
-							}
-						},
-						"MoveTo": {
-							"properties": {
-								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 0,
-								"set-angle": true,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
-						"ShadowCaster": {
-							"properties": {
-								"height": 100,
-								"tag": "",
-								"enabled": true
-							}
-						}
-					},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Mike",
-						"replicaHierarchyInSyncWithTemplate": false,
-						"templatePropagateHierarchyChanges": true,
-						"replicaIgnoreTemplateHierarchyChanges": false,
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"initial-animation",
-												true
-											],
-											[
-												"initial-frame",
-												true
-											],
-											[
-												"enable-collisions",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "spottedPlayer",
-												"state": true
-											},
-											{
-												"iv": "followPlayer",
-												"state": true
-											},
-											{
-												"iv": "health",
-												"state": true
-											},
-											{
-												"iv": "moveToX",
-												"state": true
-											},
-											{
-												"iv": "moveToY",
-												"state": true
-											},
-											{
-												"iv": "isAttacking",
-												"state": true
-											},
-											{
-												"iv": "pathfindingCooldown",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "VoiceCoolDown",
-												"state": true
-											},
-											{
-												"iv": "footStepCoolDown",
-												"state": true
-											},
-											{
-												"iv": "onCreatedAngle",
-												"state": true
-											},
-											{
-												"iv": "canBeRammed",
-												"state": true
-											},
-											{
-												"iv": "spawnLegs",
-												"state": true
-											},
-											{
-												"iv": "tryIdleVoiceCooldown",
-												"state": true
-											},
-											{
-												"iv": "makesFootStepSound",
-												"state": true
-											},
-											{
-												"iv": "isRotating",
-												"state": true
-											},
-											{
-												"iv": "lastFrameAngle",
-												"state": true
-											},
-											{
-												"iv": "isBeingGrabbed",
-												"state": true
-											},
-											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
-												"state": true
-											}
-										]
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": [
-									{
-										"key": "AcquireVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "LoseVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "Pathfinding",
-										"state": [
-											[
-												"cell-size",
-												true
-											],
-											[
-												"cell-border",
-												true
-											],
-											[
-												"obstacles",
-												true
-											],
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"rotate-object",
-												true
-											],
-											[
-												"diagonals",
-												true
-											],
-											[
-												"direct-movement",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "AttackRange",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "MoveTo",
-										"state": [
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"set-angle",
-												true
-											],
-											[
-												"stop-on-solids",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "ShadowCaster",
-										"state": [
-											[
-												"height",
-												true
-											],
-											[
-												"tag",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "effect",
-								"component": [
-									{
-										"key": "Brightness",
-										"state": [
-											[
-												"brightness",
-												true
-											],
-											[
-												"<<effect-template-enable>>",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												false
-											],
-											[
-												"w",
-												false
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"d",
-												true
-											],
-											[
-												"a",
-												false
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												false
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"sz",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"sam",
-												true
-											],
-											[
-												"tgs",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpd",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 180.4016876220703,
-						"y": 336.5355529785156,
-						"width": 32.11811566103294,
-						"height": 32,
-						"originX": 0.4375,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0.23811430841279269
-					}
-				},
-				{
-					"type": "Mike",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 780768,
-					"sid": 770759442125546,
-					"tags": "",
-					"instanceVariables": {
-						"spottedPlayer": false,
-						"followPlayer": false,
-						"health": 100,
-						"moveToX": 0,
-						"moveToY": 0,
-						"isAttacking": false,
-						"pathfindingCooldown": 0,
-						"pendingValidTargetX": 0,
-						"pendingValidTargetY": 0,
-						"lastValidTargetX": 0,
-						"lastValidTargetY": 0,
-						"VoiceCoolDown": 0,
-						"footStepCoolDown": 0,
-						"onCreatedAngle": 0,
-						"canBeRammed": true,
-						"spawnLegs": true,
-						"tryIdleVoiceCooldown": 0,
-						"makesFootStepSound": true,
-						"isRotating": false,
-						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
-						"isBeingGrabbed": false
-					},
-					"behaviors": {
-						"AcquireVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 120,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"LoseVision": {
-							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
-								"cone-of-view": 360,
-								"use-collision-cells": true
-							}
-						},
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 3,
-								"cell-border": -1,
-								"obstacles": "solids",
-								"max-speed": 20,
-								"acceleration": 20,
-								"deceleration": 600,
-								"rotate-speed": 100,
-								"rotate-object": true,
-								"diagonals": true,
-								"direct-movement": "to-destination",
-								"enabled": true
-							}
-						},
-						"AttackRange": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 25,
-								"cone-of-view": 45,
-								"use-collision-cells": true
-							}
-						},
-						"MoveTo": {
-							"properties": {
-								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 0,
-								"set-angle": true,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
-						"ShadowCaster": {
-							"properties": {
-								"height": 100,
-								"tag": "",
-								"enabled": true
-							}
-						}
-					},
-					"template": {
-						"mode": "replica",
-						"templateName": "",
-						"sourceTemplateName": "Mike",
-						"replicaHierarchyInSyncWithTemplate": false,
-						"templatePropagateHierarchyChanges": true,
-						"replicaIgnoreTemplateHierarchyChanges": false,
-						"components": [
-							{
-								"id": "plugin",
-								"component": [
-									{
-										"key": "plugin",
-										"state": [
-											[
-												"initially-visible",
-												true
-											],
-											[
-												"initial-animation",
-												true
-											],
-											[
-												"initial-frame",
-												true
-											],
-											[
-												"enable-collisions",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "instance-variable",
-								"component": [
-									{
-										"key": "instance-variable",
-										"state": [
-											{
-												"iv": "spottedPlayer",
-												"state": true
-											},
-											{
-												"iv": "followPlayer",
-												"state": true
-											},
-											{
-												"iv": "health",
-												"state": true
-											},
-											{
-												"iv": "moveToX",
-												"state": true
-											},
-											{
-												"iv": "moveToY",
-												"state": true
-											},
-											{
-												"iv": "isAttacking",
-												"state": true
-											},
-											{
-												"iv": "pathfindingCooldown",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "pendingValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetX",
-												"state": true
-											},
-											{
-												"iv": "lastValidTargetY",
-												"state": true
-											},
-											{
-												"iv": "VoiceCoolDown",
-												"state": true
-											},
-											{
-												"iv": "footStepCoolDown",
-												"state": true
-											},
-											{
-												"iv": "onCreatedAngle",
-												"state": true
-											},
-											{
-												"iv": "canBeRammed",
-												"state": true
-											},
-											{
-												"iv": "spawnLegs",
-												"state": true
-											},
-											{
-												"iv": "tryIdleVoiceCooldown",
-												"state": true
-											},
-											{
-												"iv": "makesFootStepSound",
-												"state": true
-											},
-											{
-												"iv": "isRotating",
-												"state": true
-											},
-											{
-												"iv": "lastFrameAngle",
-												"state": true
-											},
-											{
-												"iv": "isBeingGrabbed",
-												"state": true
-											},
-											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
-												"state": true
-											}
-										]
-									}
-								]
-							},
-							{
-								"id": "behavior",
-								"component": [
-									{
-										"key": "AcquireVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "LoseVision",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "Pathfinding",
-										"state": [
-											[
-												"cell-size",
-												true
-											],
-											[
-												"cell-border",
-												true
-											],
-											[
-												"obstacles",
-												true
-											],
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"rotate-object",
-												true
-											],
-											[
-												"diagonals",
-												true
-											],
-											[
-												"direct-movement",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "AttackRange",
-										"state": [
-											[
-												"obstacles",
-												true
-											],
-											[
-												"range",
-												true
-											],
-											[
-												"cone-of-view",
-												true
-											],
-											[
-												"use-collision-cells",
-												true
-											]
-										]
-									},
-									{
-										"key": "MoveTo",
-										"state": [
-											[
-												"max-speed",
-												true
-											],
-											[
-												"acceleration",
-												true
-											],
-											[
-												"deceleration",
-												true
-											],
-											[
-												"rotate-speed",
-												true
-											],
-											[
-												"set-angle",
-												true
-											],
-											[
-												"stop-on-solids",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "ShadowCaster",
-										"state": [
-											[
-												"height",
-												true
-											],
-											[
-												"tag",
-												true
-											],
-											[
-												"enabled",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "effect",
-								"component": [
-									{
-										"key": "Brightness",
-										"state": [
-											[
-												"brightness",
-												true
-											],
-											[
-												"<<effect-template-enable>>",
-												true
-											]
-										]
-									}
-								]
-							},
-							{
-								"id": "world-instance",
-								"component": [
-									{
-										"key": "world-instance",
-										"state": [
-											[
-												"x",
-												false
-											],
-											[
-												"y",
-												false
-											],
-											[
-												"z",
-												false
-											],
-											[
-												"w",
-												false
-											],
-											[
-												"h",
-												true
-											],
-											[
-												"d",
-												true
-											],
-											[
-												"a",
-												false
-											],
-											[
-												"o",
-												true
-											],
-											[
-												"c",
-												true
-											],
-											[
-												"sx",
-												false
-											],
-											[
-												"sy",
-												true
-											],
-											[
-												"sz",
-												true
-											],
-											[
-												"bm",
-												true
-											],
-											[
-												"sam",
-												true
-											],
-											[
-												"tgs",
-												true
-											],
-											[
-												"twpx",
-												true
-											],
-											[
-												"twpy",
-												true
-											],
-											[
-												"twpz",
-												true
-											],
-											[
-												"twpw",
-												true
-											],
-											[
-												"twph",
-												true
-											],
-											[
-												"twpd",
-												true
-											],
-											[
-												"twpa",
-												true
-											],
-											[
-												"dwp",
-												true
-											],
-											[
-												"ssm",
-												true
-											]
-										]
-									}
-								]
-							}
-						],
-						"replicasUIDs": null
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": false,
-							"parameters": {
-								"brightness": 1.5
-							}
-						}
-					},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 154.84518432617188,
-						"y": 267.59832763671875,
-						"width": 32.11811566103294,
-						"height": 32,
-						"originX": 0.4375,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 1.5826290936530851
-					}
-				},
-				{
-					"type": "Mike",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
 					"uid": 240321,
 					"sid": 797296354723401,
 					"tags": "",
@@ -37383,8 +35484,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -37571,11 +35671,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -37937,8 +36033,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -38125,11 +36220,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -38491,8 +36582,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -38679,11 +36769,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -39045,8 +37131,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -39233,11 +37318,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -39599,8 +37680,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -39787,11 +37867,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -40153,8 +38229,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -40341,11 +38416,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -40707,8 +38778,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -40895,11 +38965,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -41261,8 +39327,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -41449,11 +39514,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -41815,8 +39876,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -42003,11 +40063,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -42369,8 +40425,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -42557,11 +40612,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -42923,8 +40974,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -43111,11 +41161,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -43477,8 +41523,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -43665,11 +41710,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -44031,8 +42072,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -44219,11 +42259,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -44585,8 +42621,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -44773,11 +42808,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -45139,8 +43170,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -45327,11 +43357,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -45693,8 +43719,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -45881,11 +43906,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -46247,8 +44268,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -46435,11 +44455,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -46801,8 +44817,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -46989,11 +45004,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -47355,8 +45366,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -47543,11 +45553,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -47909,8 +45915,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -48097,11 +46102,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -51939,6 +49940,378 @@
 					}
 				},
 				{
+					"type": "BreakableWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": 920243466915879
+					},
+					"uid": 961037,
+					"sid": 789228247862193,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 961037,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 160,
+						"y": 544,
+						"width": 32,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "Trigger",
+					"properties": {
+						"initially-visible": false,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 865013,
+					"sid": 921790100715013,
+					"tags": "",
+					"instanceVariables": {
+						"signals": "Trigger,Break",
+						"targets": "",
+						"Triggered": false,
+						"enabled": true
+					},
+					"behaviors": {},
+					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 865013,
+						"children": [
+							{
+								"uid": 457726,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"de": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							},
+							{
+								"uid": 524127,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"de": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 128,
+						"y": 352,
+						"width": 200,
+						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "BreakableWallStretched",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": 920243466915879
+					},
+					"uid": 457726,
+					"sid": 358577033330332,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": 865013,
+						"uid": 457726,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 128,
+						"y": 288,
+						"width": 64,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 1.5707963267948966
+					}
+				},
+				{
+					"type": "Event_ZombieSpawn",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 524127,
+					"sid": 220228619577025,
+					"tags": "",
+					"instanceVariables": {
+						"hasBeenTriggered": false,
+						"ZombiesSpotPlayer": true,
+						"Zombies": 1,
+						"ZombieName": "",
+						"ContinousZombiesCount": 2,
+						"SpawnRange": 16
+					},
+					"behaviors": {},
+					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": 865013,
+						"uid": 524127,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 104,
+						"y": 320,
+						"width": 13,
+						"height": 17,
+						"originX": 0.46153846153846156,
+						"originY": 0.4117647058823529,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Health",
 					"properties": {
 						"initially-visible": true,
@@ -53190,8 +51563,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -53378,11 +51750,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -53744,8 +52112,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -53932,11 +52299,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
@@ -54298,8 +52661,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0.2,
-						"canAttack": true,
+						"spawnerUID": 0,
 						"isBeingGrabbed": false
 					},
 					"behaviors": {
@@ -54486,11 +52848,7 @@
 												"state": true
 											},
 											{
-												"iv": "controllerOverlapVelocityMultiplier",
-												"state": true
-											},
-											{
-												"iv": "canAttack",
+												"iv": "spawnerUID",
 												"state": true
 											}
 										]
