@@ -1452,13 +1452,39 @@
 								{
 									"customAction": "Heal",
 									"objectClass": "CharacterController",
-									"sid": 239001089115505,
+									"sid": 412066716532019,
 									"parameters": [
-										"20"
+										"10"
 									]
 								}
 							],
 							"sid": 320216062698319
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 787922800472061,
+									"parameters": {
+										"first-value": "pickUp",
+										"comparison": 0,
+										"second-value": "\"health_mid\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Heal",
+									"objectClass": "CharacterController",
+									"sid": 785969444771646,
+									"parameters": [
+										"25"
+									]
+								}
+							],
+							"sid": 214556725622406
 						},
 						{
 							"eventType": "block",
@@ -1478,9 +1504,9 @@
 								{
 									"customAction": "Heal",
 									"objectClass": "CharacterController",
-									"sid": 799008018703604,
+									"sid": 621484943240053,
 									"parameters": [
-										"50"
+										"75"
 									]
 								}
 							],

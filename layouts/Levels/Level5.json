@@ -5602,29 +5602,369 @@
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_ambo",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 157411,
-					"sid": 378176165527723,
+					"uid": 453626,
+					"sid": 334880868578176,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "car_ambulance",
+						"replicaHierarchyInSyncWithTemplate": true,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "chairCanDestroy",
+												"state": true
+											},
+											{
+												"iv": "bulletsCollide",
+												"state": true
+											},
+											{
+												"iv": "sawCanDestroy",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												false
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
 					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 453626,
+						"children": [
+							{
+								"uid": 290803,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"de": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 264,
-						"y": 508,
-						"width": 86,
+						"x": 438.1114196777344,
+						"y": 841.86572265625,
+						"width": 62,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -5632,33 +5972,89 @@
 							1
 						],
 						"z": -500,
-						"angle": 1.248990467291994
+						"depth": 24,
+						"angle": 0
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_amboFront",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 547120,
-					"sid": 722506953702539,
+					"uid": 290803,
+					"sid": 578181211095115,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": 453626,
+						"uid": 290803,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 276,
-						"y": 616,
-						"width": 86,
+						"x": 478.1114196777344,
+						"y": 841.86572265625,
+						"width": 16,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -5666,33 +6062,374 @@
 							1
 						],
 						"z": -500,
-						"angle": 1.651598962341211
+						"depth": 12,
+						"angle": 0
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_ambo",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 761794,
-					"sid": 589418187691965,
+					"uid": 662737,
+					"sid": 559240981533365,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "car_ambulance",
+						"replicaHierarchyInSyncWithTemplate": true,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "chairCanDestroy",
+												"state": true
+											},
+											{
+												"iv": "bulletsCollide",
+												"state": true
+											},
+											{
+												"iv": "sawCanDestroy",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												false
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												false
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
 					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 662737,
+						"children": [
+							{
+								"uid": 429054,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"de": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 528,
-						"y": 844,
-						"width": 86,
+						"x": 572,
+						"y": 76,
+						"width": 62,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -5700,33 +6437,89 @@
 							1
 						],
 						"z": -500,
-						"angle": 2.8632070352857864
+						"depth": 24,
+						"angle": 0.9555150140496218
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_amboFront",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 559814,
-					"sid": 336549781178733,
+					"uid": 429054,
+					"sid": 882578506428911,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": 662737,
+						"uid": 429054,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 736,
-						"y": 828,
-						"width": 86,
+						"x": 595,
+						"y": 109,
+						"width": 16,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -5734,33 +6527,374 @@
 							1
 						],
 						"z": -500,
-						"angle": 4.3428808279644215
+						"depth": 12,
+						"angle": 0.9555150140496218
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_ambo",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 146380,
-					"sid": 881936798776037,
+					"uid": 327987,
+					"sid": 387073730344453,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "car_ambulance",
+						"replicaHierarchyInSyncWithTemplate": true,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"shape",
+												true
+											],
+											[
+												"z-origin",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"face-back",
+												true
+											],
+											[
+												"face-front",
+												true
+											],
+											[
+												"face-left",
+												true
+											],
+											[
+												"face-right",
+												true
+											],
+											[
+												"face-top",
+												true
+											],
+											[
+												"face-bottom",
+												true
+											],
+											[
+												"back-face-culling",
+												true
+											],
+											[
+												"z-tiling-factor",
+												true
+											],
+											[
+												"object-back",
+												true
+											],
+											[
+												"object-front",
+												true
+											],
+											[
+												"object-left",
+												true
+											],
+											[
+												"object-right",
+												true
+											],
+											[
+												"object-top",
+												true
+											],
+											[
+												"object-bottom",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "chairCanDestroy",
+												"state": true
+											},
+											{
+												"iv": "bulletsCollide",
+												"state": true
+											},
+											{
+												"iv": "sawCanDestroy",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Solid",
+										"state": [
+											[
+												"enabled",
+												true
+											],
+											[
+												"use-instance-tags",
+												true
+											],
+											[
+												"tags",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												false
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												false
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
 					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 327987,
+						"children": [
+							{
+								"uid": 420055,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"de": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "wrap"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1012,
-						"y": 716,
-						"width": 86,
+						"x": 940,
+						"y": 806,
+						"width": 62,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -5768,33 +6902,89 @@
 							1
 						],
 						"z": -500,
-						"angle": 4.3428808279644215
+						"depth": 24,
+						"angle": 6.144959264573668
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_amboFront",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 770462,
-					"sid": 674060221755240,
+					"uid": 420055,
+					"sid": 501628857980635,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
+					"sceneGraphData": {
+						"parent-uid": 327987,
+						"uid": 420055,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"de": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "wrap"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZ": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformD": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformSZ": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1008,
-						"y": 584,
-						"width": 86,
+						"x": 979.876379354498,
+						"y": 800.720381682719,
+						"width": 16,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -5802,245 +6992,775 @@
 							1
 						],
 						"z": -500,
-						"angle": 4.867664114099817
+						"depth": 12,
+						"angle": 6.144959264573668
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 441400,
-					"sid": 874333187451404,
+					"uid": 811195,
+					"sid": 949831447641664,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1016,
-						"y": 348,
+						"x": 477.0630187988281,
+						"y": 96.6629638671875,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 4.533841179228325
+						"z": -499,
+						"depth": 8,
+						"angle": 0
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 451781,
-					"sid": 505781866008937,
+					"uid": 500295,
+					"sid": 518364184871881,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 992,
-						"y": 168,
+						"x": 364.4109802246094,
+						"y": 101.72595977783203,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 3.616194334122678
+						"z": -499,
+						"depth": 8,
+						"angle": 5.919799864603476
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 140044,
-					"sid": 129340866971840,
+					"uid": 662054,
+					"sid": 319700218317104,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 784,
-						"y": 88,
+						"x": 279.60552978515625,
+						"y": 185.2657012939453,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 3.1462319695248224
+						"z": -499,
+						"depth": 8,
+						"angle": 1.1791987119360758
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 423745,
-					"sid": 282084493357192,
+					"uid": 798610,
+					"sid": 899987900367427,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 672,
-						"y": 116,
+						"x": 250.49313354492188,
+						"y": 510.5644989013672,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 3.332235452032874
+						"z": -499,
+						"depth": 8,
+						"angle": 1.1791987119360758
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 552014,
-					"sid": 315956413169692,
+					"uid": 749797,
+					"sid": 465694057990145,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 472,
-						"y": 92,
+						"x": 272.0110168457031,
+						"y": 604.2303009033203,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 3.186527911993704
+						"z": -499,
+						"depth": 8,
+						"angle": 1.6150340454747791
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 734298,
-					"sid": 393601854052594,
+					"uid": 835033,
+					"sid": 448000232238809,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 368,
-						"y": 88,
+						"x": 684.6465759277344,
+						"y": 119.4465560913086,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 2.935318332867228
+						"z": -499,
+						"depth": 8,
+						"angle": 3.0882272945254137
 					}
 				},
 				{
-					"type": "misc",
+					"type": "car_Police",
 					"properties": {
+						"shape": "box",
+						"z-origin": "back",
 						"initially-visible": true,
-						"initial-animation": "PoliceCar",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
 					},
-					"uid": 285770,
-					"sid": 297935147521635,
+					"uid": 983157,
+					"sid": 727124750406276,
 					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 264,
-						"y": 192,
+						"x": 798.5643615722656,
+						"y": 92.86573028564453,
 						"width": 86,
 						"height": 38,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0.75,
 						"color": [
 							1,
 							1,
 							1,
 							1
 						],
-						"z": -500,
-						"angle": 1.3631200999595576
+						"z": -499,
+						"depth": 8,
+						"angle": 3.3719663832035063
+					}
+				},
+				{
+					"type": "car_Police",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 778504,
+					"sid": 931832547445185,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1006.1480407714844,
+						"y": 187.79724884033203,
+						"width": 86,
+						"height": 38,
+						"originX": 0.5,
+						"originY": 0.75,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -499,
+						"depth": 8,
+						"angle": 4.537761338634316
+					}
+				},
+				{
+					"type": "car_Police",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 305616,
+					"sid": 128466662105538,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1016.2740173339844,
+						"y": 352.34525299072266,
+						"width": 86,
+						"height": 38,
+						"originX": 0.5,
+						"originY": 0.75,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -499,
+						"depth": 8,
+						"angle": 4.752095498669956
+					}
+				},
+				{
+					"type": "car_Police",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 327510,
+					"sid": 840793550385554,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 998.5534362792969,
+						"y": 591.5727310180664,
+						"width": 86,
+						"height": 38,
+						"originX": 0.5,
+						"originY": 0.75,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -499,
+						"depth": 8,
+						"angle": 4.987737380652051
+					}
+				},
+				{
+					"type": "car_Police",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 100388,
+					"sid": 428586959339234,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1016.2739562988281,
+						"y": 690.3015518188477,
+						"width": 86,
+						"height": 38,
+						"originX": 0.5,
+						"originY": 0.75,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -499,
+						"depth": 8,
+						"angle": 4.2969508046446805
+					}
+				},
+				{
+					"type": "car_Police",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 675315,
+					"sid": 361451768096653,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 720.0875549316406,
+						"y": 842.1920547485352,
+						"width": 86,
+						"height": 38,
+						"originX": 0.5,
+						"originY": 0.75,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -499,
+						"depth": 8,
+						"angle": 0.13260275140951094
+					}
+				},
+				{
+					"type": "car_Police",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": false,
+						"face-front": true,
+						"face-left": true,
+						"face-right": true,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": false,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": -1,
+						"object-left": -1,
+						"object-right": -1,
+						"object-top": -1,
+						"object-bottom": -1
+					},
+					"uid": 429755,
+					"sid": 580991327769263,
+					"tags": "",
+					"instanceVariables": {
+						"chairCanDestroy": false,
+						"bulletsCollide": false,
+						"sawCanDestroy": false
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 570.7285461425781,
+						"y": 844.7235488891602,
+						"width": 86,
+						"height": 38,
+						"originX": 0.5,
+						"originY": 0.75,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": -499,
+						"depth": 8,
+						"angle": 6.1348029616692585
 					}
 				},
 				{
@@ -6603,7 +8323,7 @@
 					},
 					"materialSurfaceType": "smooth",
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 400,
 						"y": 240,
@@ -7383,7 +9103,7 @@
 					"behaviors": {},
 					"materialSurfaceType": "smooth",
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 632,
 						"y": 576,
@@ -20676,6 +22396,40 @@
 					}
 				},
 				{
+					"type": "Health",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "health_mid",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 426668,
+					"sid": 259230643880381,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 767.9583129882812,
+						"y": 544.8933410644531,
+						"width": 12,
+						"height": 12,
+						"originX": 0.4583333333333333,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "Ammo",
 					"properties": {
 						"initially-visible": true,
@@ -21231,45 +22985,11 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 616,
-						"y": 472,
-						"width": 12,
+						"x": 608.917724609375,
+						"y": 469.76348876953125,
+						"width": 19,
 						"height": 12,
-						"originX": 0.4583333333333333,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 10,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Health",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "health_big",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 464290,
-					"sid": 354853363119480,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"materialSurfaceType": "smooth",
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 600.5137939453125,
-						"y": 473.5414733886719,
-						"width": 12,
-						"height": 12,
-						"originX": 0.4583333333333333,
+						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
 							1,
