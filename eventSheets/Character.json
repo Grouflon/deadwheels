@@ -2215,6 +2215,16 @@
 													"id": "is-animation-playing",
 													"objectClass": "CharacterSprite",
 													"sid": 975801442458628,
+													"disabled": true,
+													"parameters": {
+														"animation": "\"Both\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "CharacterSprite",
+													"sid": 633857160785486,
 													"parameters": {
 														"animation": "\"Both\""
 													},
@@ -2223,19 +2233,25 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 722167807560252,
+													"sid": 875184608610441,
 													"parameters": {
-														"first-value": "abs(ChairController.just_pushed)",
+														"first-value": "abs(ChairController.forward_input)",
 														"comparison": 4,
 														"second-value": "0"
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 885288447392174,
+													"disabled": true
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation",
 													"objectClass": "CharacterSprite",
-													"sid": 365547536418679,
+													"sid": 768725973741059,
 													"parameters": {
 														"animation": "\"Both\"",
 														"from": "beginning"
@@ -2251,18 +2267,54 @@
 													"id": "compare-two-values",
 													"objectClass": "System",
 													"sid": 738273461834969,
+													"disabled": true,
 													"parameters": {
 														"first-value": "ChairController.just_rotated",
 														"comparison": 2,
 														"second-value": "0"
 													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "CharacterSprite",
+													"sid": 826007996668957,
+													"parameters": {
+														"animation": "\"Left\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 362747418267237,
+													"parameters": {
+														"first-value": "abs(ChairController.forward_input)",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 429083491003131,
+													"parameters": {
+														"first-value": "ChairController.lateral_input",
+														"comparison": 2,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 719571282537713,
+													"disabled": true
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation",
 													"objectClass": "CharacterSprite",
-													"sid": 300444529949756,
+													"sid": 157988583415031,
 													"parameters": {
 														"animation": "\"Left\"",
 														"from": "beginning"
@@ -2282,7 +2334,43 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
+													"sid": 142298894974597,
+													"parameters": {
+														"first-value": "ChairController.lateral_input",
+														"comparison": 4,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 644076894154504,
+													"parameters": {
+														"first-value": "abs(ChairController.forward_input)",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "CharacterSprite",
+													"sid": 701577361212697,
+													"parameters": {
+														"animation": "\"Right\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 559400556057323,
+													"disabled": true
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
 													"sid": 717503156212394,
+													"disabled": true,
 													"parameters": {
 														"first-value": "ChairController.just_rotated",
 														"comparison": 4,
@@ -2294,7 +2382,7 @@
 												{
 													"id": "set-animation",
 													"objectClass": "CharacterSprite",
-													"sid": 658041373426104,
+													"sid": 460557089795339,
 													"parameters": {
 														"animation": "\"Right\"",
 														"from": "beginning"

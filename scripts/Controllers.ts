@@ -146,9 +146,9 @@ function TickController(c: InstanceType.Controllers)
         }
         else
         {
-            if (!c.instVars.isSliding)
+            if (!c.instVars.is_sliding)
             {
-                c.instVars.isSliding = true;
+                c.instVars.is_sliding = true;
                 c.callCustomAction("OnSlideBegin", collisionAngle,  contactPoint.x, contactPoint.y, collisionNormal.x, collisionNormal.y, collider.uid);
             }
 
@@ -163,10 +163,10 @@ function TickController(c: InstanceType.Controllers)
     }
     else
     {
-        if (c.instVars.isSliding)
+        if (c.instVars.is_sliding)
         {
             c.callCustomAction("OnSlideEnd");
-            c.instVars.isSliding = false;
+            c.instVars.is_sliding = false;
         }
     }
     

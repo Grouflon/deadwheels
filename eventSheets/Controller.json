@@ -506,6 +506,7 @@
 									],
 									"actions": [],
 									"sid": 817817250244797,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -532,7 +533,8 @@
 													}
 												}
 											],
-											"sid": 179444238611522
+											"sid": 179444238611522,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -559,7 +561,8 @@
 													}
 												}
 											],
-											"sid": 675388002630699
+											"sid": 675388002630699,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -587,6 +590,7 @@
 												}
 											],
 											"sid": 785443534223572,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -613,7 +617,8 @@
 															}
 														}
 													],
-													"sid": 998730058070123
+													"sid": 998730058070123,
+													"disabled": true
 												}
 											]
 										},
@@ -643,6 +648,7 @@
 												}
 											],
 											"sid": 585389491841526,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -669,7 +675,8 @@
 															}
 														}
 													],
-													"sid": 627993798915412
+													"sid": 627993798915412,
+													"disabled": true
 												}
 											]
 										}
@@ -689,6 +696,7 @@
 									],
 									"actions": [],
 									"sid": 324180956387082,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -713,7 +721,8 @@
 													}
 												}
 											],
-											"sid": 737986993130118
+											"sid": 737986993130118,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -738,7 +747,8 @@
 													}
 												}
 											],
-											"sid": 873354126576123
+											"sid": 873354126576123,
+											"disabled": true
 										},
 										{
 											"eventType": "comment",
@@ -796,6 +806,7 @@
 												}
 											],
 											"sid": 183437903806607,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -822,7 +833,8 @@
 															}
 														}
 													],
-													"sid": 290435434645352
+													"sid": 290435434645352,
+													"disabled": true
 												}
 											],
 											"isOrBlock": true
@@ -893,6 +905,7 @@
 												}
 											],
 											"sid": 111976129748846,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -919,7 +932,8 @@
 															}
 														}
 													],
-													"sid": 320446949710391
+													"sid": 320446949710391,
+													"disabled": true
 												}
 											],
 											"isOrBlock": true
@@ -1006,7 +1020,8 @@
 													}
 												}
 											],
-											"sid": 818362972904757
+											"sid": 818362972904757,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -1042,7 +1057,8 @@
 													}
 												}
 											],
-											"sid": 579263116581154
+											"sid": 579263116581154,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -1078,7 +1094,8 @@
 													}
 												}
 											],
-											"sid": 804335606340825
+											"sid": 804335606340825,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -1091,6 +1108,7 @@
 											],
 											"actions": [],
 											"sid": 557073361716390,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -1106,6 +1124,7 @@
 													],
 													"actions": [],
 													"sid": 878435576934392,
+													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -1130,7 +1149,8 @@
 																	}
 																}
 															],
-															"sid": 638387242648782
+															"sid": 638387242648782,
+															"disabled": true
 														},
 														{
 															"eventType": "block",
@@ -1155,7 +1175,8 @@
 																	}
 																}
 															],
-															"sid": 503403197851225
+															"sid": 503403197851225,
+															"disabled": true
 														}
 													]
 												}
@@ -1198,7 +1219,8 @@
 											}
 										}
 									],
-									"sid": 582494742828826
+									"sid": 582494742828826,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -1211,6 +1233,7 @@
 									],
 									"actions": [],
 									"sid": 478240108230057,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -1238,7 +1261,8 @@
 													}
 												}
 											],
-											"sid": 464837480066642
+											"sid": 464837480066642,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -1254,7 +1278,8 @@
 													}
 												}
 											],
-											"sid": 438236998464268
+											"sid": 438236998464268,
+											"disabled": true
 										}
 									]
 								},
@@ -1264,145 +1289,118 @@
 								},
 								{
 									"eventType": "block",
-									"conditions": [
+									"conditions": [],
+									"actions": [
 										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 682395127502100,
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 270460569164774,
 											"parameters": {
-												"object": "Controllers"
+												"instance-variable": "angular_velocity",
+												"value": "Controllers.lateral_input * Controllers.angular_acceleration* dt * 10"
 											}
-										}
-									],
-									"actions": [],
-									"sid": 846156910467506,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 122980773682840,
-													"parameters": {
-														"first-value": "abs(Controllers.angular_velocity)",
-														"comparison": 5,
-														"second-value": "10"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 416728709372838,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Controllers",
-															"sid": 524404202065841,
-															"parameters": {
-																"instance-variable": "turn_left_cooldown",
-																"comparison": 3,
-																"value": "0"
-															}
-														},
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Controllers",
-															"sid": 599392229353034,
-															"parameters": {
-																"instance-variable": "turn_right_cooldown",
-																"comparison": 3,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-instvar",
-															"objectClass": "Controllers",
-															"sid": 733267908782877,
-															"parameters": {
-																"instance-variable": "angular_velocity",
-																"value": "-sign(Controllers.angular_velocity) * Controllers.angular_deceleration * dt"
-															}
-														}
-													],
-													"sid": 687834556304211
-												}
-											]
 										},
 										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 121989802569331
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Controllers",
-													"sid": 862492588324645,
-													"parameters": {
-														"instance-variable": "angular_velocity",
-														"value": "0"
-													}
-												}
-											],
-											"sid": 439683073552302
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "every-tick",
-											"objectClass": "System",
-											"sid": 310264802407195
-										}
-									],
-									"actions": [
+											"type": "comment",
+											"text": "clamp velocity"
+										},
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Controllers",
-											"sid": 618318133327053,
+											"sid": 459659544465819,
 											"parameters": {
 												"instance-variable": "angular_velocity",
 												"value": "sign(Controllers.angular_velocity) * min(abs(Controllers.angular_velocity), Controllers.max_angular_velocity)"
 											}
-										}
-									],
-									"sid": 594165662527756
-								},
-								{
-									"eventType": "block",
-									"conditions": [
+										},
 										{
-											"id": "every-tick",
-											"objectClass": "System",
-											"sid": 978754906793539
-										}
-									],
-									"actions": [
+											"type": "comment",
+											"text": "apply velocity"
+										},
 										{
 											"id": "set-angle",
 											"objectClass": "Controllers",
-											"sid": 691265321952473,
+											"sid": 327518817559433,
 											"parameters": {
 												"angle": "Controllers.Angle + Controllers.angular_velocity * dt"
 											}
 										}
 									],
-									"sid": 637629053740874
+									"sid": 168090834289416
 								},
 								{
 									"eventType": "comment",
 									"text": "Movement"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 128267536098435,
+											"parameters": {
+												"instance-variable": "forward_input",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 551981252668328,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "Controllers.forward_input * Controllers.acceleration * dt * 50"
+											}
+										}
+									],
+									"sid": 754015716029599
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Controllers",
+											"sid": 698910845536933,
+											"parameters": {
+												"instance-variable": "forward_input",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 106434789332081,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "Controllers.forward_input * Controllers.brake * dt * 50"
+											}
+										}
+									],
+									"sid": 652912264738232
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 469760756804986,
+											"parameters": {
+												"instance-variable": "velocity",
+												"value": "sign(Controllers.velocity) * min(abs(Controllers.velocity), Controllers.max_velocity * Controllers.max_velocity_multiplier)"
+											}
+										}
+									],
+									"sid": 664841026032352
 								},
 								{
 									"eventType": "block",
@@ -1420,6 +1418,7 @@
 									],
 									"actions": [],
 									"sid": 964126503237063,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -1446,7 +1445,8 @@
 													}
 												}
 											],
-											"sid": 431129183412883
+											"sid": 431129183412883,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -1473,7 +1473,8 @@
 													}
 												}
 											],
-											"sid": 855685045555294
+											"sid": 855685045555294,
+											"disabled": true
 										}
 									]
 								},
@@ -1559,6 +1560,10 @@
 									"sid": 806287838978114
 								},
 								{
+									"eventType": "comment",
+									"text": "damping"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -1573,6 +1578,10 @@
 									"actions": [],
 									"sid": 805020658640627,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "forward velocity"
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -1623,20 +1632,86 @@
 											"sid": 771854559037873
 										},
 										{
+											"eventType": "comment",
+											"text": "angular velocity"
+										},
+										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 122980773682840,
+													"parameters": {
+														"first-value": "abs(Controllers.angular_velocity)",
+														"comparison": 5,
+														"second-value": "10"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 416728709372838,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 524404202065841,
+															"parameters": {
+																"instance-variable": "turn_left_cooldown",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Controllers",
+															"sid": 599392229353034,
+															"parameters": {
+																"instance-variable": "turn_right_cooldown",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Controllers",
+															"sid": 733267908782877,
+															"parameters": {
+																"instance-variable": "angular_velocity",
+																"value": "-sign(Controllers.angular_velocity) * Controllers.angular_deceleration * dt"
+															}
+														}
+													],
+													"sid": 687834556304211
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 121989802569331
+												}
+											],
 											"actions": [
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Controllers",
-													"sid": 469760756804986,
+													"sid": 862492588324645,
 													"parameters": {
-														"instance-variable": "velocity",
-														"value": "sign(Controllers.velocity) * min(abs(Controllers.velocity), Controllers.max_velocity * Controllers.max_velocity_multiplier)"
+														"instance-variable": "angular_velocity",
+														"value": "0"
 													}
 												}
 											],
-											"sid": 664841026032352
+											"sid": 439683073552302
 										}
 									]
 								}

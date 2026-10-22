@@ -1,0 +1,208 @@
+{
+	"name": "InputSchemes",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ControllerUID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 495301351206103
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "CharacterController",
+					"sid": 450313332852441,
+					"parameters": {
+						"instance-variable": "is_in_chair"
+					}
+				},
+				{
+					"id": "pick-parent",
+					"objectClass": "CharacterController",
+					"sid": 624091699584387,
+					"parameters": {
+						"parent": "ChairController",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 816837293371821,
+					"parameters": {
+						"variable": "ControllerUID",
+						"value": "ChairController.UID"
+					}
+				}
+			],
+			"sid": 522639517008629
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 770483674440702
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 792200445827003,
+					"parameters": {
+						"variable": "ControllerUID",
+						"value": "CharacterController.UID"
+					}
+				}
+			],
+			"sid": 589907742080783
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Controllers",
+					"sid": 950156215580452,
+					"parameters": {
+						"unique-id": "ControllerUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Controllers",
+					"sid": 873433285781586,
+					"parameters": {
+						"instance-variable": "forward_input",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Controllers",
+					"sid": 466363903214237,
+					"parameters": {
+						"instance-variable": "lateral_input",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 114148760394500,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 919506017901580,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Controllers",
+							"sid": 645060484336690,
+							"parameters": {
+								"instance-variable": "forward_input",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 559940112640366
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 174651238188339,
+							"parameters": {
+								"key": 40
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Controllers",
+							"sid": 790491412013525,
+							"parameters": {
+								"instance-variable": "forward_input",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 692164294826335
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 679746733204561,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Controllers",
+							"sid": 938961451562036,
+							"parameters": {
+								"instance-variable": "lateral_input",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 726453162310179
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 519603324145448,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Controllers",
+							"sid": 209768187782192,
+							"parameters": {
+								"instance-variable": "lateral_input",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 891970050242135
+				}
+			]
+		}
+	],
+	"sid": 834335012919699
+}
