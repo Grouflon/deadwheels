@@ -12,6 +12,30 @@
 			"sid": 495301351206103
 		},
 		{
+			"eventType": "variable",
+			"name": "WheelTicks",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 677433231840919
+		},
+		{
+			"eventType": "variable",
+			"name": "weapon_scroll_cooldown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 169701677378578
+		},
+		{
+			"eventType": "comment",
+			"text": "Pick player controller"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -68,12 +92,70 @@
 			"sid": 589907742080783
 		},
 		{
+			"eventType": "comment",
+			"text": "Wheel tick events (we cant synchronize when the event is fired, so we need some sort of buffer system)"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 334433662394623,
+					"parameters": {
+						"direction": "up"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 183338515658411,
+					"parameters": {
+						"variable": "WheelTicks",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 931179150024943
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 435420589274410,
+					"parameters": {
+						"direction": "down"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 996939587398523,
+					"parameters": {
+						"variable": "WheelTicks",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 478129221357414
+		},
+		{
+			"eventType": "comment",
+			"text": "Reset input from last frame"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "pick-by-unique-id",
 					"objectClass": "Controllers",
-					"sid": 950156215580452,
+					"sid": 718715764976038,
 					"parameters": {
 						"unique-id": "ControllerUID"
 					}
@@ -83,7 +165,25 @@
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Controllers",
-					"sid": 873433285781586,
+					"sid": 286480135180403,
+					"parameters": {
+						"instance-variable": "previous_forward_input",
+						"value": "Controllers.forward_input"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Controllers",
+					"sid": 299322025272280,
+					"parameters": {
+						"instance-variable": "previous_lateral_input",
+						"value": "Controllers.lateral_input"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Controllers",
+					"sid": 481450659224467,
 					"parameters": {
 						"instance-variable": "forward_input",
 						"value": "0"
@@ -92,114 +192,906 @@
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Controllers",
-					"sid": 466363903214237,
+					"sid": 272406976876304,
 					"parameters": {
 						"instance-variable": "lateral_input",
 						"value": "0"
 					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "CharacterController",
+					"sid": 547681315801851,
+					"parameters": {
+						"instance-variable": "do_aim",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "CharacterController",
+					"sid": 540130975115338,
+					"parameters": {
+						"instance-variable": "do_climb_chair",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "CharacterController",
+					"sid": 439579126903710,
+					"parameters": {
+						"instance-variable": "do_shoot",
+						"value": "false"
+					}
 				}
 			],
-			"sid": 114148760394500,
+			"sid": 745726384190592,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "KEYBOARD",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 919506017901580,
-							"parameters": {
-								"key": 38
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 521845673259989,
+									"parameters": {
+										"key": 38
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 624385038939228,
+									"parameters": {
+										"key": 87
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 968118542107054,
+									"parameters": {
+										"key": 90
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 417023275854015,
+									"parameters": {
+										"instance-variable": "forward_input",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 876589414253694,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 118907149098174,
+									"parameters": {
+										"key": 40
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 471689678868045,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 436815003165444,
+									"parameters": {
+										"instance-variable": "forward_input",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 973432564679429,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 963199222232002,
+									"parameters": {
+										"key": 37
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 937488287782454,
+									"parameters": {
+										"key": 65
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 960219249118291,
+									"parameters": {
+										"key": 81
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 817611159142513,
+									"parameters": {
+										"instance-variable": "lateral_input",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 302715967900845,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 817613241454121,
+									"parameters": {
+										"key": 39
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 840170235172553,
+									"parameters": {
+										"key": 68
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 116841231948720,
+									"parameters": {
+										"instance-variable": "lateral_input",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 992404204585980,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 999279064211257,
+									"parameters": {
+										"key": 32
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 306323617963380,
+									"parameters": {
+										"instance-variable": "do_aim",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 903203453635330,
+									"parameters": {
+										"instance-variable": "aim_target_x",
+										"value": "Mouse.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterController",
+									"sid": 719403928044177,
+									"parameters": {
+										"instance-variable": "aim_target_y",
+										"value": "Mouse.Y"
+									}
+								}
+							],
+							"sid": 690666718088551
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SWITCH WEAPONS",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 580850770626008,
+											"parameters": {
+												"key": 49
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "SwitchWeapon",
+											"objectClass": "CharacterController",
+											"sid": 224051280015124,
+											"parameters": [
+												"0"
+											]
+										}
+									],
+									"sid": 147522333783528,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 373283337651012,
+											"parameters": {
+												"key": 49
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 708492060654638,
+											"parameters": {
+												"variable": "gun_unlocked"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "SwitchWeapon",
+											"objectClass": "CharacterController",
+											"sid": 470541413266064,
+											"parameters": [
+												"1"
+											]
+										}
+									],
+									"sid": 395263537066545
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 722038578448592,
+											"parameters": {
+												"key": 50
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 267729385171721,
+											"parameters": {
+												"variable": "shotgun_unlocked"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "SwitchWeapon",
+											"objectClass": "CharacterController",
+											"sid": 128501446360902,
+											"parameters": [
+												"2"
+											]
+										}
+									],
+									"sid": 824161002299691
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 424334755818144,
+											"parameters": {
+												"key": 51
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 155156524223010,
+											"parameters": {
+												"variable": "smg_unlocked"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "SwitchWeapon",
+											"objectClass": "CharacterController",
+											"sid": 843067211257854,
+											"parameters": [
+												"3"
+											]
+										}
+									],
+									"sid": 901228775895744
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 916667785492051,
+											"parameters": {
+												"key": 52
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 795690117463538,
+											"parameters": {
+												"variable": "gatling_unlocked"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "SwitchWeapon",
+											"objectClass": "CharacterController",
+											"sid": 914695396236647,
+											"parameters": [
+												"4"
+											]
+										}
+									],
+									"sid": 948854175056257
+								}
+							],
+							"sid": 534191570854809
 						}
 					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Controllers",
-							"sid": 645060484336690,
-							"parameters": {
-								"instance-variable": "forward_input",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 559940112640366
+					"sid": 341923347674764
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "MOUSE",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 174651238188339,
-							"parameters": {
-								"key": 40
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 671866106782881,
+									"parameters": {
+										"key": 32
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 999356303449941,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 652609779584369,
+											"parameters": {
+												"first-value": "WheelTicks",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 972359718285569,
+											"parameters": {
+												"instance-variable": "forward_input",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 612676938590503
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 531198846335624
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 874857323953884,
+											"parameters": {
+												"first-value": "WheelTicks",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 501907274112685,
+											"parameters": {
+												"instance-variable": "forward_input",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 610555547196168
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Consume wheel ticks"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 441818748027304,
+											"parameters": {
+												"variable": "WheelTicks",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 988556745401122
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 747378025849636,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 325577725528906,
+											"parameters": {
+												"instance-variable": "lateral_input",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 155274502286523
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 521049578185641,
+											"parameters": {
+												"mouse-button": "right"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Controllers",
+											"sid": 119755553747727,
+											"parameters": {
+												"instance-variable": "lateral_input",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 510609490235614
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 686030376731222,
+											"parameters": {
+												"mouse-button": "middle"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "CharacterController",
+											"sid": 741792664266339,
+											"parameters": {
+												"instance-variable": "do_climb_chair",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 762808723417227
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 362852143851242
+								}
+							],
+							"actions": [],
+							"sid": 121902614027174,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 401812062655473,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "CharacterController",
+											"sid": 623510175487979,
+											"parameters": {
+												"instance-variable": "do_shoot",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 269708482573665
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterController",
+									"sid": 760703386458106,
+									"parameters": {
+										"instance-variable": "is_aiming"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 298850473154963,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "scroll_cooldown",
+									"type": "number",
+									"initialValue": "0.2",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 554669141946383
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 684750392825887,
+											"parameters": {
+												"direction": "up"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 654067386547030,
+											"parameters": {
+												"first-value": "weapon_scroll_cooldown",
+												"comparison": 3,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "NextWeapon",
+											"objectClass": "CharacterController",
+											"sid": 799940576314062,
+											"parameters": [
+												"1"
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 890772704620177,
+											"parameters": {
+												"variable": "weapon_scroll_cooldown",
+												"value": "scroll_cooldown"
+											}
+										}
+									],
+									"sid": 421595203997077
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 162385295623132,
+											"parameters": {
+												"direction": "down"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 675410362325443,
+											"parameters": {
+												"first-value": "weapon_scroll_cooldown",
+												"comparison": 3,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "NextWeapon",
+											"objectClass": "CharacterController",
+											"sid": 923394233445661,
+											"parameters": [
+												"-1"
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 362295932606656,
+											"parameters": {
+												"variable": "weapon_scroll_cooldown",
+												"value": "scroll_cooldown"
+											}
+										}
+									],
+									"sid": 107243509681348
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 788857057513684,
+									"parameters": {
+										"first-value": "weapon_scroll_cooldown",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 721170216740037,
+									"parameters": {
+										"variable": "weapon_scroll_cooldown",
+										"value": "-dt"
+									}
+								}
+							],
+							"sid": 658198869330702
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 171029104979426
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 947047046109448,
+									"parameters": {
+										"variable": "weapon_scroll_cooldown",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 193594449369514
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "GAMEPAD 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-button-down",
+											"objectClass": "Gamepad",
+											"sid": 230996418963317,
+											"parameters": {
+												"gamepad": "0",
+												"button": "button-a"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 614122979337000,
+											"parameters": {
+												"instance-variable": "forward_input",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 356876074680011
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-button-down",
+											"objectClass": "Gamepad",
+											"sid": 663879645561418,
+											"parameters": {
+												"gamepad": "0",
+												"button": "button-b"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 194664114764578,
+											"parameters": {
+												"instance-variable": "forward_input",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 595931138384678
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-button-down",
+											"objectClass": "Gamepad",
+											"sid": 592268251824301,
+											"parameters": {
+												"gamepad": "0",
+												"button": "left-shoulder-button"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 350936377713838,
+											"parameters": {
+												"instance-variable": "lateral_input",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 296853411484234
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-button-down",
+											"objectClass": "Gamepad",
+											"sid": 240540459436532,
+											"parameters": {
+												"gamepad": "0",
+												"button": "right-shoulder-button"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Controllers",
+											"sid": 747545363294582,
+											"parameters": {
+												"instance-variable": "lateral_input",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 101714598464078
+								}
+							],
+							"sid": 453800761667307
 						}
 					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Controllers",
-							"sid": 790491412013525,
-							"parameters": {
-								"instance-variable": "forward_input",
-								"value": "-1"
-							}
-						}
-					],
-					"sid": 692164294826335
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 679746733204561,
-							"parameters": {
-								"key": 37
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Controllers",
-							"sid": 938961451562036,
-							"parameters": {
-								"instance-variable": "lateral_input",
-								"value": "-1"
-							}
-						}
-					],
-					"sid": 726453162310179
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 519603324145448,
-							"parameters": {
-								"key": 39
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Controllers",
-							"sid": 209768187782192,
-							"parameters": {
-								"instance-variable": "lateral_input",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 891970050242135
+					"sid": 543691396228594
 				}
 			]
 		}

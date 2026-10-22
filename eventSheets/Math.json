@@ -188,6 +188,36 @@
 			]
 		},
 		{
+			"functionName": "Clamp01",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 376327946414876
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 242010435543923,
+					"parameters": {
+						"value": "clamp(t, 0, 1)"
+					}
+				}
+			],
+			"sid": 784994204251461
+		},
+		{
 			"functionName": "TimeIndependentLerp",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -383,6 +413,789 @@
 				}
 			],
 			"sid": 844431368035805
+		},
+		{
+			"functionName": "QuadIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 938167004912255
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quad_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 738581052313349
+		},
+		{
+			"functionName": "QuadOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 551678365803754
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quad_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 691659151040504
+		},
+		{
+			"functionName": "QuadInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 558692591107138
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quad_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 717301734582801
+		},
+		{
+			"functionName": "CubeIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 502575046988496
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.cube_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 472956542437218
+		},
+		{
+			"functionName": "CubeOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 836327901104556
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.cube_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 316630576349029
+		},
+		{
+			"functionName": "CubeInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 356456175310057
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.cube_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 795790147032937
+		},
+		{
+			"functionName": "QuartIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 195323775398552
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quart_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 400650328167263
+		},
+		{
+			"functionName": "QuartOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 580620336202211
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quart_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 545419454665098
+		},
+		{
+			"functionName": "QuartInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 630426072374142
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quart_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 232099419766473
+		},
+		{
+			"functionName": "QuintIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 775980526198547
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quint_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 605842956308940
+		},
+		{
+			"functionName": "QuintOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 900464144617261
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quint_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 806847155744826
+		},
+		{
+			"functionName": "QuintInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 134878909706750
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.quint_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 392690692038057
+		},
+		{
+			"functionName": "SineIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 718154301384860
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.sine_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 272957348016141
+		},
+		{
+			"functionName": "SineOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 493472627765505
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.sine_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 939728064281469
+		},
+		{
+			"functionName": "SineInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 979910550324005
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.sine_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 621036535624805
+		},
+		{
+			"functionName": "BounceIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 111740083988554
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.bounce_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 264621784793842
+		},
+		{
+			"functionName": "BounceOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 800239884092267
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.bounce_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 937682887250355
+		},
+		{
+			"functionName": "BounceInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 410705336252832
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.bounce_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 637574990786633
+		},
+		{
+			"functionName": "CircIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 577607256780360
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.circ_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 682032709861904
+		},
+		{
+			"functionName": "CircOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 741999952930502
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.circ_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 961610760315008
+		},
+		{
+			"functionName": "CircInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 893874471224664
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.circ_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 557039804378739
+		},
+		{
+			"functionName": "ExpoIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 849772001233382
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.expo_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 885772162509827
+		},
+		{
+			"functionName": "ExpoOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 637411200760241
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.expo_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 578288275611998
+		},
+		{
+			"functionName": "ExpoInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 399734207134638
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.expo_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 592382701533594
+		},
+		{
+			"functionName": "BackIn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 316771430377675
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.back_in(localVars.t));"
+					]
+				}
+			],
+			"sid": 241656429688710
+		},
+		{
+			"functionName": "BackOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 559830515107006
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.back_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 511103215196367
+		},
+		{
+			"functionName": "BackInOut",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "t",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 298974129862194
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"runtime.setReturnValue(Easing.back_in_out(localVars.t));"
+					]
+				}
+			],
+			"sid": 438771335458735
 		}
 	],
 	"sid": 150942305447680

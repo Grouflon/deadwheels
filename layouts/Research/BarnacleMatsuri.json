@@ -59634,6 +59634,10 @@
 						"is_sliding": false,
 						"forward_input": 0,
 						"lateral_input": 0,
+						"previous_forward_input": 0,
+						"previous_lateral_input": 0,
+						"forward_buffer_time": 0,
+						"no_angular_input_time": 0,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -59650,13 +59654,23 @@
 						"interact_timer": 0,
 						"shoot_cooldown": 0,
 						"chair_uid": 0,
-						"can_enter_chair": true
+						"can_enter_chair": true,
+						"do_aim": false,
+						"do_shoot": false,
+						"do_climb_chair": false,
+						"aim_target_x": 0,
+						"aim_target_y": 0
 					},
 					"behaviors": {
 						"Custom": {
 							"properties": {
 								"stepping-mode": "linear",
 								"pixels-per-step": 5,
+								"enabled": true
+							}
+						},
+						"Tween": {
+							"properties": {
 								"enabled": true
 							}
 						},
@@ -59833,6 +59847,14 @@
 												"state": true
 											},
 											{
+												"iv": "forward_input",
+												"state": true
+											},
+											{
+												"iv": "lateral_input",
+												"state": true
+											},
+											{
 												"iv": "isBeingGrabbed",
 												"state": true
 											},
@@ -59901,11 +59923,39 @@
 												"state": true
 											},
 											{
-												"iv": "forward_input",
+												"iv": "previous_forward_input",
 												"state": true
 											},
 											{
-												"iv": "lateral_input",
+												"iv": "previous_lateral_input",
+												"state": true
+											},
+											{
+												"iv": "forward_buffer_time",
+												"state": true
+											},
+											{
+												"iv": "no_angular_input_time",
+												"state": true
+											},
+											{
+												"iv": "do_aim",
+												"state": true
+											},
+											{
+												"iv": "do_shoot",
+												"state": true
+											},
+											{
+												"iv": "aim_target_x",
+												"state": true
+											},
+											{
+												"iv": "aim_target_y",
+												"state": true
+											},
+											{
+												"iv": "do_climb_chair",
 												"state": true
 											}
 										]
@@ -59943,6 +59993,15 @@
 												"tag",
 												true
 											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "Tween",
+										"state": [
 											[
 												"enabled",
 												true
@@ -93406,7 +93465,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
 						"canAttack": true,
 						"spawnerUID": 0,
 						"isBeingGrabbed": false
@@ -93941,7 +94000,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
 						"canAttack": true,
 						"spawnerUID": 0,
 						"isBeingGrabbed": false
@@ -94500,7 +94559,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
 						"canAttack": true,
 						"spawnerUID": 0,
 						"isBeingGrabbed": false
@@ -95035,7 +95094,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
 						"canAttack": true,
 						"spawnerUID": 0,
 						"isBeingGrabbed": false
@@ -95570,7 +95629,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
 						"canAttack": true,
 						"spawnerUID": 0,
 						"isBeingGrabbed": false
@@ -96105,7 +96164,7 @@
 						"makesFootStepSound": true,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
 						"canAttack": true,
 						"spawnerUID": 0,
 						"isBeingGrabbed": false
@@ -97254,7 +97313,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -97828,7 +97887,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -98402,7 +98461,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -98976,7 +99035,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -99550,7 +99609,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -100124,7 +100183,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -100732,7 +100791,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,
@@ -101306,7 +101365,7 @@
 						"makesFootStepSound": false,
 						"isRotating": false,
 						"lastFrameAngle": 0,
-						"controllerOverlapVelocityMultiplier": 0,
+						"controllerOverlapVelocityMultiplier": 1,
 						"canAttack": false,
 						"spawnerUID": 0,
 						"tryGrabCoolDown": 0,

@@ -146,16 +146,6 @@
 			"sid": 300889887821883
 		},
 		{
-			"eventType": "variable",
-			"name": "weapon_scroll_cooldown",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 845573094538669
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "INIT",
@@ -477,11 +467,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 912673944997685,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 492184263596307,
 							"parameters": {
-								"key": 32
+								"instance-variable": "do_aim"
 							}
 						},
 						{
@@ -626,10 +616,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 880572626848916,
+									"sid": 559436042609230,
 									"parameters": {
 										"variable": "AimAngle",
-										"value": "angle(CharacterSprite.ImagePointX(\"arm_anchor\"),CharacterSprite.ImagePointY(\"arm_anchor\"),Mouse.X,Mouse.Y)"
+										"value": "angle(CharacterSprite.ImagePointX(\"arm_anchor\"),CharacterSprite.ImagePointY(\"arm_anchor\"),CharacterController.aim_target_x,CharacterController.aim_target_y)"
 									}
 								}
 							],
@@ -657,10 +647,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 657528533070867,
+									"sid": 165249506496609,
 									"parameters": {
 										"variable": "AimAngle",
-										"value": "angle(CrawlingSprite.ImagePointX(\"arm_anchor\"),CrawlingSprite.ImagePointY(\"arm_anchor\"),Mouse.X,Mouse.Y)"
+										"value": "angle(CrawlingSprite.ImagePointX(\"arm_anchor\"),CrawlingSprite.ImagePointY(\"arm_anchor\"),CharacterController.aim_target_x,CharacterController.aim_target_y)"
 									}
 								},
 								{
@@ -841,16 +831,6 @@
 									"parameters": {
 										"instance-variable": "is_aiming"
 									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "CharacterController",
-									"sid": 359307067265150,
-									"parameters": {
-										"instance-variable": "shoot_cooldown",
-										"comparison": 3,
-										"value": "0"
-									}
 								}
 							],
 							"actions": [],
@@ -862,7 +842,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 330700934515417,
+											"sid": 256571050817668,
 											"parameters": {
 												"variable": "current_weapon",
 												"comparison": 0,
@@ -874,14 +854,14 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Arm",
-											"sid": 933543612681518,
+											"sid": 376435676562831,
 											"parameters": {
 												"animation": "\"None\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 442868041270980
+									"sid": 128988090879375
 								},
 								{
 									"eventType": "block",
@@ -889,12 +869,12 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 991450209600379
+											"sid": 253947121825848
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 826669294185979,
+											"sid": 892469787268160,
 											"parameters": {
 												"variable": "current_weapon",
 												"comparison": 0,
@@ -906,151 +886,174 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Arm",
-											"sid": 905164365914384,
+											"sid": 782975390735037,
 											"parameters": {
 												"animation": "\"Pistol\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 684173306486625,
+									"sid": 956772716640657,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "on-click",
-													"objectClass": "Mouse",
-													"sid": 947338439297815,
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "CharacterController",
+													"sid": 297681074586087,
 													"parameters": {
-														"mouse-button": "left",
-														"click-type": "clicked"
+														"instance-variable": "do_shoot"
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 844012383743054
 												}
 											],
 											"actions": [],
-											"sid": 624167203096217,
+											"sid": 808452665067858,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 885437149944551,
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterController",
+															"sid": 500797177697583,
 															"parameters": {
-																"variable": "gun_ammo",
-																"comparison": 4,
+																"instance-variable": "shoot_cooldown",
+																"comparison": 3,
 																"value": "0"
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 103515833882742,
+													"children": [
 														{
-															"customAction": "RecoilTween",
-															"objectClass": "Arm",
-															"sid": 119486262661411
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 569777160550821,
+																	"parameters": {
+																		"variable": "gun_ammo",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"customAction": "RecoilTween",
+																	"objectClass": "Arm",
+																	"sid": 784064426627232
+																},
+																{
+																	"id": "spawn-another-object",
+																	"objectClass": "Arm",
+																	"sid": 130530820890789,
+																	"parameters": {
+																		"object": "Bullet",
+																		"layer": "Self.LayerName",
+																		"image-point": "0",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "spawn-another-object",
+																	"objectClass": "Arm",
+																	"sid": 787108335663354,
+																	"parameters": {
+																		"object": "FireGFX",
+																		"layer": "Self.LayerName",
+																		"image-point": "1",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 388416943801052,
+																	"parameters": {
+																		"variable": "gun_ammo",
+																		"value": "-1"
+																	}
+																},
+																{
+																	"id": "shake",
+																	"objectClass": "Camera",
+																	"sid": 840042971991910,
+																	"behaviorType": "ScrollTo",
+																	"parameters": {
+																		"magnitude": "0.52",
+																		"duration": "0.1",
+																		"mode": "reducing-magnitude"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "CharacterController",
+																	"sid": 207025848817614,
+																	"parameters": {
+																		"instance-variable": "recoil",
+																		"value": "5"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "CharacterController",
+																	"sid": 588439817847349,
+																	"parameters": {
+																		"instance-variable": "angular_recoil",
+																		"value": "10"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "CharacterController",
+																	"sid": 796291841537578,
+																	"parameters": {
+																		"instance-variable": "shoot_cooldown",
+																		"value": "0.2"
+																	}
+																},
+																{
+																	"callFunction": "audioGunSound",
+																	"sid": 508964550909168,
+																	"parameters": [
+																		"\"Pistol\""
+																	]
+																}
+															],
+															"sid": 657062575614089
 														},
 														{
-															"id": "spawn-another-object",
-															"objectClass": "Arm",
-															"sid": 753053783091519,
-															"parameters": {
-																"object": "Bullet",
-																"layer": "Self.LayerName",
-																"image-point": "0",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "spawn-another-object",
-															"objectClass": "Arm",
-															"sid": 725316334750148,
-															"parameters": {
-																"object": "FireGFX",
-																"layer": "Self.LayerName",
-																"image-point": "1",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 443660767563633,
-															"parameters": {
-																"variable": "gun_ammo",
-																"value": "-1"
-															}
-														},
-														{
-															"id": "shake",
-															"objectClass": "Camera",
-															"sid": 799575940289729,
-															"behaviorType": "ScrollTo",
-															"parameters": {
-																"magnitude": "0.52",
-																"duration": "0.1",
-																"mode": "reducing-magnitude"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "CharacterController",
-															"sid": 192128147775813,
-															"parameters": {
-																"instance-variable": "recoil",
-																"value": "5"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "CharacterController",
-															"sid": 700272873321679,
-															"parameters": {
-																"instance-variable": "angular_recoil",
-																"value": "10"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "CharacterController",
-															"sid": 736523620194320,
-															"parameters": {
-																"instance-variable": "shoot_cooldown",
-																"value": "0.2"
-															}
-														},
-														{
-															"callFunction": "audioGunSound",
-															"sid": 850960396029209,
-															"parameters": [
-																"\"Pistol\""
-															]
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 921152176182131
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "audioGunEmptySound",
+																	"sid": 660486763512227,
+																	"parameters": [
+																		"\"Pistol\""
+																	]
+																}
+															],
+															"sid": 729008982166487
 														}
-													],
-													"sid": 709050037211050
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 869021021386921
-														}
-													],
-													"actions": [
-														{
-															"callFunction": "audioGunEmptySound",
-															"sid": 487713359988606,
-															"parameters": [
-																"\"Pistol\""
-															]
-														}
-													],
-													"sid": 289262357973931
+													]
 												}
 											]
 										}
@@ -1062,12 +1065,12 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 200942878286745
+											"sid": 365964045200396
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 933692124227713,
+											"sid": 524203957029891,
 											"parameters": {
 												"variable": "current_weapon",
 												"comparison": 0,
@@ -1079,198 +1082,221 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Arm",
-											"sid": 434139731010494,
+											"sid": 931282042121110,
 											"parameters": {
 												"animation": "\"Shotgun\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 716343271601284,
+									"sid": 551500981953530,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "on-click",
-													"objectClass": "Mouse",
-													"sid": 624563443952546,
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "CharacterController",
+													"sid": 823575917564851,
 													"parameters": {
-														"mouse-button": "left",
-														"click-type": "clicked"
+														"instance-variable": "do_shoot"
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 835855794624966
 												}
 											],
 											"actions": [],
-											"sid": 442282008761379,
+											"sid": 239415528360918,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 839560207738205,
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterController",
+															"sid": 793449968258858,
 															"parameters": {
-																"variable": "shotgun_ammo",
-																"comparison": 4,
+																"instance-variable": "shoot_cooldown",
+																"comparison": 3,
 																"value": "0"
 															}
 														}
 													],
-													"actions": [
-														{
-															"id": "shake",
-															"objectClass": "Camera",
-															"sid": 236817544928345,
-															"behaviorType": "ScrollTo",
-															"parameters": {
-																"magnitude": "4",
-																"duration": "0.1",
-																"mode": "reducing-magnitude"
-															}
-														},
-														{
-															"customAction": "RecoilTween",
-															"objectClass": "Arm",
-															"sid": 699601309419753
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "CharacterController",
-															"sid": 908287018938265,
-															"parameters": {
-																"instance-variable": "recoil",
-																"value": "20"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "CharacterController",
-															"sid": 956823975418561,
-															"parameters": {
-																"instance-variable": "angular_recoil",
-																"value": "50"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "CharacterController",
-															"sid": 104954942968201,
-															"parameters": {
-																"instance-variable": "shoot_cooldown",
-																"value": "0.5"
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 989277444265819,
-															"parameters": {
-																"variable": "shotgun_ammo",
-																"value": "-1"
-															}
-														},
-														{
-															"callFunction": "audioGunSound",
-															"sid": 368700897625375,
-															"parameters": [
-																"\"Shotgun\""
-															]
-														},
-														{
-															"id": "spawn-another-object",
-															"objectClass": "Arm",
-															"sid": 635667953063605,
-															"parameters": {
-																"object": "FireGFX",
-																"layer": "Self.LayerName",
-																"image-point": "1",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "spawn-another-object",
-															"objectClass": "Arm",
-															"sid": 479226960570216,
-															"parameters": {
-																"object": "Dust",
-																"layer": "Self.LayerName",
-																"image-point": "1",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														}
-													],
-													"sid": 216897106427976,
+													"actions": [],
+													"sid": 315309856524611,
 													"children": [
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "repeat",
+																	"id": "compare-eventvar",
 																	"objectClass": "System",
-																	"sid": 456137634056267,
+																	"sid": 532796818968533,
 																	"parameters": {
-																		"count": "5"
+																		"variable": "shotgun_ammo",
+																		"comparison": 4,
+																		"value": "0"
 																	}
 																}
 															],
 															"actions": [
 																{
+																	"id": "shake",
+																	"objectClass": "Camera",
+																	"sid": 116480364457475,
+																	"behaviorType": "ScrollTo",
+																	"parameters": {
+																		"magnitude": "4",
+																		"duration": "0.1",
+																		"mode": "reducing-magnitude"
+																	}
+																},
+																{
+																	"customAction": "RecoilTween",
+																	"objectClass": "Arm",
+																	"sid": 336763651448782
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "CharacterController",
+																	"sid": 345446663470941,
+																	"parameters": {
+																		"instance-variable": "recoil",
+																		"value": "20"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "CharacterController",
+																	"sid": 762454570087855,
+																	"parameters": {
+																		"instance-variable": "angular_recoil",
+																		"value": "50"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "CharacterController",
+																	"sid": 242299089354781,
+																	"parameters": {
+																		"instance-variable": "shoot_cooldown",
+																		"value": "0.5"
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 585909262140021,
+																	"parameters": {
+																		"variable": "shotgun_ammo",
+																		"value": "-1"
+																	}
+																},
+																{
+																	"callFunction": "audioGunSound",
+																	"sid": 987249055191016,
+																	"parameters": [
+																		"\"Shotgun\""
+																	]
+																},
+																{
 																	"id": "spawn-another-object",
 																	"objectClass": "Arm",
-																	"sid": 245972767097062,
+																	"sid": 553834090827170,
 																	"parameters": {
-																		"object": "Bullet",
+																		"object": "FireGFX",
 																		"layer": "Self.LayerName",
-																		"image-point": "0",
+																		"image-point": "1",
 																		"create-hierarchy": false,
 																		"template-name": "\"\""
 																	}
 																},
 																{
-																	"id": "set-angle",
-																	"objectClass": "Bullet",
-																	"sid": 377729865850062,
+																	"id": "spawn-another-object",
+																	"objectClass": "Arm",
+																	"sid": 787707169425877,
 																	"parameters": {
-																		"angle": "Self.Angle+random(-20,20)"
-																	}
-																},
-																{
-																	"id": "set-instvar-value",
-																	"objectClass": "Bullet",
-																	"sid": 476284909215282,
-																	"parameters": {
-																		"instance-variable": "damage",
-																		"value": "35"
+																		"object": "Dust",
+																		"layer": "Self.LayerName",
+																		"image-point": "1",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																}
 															],
-															"sid": 740698904447968
+															"sid": 705376579198932,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "repeat",
+																			"objectClass": "System",
+																			"sid": 453834007507302,
+																			"parameters": {
+																				"count": "5"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "spawn-another-object",
+																			"objectClass": "Arm",
+																			"sid": 464665182884358,
+																			"parameters": {
+																				"object": "Bullet",
+																				"layer": "Self.LayerName",
+																				"image-point": "0",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		},
+																		{
+																			"id": "set-angle",
+																			"objectClass": "Bullet",
+																			"sid": 123200558613954,
+																			"parameters": {
+																				"angle": "Self.Angle+random(-20,20)"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Bullet",
+																			"sid": 102579635551167,
+																			"parameters": {
+																				"instance-variable": "damage",
+																				"value": "35"
+																			}
+																		}
+																	],
+																	"sid": 754772235130369
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 362169445241205
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "audioGunEmptySound",
+																	"sid": 879945648473271,
+																	"parameters": [
+																		"\"Shotgun\""
+																	]
+																}
+															],
+															"sid": 892032833602737
 														}
 													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 943671397244048
-														}
-													],
-													"actions": [
-														{
-															"callFunction": "audioGunEmptySound",
-															"sid": 198658493484829,
-															"parameters": [
-																"\"Shotgun\""
-															]
-														}
-													],
-													"sid": 972254511415557
 												}
 											]
 										}
@@ -1280,14 +1306,9 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 587778442611968
-										},
-										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 112345940478850,
+											"sid": 289542170910837,
 											"parameters": {
 												"variable": "current_weapon",
 												"comparison": 0,
@@ -1299,29 +1320,39 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Arm",
-											"sid": 656028171838891,
+											"sid": 886991947240891,
 											"parameters": {
 												"animation": "\"Smg\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 916377538773587,
+									"sid": 516036704731836,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "mouse-button-is-down",
-													"objectClass": "Mouse",
-													"sid": 463275240674977,
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "CharacterController",
+													"sid": 984966881518424,
 													"parameters": {
-														"mouse-button": "left"
+														"instance-variable": "do_shoot"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "CharacterController",
+													"sid": 550745015832346,
+													"parameters": {
+														"instance-variable": "shoot_cooldown",
+														"comparison": 3,
+														"value": "0"
 													}
 												}
 											],
 											"actions": [],
-											"sid": 588192297107614,
+											"sid": 325946659543380,
 											"children": [
 												{
 													"eventType": "block",
@@ -1329,7 +1360,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 239602411119113,
+															"sid": 567386375250263,
 															"parameters": {
 																"variable": "gun_ammo",
 																"comparison": 4,
@@ -1341,12 +1372,12 @@
 														{
 															"customAction": "RecoilTween",
 															"objectClass": "Arm",
-															"sid": 999124421442771
+															"sid": 410013174101360
 														},
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
-															"sid": 589849811939868,
+															"sid": 753551584493007,
 															"parameters": {
 																"object": "Bullet",
 																"layer": "Self.LayerName",
@@ -1358,7 +1389,7 @@
 														{
 															"id": "add-to-eventvar",
 															"objectClass": "System",
-															"sid": 879694453236761,
+															"sid": 463167028627016,
 															"parameters": {
 																"variable": "gun_ammo",
 																"value": "-1"
@@ -1367,7 +1398,7 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
-															"sid": 174556579821574,
+															"sid": 571785325194005,
 															"parameters": {
 																"object": "FireGFX",
 																"layer": "Self.LayerName",
@@ -1379,7 +1410,7 @@
 														{
 															"id": "shake",
 															"objectClass": "Camera",
-															"sid": 279242157720782,
+															"sid": 135496168361318,
 															"behaviorType": "ScrollTo",
 															"parameters": {
 																"magnitude": "0.3",
@@ -1390,7 +1421,7 @@
 														{
 															"id": "set-angle",
 															"objectClass": "Bullet",
-															"sid": 937345896106862,
+															"sid": 458942637964922,
 															"parameters": {
 																"angle": "Self.Angle+random(-10,10)"
 															}
@@ -1398,7 +1429,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 314343804908635,
+															"sid": 270789673375743,
 															"parameters": {
 																"instance-variable": "recoil",
 																"value": "3"
@@ -1406,7 +1437,7 @@
 														},
 														{
 															"callFunction": "audioGunSound",
-															"sid": 233233128822249,
+															"sid": 236895064299051,
 															"parameters": [
 																"\"Smg\""
 															]
@@ -1414,7 +1445,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 917366453122417,
+															"sid": 483297766552677,
 															"parameters": {
 																"instance-variable": "angular_recoil",
 																"value": "7"
@@ -1423,14 +1454,14 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 547535557195650,
+															"sid": 246927186002032,
 															"parameters": {
 																"instance-variable": "shoot_cooldown",
 																"value": "0.1"
 															}
 														}
 													],
-													"sid": 541109696486483
+													"sid": 492687127854779
 												},
 												{
 													"eventType": "block",
@@ -1438,19 +1469,19 @@
 														{
 															"id": "else",
 															"objectClass": "System",
-															"sid": 633818142842939
+															"sid": 904580225567308
 														}
 													],
 													"actions": [
 														{
 															"callFunction": "audioGunEmptySound",
-															"sid": 773561232929796,
+															"sid": 929519552228856,
 															"parameters": [
 																"\"Smg\""
 															]
 														}
 													],
-													"sid": 830264179739676
+													"sid": 488740200348961
 												}
 											]
 										}
@@ -1462,12 +1493,12 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 718087331227710
+											"sid": 984184985505671
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 980975938796769,
+											"sid": 230149539438129,
 											"parameters": {
 												"variable": "current_weapon",
 												"comparison": 0,
@@ -1479,29 +1510,39 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Arm",
-											"sid": 326369823598834,
+											"sid": 994279634410227,
 											"parameters": {
 												"animation": "\"Gatling\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 827392884588628,
+									"sid": 267331403481654,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "mouse-button-is-down",
-													"objectClass": "Mouse",
-													"sid": 656136036154957,
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "CharacterController",
+													"sid": 706134162122288,
 													"parameters": {
-														"mouse-button": "left"
+														"instance-variable": "do_shoot"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "CharacterController",
+													"sid": 418156306642394,
+													"parameters": {
+														"instance-variable": "shoot_cooldown",
+														"comparison": 3,
+														"value": "0"
 													}
 												}
 											],
 											"actions": [],
-											"sid": 121007126610035,
+											"sid": 372949322268750,
 											"children": [
 												{
 													"eventType": "block",
@@ -1509,7 +1550,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 110920191548456,
+															"sid": 845015668018257,
 															"parameters": {
 																"variable": "gatling_ammo",
 																"comparison": 4,
@@ -1521,12 +1562,12 @@
 														{
 															"customAction": "RecoilTween",
 															"objectClass": "Arm",
-															"sid": 249320365226183
+															"sid": 741557932101726
 														},
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
-															"sid": 685049065741363,
+															"sid": 672284820746204,
 															"parameters": {
 																"object": "Bullet",
 																"layer": "Self.LayerName",
@@ -1538,7 +1579,7 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Arm",
-															"sid": 157547464739624,
+															"sid": 102141233076791,
 															"parameters": {
 																"object": "FireGFX",
 																"layer": "Self.LayerName",
@@ -1550,7 +1591,7 @@
 														{
 															"id": "add-to-eventvar",
 															"objectClass": "System",
-															"sid": 891373858305517,
+															"sid": 512588040090831,
 															"parameters": {
 																"variable": "gatling_ammo",
 																"value": "-1"
@@ -1558,7 +1599,7 @@
 														},
 														{
 															"callFunction": "audioGunSound",
-															"sid": 214356689290822,
+															"sid": 858334393233198,
 															"parameters": [
 																"\"Gatling\""
 															]
@@ -1566,7 +1607,7 @@
 														{
 															"id": "shake",
 															"objectClass": "Camera",
-															"sid": 647668803773264,
+															"sid": 183220394991157,
 															"behaviorType": "ScrollTo",
 															"parameters": {
 																"magnitude": "0.3",
@@ -1577,7 +1618,7 @@
 														{
 															"id": "set-angle",
 															"objectClass": "Bullet",
-															"sid": 323484878409053,
+															"sid": 823623209754646,
 															"parameters": {
 																"angle": "Self.Angle+random(-5,5)"
 															}
@@ -1585,7 +1626,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 458331518147268,
+															"sid": 162408538604814,
 															"parameters": {
 																"instance-variable": "recoil",
 																"value": "7"
@@ -1594,7 +1635,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 956453219309394,
+															"sid": 871443905907751,
 															"parameters": {
 																"instance-variable": "angular_recoil",
 																"value": "13"
@@ -1603,14 +1644,14 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 694079534060502,
+															"sid": 364412841096267,
 															"parameters": {
 																"instance-variable": "shoot_cooldown",
 																"value": "0.05"
 															}
 														}
 													],
-													"sid": 971636206612772
+													"sid": 503325719547198
 												},
 												{
 													"eventType": "block",
@@ -1618,19 +1659,19 @@
 														{
 															"id": "else",
 															"objectClass": "System",
-															"sid": 796024762058255
+															"sid": 703508389520140
 														}
 													],
 													"actions": [
 														{
 															"callFunction": "audioGunEmptySound",
-															"sid": 662328811827684,
+															"sid": 506604088454170,
 															"parameters": [
 																"\"Gatling\""
 															]
 														}
 													],
-													"sid": 300859687197387
+													"sid": 357183960663410
 												}
 											]
 										}
@@ -2748,331 +2789,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "SWITCH WEAPONS",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 251804595893716,
-							"parameters": {
-								"key": 49
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "SwitchWeapon",
-							"objectClass": "CharacterController",
-							"sid": 569771294478745,
-							"parameters": [
-								"0"
-							]
-						}
-					],
-					"sid": 107421302506952,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 188927286762755,
-							"parameters": {
-								"key": 49
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 571094712853045,
-							"parameters": {
-								"variable": "gun_unlocked"
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "SwitchWeapon",
-							"objectClass": "CharacterController",
-							"sid": 108287489800714,
-							"parameters": [
-								"1"
-							]
-						}
-					],
-					"sid": 778016385198066
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 571521143680529,
-							"parameters": {
-								"key": 50
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 199485186008339,
-							"parameters": {
-								"variable": "shotgun_unlocked"
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "SwitchWeapon",
-							"objectClass": "CharacterController",
-							"sid": 118044996940429,
-							"parameters": [
-								"2"
-							]
-						}
-					],
-					"sid": 680282879238744
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 131526125681347,
-							"parameters": {
-								"key": 51
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 377023725770670,
-							"parameters": {
-								"variable": "smg_unlocked"
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "SwitchWeapon",
-							"objectClass": "CharacterController",
-							"sid": 744054513441786,
-							"parameters": [
-								"3"
-							]
-						}
-					],
-					"sid": 774343161113774
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 281240257869480,
-							"parameters": {
-								"key": 52
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 127965203043978,
-							"parameters": {
-								"variable": "gatling_unlocked"
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "SwitchWeapon",
-							"objectClass": "CharacterController",
-							"sid": 454041872554809,
-							"parameters": [
-								"4"
-							]
-						}
-					],
-					"sid": 570665994605521
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CharacterController",
-							"sid": 441333399041475,
-							"parameters": {
-								"instance-variable": "is_aiming"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 356276448429949,
-					"children": [
-						{
-							"eventType": "variable",
-							"name": "scroll_cooldown",
-							"type": "number",
-							"initialValue": "0.2",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 293030193748935
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-mouse-wheel",
-									"objectClass": "Mouse",
-									"sid": 479298620210625,
-									"parameters": {
-										"direction": "up"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 378078037883284,
-									"parameters": {
-										"first-value": "weapon_scroll_cooldown",
-										"comparison": 3,
-										"second-value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "NextWeapon",
-									"objectClass": "CharacterController",
-									"sid": 461820651195599,
-									"parameters": [
-										"1"
-									]
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 220641829017441,
-									"parameters": {
-										"variable": "weapon_scroll_cooldown",
-										"value": "scroll_cooldown"
-									}
-								}
-							],
-							"sid": 979716479444849
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-mouse-wheel",
-									"objectClass": "Mouse",
-									"sid": 203086438140924,
-									"parameters": {
-										"direction": "down"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 994918209325821,
-									"parameters": {
-										"first-value": "weapon_scroll_cooldown",
-										"comparison": 3,
-										"second-value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"customAction": "NextWeapon",
-									"objectClass": "CharacterController",
-									"sid": 610707540715169,
-									"parameters": [
-										"-1"
-									]
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 954953898868210,
-									"parameters": {
-										"variable": "weapon_scroll_cooldown",
-										"value": "scroll_cooldown"
-									}
-								}
-							],
-							"sid": 211150406604792
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 146466018104217,
-							"parameters": {
-								"first-value": "weapon_scroll_cooldown",
-								"comparison": 4,
-								"second-value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 241956821795542,
-							"parameters": {
-								"variable": "weapon_scroll_cooldown",
-								"value": "-dt"
-							}
-						}
-					],
-					"sid": 912953312376683
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 733275008069212
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 878528510457011,
-							"parameters": {
-								"variable": "weapon_scroll_cooldown",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 109249861927026
-				}
-			],
-			"sid": 467324265716751
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "ALLOW CHAIR INPUT",
 			"description": "",
 			"isActiveOnStart": true,
@@ -3678,12 +3394,13 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-button-released",
-							"objectClass": "Mouse",
-							"sid": 260288082964172,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterController",
+							"sid": 280623891429597,
 							"parameters": {
-								"mouse-button": "middle"
-							}
+								"instance-variable": "do_climb_chair"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -3783,11 +3500,11 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "mouse-button-is-down",
-											"objectClass": "Mouse",
-											"sid": 222406599734186,
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 517219804125837,
 											"parameters": {
-												"mouse-button": "middle"
+												"instance-variable": "do_climb_chair"
 											}
 										}
 									],
