@@ -169,51 +169,6 @@ function TickController(c: InstanceType.Controllers)
             c.instVars.is_sliding = false;
         }
     }
-    
-    // Cooldowns
-    /*
-    if (c.instVars.turn_left_cooldown > 0) { c.instVars.turn_left_cooldown -= runtime.dt; }
-    if (c.instVars.turn_right_cooldown > 0) { c.instVars.turn_right_cooldown -= runtime.dt; }
-
-    if (c.instVars.left_angular_input_timer > 0)
-    {
-        c.instVars.left_angular_input_timer -= runtime.dt;
-        if (c.instVars.left_angular_input_timer <= 0)
-        {
-            c.instVars.angular_velocity -= c.instVars.angular_acceleration;
-        }
-    }
-
-    if (c.instVars.right_angular_input_timer > 0)
-    {
-        c.instVars.right_angular_input_timer -= runtime.dt;
-        if (c.instVars.right_angular_input_timer <= 0)
-        {
-            c.instVars.angular_velocity += c.instVars.angular_acceleration;
-        }
-    }
-
-    if (c.instVars.read_input)
-    {
-        if (c.instVars.rotate_ticks > 0)
-        {
-            c.instVars.right_angular_input_timer = c.instVars.angular_input_delay;
-            if (c.instVars.turn_right_cooldown <= 0) 
-            {
-                c.instVars.turn_right_cooldown = c.instVars.angular_buffer_time;
-            }
-        }
-
-        if (c.instVars.rotate_ticks < 0)
-        {
-            c.instVars.left_angular_input_timer = c.instVars.angular_input_delay;
-            if (c.instVars.turn_left_cooldown <= 0) 
-            {
-                c.instVars.turn_left_cooldown = c.instVars.angular_buffer_time;
-            }
-        }
-    }
-    */
 }
 
 function DrawCollider(instance: IWorldInstance, duration: number = 0, color: Vec3Arr = [255,0,0])

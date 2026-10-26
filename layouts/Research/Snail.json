@@ -1717,16 +1717,16 @@
 					"sid": 113702846944158,
 					"tags": "",
 					"instanceVariables": {
-						"acceleration": 5,
+						"acceleration": 10,
 						"brake": 5,
-						"deceleration": 70,
-						"max_velocity": 30,
+						"deceleration": 110,
+						"max_velocity": 25,
 						"collision_velocity_multiplier": -0.2,
 						"angular_acceleration": 100,
 						"angular_deceleration": 900,
-						"angular_input_delay": 0.05,
-						"angular_buffer_time": 0.2,
-						"max_angular_velocity": 400,
+						"additive_angular_deceleration": 1200,
+						"max_angular_velocity": 60,
+						"additive_max_angular_velocity": 300,
 						"excluded_collisions": "Crawlable",
 						"velocity": 0,
 						"angular_velocity": 0,
@@ -1754,6 +1754,9 @@
 						"previous_lateral_input": 0,
 						"forward_buffer_time": 0,
 						"no_angular_input_time": 0,
+						"smoothed_max_angular_velocity": 0,
+						"angular_impulse": 0,
+						"additive_angular_velocity": 0,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
 						"old_velocity": 0,
@@ -1855,10 +1858,6 @@
 												"state": true
 											},
 											{
-												"iv": "collision_velocity_multiplier",
-												"state": true
-											},
-											{
 												"iv": "angular_acceleration",
 												"state": true
 											},
@@ -1867,15 +1866,15 @@
 												"state": true
 											},
 											{
-												"iv": "angular_input_delay",
-												"state": true
-											},
-											{
-												"iv": "angular_buffer_time",
+												"iv": "additive_angular_deceleration",
 												"state": true
 											},
 											{
 												"iv": "max_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "additive_max_angular_velocity",
 												"state": true
 											},
 											{
@@ -1971,6 +1970,34 @@
 												"state": true
 											},
 											{
+												"iv": "previous_forward_input",
+												"state": true
+											},
+											{
+												"iv": "previous_lateral_input",
+												"state": true
+											},
+											{
+												"iv": "forward_buffer_time",
+												"state": true
+											},
+											{
+												"iv": "no_angular_input_time",
+												"state": true
+											},
+											{
+												"iv": "smoothed_max_angular_velocity",
+												"state": true
+											},
+											{
+												"iv": "angular_impulse",
+												"state": true
+											},
+											{
+												"iv": "additive_angular_velocity",
+												"state": true
+											},
+											{
 												"iv": "isBeingGrabbed",
 												"state": true
 											},
@@ -2039,27 +2066,15 @@
 												"state": true
 											},
 											{
-												"iv": "previous_forward_input",
-												"state": true
-											},
-											{
-												"iv": "previous_lateral_input",
-												"state": true
-											},
-											{
-												"iv": "forward_buffer_time",
-												"state": true
-											},
-											{
-												"iv": "no_angular_input_time",
-												"state": true
-											},
-											{
 												"iv": "do_aim",
 												"state": true
 											},
 											{
 												"iv": "do_shoot",
+												"state": true
+											},
+											{
+												"iv": "do_climb_chair",
 												"state": true
 											},
 											{
@@ -2071,7 +2086,7 @@
 												"state": true
 											},
 											{
-												"iv": "do_climb_chair",
+												"iv": "collision_velocity_multiplier",
 												"state": true
 											}
 										]
@@ -2099,6 +2114,15 @@
 										]
 									},
 									{
+										"key": "Tween",
+										"state": [
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
 										"key": "ShadowCaster",
 										"state": [
 											[
@@ -2109,15 +2133,6 @@
 												"tag",
 												true
 											],
-											[
-												"enabled",
-												true
-											]
-										]
-									},
-									{
-										"key": "Tween",
-										"state": [
 											[
 												"enabled",
 												true

@@ -1171,10 +1171,10 @@
 																{
 																	"id": "set-instvar-value",
 																	"objectClass": "CharacterController",
-																	"sid": 762454570087855,
+																	"sid": 479417495786450,
 																	"parameters": {
 																		"instance-variable": "angular_recoil",
-																		"value": "50"
+																		"value": "250"
 																	}
 																},
 																{
@@ -1635,7 +1635,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "CharacterController",
-															"sid": 871443905907751,
+															"sid": 854296643824965,
 															"parameters": {
 																"instance-variable": "angular_recoil",
 																"value": "13"
@@ -1777,9 +1777,9 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "ChairController",
-													"sid": 225925061547696,
+													"sid": 987496043913112,
 													"parameters": {
-														"instance-variable": "angular_velocity",
+														"instance-variable": "additive_angular_velocity",
 														"value": "10 * -sign(CharacterController.old_velocity) * CharacterController.angular_recoil * RelativeAngle / 90"
 													}
 												}
@@ -1799,9 +1799,9 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "ChairController",
-													"sid": 962864007363334,
+													"sid": 887498193333624,
 													"parameters": {
-														"instance-variable": "angular_velocity",
+														"instance-variable": "additive_angular_velocity",
 														"value": "10 * CharacterController.angular_recoil * RelativeAngle / 90"
 													}
 												}
@@ -2244,6 +2244,15 @@
 												"instance-variable": "is_aiming"
 											},
 											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "CharacterSprite",
+											"sid": 834164952010572,
+											"parameters": {
+												"animation": "\"leaveChair\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [],
@@ -2266,6 +2275,7 @@
 													"id": "is-animation-playing",
 													"objectClass": "CharacterSprite",
 													"sid": 633857160785486,
+													"disabled": true,
 													"parameters": {
 														"animation": "\"Both\""
 													},
@@ -2274,11 +2284,21 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 875184608610441,
+													"sid": 269512992074619,
 													"parameters": {
-														"first-value": "abs(ChairController.forward_input)",
+														"first-value": "abs(ChairController.just_pushed)",
 														"comparison": 4,
 														"second-value": "0"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 581637037118874,
+													"parameters": {
+														"first-value": "ChairController.lateral_input",
+														"comparison": 3,
+														"second-value": "0.2"
 													}
 												},
 												{
@@ -2327,11 +2347,12 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 362747418267237,
+													"sid": 673645513789331,
+													"disabled": true,
 													"parameters": {
-														"first-value": "abs(ChairController.forward_input)",
-														"comparison": 0,
-														"second-value": "0"
+														"first-value": "abs(ChairController.lateral_input)",
+														"comparison": 5,
+														"second-value": "abs(ChairController.forward_input)"
 													}
 												},
 												{
@@ -2373,6 +2394,26 @@
 													"sid": 951401003299032
 												},
 												{
+													"id": "is-animation-playing",
+													"objectClass": "CharacterSprite",
+													"sid": 322934572575177,
+													"parameters": {
+														"animation": "\"Right\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 817987319659249,
+													"disabled": true,
+													"parameters": {
+														"first-value": "abs(ChairController.lateral_input)",
+														"comparison": 5,
+														"second-value": "abs(ChairController.forward_input)"
+													}
+												},
+												{
 													"id": "compare-two-values",
 													"objectClass": "System",
 													"sid": 142298894974597,
@@ -2386,20 +2427,12 @@
 													"id": "compare-two-values",
 													"objectClass": "System",
 													"sid": 644076894154504,
+													"disabled": true,
 													"parameters": {
 														"first-value": "abs(ChairController.forward_input)",
 														"comparison": 0,
 														"second-value": "0"
 													}
-												},
-												{
-													"id": "is-animation-playing",
-													"objectClass": "CharacterSprite",
-													"sid": 701577361212697,
-													"parameters": {
-														"animation": "\"Right\""
-													},
-													"isInverted": true
 												},
 												{
 													"id": "trigger-once-while-true",
@@ -2483,60 +2516,6 @@
 											"isOrBlock": true
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "CharacterSprite",
-											"sid": 555668130711210,
-											"parameters": {
-												"animation": "\"Both\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 578569788778948,
-											"parameters": {
-												"first-value": "ChairController.previous_wheel_ticks",
-												"comparison": 0,
-												"second-value": "0"
-											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 828470612268424,
-											"parameters": {
-												"first-value": "abs(ChairController.wheel_ticks)",
-												"comparison": 4,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "CharacterSprite",
-											"sid": 616921834011084,
-											"parameters": {
-												"animation": "\"Both\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "CharacterSprite",
-											"sid": 621550042362258,
-											"parameters": {
-												"frame-number": "0"
-											}
-										}
-									],
-									"sid": 104406819862675
 								}
 							]
 						},

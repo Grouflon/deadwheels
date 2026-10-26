@@ -3,7 +3,7 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "ControllerUID",
+			"name": "controller_uid",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -13,7 +13,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "WheelTicks",
+			"name": "wheel_ticks",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -30,6 +30,76 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 169701677378578
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_id",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 292752620374797
+		},
+		{
+			"eventType": "variable",
+			"name": "wanted_forward_input",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 685822370605771
+		},
+		{
+			"eventType": "variable",
+			"name": "smoothed_forward_input",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 926556722858496
+		},
+		{
+			"eventType": "variable",
+			"name": "wanted_lateral_input",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 672418815917041
+		},
+		{
+			"eventType": "variable",
+			"name": "smoothed_lateral_input",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 657833407668375
+		},
+		{
+			"eventType": "variable",
+			"name": "is_gamepad_input",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 666583731102669
+		},
+		{
+			"eventType": "variable",
+			"name": "GAMEPAD_DEAD_ZONE",
+			"type": "number",
+			"initialValue": "0.12",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 343349769149252
 		},
 		{
 			"eventType": "comment",
@@ -62,7 +132,7 @@
 					"objectClass": "System",
 					"sid": 816837293371821,
 					"parameters": {
-						"variable": "ControllerUID",
+						"variable": "controller_uid",
 						"value": "ChairController.UID"
 					}
 				}
@@ -84,7 +154,7 @@
 					"objectClass": "System",
 					"sid": 792200445827003,
 					"parameters": {
-						"variable": "ControllerUID",
+						"variable": "controller_uid",
 						"value": "CharacterController.UID"
 					}
 				}
@@ -113,7 +183,7 @@
 					"objectClass": "System",
 					"sid": 183338515658411,
 					"parameters": {
-						"variable": "WheelTicks",
+						"variable": "wheel_ticks",
 						"value": "1"
 					}
 				}
@@ -138,12 +208,204 @@
 					"objectClass": "System",
 					"sid": 996939587398523,
 					"parameters": {
-						"variable": "WheelTicks",
+						"variable": "wheel_ticks",
 						"value": "-1"
 					}
 				}
 			],
 			"sid": 478129221357414
+		},
+		{
+			"eventType": "comment",
+			"text": "Detect input mode"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for",
+					"objectClass": "System",
+					"sid": 251236325750891,
+					"parameters": {
+						"name": "\"\"",
+						"start-index": "0",
+						"end-index": "Gamepad.GamepadCount-1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 932978104011281,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 901052214073137,
+							"parameters": {
+								"gamepad": "loopindex",
+								"axis": "left-analog-x-axis",
+								"comparison": 4,
+								"value": "GAMEPAD_DEAD_ZONE"
+							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 883204922956612,
+							"parameters": {
+								"gamepad": "loopindex",
+								"axis": "left-analog-y-axis",
+								"comparison": 4,
+								"value": "GAMEPAD_DEAD_ZONE"
+							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 328476389351342,
+							"parameters": {
+								"gamepad": "loopindex",
+								"axis": "right-analog-x-axis",
+								"comparison": 4,
+								"value": "GAMEPAD_DEAD_ZONE"
+							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 793942581179849,
+							"parameters": {
+								"gamepad": "loopindex",
+								"axis": "right-analog-y-axis",
+								"comparison": 4,
+								"value": "GAMEPAD_DEAD_ZONE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 109459010182765,
+							"parameters": {
+								"variable": "gamepad_id",
+								"value": "loopindex"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 238475299986069,
+							"parameters": {
+								"variable": "is_gamepad_input",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 534063117275900,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-button-pressed",
+					"objectClass": "Gamepad",
+					"sid": 571121691112396,
+					"parameters": {
+						"gamepad": "-1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 191934381422268,
+					"parameters": {
+						"variable": "gamepad_id",
+						"value": "Gamepad.GamepadIndex"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 761704468470363,
+					"parameters": {
+						"variable": "is_gamepad_input",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 259409972841767
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 737484228419647,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 155247087004435,
+					"parameters": {
+						"mouse-button": "middle"
+					}
+				},
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 362902230994996,
+					"parameters": {
+						"mouse-button": "right"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 470693016143736,
+					"parameters": {
+						"variable": "is_gamepad_input",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 368562452552601,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 625519318492808
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 494572635853851,
+					"parameters": {
+						"variable": "is_gamepad_input",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 985390459787068
 		},
 		{
 			"eventType": "comment",
@@ -157,11 +419,29 @@
 					"objectClass": "Controllers",
 					"sid": 718715764976038,
 					"parameters": {
-						"unique-id": "ControllerUID"
+						"unique-id": "controller_uid"
 					}
 				}
 			],
 			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 191980841078333,
+					"parameters": {
+						"variable": "wanted_forward_input",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 182027625929189,
+					"parameters": {
+						"variable": "wanted_lateral_input",
+						"value": "0"
+					}
+				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Controllers",
@@ -265,11 +545,11 @@
 							],
 							"actions": [
 								{
-									"id": "add-to-instvar",
-									"objectClass": "Controllers",
-									"sid": 417023275854015,
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 277589665321800,
 									"parameters": {
-										"instance-variable": "forward_input",
+										"variable": "wanted_forward_input",
 										"value": "1"
 									}
 								}
@@ -299,11 +579,11 @@
 							],
 							"actions": [
 								{
-									"id": "add-to-instvar",
-									"objectClass": "Controllers",
-									"sid": 436815003165444,
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 734541775862788,
 									"parameters": {
-										"instance-variable": "forward_input",
+										"variable": "wanted_forward_input",
 										"value": "-1"
 									}
 								}
@@ -341,11 +621,11 @@
 							],
 							"actions": [
 								{
-									"id": "add-to-instvar",
-									"objectClass": "Controllers",
-									"sid": 817611159142513,
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 166073965107877,
 									"parameters": {
-										"instance-variable": "lateral_input",
+										"variable": "wanted_lateral_input",
 										"value": "-1"
 									}
 								}
@@ -375,11 +655,11 @@
 							],
 							"actions": [
 								{
-									"id": "add-to-instvar",
-									"objectClass": "Controllers",
-									"sid": 116841231948720,
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 446156540104885,
 									"parameters": {
-										"instance-variable": "lateral_input",
+										"variable": "wanted_lateral_input",
 										"value": "1"
 									}
 								}
@@ -627,7 +907,7 @@
 											"objectClass": "System",
 											"sid": 652609779584369,
 											"parameters": {
-												"first-value": "WheelTicks",
+												"first-value": "wheel_ticks",
 												"comparison": 4,
 												"second-value": "0"
 											}
@@ -635,12 +915,12 @@
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 972359718285569,
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 736797570751643,
 											"parameters": {
-												"instance-variable": "forward_input",
-												"value": "1"
+												"variable": "wanted_forward_input",
+												"value": "3"
 											}
 										}
 									],
@@ -659,7 +939,7 @@
 											"objectClass": "System",
 											"sid": 874857323953884,
 											"parameters": {
-												"first-value": "WheelTicks",
+												"first-value": "wheel_ticks",
 												"comparison": 2,
 												"second-value": "0"
 											}
@@ -667,12 +947,12 @@
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 501907274112685,
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 724466221163598,
 											"parameters": {
-												"instance-variable": "forward_input",
-												"value": "-1"
+												"variable": "wanted_forward_input",
+												"value": "-3"
 											}
 										}
 									],
@@ -691,7 +971,7 @@
 											"objectClass": "System",
 											"sid": 441818748027304,
 											"parameters": {
-												"variable": "WheelTicks",
+												"variable": "wheel_ticks",
 												"value": "0"
 											}
 										}
@@ -712,11 +992,11 @@
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 325577725528906,
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 792427474919297,
 											"parameters": {
-												"instance-variable": "lateral_input",
+												"variable": "wanted_lateral_input",
 												"value": "-1"
 											}
 										}
@@ -737,11 +1017,11 @@
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Controllers",
-											"sid": 119755553747727,
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 809701152304010,
 											"parameters": {
-												"instance-variable": "lateral_input",
+												"variable": "wanted_lateral_input",
 												"value": "1"
 											}
 										}
@@ -975,13 +1255,351 @@
 								}
 							],
 							"sid": 193594449369514
+						}
+					],
+					"sid": 543691396228594
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 473002868420594,
+							"parameters": {
+								"variable": "is_gamepad_input"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 693614389906490,
+							"parameters": {
+								"variable": "smoothed_forward_input",
+								"value": "Functions.TimeIndependentLerp(smoothed_forward_input, wanted_forward_input, 0.1, dt)"
+							}
 						},
 						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "GAMEPAD 1",
-							"description": "",
-							"isActiveOnStart": true,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 754371357998150,
+							"parameters": {
+								"variable": "smoothed_lateral_input",
+								"value": "Functions.TimeIndependentLerp(smoothed_lateral_input, wanted_lateral_input, 0.1, dt)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Controllers",
+							"sid": 336815859021775,
+							"parameters": {
+								"instance-variable": "forward_input",
+								"value": "smoothed_forward_input"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Controllers",
+							"sid": 282725765823141,
+							"parameters": {
+								"instance-variable": "lateral_input",
+								"value": "smoothed_lateral_input"
+							}
+						}
+					],
+					"sid": 710564114211501,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "SMOOTHING_TIME",
+							"type": "number",
+							"initialValue": "0.2",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 135280544860537
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 388333708260816,
+									"parameters": {
+										"first-value": "abs(wanted_forward_input)",
+										"comparison": 4,
+										"second-value": "abs(smoothed_forward_input)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 996978926669980,
+									"parameters": {
+										"variable": "smoothed_forward_input",
+										"value": "Functions.TimeIndependentLerp(smoothed_forward_input, wanted_forward_input, SMOOTHING_TIME, dt)"
+									}
+								}
+							],
+							"sid": 908470030304722
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 320133187868845
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 199170589534846,
+									"parameters": {
+										"variable": "smoothed_forward_input",
+										"value": "wanted_forward_input"
+									}
+								}
+							],
+							"sid": 555940955977037
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 211730036166450,
+									"parameters": {
+										"first-value": "abs(wanted_lateral_input)",
+										"comparison": 4,
+										"second-value": "abs(smoothed_lateral_input)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 146876838910891,
+									"parameters": {
+										"variable": "smoothed_lateral_input",
+										"value": "Functions.TimeIndependentLerp(smoothed_lateral_input, wanted_lateral_input, SMOOTHING_TIME, dt)"
+									}
+								}
+							],
+							"sid": 122400354451719
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 780274290768727
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 823563664386489,
+									"parameters": {
+										"variable": "smoothed_lateral_input",
+										"value": "wanted_lateral_input"
+									}
+								}
+							],
+							"sid": 410554284857001
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "GAMEPAD",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 883768896936253,
+									"parameters": {
+										"instance-variable": "forward_input",
+										"value": "(Gamepad.RawButton(gamepad_id, 7) - GAMEPAD_DEAD_ZONE) / (1 - GAMEPAD_DEAD_ZONE)"
+									}
+								}
+							],
+							"sid": 584834320449650
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 474297474923470,
+									"parameters": {
+										"instance-variable": "forward_input",
+										"value": "(Gamepad.RawButton(gamepad_id, 6) - GAMEPAD_DEAD_ZONE) / (-1 + GAMEPAD_DEAD_ZONE)"
+									}
+								}
+							],
+							"sid": 312480053150363
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 917043051831311,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(gamepad_id,0))",
+										"comparison": 4,
+										"second-value": "GAMEPAD_DEAD_ZONE * 100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Controllers",
+									"sid": 269740883840907,
+									"parameters": {
+										"instance-variable": "lateral_input",
+										"value": "sign(Gamepad.Axis(gamepad_id, 0)) * ((abs(Gamepad.Axis(gamepad_id, 0)) / 100) - GAMEPAD_DEAD_ZONE) / (1 - GAMEPAD_DEAD_ZONE)"
+									}
+								}
+							],
+							"sid": 680462325531139
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-button-down",
+									"objectClass": "Gamepad",
+									"sid": 227890033335486,
+									"parameters": {
+										"gamepad": "gamepad_id",
+										"button": "button-y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 589077661576557,
+									"parameters": {
+										"instance-variable": "do_climb_chair",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 281307923121243
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 798976574496067,
+									"parameters": {
+										"gamepad": "gamepad_id",
+										"button": "d-pad-left"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "NextWeapon",
+									"objectClass": "CharacterController",
+									"sid": 333129193216972,
+									"parameters": [
+										"-1"
+									]
+								}
+							],
+							"sid": 211519353078995
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 287756429596038,
+									"parameters": {
+										"gamepad": "gamepad_id",
+										"button": "d-pad-right"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "NextWeapon",
+									"objectClass": "CharacterController",
+									"sid": 405549213524716,
+									"parameters": [
+										"1"
+									]
+								}
+							],
+							"sid": 256502332134578
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 955187213998394,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(gamepad_id,2))",
+										"comparison": 4,
+										"second-value": "GAMEPAD_DEAD_ZONE * 100"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 993275039279973,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(gamepad_id,3))",
+										"comparison": 4,
+										"second-value": "GAMEPAD_DEAD_ZONE * 100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "CharacterController",
+									"sid": 419352673318876,
+									"parameters": {
+										"instance-variable": "do_aim",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 957415221698913,
 							"children": [
 								{
 									"eventType": "block",
@@ -989,109 +1607,175 @@
 										{
 											"id": "is-button-down",
 											"objectClass": "Gamepad",
-											"sid": 230996418963317,
+											"sid": 780655956350970,
 											"parameters": {
-												"gamepad": "0",
-												"button": "button-a"
+												"gamepad": "gamepad_id",
+												"button": "right-shoulder-trigger"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Controllers",
-											"sid": 614122979337000,
+											"id": "set-boolean-instvar",
+											"objectClass": "CharacterController",
+											"sid": 578249401317806,
 											"parameters": {
-												"instance-variable": "forward_input",
-												"value": "1"
+												"instance-variable": "do_shoot",
+												"value": "true"
 											}
 										}
 									],
-									"sid": 356876074680011
+									"sid": 251438362610826
+								},
+								{
+									"eventType": "variable",
+									"name": "anchor_x",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 718563949886899
+								},
+								{
+									"eventType": "variable",
+									"name": "anchor_y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 645958864300590
+								},
+								{
+									"eventType": "variable",
+									"name": "axis_x",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 727881749093576
+								},
+								{
+									"eventType": "variable",
+									"name": "axis_y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 499365041297584
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-button-down",
-											"objectClass": "Gamepad",
-											"sid": 663879645561418,
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CharacterController",
+											"sid": 646320532209828,
 											"parameters": {
-												"gamepad": "0",
-												"button": "button-b"
+												"instance-variable": "is_in_chair"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Controllers",
-											"sid": 194664114764578,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 367663251361010,
 											"parameters": {
-												"instance-variable": "forward_input",
-												"value": "-1"
+												"variable": "anchor_x",
+												"value": "CharacterSprite.ImagePointX(\"arm_anchor\")"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 506804062587293,
+											"parameters": {
+												"variable": "anchor_y",
+												"value": "CharacterSprite.ImagePointY(\"arm_anchor\")"
 											}
 										}
 									],
-									"sid": 595931138384678
+									"sid": 905585839226316
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-button-down",
-											"objectClass": "Gamepad",
-											"sid": 592268251824301,
-											"parameters": {
-												"gamepad": "0",
-												"button": "left-shoulder-button"
-											}
+											"id": "else",
+											"objectClass": "System",
+											"sid": 647156506526588
 										}
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Controllers",
-											"sid": 350936377713838,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 892430945582040,
 											"parameters": {
-												"instance-variable": "lateral_input",
-												"value": "-1"
+												"variable": "anchor_x",
+												"value": "CrawlingSprite.ImagePointX(\"arm_anchor\")"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 273305635987619,
+											"parameters": {
+												"variable": "anchor_y",
+												"value": "CrawlingSprite.ImagePointY(\"arm_anchor\")"
 											}
 										}
 									],
-									"sid": 296853411484234
+									"sid": 193861406709193
 								},
 								{
 									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-button-down",
-											"objectClass": "Gamepad",
-											"sid": 240540459436532,
-											"parameters": {
-												"gamepad": "0",
-												"button": "right-shoulder-button"
-											}
-										}
-									],
+									"conditions": [],
 									"actions": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Controllers",
-											"sid": 747545363294582,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 397043439654097,
 											"parameters": {
-												"instance-variable": "lateral_input",
-												"value": "1"
+												"variable": "axis_x",
+												"value": "Gamepad.Axis(gamepad_id, 2)"
 											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 841791225313043,
+											"parameters": {
+												"variable": "axis_y",
+												"value": "Gamepad.Axis(gamepad_id, 3)"
+											}
+										},
+										{
+											"type": "script",
+											"language": "typescript",
+											"script": [
+												"let direction = new Vector2(localVars.axis_x, localVars.axis_y).normalize();",
+												"let target = new Vector2(localVars.anchor_x, localVars.anchor_y).add(direction.multiply(100));",
+												"let character = runtime.objects.CharacterController.getFirstInstance();",
+												"if (character != null)",
+												"{",
+												"\tcharacter.instVars.aim_target_x = target.x;",
+												"\tcharacter.instVars.aim_target_y = target.y;",
+												"}"
+											]
 										}
 									],
-									"sid": 101714598464078
+									"sid": 252353742374467
 								}
 							],
-							"sid": 453800761667307
+							"isOrBlock": true
 						}
 					],
-					"sid": 543691396228594
+					"sid": 329005673346741
 				}
 			]
 		}
