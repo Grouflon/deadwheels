@@ -10,6 +10,22 @@ export const RED: Vec3Arr = [255,0,0];
 export const GREEN: Vec3Arr = [0,255,0];
 export const BLUE: Vec3Arr = [0,0,255];
 
+export function ColorToVec3Array(c: number): Vec3Arr
+{
+    let r = c & 0xff;
+    let g = (c & 0xff00) >> 8;
+    let b = (c & 0xff0000) >> 16;
+    return [r/255, g/255, b/255];
+}
+
+export function UIDToColor(uid: number): Vec3Arr
+{
+    const r = (uid & 0xff);
+    const g = (uid & 0xff00) >> 8;
+    const b = ((uid & 0xff0000) >> 16) * 30; // hacky but it kinda works
+    return [r,g,b];
+}
+
 export function Init(runtime: IRuntime)
 {
 

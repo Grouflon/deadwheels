@@ -80,10 +80,6 @@
 					"type": "script",
 					"language": "typescript",
 					"script": [
-						"let r = localVars.color & 0xff;",
-						"let g = (localVars.color & 0xff00) >> 8;",
-						"let b = (localVars.color & 0xff0000) >> 16;",
-						"",
 						"DebugDraw.DrawBox(",
 						"\tlocalVars.x,",
 						"\tlocalVars.y,",
@@ -91,7 +87,7 @@
 						"\tlocalVars.width,",
 						"\tlocalVars.height,",
 						"\tlocalVars.angle_degrees,",
-						"\t[r/255,g/255,b/255],",
+						"\tColorToVec3Array(localVars.color),",
 						"\tlocalVars.opacity,",
 						"\tlocalVars.duration",
 						");"
@@ -104,6 +100,201 @@
 			"eventType": "script",
 			"language": "typescript",
 			"script": []
+		},
+		{
+			"functionName": "DrawDebugLine",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x0",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 141308657067250
+				},
+				{
+					"name": "y0",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 138442738252060
+				},
+				{
+					"name": "x1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 958784316320570
+				},
+				{
+					"name": "y1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 300818953366104
+				},
+				{
+					"name": "duration",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 679270515628080
+				},
+				{
+					"name": "color",
+					"type": "number",
+					"initialValue": "255",
+					"comment": "",
+					"sid": 320475925370088
+				},
+				{
+					"name": "opacity",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"sid": 567305321164487
+				},
+				{
+					"name": "width",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 784036477394977
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"DebugDraw.DrawLine(",
+						"\tnew Vector2(localVars.x0, localVars.y0),",
+						"\tnew Vector2(localVars.x1, localVars.y1),",
+						"\tlocalVars.duration,",
+						"\tColorToVec3Array(localVars.color),",
+						"\tlocalVars.opacity,",
+						"\tlocalVars.width",
+						");"
+					]
+				}
+			],
+			"sid": 482453815814321
+		},
+		{
+			"functionName": "DrawDebugPoint",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 294991091719671
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 866339111894385
+				},
+				{
+					"name": "z",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 955813267770608
+				},
+				{
+					"name": "duration",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 187388943512714
+				},
+				{
+					"name": "color",
+					"type": "number",
+					"initialValue": "255",
+					"comment": "",
+					"sid": 956137864993562
+				},
+				{
+					"name": "opacity",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"sid": 993601242445401
+				},
+				{
+					"name": "size",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 959057199699193
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"DebugDraw.DrawPoint(",
+						"\tlocalVars.x,",
+						"\tlocalVars.y,",
+						"\tlocalVars.z,",
+						"\tColorToVec3Array(localVars.color),",
+						"\tlocalVars.opacity,",
+						"\tlocalVars.duration,",
+						"\tlocalVars.size,",
+						");"
+					]
+				}
+			],
+			"sid": 465666346175713
+		},
+		{
+			"functionName": "UIDToColor",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 264966669893128
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"language": "typescript",
+					"script": [
+						"const c = DebugDraw.UIDToColor(localVars.uid);",
+						"const v = (c[0] << 16) | (c[1] << 8) | c[2];",
+						"runtime.setReturnValue(v);"
+					]
+				}
+			],
+			"sid": 713597789482420
 		}
 	],
 	"sid": 420330664403272

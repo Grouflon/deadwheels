@@ -3984,21 +3984,11 @@
 						"excluded_collisions": "Crawlable",
 						"velocity": 0,
 						"angular_velocity": 0,
-						"wheel_ticks": 0,
-						"previous_wheel_ticks": 0,
-						"rotate_ticks": 0,
-						"previous_rotate_ticks": 0,
-						"collision_cooldown": 0,
-						"turn_left_cooldown": 0,
-						"turn_right_cooldown": 0,
 						"max_velocity_multiplier": 1,
 						"read_input": true,
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
-						"left_angular_input_timer": 0,
-						"right_angular_input_timer": 0,
-						"consecutive_wheel_ticks": 0,
 						"last_collision_normal_angle": 0,
 						"previous_solid_collision_uid": 0,
 						"is_sliding": false,
@@ -4007,9 +3997,7 @@
 						"previous_forward_input": 0,
 						"previous_lateral_input": 0,
 						"forward_buffer_time": 0,
-						"no_angular_input_time": 0,
 						"smoothed_max_angular_velocity": 0,
-						"angular_impulse": 0,
 						"additive_angular_velocity": 0,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
@@ -4112,6 +4100,10 @@
 												"state": true
 											},
 											{
+												"iv": "collision_velocity_multiplier",
+												"state": true
+											},
+											{
 												"iv": "angular_acceleration",
 												"state": true
 											},
@@ -4144,34 +4136,6 @@
 												"state": true
 											},
 											{
-												"iv": "wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "collision_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_left_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_right_cooldown",
-												"state": true
-											},
-											{
 												"iv": "max_velocity_multiplier",
 												"state": true
 											},
@@ -4189,18 +4153,6 @@
 											},
 											{
 												"iv": "just_rotated",
-												"state": true
-											},
-											{
-												"iv": "left_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "right_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "consecutive_wheel_ticks",
 												"state": true
 											},
 											{
@@ -4236,15 +4188,7 @@
 												"state": true
 											},
 											{
-												"iv": "no_angular_input_time",
-												"state": true
-											},
-											{
 												"iv": "smoothed_max_angular_velocity",
-												"state": true
-											},
-											{
-												"iv": "angular_impulse",
 												"state": true
 											},
 											{
@@ -4337,10 +4281,6 @@
 											},
 											{
 												"iv": "aim_target_y",
-												"state": true
-											},
-											{
-												"iv": "collision_velocity_multiplier",
 												"state": true
 											}
 										]
@@ -4554,21 +4494,11 @@
 						"excluded_collisions": "",
 						"velocity": 0,
 						"angular_velocity": 0,
-						"wheel_ticks": 0,
-						"previous_wheel_ticks": 0,
-						"rotate_ticks": 0,
-						"previous_rotate_ticks": 0,
-						"collision_cooldown": 0,
-						"turn_left_cooldown": 0,
-						"turn_right_cooldown": 0,
 						"max_velocity_multiplier": 1,
 						"read_input": false,
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
-						"left_angular_input_timer": 0,
-						"right_angular_input_timer": 0,
-						"consecutive_wheel_ticks": 0,
 						"last_collision_normal_angle": 0,
 						"previous_solid_collision_uid": 0,
 						"is_sliding": false,
@@ -4577,9 +4507,7 @@
 						"previous_forward_input": 0,
 						"previous_lateral_input": 0,
 						"forward_buffer_time": 0,
-						"no_angular_input_time": 0,
 						"smoothed_max_angular_velocity": 0,
-						"angular_impulse": 0,
 						"additive_angular_velocity": 0,
 						"isBeingGrabbed": false,
 						"wheels_blood_level": 0,
@@ -4657,6 +4585,10 @@
 												"state": true
 											},
 											{
+												"iv": "collision_velocity_multiplier",
+												"state": true
+											},
+											{
 												"iv": "angular_acceleration",
 												"state": true
 											},
@@ -4689,34 +4621,6 @@
 												"state": true
 											},
 											{
-												"iv": "wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "collision_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_left_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_right_cooldown",
-												"state": true
-											},
-											{
 												"iv": "max_velocity_multiplier",
 												"state": true
 											},
@@ -4734,18 +4638,6 @@
 											},
 											{
 												"iv": "just_rotated",
-												"state": true
-											},
-											{
-												"iv": "left_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "right_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "consecutive_wheel_ticks",
 												"state": true
 											},
 											{
@@ -4781,15 +4673,7 @@
 												"state": true
 											},
 											{
-												"iv": "no_angular_input_time",
-												"state": true
-											},
-											{
 												"iv": "smoothed_max_angular_velocity",
-												"state": true
-											},
-											{
-												"iv": "angular_impulse",
 												"state": true
 											},
 											{
@@ -4810,10 +4694,6 @@
 											},
 											{
 												"iv": "highlight_cooldown",
-												"state": true
-											},
-											{
-												"iv": "collision_velocity_multiplier",
 												"state": true
 											}
 										]
@@ -42926,7 +42806,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -43054,7 +42934,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{
@@ -43485,7 +43365,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -43613,7 +43493,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{
@@ -44044,7 +43924,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -44172,7 +44052,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{
@@ -44603,7 +44483,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -44731,7 +44611,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{
@@ -45162,7 +45042,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -45290,7 +45170,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{
@@ -45721,7 +45601,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 100,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -45849,7 +45729,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{

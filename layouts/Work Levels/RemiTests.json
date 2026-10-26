@@ -1265,21 +1265,11 @@
 						"excluded_collisions": "Crawlable",
 						"velocity": 0,
 						"angular_velocity": 0,
-						"wheel_ticks": 0,
-						"previous_wheel_ticks": 0,
-						"rotate_ticks": 0,
-						"previous_rotate_ticks": 0,
-						"collision_cooldown": 0,
-						"turn_left_cooldown": 0,
-						"turn_right_cooldown": 0,
 						"max_velocity_multiplier": 1,
 						"read_input": true,
 						"disabled": false,
 						"just_pushed": 0,
 						"just_rotated": 0,
-						"left_angular_input_timer": 0,
-						"right_angular_input_timer": 0,
-						"consecutive_wheel_ticks": 0,
 						"last_collision_normal_angle": 0,
 						"previous_solid_collision_uid": 0,
 						"is_sliding": false,
@@ -1288,9 +1278,7 @@
 						"previous_forward_input": 0,
 						"previous_lateral_input": 0,
 						"forward_buffer_time": 0,
-						"no_angular_input_time": 0,
 						"smoothed_max_angular_velocity": 0,
-						"angular_impulse": 0,
 						"additive_angular_velocity": 0,
 						"isBeingGrabbed": false,
 						"invulnerability_timer": 0,
@@ -1393,6 +1381,10 @@
 												"state": true
 											},
 											{
+												"iv": "collision_velocity_multiplier",
+												"state": true
+											},
+											{
 												"iv": "angular_acceleration",
 												"state": true
 											},
@@ -1425,34 +1417,6 @@
 												"state": true
 											},
 											{
-												"iv": "wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_wheel_ticks",
-												"state": true
-											},
-											{
-												"iv": "rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "previous_rotate_ticks",
-												"state": true
-											},
-											{
-												"iv": "collision_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_left_cooldown",
-												"state": true
-											},
-											{
-												"iv": "turn_right_cooldown",
-												"state": true
-											},
-											{
 												"iv": "max_velocity_multiplier",
 												"state": true
 											},
@@ -1470,18 +1434,6 @@
 											},
 											{
 												"iv": "just_rotated",
-												"state": true
-											},
-											{
-												"iv": "left_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "right_angular_input_timer",
-												"state": true
-											},
-											{
-												"iv": "consecutive_wheel_ticks",
 												"state": true
 											},
 											{
@@ -1517,15 +1469,7 @@
 												"state": true
 											},
 											{
-												"iv": "no_angular_input_time",
-												"state": true
-											},
-											{
 												"iv": "smoothed_max_angular_velocity",
-												"state": true
-											},
-											{
-												"iv": "angular_impulse",
 												"state": true
 											},
 											{
@@ -1618,10 +1562,6 @@
 											},
 											{
 												"iv": "aim_target_y",
-												"state": true
-											},
-											{
-												"iv": "collision_velocity_multiplier",
 												"state": true
 											}
 										]
@@ -7221,6 +7161,68 @@
 					}
 				},
 				{
+					"type": "Wall",
+					"properties": {
+						"shape": "box",
+						"z-origin": "back",
+						"initially-visible": true,
+						"face-back": true,
+						"face-front": true,
+						"face-left": false,
+						"face-right": false,
+						"face-top": true,
+						"face-bottom": true,
+						"back-face-culling": true,
+						"z-tiling-factor": 1,
+						"object-back": -1,
+						"object-front": 950623254910529,
+						"object-left": 920243466915879,
+						"object-right": 920243466915879,
+						"object-top": 920243466915879,
+						"object-bottom": -1
+					},
+					"uid": 973001,
+					"sid": 933274056161530,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": false,
+								"tags": ""
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 256,
+						"y": 232,
+						"width": 96,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"depth": 32,
+						"angle": 3.141592653589793
+					}
+				},
+				{
 					"type": "DoorBar",
 					"properties": {
 						"shape": "box",
@@ -7377,6 +7379,1124 @@
 					}
 				},
 				{
+					"type": "Mike",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 441044,
+					"sid": 756063922256519,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": false,
+						"followTarget": false,
+						"health": 100,
+						"moveToX": 0,
+						"moveToY": 0,
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0,
+						"VoiceCoolDown": 0,
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0,
+						"canBeRammed": true,
+						"spawnLegs": true,
+						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": true,
+						"isRotating": false,
+						"lastFrameAngle": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
+						"canAttack": true,
+						"spawnerUID": 0,
+						"isBeingGrabbed": false
+					},
+					"behaviors": {
+						"AcquireVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 8,
+								"cell-border": 3,
+								"obstacles": "solids",
+								"max-speed": 20,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 100,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						},
+						"AttackRange": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 25,
+								"cone-of-view": 45,
+								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": false
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Mike",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "spottedPlayer",
+												"state": true
+											},
+											{
+												"iv": "followTarget",
+												"state": true
+											},
+											{
+												"iv": "health",
+												"state": true
+											},
+											{
+												"iv": "moveToX",
+												"state": true
+											},
+											{
+												"iv": "moveToY",
+												"state": true
+											},
+											{
+												"iv": "isAttacking",
+												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "VoiceCoolDown",
+												"state": true
+											},
+											{
+												"iv": "footStepCoolDown",
+												"state": true
+											},
+											{
+												"iv": "onCreatedAngle",
+												"state": true
+											},
+											{
+												"iv": "canBeRammed",
+												"state": true
+											},
+											{
+												"iv": "spawnLegs",
+												"state": true
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
+											},
+											{
+												"iv": "controllerOverlapVelocityMultiplier",
+												"state": true
+											},
+											{
+												"iv": "canAttack",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
+												"state": true
+											},
+											{
+												"iv": "isBeingGrabbed",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "AcquireVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "Pathfinding",
+										"state": [
+											[
+												"cell-size",
+												true
+											],
+											[
+												"cell-border",
+												true
+											],
+											[
+												"obstacles",
+												true
+											],
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"rotate-object",
+												true
+											],
+											[
+												"diagonals",
+												true
+											],
+											[
+												"direct-movement",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "AttackRange",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": [
+									{
+										"key": "Brightness",
+										"state": [
+											[
+												"brightness",
+												true
+											],
+											[
+												"<<effect-template-enable>>",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 184,
+						"y": 248,
+						"width": 32,
+						"height": 32,
+						"originX": 0.4375,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 13,
+						"angle": 6.276899859403041
+					}
+				},
+				{
+					"type": "Mike",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 506080,
+					"sid": 859355580860619,
+					"tags": "",
+					"instanceVariables": {
+						"spottedPlayer": false,
+						"followTarget": false,
+						"health": 100,
+						"moveToX": 0,
+						"moveToY": 0,
+						"isAttacking": false,
+						"pathfindingCooldown": 0,
+						"pendingValidTargetX": 0,
+						"pendingValidTargetY": 0,
+						"lastValidTargetX": 0,
+						"lastValidTargetY": 0,
+						"VoiceCoolDown": 0,
+						"footStepCoolDown": 0,
+						"onCreatedAngle": 0,
+						"canBeRammed": true,
+						"spawnLegs": true,
+						"tryIdleVoiceCooldown": 0,
+						"makesFootStepSound": true,
+						"isRotating": false,
+						"lastFrameAngle": 0,
+						"controllerOverlapVelocityMultiplier": 0.2,
+						"canAttack": true,
+						"spawnerUID": 0,
+						"isBeingGrabbed": false
+					},
+					"behaviors": {
+						"AcquireVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 120,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"LoseVision": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 8,
+								"cell-border": 3,
+								"obstacles": "solids",
+								"max-speed": 20,
+								"acceleration": 20,
+								"deceleration": 600,
+								"rotate-speed": 100,
+								"rotate-object": true,
+								"diagonals": true,
+								"direct-movement": "to-destination",
+								"enabled": true
+							}
+						},
+						"AttackRange": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 25,
+								"cone-of-view": 45,
+								"use-collision-cells": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": false
+							}
+						}
+					},
+					"template": {
+						"mode": "replica",
+						"templateName": "",
+						"sourceTemplateName": "Mike",
+						"replicaHierarchyInSyncWithTemplate": false,
+						"templatePropagateHierarchyChanges": true,
+						"replicaIgnoreTemplateHierarchyChanges": false,
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "spottedPlayer",
+												"state": true
+											},
+											{
+												"iv": "followTarget",
+												"state": true
+											},
+											{
+												"iv": "health",
+												"state": true
+											},
+											{
+												"iv": "moveToX",
+												"state": true
+											},
+											{
+												"iv": "moveToY",
+												"state": true
+											},
+											{
+												"iv": "isAttacking",
+												"state": true
+											},
+											{
+												"iv": "pathfindingCooldown",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "pendingValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetX",
+												"state": true
+											},
+											{
+												"iv": "lastValidTargetY",
+												"state": true
+											},
+											{
+												"iv": "VoiceCoolDown",
+												"state": true
+											},
+											{
+												"iv": "footStepCoolDown",
+												"state": true
+											},
+											{
+												"iv": "onCreatedAngle",
+												"state": true
+											},
+											{
+												"iv": "canBeRammed",
+												"state": true
+											},
+											{
+												"iv": "spawnLegs",
+												"state": true
+											},
+											{
+												"iv": "tryIdleVoiceCooldown",
+												"state": true
+											},
+											{
+												"iv": "makesFootStepSound",
+												"state": true
+											},
+											{
+												"iv": "isRotating",
+												"state": true
+											},
+											{
+												"iv": "lastFrameAngle",
+												"state": true
+											},
+											{
+												"iv": "controllerOverlapVelocityMultiplier",
+												"state": true
+											},
+											{
+												"iv": "canAttack",
+												"state": true
+											},
+											{
+												"iv": "spawnerUID",
+												"state": true
+											},
+											{
+												"iv": "isBeingGrabbed",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "AcquireVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "LoseVision",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "Pathfinding",
+										"state": [
+											[
+												"cell-size",
+												true
+											],
+											[
+												"cell-border",
+												true
+											],
+											[
+												"obstacles",
+												true
+											],
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"rotate-object",
+												true
+											],
+											[
+												"diagonals",
+												true
+											],
+											[
+												"direct-movement",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "AttackRange",
+										"state": [
+											[
+												"obstacles",
+												true
+											],
+											[
+												"range",
+												true
+											],
+											[
+												"cone-of-view",
+												true
+											],
+											[
+												"use-collision-cells",
+												true
+											]
+										]
+									},
+									{
+										"key": "MoveTo",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"rotate-speed",
+												true
+											],
+											[
+												"set-angle",
+												true
+											],
+											[
+												"stop-on-solids",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "ShadowCaster",
+										"state": [
+											[
+												"height",
+												true
+											],
+											[
+												"tag",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": [
+									{
+										"key": "Brightness",
+										"state": [
+											[
+												"brightness",
+												true
+											],
+											[
+												"<<effect-template-enable>>",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"d",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"sz",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"sam",
+												true
+											],
+											[
+												"tgs",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpd",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1.5
+							}
+						}
+					},
+					"materialSurfaceType": "smooth",
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 184,
+						"y": 272,
+						"width": 32,
+						"height": 32,
+						"originX": 0.4375,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 13,
+						"angle": 6.276899859403041
+					}
+				},
+				{
 					"type": "Barnacle",
 					"properties": {
 						"initially-visible": true,
@@ -7390,7 +8510,7 @@
 					"tags": "",
 					"instanceVariables": {
 						"spottedPlayer": false,
-						"followPlayer": false,
+						"followTarget": false,
 						"health": 120,
 						"moveToX": 0,
 						"moveToY": 0,
@@ -7521,7 +8641,7 @@
 												"state": true
 											},
 											{
-												"iv": "followPlayer",
+												"iv": "followTarget",
 												"state": true
 											},
 											{
